@@ -9,8 +9,13 @@ All Claude Code skills. Location: `C:\Users\Slash\.claude\skills\`
 
 | Skill | Trigger | Description |
 |-------|---------|-------------|
+| `factory-orchestrator` | "run the factory", "daily factory run", cross-domain tasks | L1 Supervisor — PES framework, routing, self-healing |
 | `dsr-booking-evaluator` | "got an offer", "should I take this show", offer email pasted | Full 6-step booking evaluation → counter draft → Discord |
 | `dsr-daily-briefing` | "daily briefing", "morning update", "what matters today" | Comprehensive DSR daily status from live data |
+| `royalty-auditor` | "royalty audit", "MLC submission", "uncollected royalties" | Scan for unclaimed royalties → generate MLC CSV → queue |
+| `discord-reporter` | Any agent result needing Discord delivery | Format + send results/approvals/alerts to Discord |
+| `prompt-skill-evaluator` | "evaluate this prompt", "grade this skill", "review this agent" | 6-criterion quality audit with score + improved version |
+| `agent-creator-from-article` | "make a skill from this", "turn this into an agent", URL/article pasted | Ingest any content → output prompts, skills, agents, subagents |
 | `notebooklm` | "ask my notebooklm", "check my docs", /notebooklm | Query Google NotebookLM notebooks via browser automation |
 | `edm-booking-agent` | EDM/Dubstep booking context | Elite EDM booking agent persona |
 | `pr-description` | PR context | PR description generation |
