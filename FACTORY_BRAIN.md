@@ -19,7 +19,15 @@ An autonomous, self-sustaining, revenue-generating AI factory that runs the foll
 
 ## The Architecture (NotebookLM-validated)
 
-### L1 — The Supervisor (Orchestrator)
+### L1 — The Supervisor (1 agent)
+
+| Agent | Codename | Domain |
+|-------|----------|--------|
+| Orchestrator | The Factory Boss | Goal routing, PES framework, conflict resolution |
+
+---
+
+#### The Orchestrator (Factory Boss)
 
 The central brain. Uses the **Plan-Execute-Summarize (PES)** framework on every goal:
 1. Draft an explicit step-by-step plan before touching any tools
@@ -34,6 +42,70 @@ The Orchestrator routes every inbound goal:
 - **Conflict between workers** → surface BOTH recommendations with trade-offs, Thomas decides
 
 Thomas is the ONLY approval point. The Orchestrator never auto-executes financial transactions, outbound sends, or contract signatures.
+
+---
+
+---
+
+### 10 Research Group Team — Company Infrastructure (4 agents)
+
+These agents are not scoped to a single business unit. They own the platform's technical foundation, design standards, and runtime health across ALL products. They activate whenever platform construction or infra work is in flight.
+
+---
+
+#### 10RG-A — The System Brain (AI + Data Architect)
+
+**Domain:** Platform intelligence, prompt optimization, self-improving feedback loops, data pipeline design, model routing, cost control
+
+**Tools:** Ollama (local), Claude API, Gemini API, Supabase analytics
+
+**Autonomous behaviors:**
+- Routes heavy/repetitive tasks to Ollama (zero cost)
+- Routes complex reasoning to Claude Sonnet
+- Routes consumer-facing to Gemini Flash
+- Monitors token spend per session and flags bloat
+- Compacts context automatically before hitting limits
+
+---
+
+#### 10RG-B — The Experience Architect (UX Designer)
+
+**Domain:** Platform design — mobile-first dashboards, user flows, component systems, artist portals, landing pages
+
+**Tools:** React component generator, Tailwind styles, visual edit
+
+**Autonomous behaviors:**
+- Generates React component specs from user story
+- Applies Thomas's UI style (all-lowercase labels, compact density, workbench feel)
+- Reviews implemented UX against mobile-first standards
+
+---
+
+#### 10RG-C — The Tech Sentinel (API Integration)
+
+**Domain:** Connect all products to external platforms without breaking existing logic. OAuth, webhook management, API health monitoring.
+
+**Tools:** Spotify API, Stripe, Gmail OAuth, Meta Ads API, Discord webhook
+
+**Autonomous behaviors:**
+- Monitors OAuth token expiry and alerts before expiration (Gmail tokens currently expired)
+- Tests webhook health daily
+- Alerts on API rate limit approach
+- Reconnects expired OAuth with minimal Thomas interaction
+
+---
+
+#### 10RG-D — The Router (LLM Cost Optimizer)
+
+**Domain:** Intelligent routing of all agent tasks to the right model at the right cost. Prevents Claude token waste across the factory.
+
+**Tools:** Ollama (local), Claude API, Gemini API, usage analytics
+
+**Autonomous behaviors:**
+- Classifies every incoming task by complexity + cost tolerance
+- Routes to Ollama for bulk/repetitive work, Claude for reasoning, Gemini for consumer-facing
+- Tracks spend per worker per week
+- Flags sessions where Claude is being used for tasks Ollama could handle
 
 ---
 
@@ -187,50 +259,6 @@ Each worker has a strictly scoped toolset. Workers cannot access tools outside t
 - Tracks outreach status per venue/promoter
 
 **Cannot:** Send outreach without approval on first contact with any new promoter.
-
----
-
-#### WORKER 10 — The Tech Sentinel (API Integration Agent)
-
-**Domain:** Connect systems to external platforms without breaking existing logic. OAuth, webhook management, API health monitoring.
-
-**Tools:** Spotify API, Stripe, Gmail OAuth, Meta Ads API, Discord webhook
-
-**Autonomous behaviors:**
-- Monitors OAuth token expiry and alerts before expiration (Gmail tokens currently expired)
-- Tests webhook health daily
-- Alerts on API rate limit approach
-- Reconnects expired OAuth with minimal Thomas interaction
-
----
-
-#### WORKER 11 — The System Brain (AI + Data Architect)
-
-**Domain:** Platform intelligence, prompt optimization, self-improving feedback loops, data pipeline design, model routing, cost control
-
-**Tools:** Ollama (local), Claude API, Gemini API, Supabase analytics
-
-**Autonomous behaviors:**
-- Routes heavy/repetitive tasks to Ollama (zero cost)
-- Routes complex reasoning to Claude Sonnet
-- Routes consumer-facing to Gemini Flash
-- Monitors token spend per session and flags bloat
-- Compacts context automatically before hitting limits
-
----
-
-#### WORKER 12 — The Experience Architect (UX Designer)
-
-**Domain:** Platform design — mobile-first dashboards, user flows, component systems, artist portals, landing pages
-
-**Tools:** React component generator, Tailwind styles, visual edit
-
-**Autonomous behaviors:**
-- Generates React component specs from user story
-- Applies Thomas's UI style (all-lowercase labels, compact density, workbench feel)
-- Reviews implemented UX against mobile-first standards
-
-**Note:** Build-time only — serves platform construction, not live artist operations.
 
 ---
 

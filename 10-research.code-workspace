@@ -1,0 +1,133 @@
+{
+    "folders": [
+        {
+            "name": "10 Research Group (root)",
+            "path": "."
+        },
+        {
+            "name": "DBA — Digital Booking Agent",
+            "path": "products/digital-booking-agent"
+        },
+        {
+            "name": "TENx10 platform (tenx10.co)",
+            "path": "products/tenx10-platform"
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "CLAUDE.md": "markdown",
+            "TASKS.md": "markdown",
+            "SESSION_STATE.md": "markdown",
+            "*.env.local": "properties",
+            "*.env.example": "properties"
+        },
+        "files.exclude": {
+            "**/.next": true,
+            "**/node_modules": true,
+            "**/.venv": true,
+            "**/__pycache__": true,
+            "**/*.pyc": true,
+            "**/.DS_Store": true
+        },
+        "search.exclude": {
+            "**/node_modules": true,
+            "**/.next": true,
+            "**/.venv": true,
+            "**/migrations/0*.sql.bak": true,
+            "**/package-lock.json": true,
+            "**/pnpm-lock.yaml": true
+        },
+        "editor.formatOnSave": true,
+        "editor.rulers": [100],
+        "editor.tabSize": 2,
+        "[python]": {
+            "editor.tabSize": 4,
+            "editor.defaultFormatter": "ms-python.black-formatter"
+        },
+        "[sql]": {
+            "editor.tabSize": 4
+        },
+        "[typescript]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "typescript.tsdk": "products/digital-booking-agent/app/node_modules/typescript/lib",
+        "typescript.enablePromptUseWorkspaceTsdk": true,
+        "terminal.integrated.cwd": "${workspaceFolder:DBA — Digital Booking Agent}",
+        "workbench.colorCustomizations": {
+            "titleBar.activeBackground": "#0b0b0c",
+            "titleBar.activeForeground": "#f4f4f5",
+            "activityBar.background": "#0b0b0c",
+            "statusBar.background": "#141416",
+            "statusBar.foreground": "#8a8a8f"
+        }
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-python.python",
+            "ms-python.black-formatter",
+            "esbenp.prettier-vscode",
+            "bradlc.vscode-tailwindcss",
+            "mtxr.sqltools",
+            "mtxr.sqltools-driver-pg",
+            "github.copilot",
+            "continue.continue"
+        ]
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "DBA: Next dev (app)",
+                "type": "node",
+                "request": "launch",
+                "cwd": "${workspaceFolder:DBA — Digital Booking Agent}/app",
+                "runtimeExecutable": "npm",
+                "runtimeArgs": ["run", "dev"],
+                "console": "integratedTerminal"
+            },
+            {
+                "name": "DBA: outbound agent (current file)",
+                "type": "debugpy",
+                "request": "launch",
+                "program": "${file}",
+                "cwd": "${workspaceFolder:DBA — Digital Booking Agent}",
+                "console": "integratedTerminal"
+            }
+        ]
+    },
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "DBA: preflight",
+                "type": "shell",
+                "command": "python scripts/preflight.py",
+                "options": {
+                    "cwd": "${workspaceFolder:DBA — Digital Booking Agent}"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "DBA: seed q2 tier2 drafts (scored, dry-run)",
+                "type": "shell",
+                "command": "python scripts/seed_q2_tier2_drafts.py --dry-run",
+                "options": {
+                    "cwd": "${workspaceFolder:DBA — Digital Booking Agent}"
+                },
+                "problemMatcher": []
+            },
+            {
+                "label": "DBA: seed counter drafts (dry-run)",
+                "type": "shell",
+                "command": "python scripts/seed_counter_drafts.py --dry-run",
+                "options": {
+                    "cwd": "${workspaceFolder:DBA — Digital Booking Agent}"
+                },
+                "problemMatcher": []
+            }
+        ]
+    }
+}

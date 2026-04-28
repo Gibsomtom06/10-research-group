@@ -3,3 +3,6 @@
 .dolt/
 *.db
 .beads-credential-key
+
+# Shadow corpus — never commit transcripts
+data/conversation_log/
