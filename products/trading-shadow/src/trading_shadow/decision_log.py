@@ -27,10 +27,14 @@ class Decision:
 
 
 class DecisionLog:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path, mode: str = "paper"):
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.path.touch(exist_ok=True)
+        # mode is "paper" | "live" — used by the Supabase sync layer so the
+        # dashboard can filter paper vs live decisions. Not part of Decision
+        # itself (kept off the rollback primitive committed in 1ed9ff4).
+        self.mode = mode
 
     def append(self, decision: Decision) -> Decision:
         # Auto-fill decision_id and chain prior_state_id to the latest decision
@@ -51,6 +55,15 @@ class DecisionLog:
             )
         with self.path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(asdict(decision)) + "\n")
+
+        # Best-effort Supabase sync — never crash the loop on failure.
+        try:
+            from trading_shadow.supabase_sync import sync_decision
+            sync_decision(decision, mode=self.mode)
+        except Exception as e:  # pragma: no cover - defensive belt-and-suspenders
+            import sys
+            print(f"[decision_log] supabase sync raised: {e}", file=sys.stderr)
+
         return decision
 
     def read_all(self) -> list[Decision]:
