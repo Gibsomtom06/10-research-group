@@ -1,8 +1,17 @@
 # Trading Shadow — Cutover Runbook
 
-**Purpose:** the actual sequence of commands to run, with the actual decision points, for the paper-validation → Tuesday live cutover.
+**Purpose:** the actual sequence of commands and decision points for paper-validation → live cutover.
 
-**Original cutover date:** Friday 2026-05-01 → **Slipped to Tuesday 2026-05-05** because paper had never run end-to-end and the env files had foundation bugs (placeholder Anthropic key in paper, Alpaca key pasted into Anthropic slot in live). See `BUILD_EVOLUTION.md` 2026-04-30 entries for the full why.
+**Cutover is graduation-gated, not calendar-gated.** (Decision 2026-04-30 evening, Thomas.) The shadow Ollama agent must hit the graduation criteria below before Track A goes live. Paper runs as long as it takes — could be a week, could be a month. We do not move calendar-first.
+
+**Graduation criteria** (from `Config` in `src/trading_shadow/config.py`):
+- `GRADUATION_ACCURACY = 0.90` — shadow's action matches Claude's on 90%+ of paired decisions
+- `GRADUATION_MIN_TRADES = 50` — at least 50 (claude, shadow) decision pairs in the log
+- `GRADUATION_MIN_PROFIT_USD = 1.0` — Claude is making $1+ realized P&L per day on paper (means the strategy works, not just that the shadow learned to copy a money-loser)
+
+All three must hold before live cutover. Hitting accuracy without profit means the shadow learned to copy bad decisions — that's exactly the failure mode the gate prevents. Hitting profit without accuracy means we don't yet have a shadow that can take over.
+
+**Earlier plan history (now obsolete):** Friday 2026-05-01 was the original calendar target. Slipped to Tuesday 2026-05-05 mid-day Thursday after discovering paper had never run end-to-end. Tuesday was scrapped Thursday evening in favor of graduation-gating. The infrastructure built for Tuesday (live env validation, halt_all rollback wiring, RollbackHandler) all stays — it's just dormant until graduation.
 
 ---
 
@@ -123,7 +132,9 @@ print(f'Tickers seen: {sorted(set(r[\"ticker\"] for r in rows))}')
 
 Expected: at least 60-100 decisions (5 tickers × 2 tracks × 2 agents × ~3 passes/hour × 6.5 hours), maybe more or fewer depending on loop interval. Most will be HOLDs (that's expected with v1 prompt; v2 should have a healthier mix).
 
-### Step 1.4 — Friday GO/NO-GO checkpoint for Tuesday cutover
+### Step 1.4 — Friday end-of-day signal check (NOT a cutover gate)
+
+This is just confirmation that paper trading actually works. It is NOT a "go live" gate — see Phase 4 for that.
 
 | Signal | Status |
 |---|---|
@@ -133,53 +144,80 @@ Expected: at least 60-100 decisions (5 tickers × 2 tracks × 2 agents × ~3 pas
 | Discord received at least one trade message | ✅ confirms reporter |
 | Alpaca paper account balance moved | ✅ confirms order submission works |
 
-**If all 5 pass → GO for Tuesday.**
-**If any fail → diagnose this weekend, slip cutover by another week if needed.**
+**If all 5 pass:** paper is healthy; start the graduation soak (Phase 2).
+**If any fail:** diagnose this weekend; do not advance until paper is healthy.
 
 ---
 
-## Phase 2 — Weekend (Sat-Sun)
+## Phase 2 — Graduation soak (open-ended)
 
-- Eyeball `decisions.jsonl` for sensibility. Pick 5 random BUY decisions; do the reasonings make sense given the price + RSI?
-- Pick 5 HOLDs; do they have specific invalidation criteria, or are they vague?
-- If the reasoning quality is poor → swap to `prompts_v2.py` (if not already done)
-- Compare Claude vs Shadow agreement rate. Goal: >50% by Tuesday for a meaningful A/B baseline.
-- Optionally: complete Alpaca live KYC if not already done. Fund the live account ($20 to Track A's account).
+Run paper continuously through every market session. Each weekday:
+
+1. **Morning (9:30 AM ET):** confirm `start_paper.bat` is running OR start it.
+2. **Each evening (after 4:00 PM ET):** review the daily output:
+   - Decisions count by (track, agent, action)
+   - Sensibility spot-check: pick 3 random BUYs and 3 HOLDs; do the reasonings hold up?
+   - If reasoning quality is poor → consider swapping to `prompts_v2.py`
+3. **Once per week:** compute graduation metrics:
+   ```
+   .\.venv\Scripts\python.exe -c "
+   import json
+   from pathlib import Path
+   from trading_shadow.decision_log import Decision
+   from trading_shadow.accuracy_tracker import compute_accuracy
+   rows = [Decision(**json.loads(l)) for l in Path('data/decisions.jsonl').read_text().splitlines() if l]
+   result = compute_accuracy(rows, asset_class='equities')
+   print(f'Pairs: {result.total_pairs}')
+   print(f'Matches: {result.matches}')
+   print(f'Accuracy: {result.accuracy:.2%}')
+   "
+   ```
+
+The graduation gate is met when, on a given week-ending review:
+- `accuracy >= 0.90`
+- `total_pairs >= 50`
+- Realized weekly P&L from Claude's filled paper trades >= `$1 / week` (i.e., the $1/day proxied across the week)
+
+**Do not advance to Phase 3 until all three are met.**
+
+If the shadow plateaus below 90% accuracy: don't lower the bar. Either iterate on `prompts_v2.py` (so Claude's decisions become more learnable), tune the strategy (so signals are clearer), or change the shadow model (e.g. swap `llama3.1:8b` for a stronger local). Then keep soaking.
 
 ---
 
-## Phase 3 — Monday 2026-05-04
+## Phase 3 — Pre-cutover prep (only after Phase 2 graduation)
 
-- Final paper run during market hours
-- Confirm no regressions from any weekend changes
-- Run `verify_live_env.py` one more time (full live + paper)
-- Confirm live Alpaca account funded ($20 cleared)
+These are the manual one-time things that have to happen before the very first live trade — but only when graduation criteria are confirmed met:
+
+1. **Verify graduation metrics one more time** (run the snippet above; capture the output to a Discord post).
+2. **Fund the live Alpaca account.** ACH-transfer $20 (or whatever Track A capital you've decided on). ACH takes 1-3 business days, so kick this off the moment graduation is met — not the morning of cutover. Confirm `cash > $0` via:
+   ```
+   .\.venv\Scripts\python.exe scripts\verify_live_env.py --live-only
+   ```
+3. **Lock the prompt.** Whatever prompt is in `claude_trader.py` at the moment of graduation is the prompt that goes live. Don't change it after the fact — the graduation accuracy was measured against that exact prompt.
+4. **Pre-flight on the morning of cutover:**
+   ```
+   .\.venv\Scripts\python.exe scripts\verify_live_env.py
+   ```
+   ALL green required.
 
 ---
 
-## Phase 4 — Tuesday 2026-05-05, market open (cutover)
+## Phase 4 — Live cutover (graduation-gated date — set when criteria are met)
 
-### Step 4.1 — Pre-flight (9:00 AM ET)
-
-```
-.\.venv\Scripts\python.exe scripts\verify_live_env.py
-```
-ALL green required. Stop if anything is yellow or red.
-
-### Step 4.2 — Start Track A live (9:30 AM ET)
+### Step 4.1 — Start Track A live (market hours)
 
 ```
 $env:MODE='live'
 .\.venv\Scripts\python.exe scripts\run_track_a.py --live
 ```
 
-Or for the looped version, edit `loop_paper.py` to call `run_one_pass(track="A", live=True)` and run that. (Better: make a `loop_live_a.py` companion.)
+Or for the looped version, make a `loop_live_a.py` companion to `loop_paper.py`.
 
 Watch Discord. The first message should be either a `Track A LIVE: HOLD <ticker>` or a `Track A LIVE: BUY <ticker> $X.XX (order <id>)`.
 
-### Step 4.3 — Hard-floor watch
+### Step 4.2 — Hard-floor watch
 
-The runner has the hard-floor breach hook gated OFF by default (`AUTO_ROLLBACK_ON_HARD_FLOOR=False`). If equity drops below $100, you'll get a Discord ALERT and the loop halts. To recover:
+`AUTO_ROLLBACK_ON_HARD_FLOOR=False` by default. If equity drops below $100, you'll get a Discord ALERT and the loop halts. To recover:
 
 1. Decide which decision_id to roll back to (read `data/decisions.jsonl`)
 2. Run:
@@ -189,9 +227,9 @@ The runner has the hard-floor breach hook gated OFF by default (`AUTO_ROLLBACK_O
 3. Confirm slippage in the Discord summary
 4. Investigate the trade that caused the breach BEFORE re-starting the loop
 
-### Step 4.4 — Track B live (Tuesday or later)
+### Step 4.3 — Track B live (separate decision)
 
-Originally Tuesday by the implementation plan. If Track A behaves cleanly through Tuesday afternoon, start Track B. If anything weird happens on Track A, hold Track B until Wednesday.
+Track B follows Track A's graduation independently. Start Track B live when Track A has been live and stable for at least one full trading week AND Track B has hit its own graduation gate on paper.
 
 ---
 
