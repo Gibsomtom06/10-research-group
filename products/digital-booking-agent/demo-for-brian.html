@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBA × Corson — Outsource the Grind, Keep the Quality Gate</title>
+<meta name="description" content="A Digital Booking Agent proposal for Corson — offload 30 of your 40 artists to AI, keep the 10 that need you, triple Corson's throughput without a hire.">
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg-elev: #121214;
+  --panel: #18181b;
+  --panel-2: #1f1f23;
+  --border: rgba(255,255,255,0.07);
+  --border-bright: rgba(255,255,255,0.14);
+  --ink: #fafafa;
+  --ink-muted: #a1a1aa;
+  --ink-dim: #71717a;
+  --accent: #39ff14;
+  --accent-dim: rgba(57,255,20,0.12);
+  --accent-border: rgba(57,255,20,0.3);
+  --warn: #fbbf24;
+  --warn-dim: rgba(251,191,36,0.12);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,0.12);
+  --red: #f87171;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'JetBrains Mono', Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans); background: var(--bg); color: var(--ink);
+  line-height: 1.55; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+.container { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+/* ───── Top strip ───── */
+.topstrip {
+  background: var(--bg-elev); border-bottom: 1px solid var(--border);
+  padding: 10px 24px; font-size: 12px; color: var(--ink-dim); font-family: var(--font-mono);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.topstrip .live { color: var(--accent); }
+.topstrip .live::before { content: '● '; }
+
+/* ───── Hero ───── */
+.hero {
+  padding: 80px 24px 60px;
+  background:
+    radial-gradient(ellipse at top right, rgba(57,255,20,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at bottom left, rgba(96,165,250,0.05) 0%, transparent 60%);
+  border-bottom: 1px solid var(--border);
+}
+.kicker {
+  display: inline-block; background: var(--accent-dim); border: 1px solid var(--accent-border);
+  color: var(--accent); padding: 6px 14px; border-radius: 99px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  font-family: var(--font-mono); margin-bottom: 24px;
+}
+h1 {
+  font-size: clamp(34px, 5.5vw, 56px); font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1.05; margin-bottom: 20px;
+}
+h1 em { color: var(--accent); font-style: normal; }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px); color: var(--ink-muted);
+  max-width: 640px; line-height: 1.55;
+}
+.hero-meta {
+  margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; gap: 40px; flex-wrap: wrap; font-size: 13px; color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.hero-meta strong { color: var(--ink); font-weight: 600; }
+
+/* ───── Sections ───── */
+section { padding: 64px 24px; border-bottom: 1px solid var(--border); }
+.section-label {
+  color: var(--accent); font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px;
+}
+h2 {
+  font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; letter-spacing: -0.02em;
+  line-height: 1.15; margin-bottom: 14px;
+}
+h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.01em; }
+.lead { color: var(--ink-muted); font-size: 17px; max-width: 640px; margin-bottom: 36px; }
+p { color: var(--ink-muted); margin-bottom: 14px; }
+
+/* ───── The problem card ───── */
+.problem {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+  padding: 32px; margin-top: 24px;
+}
+.problem-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.problem-row:last-child { border-bottom: none; padding-bottom: 0; }
+.problem-row:first-child { padding-top: 0; }
+@media (max-width:680px) { .problem-row { grid-template-columns: 1fr; gap: 16px; } }
+.problem-label { color: var(--ink-muted); font-size: 13px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.06em; }
+.problem-num { font-size: 40px; font-weight: 700; color: var(--ink); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.problem-num .unit { font-size: 16px; color: var(--ink-muted); font-weight: 400; margin-left: 4px; }
+
+/* ───── Math table ───── */
+.math-table {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  font-family: var(--font-mono); font-size: 14px;
+}
+.math-row {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 20px;
+  padding: 14px 24px; border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.math-row:last-child { border-bottom: none; }
+.math-row.total { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+.math-row.neg { color: var(--red); }
+.math-row-label { color: var(--ink-muted); }
+.math-row.total .math-row-label { color: var(--accent); }
+.math-row-value { color: var(--ink); font-variant-numeric: tabular-nums; }
+.math-row.total .math-row-value { color: var(--accent); }
+.math-row-hours { color: var(--ink-dim); font-size: 12px; }
+.math-row.total .math-row-hours { color: var(--accent); }
+
+/* ───── Workflow steps ───── */
+.workflow { display: grid; gap: 16px; margin-top: 28px; }
+.wf-step {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px 24px; display: grid; grid-template-columns: 48px 1fr auto; gap: 20px; align-items: start;
+}
+.wf-num {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--accent-dim);
+  color: var(--accent); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 16px;
+}
+.wf-title { color: var(--ink); font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.wf-desc { color: var(--ink-muted); font-size: 14px; line-height: 1.5; }
+.wf-tag {
+  font-family: var(--font-mono); font-size: 10px; color: var(--ink-dim);
+  text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: 6px;
+  align-self: center; white-space: nowrap;
+}
+@media (max-width:680px) { .wf-step { grid-template-columns: 40px 1fr; } .wf-tag { grid-column: 2; justify-self: start; } }
+
+/* ───── The draft example ───── */
+.draft-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  margin-top: 24px;
+}
+.draft-header {
+  padding: 16px 24px; border-bottom: 1px solid var(--border); background: var(--bg-elev);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.draft-header-meta { font-family: var(--font-mono); font-size: 12px; color: var(--ink-muted); }
+.draft-tier {
+  font-family: var(--font-mono); font-size: 10px; padding: 3px 10px; border-radius: 6px;
+  background: var(--accent-dim); color: var(--accent); border: 1px solid var(--accent-border);
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+}
+.draft-body { padding: 24px; font-size: 15px; line-height: 1.65; }
+.draft-subject { font-size: 16px; color: var(--ink); font-weight: 600; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.draft-text { color: var(--ink); white-space: pre-wrap; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.7; }
+.draft-annotations {
+  padding: 16px 24px; background: var(--bg-elev); border-top: 1px solid var(--border);
+  display: grid; gap: 8px; font-size: 12px;
+}
+.draft-annot { display: flex; gap: 10px; align-items: flex-start; color: var(--ink-muted); }
+.draft-annot::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+/* ───── HGR visual ───── */
+.hgr-demo {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px;
+}
+@media (max-width:680px) { .hgr-demo { grid-template-columns: 1fr; } }
+.hgr-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
+}
+.hgr-contract {
+  font-size: 13px; color: var(--ink); font-weight: 600; margin-bottom: 10px;
+}
+.hgr-venue { color: var(--ink-muted); font-size: 12px; margin-bottom: 16px; }
+.hgr-notes {
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-muted);
+  background: var(--bg); padding: 10px; border-radius: 6px; border: 1px solid var(--border);
+  line-height: 1.5; margin-bottom: 14px; max-height: 80px; overflow: auto;
+}
+.hgr-row { display: flex; gap: 16px; align-items: center; padding-top: 14px; border-top: 1px solid var(--border); }
+.hgr-icon {
+  display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 500;
+}
+.hgr-icon.yes { color: var(--accent); }
+.hgr-icon.no { color: var(--red); text-decoration: line-through; }
+.hgr-icon.unk { color: var(--ink-dim); }
+.hgr-label { font-family: var(--font-mono); font-size: 10px; color: var(--ink-dim); margin-left: auto; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ───── Decision engine ───── */
+.engine {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 24px;
+  margin-top: 24px; font-family: var(--font-mono); font-size: 13px;
+}
+.engine-header { color: var(--ink); font-weight: 600; margin-bottom: 16px; font-size: 14px; }
+.engine-step {
+  display: grid; grid-template-columns: 24px 1fr auto; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.engine-step:last-child { border-bottom: none; }
+.engine-check { color: var(--accent); font-weight: 700; }
+.engine-warn { color: var(--warn); font-weight: 700; }
+.engine-fail { color: var(--red); font-weight: 700; }
+.engine-label { color: var(--ink-muted); }
+.engine-value { color: var(--ink); font-size: 12px; }
+.engine-verdict {
+  margin-top: 16px; padding: 14px; background: var(--accent-dim); border: 1px solid var(--accent-border);
+  border-radius: 8px; color: var(--accent); font-weight: 600; font-size: 13px;
+}
+
+/* ───── Economics table ───── */
+.econ {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+  margin-top: 24px;
+}
+.econ-row {
+  display: grid; grid-template-columns: 1fr 2fr;
+  padding: 18px 24px; border-bottom: 1px solid var(--border); gap: 18px;
+}
+.econ-row:last-child { border-bottom: none; }
+.econ-label { color: var(--ink-muted); font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; align-self: start; }
+.econ-value { color: var(--ink); font-size: 15px; }
+.econ-value strong { color: var(--accent); }
+@media (max-width: 620px) { .econ-row { grid-template-columns: 1fr; gap: 6px; } }
+
+/* ───── 30-day timeline ───── */
+.timeline { display: grid; gap: 12px; margin-top: 24px; }
+.tl-row {
+  display: grid; grid-template-columns: 100px 1fr;
+  background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; gap: 20px; align-items: center;
+}
+.tl-day {
+  color: var(--accent); font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.tl-event { color: var(--ink); font-size: 14px; line-height: 1.5; }
+.tl-event strong { color: var(--ink); font-weight: 600; }
+.tl-event .sub { color: var(--ink-muted); font-size: 13px; display: block; margin-top: 2px; }
+
+/* ───── CTA ───── */
+.cta {
+  background: linear-gradient(135deg, var(--accent-dim) 0%, transparent 100%);
+  border: 1px solid var(--accent-border); border-radius: 16px;
+  padding: 40px; text-align: center; margin: 40px 0;
+}
+.cta h2 { color: var(--ink); margin-bottom: 14px; }
+.cta p { color: var(--ink-muted); margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.cta-btn {
+  display: inline-block; background: var(--accent); color: #0a0a0b;
+  padding: 14px 32px; border-radius: 10px; font-weight: 600; font-size: 15px;
+  transition: transform 0.15s ease;
+}
+.cta-btn:hover { transform: translateY(-1px); text-decoration: none; }
+.cta-sub {
+  display: block; margin-top: 16px; font-size: 12px; color: var(--ink-muted); font-family: var(--font-mono);
+}
+
+/* ───── Footer ───── */
+footer {
+  padding: 40px 24px; text-align: center; color: var(--ink-dim); font-size: 12px;
+  font-family: var(--font-mono); border-top: 1px solid var(--border);
+}
+footer a { color: var(--ink-muted); }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <span>DBA × Corson — Proposal 01 — 2026-04-24</span>
+  <span class="live">live draft · prepared by Thomas Nalian</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="kicker">For Brian at Corson</div>
+    <h1>Outsource 30 of your 40 artists to <em>DBA</em>. Triple Corson without a hire.</h1>
+    <p class="hero-sub">You stay the quality gate. DBA runs the outreach, drafts the pitches, tracks the offers, and flags anything weird for your review. Your heuristics train the system as you go. Brian-grade conviction on every artist, not just the ten you have time for today.</p>
+    <div class="hero-meta">
+      <div><strong>40</strong> artists on your roster</div>
+      <div><strong>4 hrs</strong> per artist per week</div>
+      <div><strong>160 hrs</strong> ≈ 4 full-time agents</div>
+      <div><strong>1 person</strong> actually doing it (you)</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section>
+  <div class="container">
+    <div class="section-label">The problem, stated plainly</div>
+    <h2>Forty artists is too many for one agent.</h2>
+    <p class="lead">Even if you're the best booking agent in the business — and you are — the math doesn't work. Every artist you onboard dilutes the attention you give everyone else. The artists with the loudest mouths or the biggest buyouts get your bandwidth. The rest wait.</p>
+    <div class="problem">
+      <div class="problem-row">
+        <div>
+          <div class="problem-label">Current reality</div>
+          <div style="color:var(--ink-muted); font-size:14px; margin-top:6px;">40 artists × 4 hrs/week of real agent work</div>
+        </div>
+        <div class="problem-num" style="color:var(--red)">160<span class="unit">hours / week required</span></div>
+      </div>
+      <div class="problem-row">
+        <div>
+          <div class="problem-label">What one person can actually do</div>
+          <div style="color:var(--ink-muted); font-size:14px; margin-top:6px;">5 days × 10 hours, before dinner / sanity loss</div>
+        </div>
+        <div class="problem-num">50<span class="unit">hours / week realistic</span></div>
+      </div>
+      <div class="problem-row">
+        <div>
+          <div class="problem-label">Missing capacity</div>
+          <div style="color:var(--ink-muted); font-size:14px; margin-top:6px;">The artists you aren't pitching, the venues you aren't following up with, the offers you aren't countering</div>
+        </div>
+        <div class="problem-num" style="color:var(--red)">110<span class="unit">hours / week gap</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FIX -->
+<section style="background: var(--bg-elev);">
+  <div class="container">
+    <div class="section-label">The fix</div>
+    <h2>DBA handles 30 artists on autopilot. You keep the 10 that need you.</h2>
+    <p class="lead">DBA is an AI booking agent stack — outreach scoring, concept-aware pitch generation, offer parsing, counter-drafting, send scheduling with per-recipient timezone gates. Plug any artist into it and it runs the workflow. You supervise at the approval layer.</p>
+
+    <div class="math-table">
+      <div class="math-row">
+        <div class="math-row-label">10 high-touch artists (you keep these)</div>
+        <div class="math-row-value">4 hrs/artist/week</div>
+        <div class="math-row-hours">40 hrs</div>
+      </div>
+      <div class="math-row">
+        <div class="math-row-label">30 DBA-automated artists (you supervise only)</div>
+        <div class="math-row-value">0.5 hrs/artist/week</div>
+        <div class="math-row-hours">15 hrs</div>
+      </div>
+      <div class="math-row total">
+        <div class="math-row-label">Total human hours needed</div>
+        <div class="math-row-value">vs 160</div>
+        <div class="math-row-hours">55 hrs</div>
+      </div>
+      <div class="math-row">
+        <div class="math-row-label">Hours returned to you</div>
+        <div class="math-row-value"></div>
+        <div class="math-row-hours" style="color:var(--accent)">+105 hrs/week</div>
+      </div>
+    </div>
+    <p style="margin-top: 24px; font-size: 14px; color: var(--ink-muted);">Translation: you get to 3× the roster throughput without hiring, without dropping quality on any artist, without working more hours.</p>
+  </div>
+</section>
+
+<!-- WHAT DBA ACTUALLY DOES -->
+<section>
+  <div class="container">
+    <div class="section-label">The workflow DBA runs for each artist</div>
+    <h2>Six steps. You review #6.</h2>
+    <p class="lead">This is what happens for a single artist on a single morning. Multiply by 30 artists. Everything happens before you open your laptop.</p>
+
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-num">1</div>
+        <div>
+          <div class="wf-title">Routing window scan</div>
+          <div class="wf-desc">Pulls open dates from the artist's calendar, cross-refs tour anchors, identifies routing gaps where a show would fit cleanly. Outputs: 5-12 candidate markets.</div>
+        </div>
+        <span class="wf-tag">automatic · morning</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">2</div>
+        <div>
+          <div class="wf-title">Promoter pool match</div>
+          <div class="wf-desc">For each candidate market, pulls the warmest relevant promoter from the contact graph (insider → warm → cold tier, history with the artist, reply rate). Flags anyone two agents are already working.</div>
+        </div>
+        <span class="wf-tag">automatic</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">3</div>
+        <div>
+          <div class="wf-title">6-step decision engine</div>
+          <div class="wf-desc">Guarantee floor check, market tier viability, CPT projection, calendar conflict, promoter credibility, marketing commitment verification. Each step logs its reasoning so you can audit any decision in 10 seconds.</div>
+        </div>
+        <span class="wf-tag">visible reasoning</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">4</div>
+        <div>
+          <div class="wf-title">Concept-aware pitch draft</div>
+          <div class="wf-desc">Writes the email. Per-artist voice rules (DirtySnatcha = guarantee-first no door splits, Dark Matter = door splits OK market-dependent). No AI giveaways — no em-dashes, no filler phrases, no "I hope this finds you well". Tier-aware tone (insider = clipped, cold = structured).</div>
+        </div>
+        <span class="wf-tag">Claude-powered</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">5</div>
+        <div>
+          <div class="wf-title">Inbound offer parse</div>
+          <div class="wf-desc">When a promoter replies with an offer sheet, DBA extracts: guarantee, deposit %, radius, HGR (hotel/ground/rider), capacity, show date. Surfaces the relevant counter-points. Stamps the status on the kanban.</div>
+        </div>
+        <span class="wf-tag">automatic</span>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">6</div>
+        <div>
+          <div class="wf-title">Your approval</div>
+          <div class="wf-desc">You open /drafts in the morning. See the pitches ready to send, each with confidence score + decision trace. Approve / edit / reject. Approved drafts fire Tue/Wed/Thu 9-11am in the recipient's local timezone (weekday-morning gate for deliverability).</div>
+        </div>
+        <span class="wf-tag" style="color:var(--accent);">HUMAN · you</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DRAFT EXAMPLE -->
+<section style="background: var(--bg-elev);">
+  <div class="container">
+    <div class="section-label">What a DBA-written pitch looks like</div>
+    <h2>Real output. Real contact. Real voice rules enforced.</h2>
+    <p class="lead">Below is one of 12 pitches DBA drafted overnight for DirtySnatcha's Fall Takeover tour. This is to Brandon at Sidequest in Pittsburgh — an insider-tier contact we've booked with before. Not a template. Generated from the relationship context + concept parameters.</p>
+
+    <div class="draft-card">
+      <div class="draft-header">
+        <div>
+          <div style="font-weight:600; color:var(--ink); margin-bottom:2px;">To: Brandon Hooven &lt;Brandon.Hooven@sidequestpgh.com&gt;</div>
+          <div class="draft-header-meta">From: thomas@dirtysnatcha.com · Sidequest on 44th · Pittsburgh, PA</div>
+        </div>
+        <span class="draft-tier">insider tier · conf 0.88</span>
+      </div>
+      <div class="draft-body">
+        <div class="draft-subject">fall pittsburgh, dsr takeover</div>
+<pre class="draft-text">brandon,
+
+march ran well at sidequest. getting on your radar early for fall. putting together a dsr takeover: dirtysnatcha headlining with dark matter, kotrax, and hvrcrft on support, b2b2b closer to close. sidequest is a better fit for a 4-act bill than most rooms in the market.
+
+looking at september to november. any dates opening up?
+
+thomas</pre>
+      </div>
+      <div class="draft-annotations">
+        <div class="draft-annot">Lowercase subject. Fragment. No "Re:". Matches Thomas's actual send pattern.</div>
+        <div class="draft-annot">Opens with specific past-work reference ("march ran well at sidequest"). Insiders hate generic openers.</div>
+        <div class="draft-annot">Concept framing leads ("dsr takeover", "b2b2b closer"). Not "I have a great lineup for you".</div>
+        <div class="draft-annot">Names 3 of 4 featured artists, not a comma-list roster header.</div>
+        <div class="draft-annot">No em-dashes, no en-dashes, no pause-hyphens. Commas or two sentences.</div>
+        <div class="draft-annot">DirtySnatcha guarantee-first rule respected — no door-split offer. Ask is date + space, not money.</div>
+        <div class="draft-annot">Concrete month names ("september to november") — never "Q4".</div>
+        <div class="draft-annot">Lowercase "thomas" signoff, matching prior correspondence patterns.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HGR DETECTION -->
+<section>
+  <div class="container">
+    <div class="section-label">Inbound offer parsing</div>
+    <h2>Every offer auto-tagged for HGR. Scan 20 deals in 3 seconds.</h2>
+    <p class="lead">Hotel, Ground transport, Rider (hospitality). Three icons per deal. Green = included, red strikethrough = explicitly excluded, muted = not mentioned. Runs on `deal.notes` and `deal_points` regex + Claude fallback. Shipped in the platform now.</p>
+
+    <div class="hgr-demo">
+      <div class="hgr-card">
+        <div class="hgr-contract">Sidequest on 44th — Pittsburgh, PA</div>
+        <div class="hgr-venue">3/14/26 · $2,500 guarantee · 300 cap</div>
+        <div class="hgr-notes">Headline. $2,500 + HGR ($50 hotel, $150 ground, $100 rider buyouts). 21+, cap 300. 100% merch to artist.</div>
+        <div class="hgr-row">
+          <span class="hgr-icon yes">🏨 Hotel</span>
+          <span class="hgr-icon yes">🚗 Ground</span>
+          <span class="hgr-icon yes">🍴 Rider</span>
+          <span class="hgr-label">H G R</span>
+        </div>
+      </div>
+      <div class="hgr-card">
+        <div class="hgr-contract">3 Dollar Bill — Brooklyn, NY</div>
+        <div class="hgr-venue">9/5/25 · $4,000 guarantee · 550 cap</div>
+        <div class="hgr-notes">Headline. $4,000 + $750 bonus at 400 tickets ($5,500 walkout). Hotel: Hilton Long Island City. Subfiltronik direct support.</div>
+        <div class="hgr-row">
+          <span class="hgr-icon yes">🏨 Hotel</span>
+          <span class="hgr-icon unk">🚗 Ground</span>
+          <span class="hgr-icon unk">🍴 Rider</span>
+          <span class="hgr-label">H — —</span>
+        </div>
+      </div>
+      <div class="hgr-card">
+        <div class="hgr-contract">Ground Z3RO — Houston, TX</div>
+        <div class="hgr-venue">8/8/25 · $2,000 guarantee · 550 cap</div>
+        <div class="hgr-notes">Headline. $2,000 + HGR. 18+, cap 550. Production contact: Anthony HTX.</div>
+        <div class="hgr-row">
+          <span class="hgr-icon yes">🏨 Hotel</span>
+          <span class="hgr-icon yes">🚗 Ground</span>
+          <span class="hgr-icon yes">🍴 Rider</span>
+          <span class="hgr-label">H G R</span>
+        </div>
+      </div>
+      <div class="hgr-card">
+        <div class="hgr-contract">Dayglow ATL Warehouse — Atlanta, GA</div>
+        <div class="hgr-venue">TBD · $3,000 · 1100 cap</div>
+        <div class="hgr-notes">DJ set, 90-min slot. $3,000 + travel/lodging/transport. Cap 1,100. Recurring Friday nights 10pm-6am. No rider specified.</div>
+        <div class="hgr-row">
+          <span class="hgr-icon yes">🏨 Hotel</span>
+          <span class="hgr-icon yes">🚗 Ground</span>
+          <span class="hgr-icon unk">🍴 Rider</span>
+          <span class="hgr-label">H G —</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISION ENGINE -->
+<section style="background: var(--bg-elev);">
+  <div class="container">
+    <div class="section-label">The 6-step decision engine, made visible</div>
+    <h2>Every pitch comes with its reasoning trail.</h2>
+    <p class="lead">You never have to guess why DBA picked a market or skipped one. Every decision logs the check it ran, the threshold, the actual value, and the verdict. Audit any call in 10 seconds.</p>
+
+    <div class="engine">
+      <div class="engine-header">Example: Portland, ME candidate for Kotrax — Oct 15 routing window</div>
+
+      <div class="engine-step">
+        <span class="engine-check">✓</span>
+        <span class="engine-label">Guarantee floor ≥ $1,500</span>
+        <span class="engine-value">projected $2,100-$2,800</span>
+      </div>
+      <div class="engine-step">
+        <span class="engine-check">✓</span>
+        <span class="engine-label">Market viability — secondary</span>
+        <span class="engine-value">Kotrax PS 23 · avg attendance 180-260</span>
+      </div>
+      <div class="engine-step">
+        <span class="engine-warn">⚠</span>
+        <span class="engine-label">CPT projection</span>
+        <span class="engine-value">$6.40 (under $8 kill, above $5 target)</span>
+      </div>
+      <div class="engine-step">
+        <span class="engine-check">✓</span>
+        <span class="engine-label">Calendar / routing</span>
+        <span class="engine-value">slots between Boston 10/14 → Montreal 10/17</span>
+      </div>
+      <div class="engine-step">
+        <span class="engine-check">✓</span>
+        <span class="engine-label">Warm relationship</span>
+        <span class="engine-value">Ronnie @ Geno's — booked DS twice · 2 replies</span>
+      </div>
+      <div class="engine-step">
+        <span class="engine-warn">⚠</span>
+        <span class="engine-label">Marketing commitment</span>
+        <span class="engine-value">verify $150 min ad spend in pitch response</span>
+      </div>
+
+      <div class="engine-verdict">→ APPROVED · cold-pitch draft queued · flag CPT to Thomas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMICS -->
+<section>
+  <div class="container">
+    <div class="section-label">The economics — Corson pays nothing upfront</div>
+    <h2>Performance-share model. You keep your commissions. I take a slice of the automated roster's gross.</h2>
+    <div class="econ">
+      <div class="econ-row">
+        <div class="econ-label">Corson upfront cost</div>
+        <div class="econ-value"><strong>$0</strong> · no retainer, no setup fee, no hardware</div>
+      </div>
+      <div class="econ-row">
+        <div class="econ-label">Corson's existing commission</div>
+        <div class="econ-value">Stays 100% with Corson. I don't touch the 10 high-touch artists you keep.</div>
+      </div>
+      <div class="econ-row">
+        <div class="econ-label">On the 30 DBA-automated artists</div>
+        <div class="econ-value">Corson keeps <strong>70% of commission</strong> on every booking closed through DBA. 10 Research Group takes <strong>30%</strong> as the infrastructure / tech fee. Adjustable up or down based on pilot results.</div>
+      </div>
+      <div class="econ-row">
+        <div class="econ-label">Exit</div>
+        <div class="econ-value">14 days notice either side. Artists and relationships stay with Corson regardless. You walk away with the history + the process knowledge.</div>
+      </div>
+      <div class="econ-row">
+        <div class="econ-label">Upside</div>
+        <div class="econ-value">More pitches go out, more reply, more bookings close. On current comp, every $10k/mo in added commission Corson earns = $7k net to you at zero new hours. That scales.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 30-DAY -->
+<section style="background: var(--bg-elev);">
+  <div class="container">
+    <div class="section-label">What the first 30 days look like</div>
+    <h2>No big-bang launch. We prove it on 3 artists first.</h2>
+
+    <div class="timeline">
+      <div class="tl-row"><div class="tl-day">Day 0</div><div class="tl-event"><strong>Handshake + pilot scope.</strong><span class="sub">Pick 3 of your 30 potential automated artists — ideally ones where you know you're dropping balls. Sign a 2-page performance-share agreement.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 1-3</div><div class="tl-event"><strong>Gmail + calendar connect.</strong><span class="sub">OAuth your sending inbox + each artist's Google calendar. DBA ingests the last 90 days of offer threads per artist. You review the imported contact list.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 4-7</div><div class="tl-event"><strong>First DBA pitches go out.</strong><span class="sub">I seed the first 15 pitches across the 3 artists. You review each in /drafts. Approve, edit, or reject. Approved ones ship on the Tue/Wed/Thu 9-11am gate.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 8-14</div><div class="tl-event"><strong>First replies + inbound offers.</strong><span class="sub">DBA parses inbound offers, stamps HGR, lifts onto kanban. You see the same 6-column offer lifecycle you already run mentally, but it's happening without you typing anything.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 15-21</div><div class="tl-event"><strong>Counter-offers auto-drafted.</strong><span class="sub">When a promoter replies with a weak offer, DBA drafts the counter based on your tune of the minimum acceptable terms. You approve before send.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 22-28</div><div class="tl-event"><strong>First deal memos generated.</strong><span class="sub">DBA turns a verbal confirm into a signable PDF deal memo with your (Corson) standard terms. You review + counter-sign. Deposit tracking starts.</span></div></div>
+      <div class="tl-row"><div class="tl-day">Day 30</div><div class="tl-event"><strong>Review meeting.</strong><span class="sub">We pull the numbers. Pitches sent, replies, offers, confirms, dollars. If the pilot is working, we expand to the other 27 artists over the following 60 days. If not, we stop.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="border-bottom:none;">
+  <div class="container">
+    <div class="cta">
+      <div class="section-label" style="text-align:center;">Next step</div>
+      <h2>One 30-min call. We pick the 3 pilot artists.</h2>
+      <p>Not a sales pitch. A logistics call — names, calendars, who owes you a follow-up, which markets you've been meaning to reopen. By the end I'll have enough to fire the first batch of DBA pitches within a week.</p>
+      <a href="mailto:thomas@dirtysnatcha.com?subject=DBA%20pilot%20—%20let's%20talk" class="cta-btn">Email Thomas →</a>
+      <span class="cta-sub">thomas@dirtysnatcha.com · 248-765-1997</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>DBA × Corson · Proposal 01 · 2026-04-24</div>
+  <div style="margin-top:8px;">Built by <a href="#">10 Research Group</a> · <a href="https://tenx10.co">tenx10.co</a></div>
+</footer>
+
+</body>
+</html>

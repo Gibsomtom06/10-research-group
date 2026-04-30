@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Google Merchant Center RSS 2.0 product feed template for WRS refurbished OEM wheels.
+
+Key conformance points:
+  - condition = "refurbished" (Google explicitly allows this; no GTIN required when identifier_exists=no)
+  - identifier_exists = "no" for refurbished OEM wheels that have no manufacturer GTIN
+  - mpn = internal SKU (e.g. "10251-MGM") — Google accepts MPN in lieu of GTIN for refurbished
+  - google_product_category = "Vehicles & Parts > Vehicle Parts & Accessories > Motor Vehicle Parts > Motor Vehicle Wheel Systems > Motor Vehicle Wheels"
+  - image_link must be on HTTPS and accessible to Googlebot
+  - price includes USD currency, no tax
+  - shipping_weight in lb is required for accurate shipping cost
+
+Populate one <item> per SKU. We'll auto-generate these from WRS's inventory sheet.
+-->
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Wheel Repair Specialists of Michigan — Refurbished OEM Wheels</title>
+    <link>https://wrs-mi.com</link>
+    <description>Refurbished OEM alloy wheels, powder coated and warrantied, ready to ship.</description>
+
+    <item>
+      <g:id>10251-MGM</g:id>
+      <title>Machined Gunmetal 20-inch OEM Wheel — SKU 10251-MGM</title>
+      <description>Refurbished OEM alloy wheel, 20-inch, machined gunmetal finish. Structurally inspected, balanced, and powder coated in-house by Wheel Repair Specialists of Michigan. 60+ years combined experience. 30-day satisfaction guarantee.</description>
+      <link>https://wrs-mi.com/shop/10251-mgm</link>
+      <g:image_link>https://wrs-mi.com/wp-content/uploads/10251-mgm-main.jpg</g:image_link>
+      <g:additional_image_link>https://wrs-mi.com/wp-content/uploads/10251-mgm-angle.jpg</g:additional_image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>325.00 USD</g:price>
+      <g:condition>refurbished</g:condition>
+      <g:brand>OEM</g:brand>
+      <g:mpn>10251-MGM</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Vehicles &amp; Parts &gt; Vehicle Parts &amp; Accessories &gt; Motor Vehicle Parts &gt; Motor Vehicle Wheel Systems &gt; Motor Vehicle Wheels</g:google_product_category>
+      <g:product_type>Refurbished OEM Wheels &gt; Machined Gunmetal</g:product_type>
+      <g:shipping_weight>28 lb</g:shipping_weight>
+      <g:custom_label_0>finish:machined-gunmetal</g:custom_label_0>
+      <g:custom_label_1>size:20</g:custom_label_1>
+      <g:custom_label_2>trend:2026-luxury-suv</g:custom_label_2>
+    </item>
+
+    <item>
+      <g:id>4577-PPP</g:id>
+      <title>PVD Chrome 19-inch OEM Wheel — SKU 4577-PPP</title>
+      <description>Refurbished OEM alloy wheel, 19-inch, PVD chrome finish. Rare and high-demand trim. Inspected, balanced, warrantied.</description>
+      <link>https://wrs-mi.com/shop/4577-ppp</link>
+      <g:image_link>https://wrs-mi.com/wp-content/uploads/4577-ppp-main.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>285.00 USD</g:price>
+      <g:condition>refurbished</g:condition>
+      <g:brand>OEM</g:brand>
+      <g:mpn>4577-PPP</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Vehicles &amp; Parts &gt; Vehicle Parts &amp; Accessories &gt; Motor Vehicle Parts &gt; Motor Vehicle Wheel Systems &gt; Motor Vehicle Wheels</g:google_product_category>
+      <g:product_type>Refurbished OEM Wheels &gt; PVD Chrome</g:product_type>
+      <g:shipping_weight>26 lb</g:shipping_weight>
+      <g:custom_label_0>finish:pvd-chrome</g:custom_label_0>
+      <g:custom_label_1>size:19</g:custom_label_1>
+    </item>
+
+    <item>
+      <g:id>95749-GB</g:id>
+      <title>Gloss Black 18-inch OEM Wheel — SKU 95749-GB</title>
+      <description>Refurbished OEM alloy wheel, 18-inch, gloss black finish. Sport trim replacement. Inspected, balanced, warrantied.</description>
+      <link>https://wrs-mi.com/shop/95749-gb</link>
+      <g:image_link>https://wrs-mi.com/wp-content/uploads/95749-gb-main.jpg</g:image_link>
+      <g:availability>in stock</g:availability>
+      <g:price>215.00 USD</g:price>
+      <g:condition>refurbished</g:condition>
+      <g:brand>OEM</g:brand>
+      <g:mpn>95749-GB</g:mpn>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:google_product_category>Vehicles &amp; Parts &gt; Vehicle Parts &amp; Accessories &gt; Motor Vehicle Parts &gt; Motor Vehicle Wheel Systems &gt; Motor Vehicle Wheels</g:google_product_category>
+      <g:product_type>Refurbished OEM Wheels &gt; Gloss Black</g:product_type>
+      <g:shipping_weight>24 lb</g:shipping_weight>
+      <g:custom_label_0>finish:gloss-black</g:custom_label_0>
+      <g:custom_label_1>size:18</g:custom_label_1>
+    </item>
+
+    <!-- Append one <item> per SKU. Generator will populate from inventory.csv. -->
+
+  </channel>
+</rss>

@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>dba — demo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0b0b0c',
+        panel: '#141416',
+        ink: '#f4f4f5',
+        muted: '#8a8a8f',
+        accent: '#39ff14',
+      },
+      fontFamily: {
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html, body { background:#0b0b0c; color:#f4f4f5; font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; }
+  ::selection { background:#39ff14; color:#0b0b0c; }
+  .scroll-snap { scroll-snap-type: y mandatory; }
+  .snap-start { scroll-snap-align: start; }
+  .sparkbar { height: 6px; }
+  .sparkbar-bg { background: rgba(255,255,255,0.06); }
+  .sparkbar-fill { background: #39ff14; }
+  .pulse-dot {
+    display:inline-block; width:6px; height:6px; border-radius:50%;
+    background:#39ff14; box-shadow:0 0 8px #39ff14;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .lh-tight { line-height: 1.1; }
+  .hairline { border-color: rgba(255,255,255,0.08); }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- top bar -->
+<nav class="sticky top-0 z-50 bg-bg/90 backdrop-blur border-b hairline">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <div class="text-accent text-sm lh-tight">
+        <div>dba</div>
+        <div class="text-[9px] text-muted">digital booking agent</div>
+      </div>
+      <div class="flex items-center gap-4 text-xs text-muted">
+        <a href="#priorities" class="hover:text-ink">priorities</a>
+        <a href="#offers" class="hover:text-ink">offers</a>
+        <a href="#counter" class="hover:text-ink">counter</a>
+        <a href="#radius" class="hover:text-ink">radius audit</a>
+        <a href="#tracking" class="hover:text-ink">tracking</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-3 text-xs">
+      <span class="pulse-dot"></span>
+      <span class="text-muted">live · <span class="text-ink">thomas@dirtysnatcha.com</span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- hero -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-10">
+  <div class="text-[10px] text-muted uppercase tracking-widest mb-3">what it is</div>
+  <h1 class="text-4xl leading-tight mb-3">
+    your booking agent, <span class="text-accent">running every weekend</span>
+    <br/>not just when you remember to look.
+  </h1>
+  <p class="text-sm text-muted max-w-2xl leading-relaxed">
+    a self-driving booking desk. ranks every promoter on the planet by probability-to-book,
+    writes the pitch in your voice, tracks opens and clicks, refuses to double-book you inside a radius,
+    and drafts counter-offers that never leak your walk-away price. every email you approve teaches it what works.
+  </p>
+  <div class="mt-8 flex items-center gap-3 text-xs text-muted">
+    <span class="text-accent">scroll</span> to see the four things it does that nobody else does →
+  </div>
+</section>
+
+<!-- priorities -->
+<section id="priorities" class="max-w-7xl mx-auto px-6 py-12 border-t hairline">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="text-[10px] text-muted uppercase tracking-widest mb-1">aha #1 — score, don't sort</div>
+      <h2 class="text-2xl">priorities</h2>
+      <div class="text-xs text-muted mt-1">every promoter × artist × tour scored 0–100. top 50 rendered. factor breakdown on every row.</div>
+    </div>
+    <div class="text-xs text-muted">
+      1,847 targets scored · top 50 below · <span class="text-accent">outreach now</span> bumps to 100
+    </div>
+  </div>
+
+  <div class="bg-panel rounded border hairline overflow-hidden">
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-2 text-[10px] text-muted uppercase tracking-wider border-b hairline">
+      <div></div>
+      <div>promoter / contact</div>
+      <div>venue · market</div>
+      <div>artist</div>
+      <div>factor breakdown</div>
+      <div class="text-right">score</div>
+      <div></div>
+    </div>
+
+    <!-- row 1 — hot -->
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-3 text-xs border-b hairline hover:bg-white/[0.02]">
+      <div class="flex items-center"><div class="w-1 h-8 rounded bg-accent"></div></div>
+      <div>
+        <div class="text-ink">insomniac group</div>
+        <div class="text-[10px] text-muted">matt petrelli · matt@insomniac.com</div>
+      </div>
+      <div>
+        <div>the shrine</div>
+        <div class="text-[10px] text-muted">los angeles, ca</div>
+      </div>
+      <div>
+        <div class="text-ink">dirtysnatcha</div>
+        <div class="text-[10px] text-muted">q3 west tour</div>
+      </div>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">history</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:92%"></div></div>
+          <span class="text-muted w-6 text-right">.92</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">reply rate</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:85%"></div></div>
+          <span class="text-muted w-6 text-right">.85</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">anchor fit</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:80%"></div></div>
+          <span class="text-muted w-6 text-right">.80</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-accent text-lg lh-tight">94</div>
+        <div class="text-[9px] text-muted">vip · tier1</div>
+      </div>
+      <div class="flex items-center justify-end">
+        <button class="text-[10px] text-accent border border-accent/40 px-2 py-1 rounded hover:bg-accent/10">outreach</button>
+      </div>
+    </div>
+
+    <!-- row 2 -->
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-3 text-xs border-b hairline hover:bg-white/[0.02]">
+      <div class="flex items-center"><div class="w-1 h-8 rounded bg-accent"></div></div>
+      <div>
+        <div class="text-ink">goldenvoice</div>
+        <div class="text-[10px] text-muted">sara kim · sara@goldenvoice.com</div>
+      </div>
+      <div>
+        <div>the regent</div>
+        <div class="text-[10px] text-muted">los angeles, ca</div>
+      </div>
+      <div>
+        <div class="text-ink">whoisee</div>
+        <div class="text-[10px] text-muted">fall run</div>
+      </div>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">cap fit</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:88%"></div></div>
+          <span class="text-muted w-6 text-right">.88</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">genre</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:82%"></div></div>
+          <span class="text-muted w-6 text-right">.82</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">history</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:70%"></div></div>
+          <span class="text-muted w-6 text-right">.70</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-accent text-lg lh-tight">87</div>
+        <div class="text-[9px] text-muted">tier1</div>
+      </div>
+      <div class="flex items-center justify-end">
+        <button class="text-[10px] text-accent border border-accent/40 px-2 py-1 rounded hover:bg-accent/10">outreach</button>
+      </div>
+    </div>
+
+    <!-- row 3 — warm -->
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-3 text-xs border-b hairline hover:bg-white/[0.02]">
+      <div class="flex items-center"><div class="w-1 h-8 rounded bg-yellow-400/70"></div></div>
+      <div>
+        <div class="text-ink">fever</div>
+        <div class="text-[10px] text-muted">luis ochoa · luis@fever-tx.com</div>
+      </div>
+      <div>
+        <div>stubb's</div>
+        <div class="text-[10px] text-muted">austin, tx</div>
+      </div>
+      <div>
+        <div class="text-ink">dirtysnatcha</div>
+        <div class="text-[10px] text-muted">q3 south anchor</div>
+      </div>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">anchor fit</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:78%"></div></div>
+          <span class="text-muted w-6 text-right">.78</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">recency</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:65%"></div></div>
+          <span class="text-muted w-6 text-right">.65</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">tier</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:60%"></div></div>
+          <span class="text-muted w-6 text-right">.60</span>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-yellow-300 text-lg lh-tight">71</div>
+        <div class="text-[9px] text-muted">tier2 · warm</div>
+      </div>
+      <div class="flex items-center justify-end">
+        <button class="text-[10px] text-accent border border-accent/40 px-2 py-1 rounded hover:bg-accent/10">outreach</button>
+      </div>
+    </div>
+
+    <!-- row 4 — festival exception -->
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-3 text-xs border-b hairline hover:bg-white/[0.02]">
+      <div class="flex items-center"><div class="w-1 h-8 rounded bg-blue-400/70"></div></div>
+      <div>
+        <div class="text-ink">lost lands festival</div>
+        <div class="text-[10px] text-muted">booking@lostlandsmusic.com <span class="text-blue-300">· festival</span></div>
+      </div>
+      <div>
+        <div>legend valley</div>
+        <div class="text-[10px] text-muted">thornville, oh</div>
+      </div>
+      <div>
+        <div class="text-ink">dirtysnatcha</div>
+        <div class="text-[10px] text-muted">sept 2026</div>
+      </div>
+      <div class="space-y-1">
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">genre</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:95%"></div></div>
+          <span class="text-muted w-6 text-right">.95</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted w-14">anchor fit</span>
+          <div class="flex-1 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:90%"></div></div>
+          <span class="text-muted w-6 text-right">.90</span>
+        </div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-blue-300 w-14">radius</span>
+          <div class="flex-1 text-[9px] text-blue-300">festival exception · ohio-region radius override applied</div>
+        </div>
+      </div>
+      <div class="text-right">
+        <div class="text-accent text-lg lh-tight">89</div>
+        <div class="text-[9px] text-blue-300">festival</div>
+      </div>
+      <div class="flex items-center justify-end">
+        <button class="text-[10px] text-accent border border-accent/40 px-2 py-1 rounded hover:bg-accent/10">outreach</button>
+      </div>
+    </div>
+
+    <!-- row 5 — blocked -->
+    <div class="grid grid-cols-[40px_1.5fr_1fr_1fr_1.4fr_80px_80px] gap-3 px-4 py-3 text-xs hover:bg-white/[0.02] opacity-60">
+      <div class="flex items-center"><div class="w-1 h-8 rounded bg-red-400/70"></div></div>
+      <div>
+        <div class="text-ink">live nation sd</div>
+        <div class="text-[10px] text-muted">james rivera · jrivera@livenation.com</div>
+      </div>
+      <div>
+        <div>soma san diego</div>
+        <div class="text-[10px] text-muted">san diego, ca</div>
+      </div>
+      <div>
+        <div class="text-ink">dirtysnatcha</div>
+        <div class="text-[10px] text-muted">q3 west tour</div>
+      </div>
+      <div class="text-[10px] text-red-300 flex items-center">
+        <span class="mr-2">⊘</span>
+        <span>radius-blocked — 42mi from shrine lock (jun 14), 18d window overlap</span>
+      </div>
+      <div class="text-right">
+        <div class="text-red-300 text-lg lh-tight line-through">82</div>
+        <div class="text-[9px] text-red-300">blocked</div>
+      </div>
+      <div class="flex items-center justify-end">
+        <span class="text-[10px] text-muted">—</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 flex items-center gap-4 text-[10px] text-muted">
+    <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-accent"></div>high conviction</div>
+    <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-yellow-400/70"></div>warm</div>
+    <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-blue-400/70"></div>festival exception</div>
+    <div class="flex items-center gap-1"><div class="w-2 h-2 rounded bg-red-400/70"></div>radius-blocked</div>
+    <div class="ml-auto">8 factors · history 25 · tier 15 · anchor 15 · reply 15 · cap 10 · genre 10 · recency 10</div>
+  </div>
+</section>
+
+<!-- offers kanban -->
+<section id="offers" class="max-w-7xl mx-auto px-6 py-12 border-t hairline">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="text-[10px] text-muted uppercase tracking-widest mb-1">aha #2 — offers are contracts</div>
+      <h2 class="text-2xl">offers</h2>
+      <div class="text-xs text-muted mt-1">no "send the contract" step. the offer IS the contract. lifecycle in one kanban.</div>
+    </div>
+    <div class="text-xs text-muted">27 total · 6 locked · $186k ytd · deposits in $54k</div>
+  </div>
+
+  <div class="grid grid-cols-6 gap-3">
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-accent">new</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">inbound, not triaged</div>
+        </div>
+        <div class="text-xs text-muted">3</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">the observatory</div>
+          <div class="text-[10px] text-muted truncate">santa ana, ca</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$14,000</span>
+            <span class="text-muted">aug 8</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dirtysnatcha · <span class="text-blue-300/80">AB</span></div>
+          <div class="text-[10px] text-yellow-300 mt-0.5">45d out</div>
+        </div>
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">house of blues</div>
+          <div class="text-[10px] text-muted truncate">houston, tx</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$11,500</span>
+            <span class="text-muted">sep 21</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">whoisee · <span class="text-blue-300/80">PRYSM</span></div>
+          <div class="text-[10px] text-muted">89d out</div>
+        </div>
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">meow wolf</div>
+          <div class="text-[10px] text-muted truncate">denver, co</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$9,000</span>
+            <span class="text-muted">jul 3</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dark matter</div>
+          <div class="text-[10px] text-yellow-300 mt-0.5">10d out</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-yellow-300">negotiating</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">countered / evaluating</div>
+        </div>
+        <div class="text-xs text-muted">2</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">the shrine</div>
+          <div class="text-[10px] text-muted truncate">los angeles, ca</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$18,500 <span class="text-muted/70">(net $16,650)</span></span>
+            <span class="text-muted">jun 14</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dirtysnatcha · <span class="text-blue-300/80">AB</span></div>
+          <div class="text-[10px] text-yellow-300 mt-0.5">countered @ $20k</div>
+        </div>
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">terminal west</div>
+          <div class="text-[10px] text-muted truncate">atlanta, ga</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$7,500</span>
+            <span class="text-muted">oct 19</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">kotrax</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-orange-300">awaiting my sig</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">memo out, me pending</div>
+        </div>
+        <div class="text-xs text-muted">1</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2 ring-1 ring-orange-400/20">
+          <div class="text-xs truncate">empire control room</div>
+          <div class="text-[10px] text-muted truncate">austin, tx</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$12,000</span>
+            <span class="text-muted">may 31</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dirtysnatcha</div>
+          <div class="text-[10px] text-red-300 mt-0.5">9d out · sign</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-blue-300">awaiting promoter</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">countersig pending</div>
+        </div>
+        <div class="text-xs text-muted">2</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">the regent</div>
+          <div class="text-[10px] text-muted truncate">los angeles, ca</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$16,000</span>
+            <span class="text-muted">jun 28</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">whoisee</div>
+        </div>
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">concord music hall</div>
+          <div class="text-[10px] text-muted truncate">chicago, il</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$13,000</span>
+            <span class="text-muted">aug 22</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dark matter</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-purple-300">awaiting deposit</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">signed, deposit pending</div>
+        </div>
+        <div class="text-xs text-muted">1</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">brooklyn mirage</div>
+          <div class="text-[10px] text-muted truncate">brooklyn, ny</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$22,000</span>
+            <span class="text-muted">jul 26</span>
+          </div>
+          <div class="text-[10px] text-muted/80 mt-0.5">dirtysnatcha</div>
+          <div class="text-[10px] text-purple-300 mt-0.5">deposit due in 4d</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white/[0.02] rounded p-3 min-h-[260px]">
+      <div class="flex items-baseline justify-between mb-3">
+        <div>
+          <div class="text-sm text-accent">locked</div>
+          <div class="text-[10px] text-muted/70 mt-0.5 leading-tight">deposit in — it's on</div>
+        </div>
+        <div class="text-xs text-muted">6</div>
+      </div>
+      <div class="space-y-2">
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">the shrine</div>
+          <div class="text-[10px] text-muted truncate">los angeles, ca</div>
+          <div class="flex items-center justify-between mt-1 text-[10px]">
+            <span class="text-accent">$18,500</span>
+            <span class="text-muted">may 17</span>
+          </div>
+          <div class="text-[10px] text-accent mt-0.5">locked</div>
+        </div>
+        <div class="bg-white/[0.03] rounded px-2 py-2">
+          <div class="text-xs truncate">+ 5 more</div>
+          <div class="text-[10px] text-muted truncate">jun–sept</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mt-4 text-[10px] text-muted">
+    <span class="text-ink">single pipe.</span> every state change — counter, memo, sign, deposit — is one click. pdf is generated with thomas's sig block on
+    <span class="text-ink">"leigh bray aka dirtysnatcha · licensor"</span>, uploaded to private storage, 10-year signed url. gigwell and artery need 3 apps to do this.
+  </div>
+</section>
+
+<!-- counter-offer drafter -->
+<section id="counter" class="max-w-7xl mx-auto px-6 py-12 border-t hairline">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="text-[10px] text-muted uppercase tracking-widest mb-1">aha #3 — counter without leaking your floor</div>
+      <h2 class="text-2xl">counter-offer drafter</h2>
+      <div class="text-xs text-muted mt-1">
+        you tell it target / min / walk-away. it writes the counter in your voice. never mentions the numbers you care about.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 gap-6">
+
+    <!-- left: your bounds -->
+    <div class="bg-panel rounded border hairline p-5">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-3">your bounds</div>
+      <div class="text-xs text-muted mb-4">
+        the shrine · los angeles · jun 14 · via <span class="text-blue-300">andrew bass / ab touring</span>
+      </div>
+      <div class="space-y-3 text-xs">
+        <div class="flex items-center justify-between border-b hairline pb-2">
+          <div>
+            <div class="text-muted">their offer</div>
+            <div class="text-[10px] text-muted/70">promoter initial</div>
+          </div>
+          <div class="text-ink">$15,000</div>
+        </div>
+        <div class="flex items-center justify-between border-b hairline pb-2">
+          <div>
+            <div class="text-accent">counter target</div>
+            <div class="text-[10px] text-muted/70">what you're asking for</div>
+          </div>
+          <div class="text-accent">$20,000</div>
+        </div>
+        <div class="flex items-center justify-between border-b hairline pb-2">
+          <div>
+            <div class="text-muted">min acceptable</div>
+            <div class="text-[10px] text-red-300/70">hidden from email</div>
+          </div>
+          <div class="text-red-300">$17,500</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-muted">walk-away</div>
+            <div class="text-[10px] text-red-300/70">hidden from email</div>
+          </div>
+          <div class="text-red-300">$16,000</div>
+        </div>
+      </div>
+      <div class="mt-5 pt-4 border-t hairline text-[10px] text-muted leading-relaxed">
+        <span class="text-red-300">red values never enter the prompt.</span> composer has no way to accidentally leak them.
+        tone hint: <span class="text-ink">"warm, confident, not pushy — andrew's a long-term relationship."</span>
+      </div>
+    </div>
+
+    <!-- right: the draft -->
+    <div class="bg-panel rounded border hairline p-5">
+      <div class="flex items-center justify-between mb-3">
+        <div class="text-[10px] text-muted uppercase tracking-wider">draft · ready for review</div>
+        <div class="flex items-center gap-2 text-[10px]">
+          <span class="text-muted">confidence</span>
+          <div class="w-20 sparkbar sparkbar-bg rounded"><div class="sparkbar sparkbar-fill rounded" style="width:92%"></div></div>
+          <span class="text-accent">0.92</span>
+        </div>
+      </div>
+      <div class="text-xs text-muted mb-3">
+        to: <span class="text-ink">andrew@abtouring.com</span> · subject: <span class="text-ink">re: dirtysnatcha / shrine 6.14</span>
+      </div>
+      <div class="text-sm leading-relaxed space-y-3 text-ink">
+        <p>andrew —</p>
+        <p>appreciate you teeing this up. shrine fits the q3 west tour shape we're putting together for dirtysnatcha perfectly, and that date slots clean against the LA radius.</p>
+        <p>the ask feels a little light for a headline hold on that room on a saturday — our target on shrine-capacity weekends this cycle has been <span class="text-accent">$20,000</span> guarantee with the usual 50% deposit + standard hospitality. we've been consistently selling through at that level (refs on request — fillmore, regent, ogden).</p>
+        <p>happy to talk through bundle options if it helps the math on their end — tour-route pairing with the regent or the shrine + ogden combo would soften the per-show math.</p>
+        <p>let me know what they can do. trying to lock the west run by eom.</p>
+        <p>— thomas</p>
+      </div>
+      <div class="mt-5 pt-4 border-t hairline flex items-center justify-between">
+        <div class="text-[10px] text-muted">
+          ✓ no mention of $17.5k min · ✓ no mention of $16k walk · ✓ voice-sample retrieval: semantic · ✓ tracking pixel injected
+        </div>
+        <div class="flex gap-2">
+          <button class="text-[10px] text-muted border border-white/10 px-3 py-1 rounded hover:bg-white/5">edit</button>
+          <button class="text-[10px] text-accent border border-accent/40 px-3 py-1 rounded hover:bg-accent/10">approve & queue</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- radius audit -->
+<section id="radius" class="max-w-7xl mx-auto px-6 py-12 border-t hairline">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="text-[10px] text-muted uppercase tracking-widest mb-1">aha #4 — the save</div>
+      <h2 class="text-2xl">radius audit</h2>
+      <div class="text-xs text-muted mt-1">
+        every offer is checked against every locked show. hard-block routes refuse to execute. you can't double-book yourself.
+      </div>
+    </div>
+  </div>
+
+  <!-- red banner -->
+  <div class="bg-red-500/10 border border-red-500/40 rounded p-5 mb-4">
+    <div class="flex items-start gap-4">
+      <div class="w-1 self-stretch rounded bg-red-400"></div>
+      <div class="flex-1">
+        <div class="flex items-center gap-3 mb-2">
+          <span class="text-[10px] uppercase tracking-widest text-red-300 bg-red-500/20 px-2 py-0.5 rounded">hard block</span>
+          <span class="text-xs text-muted">new offer violates radius clause on 1 locked show</span>
+        </div>
+        <div class="text-sm text-ink mb-1">soma san diego · dirtysnatcha · <span class="text-muted">jul 1, 2026</span> · $13,500 guarantee</div>
+        <div class="text-xs text-muted mb-3">
+          conflicts with <span class="text-ink">the shrine (los angeles) — locked jun 14, 2026</span>
+        </div>
+        <div class="grid grid-cols-4 gap-3 text-xs">
+          <div class="bg-black/30 rounded p-2">
+            <div class="text-[9px] text-muted uppercase tracking-wider">distance</div>
+            <div class="text-red-300">42 miles</div>
+            <div class="text-[9px] text-muted">haversine · both coded</div>
+          </div>
+          <div class="bg-black/30 rounded p-2">
+            <div class="text-[9px] text-muted uppercase tracking-wider">window</div>
+            <div class="text-red-300">17 days</div>
+            <div class="text-[9px] text-muted">inside 30d window</div>
+          </div>
+          <div class="bg-black/30 rounded p-2">
+            <div class="text-[9px] text-muted uppercase tracking-wider">clause</div>
+            <div>75mi / 30d</div>
+            <div class="text-[9px] text-muted">dsr standard</div>
+          </div>
+          <div class="bg-black/30 rounded p-2">
+            <div class="text-[9px] text-muted uppercase tracking-wider">severity</div>
+            <div class="text-red-300">hard</div>
+            <div class="text-[9px] text-muted">non-festival</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-red-500/20 flex items-center justify-between">
+      <div class="text-[10px] text-muted">
+        the <span class="text-ink">"sign as thomas"</span> button is server-side blocked on this offer.
+        clicking it once asks for confirm. clicking <span class="text-ink">override</span> twice stamps <span class="text-ink">{force: true}</span> into the decision trace. no accidental double-books.
+      </div>
+      <div class="flex gap-2">
+        <button class="text-[10px] text-muted border border-white/10 px-3 py-1 rounded hover:bg-white/5">decline politely</button>
+        <button class="text-[10px] text-red-300 border border-red-400/40 px-3 py-1 rounded hover:bg-red-500/10">override (2/2)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- agent overlap sidebar -->
+  <div class="grid grid-cols-3 gap-3">
+    <div class="bg-panel rounded border hairline p-4">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-2">agent workload gate</div>
+      <div class="text-xs text-muted leading-relaxed">
+        <span class="text-ink">won't pitch</span> a promoter if AB or PRYSM has an in-flight offer with the same artist. checked pre-outreach every seeder run.
+      </div>
+      <div class="mt-3 text-[10px]">
+        <div class="flex items-center justify-between text-muted"><span>AB touring</span><span class="text-ink">7 in flight</span></div>
+        <div class="flex items-center justify-between text-muted"><span>PRYSM</span><span class="text-ink">2 in flight · transitioning out</span></div>
+        <div class="flex items-center justify-between text-muted mt-2 pt-2 border-t hairline"><span>overlap canary</span><span class="text-accent">0 conflicts</span></div>
+      </div>
+    </div>
+
+    <div class="bg-panel rounded border hairline p-4">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-2">festival exception</div>
+      <div class="text-xs text-muted leading-relaxed">
+        festival bookings get a separate radius lane. lost lands + ohio regional shows don't cancel each other out. the seeder flags them and routes to a review panel instead of blocking silently.
+      </div>
+      <div class="mt-3 text-[10px]">
+        <div class="flex items-center justify-between text-blue-300"><span>lost lands → ohio radius</span><span>✓ exception</span></div>
+        <div class="flex items-center justify-between text-blue-300"><span>forbidden kingdom → florida radius</span><span>✓ exception</span></div>
+      </div>
+    </div>
+
+    <div class="bg-panel rounded border hairline p-4">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-2">licensor block</div>
+      <div class="text-xs text-muted leading-relaxed">
+        deal memo PDFs sign as <span class="text-ink">"leigh bray aka dirtysnatcha · licensor"</span> — thomas's actual legal signing identity. fixed and locked.
+      </div>
+      <div class="mt-3 text-[10px]">
+        <div class="flex items-center justify-between text-muted"><span>pdf generator</span><span class="text-accent">locked</span></div>
+        <div class="flex items-center justify-between text-muted"><span>storage bucket</span><span class="text-ink">deal-memos</span></div>
+        <div class="flex items-center justify-between text-muted"><span>signed url</span><span class="text-ink">10yr</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- tracking -->
+<section id="tracking" class="max-w-7xl mx-auto px-6 py-12 border-t hairline">
+  <div class="flex items-end justify-between mb-6">
+    <div>
+      <div class="text-[10px] text-muted uppercase tracking-widest mb-1">aha #5 — the learning loop</div>
+      <h2 class="text-2xl">email tracking</h2>
+      <div class="text-xs text-muted mt-1">
+        every outbound carries a 1x1 pixel + HMAC-signed click redirects. opens and clicks are attributed back to the exact factor breakdown that sent them.
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-3 gap-3">
+    <div class="bg-panel rounded border hairline p-5">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-1">last 7d</div>
+      <div class="text-3xl text-ink lh-tight">43</div>
+      <div class="text-xs text-muted mt-1">emails sent</div>
+      <div class="mt-4 space-y-2 text-xs">
+        <div class="flex items-center justify-between"><span class="text-muted">opened</span><span class="text-accent">31 · 72%</span></div>
+        <div class="flex items-center justify-between"><span class="text-muted">clicked</span><span class="text-accent">11 · 26%</span></div>
+        <div class="flex items-center justify-between"><span class="text-muted">replied</span><span class="text-accent">8 · 19%</span></div>
+      </div>
+    </div>
+
+    <div class="bg-panel rounded border hairline p-5">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-1">feedback loop</div>
+      <div class="text-sm text-ink lh-tight mb-2">opens → weights</div>
+      <div class="text-xs text-muted leading-relaxed">
+        reply rate is already a scoring factor (weight .15). open rate + click rate feed voice-sample quality — samples that get opens bubble up in next week's semantic retrieval pool.
+      </div>
+      <div class="mt-3 text-[10px] text-muted">
+        <span class="text-accent">tier2 warm</span> · open rate jumped from 58% → 72% after last cycle
+      </div>
+    </div>
+
+    <div class="bg-panel rounded border hairline p-5">
+      <div class="text-[10px] text-muted uppercase tracking-wider mb-1">privacy & safety</div>
+      <div class="text-xs text-muted leading-relaxed space-y-2">
+        <div><span class="text-ink">HMAC signatures</span> on every click — we can never be used as an open redirector.</div>
+        <div><span class="text-ink">IP hashed</span>, user-agent truncated to 500 chars.</div>
+        <div><span class="text-ink">Quiet hours</span> enforced per-recipient timezone (9pm–8am local).</div>
+        <div><span class="text-ink">25/day hard cap</span> — no burning the inbox reputation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- the pitch -->
+<section class="max-w-7xl mx-auto px-6 py-20 border-t hairline">
+  <div class="text-[10px] text-muted uppercase tracking-widest mb-4">why it's different</div>
+  <div class="grid grid-cols-2 gap-10">
+    <div>
+      <h3 class="text-xl text-ink mb-4">what gigwell / artery / muzeek are</h3>
+      <div class="text-sm text-muted leading-relaxed space-y-3">
+        <div>— filing cabinets. you fill in forms. you remember to send follow-ups. you find promoters. you write the pitches.</div>
+        <div>— offer ≠ contract. separate modules for each. 2x data entry.</div>
+        <div>— no scoring. "sort by date" is the entire query interface.</div>
+        <div>— no tracking. you guess if they opened it.</div>
+        <div>— one-artist-at-a-time. multi-artist agents use spreadsheets.</div>
+      </div>
+    </div>
+    <div>
+      <h3 class="text-xl text-accent mb-4">what dba is</h3>
+      <div class="text-sm text-ink leading-relaxed space-y-3">
+        <div>— an autonomous booker. it decides what to work on. it writes the pitch. it tracks the reply. you approve.</div>
+        <div>— offers ARE contracts. one lifecycle. one source of truth.</div>
+        <div>— 8-factor composite scoring. you see exactly why a target ranked where it did.</div>
+        <div>— open + click tracking with HMAC safety. every email teaches the next one.</div>
+        <div>— multi-tenant from day one. dirtysnatcha, whoisee, dark matter, kotrax — same pipeline, row-level artist scope.</div>
+        <div>— radius-aware. agent-workload-aware. never double-books you, never steps on AB/PRYSM toes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto px-6 py-10 border-t hairline flex items-center justify-between text-[10px] text-muted">
+  <div>dba · 10 research group · <span class="text-accent">tenx10.co</span></div>
+  <div>built for thomas · ported for brett, dark matter, kotrax · eventually brian's roster</div>
+</footer>
+
+</body>
+</html>

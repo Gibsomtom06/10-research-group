@@ -1,0 +1,14 @@
+{
+  "scraped_at": "2026-04-22T22:40:00Z",
+  "gigwell_account": "dirtysnatcha",
+  "pages_scanned": 1,
+  "entities_emitted": {
+    "venues": 7,
+    "contacts": 6,
+    "contact_venues": 7,
+    "offers": 7,
+    "confirmed_shows": 1,
+    "radius_holds": 0,
+    "praise": 0
+  }
+}

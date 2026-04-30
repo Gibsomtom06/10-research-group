@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wheel Repair Specialists of Michigan | Metro Detroit Wheel Repair, Powder Coating & Refurbished OEM Wheels</title>
+<meta name="description" content="Metro Detroit's premier wheel repair shop. 60+ years of experience. Powder coating, structural repair, OEM refurbishment. 10500 W 8 Mile Rd, Ferndale MI. Call 248-900-9100.">
+<meta name="keywords" content="wheel repair detroit, powder coating wheels michigan, rim repair ferndale, bent rim repair, curb rash repair, OEM wheel refurbishment, custom powder coating, mount and balance metro detroit">
+
+<!-- Open Graph -->
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="Wheel Repair Specialists of Michigan">
+<meta property="og:description" content="60+ years restoring wheels. Powder coating, structural repair, refurbished OEM wheels. Metro Detroit.">
+<meta property="og:url" content="https://wrs-mi.com">
+<meta property="business:contact_data:street_address" content="10500 W 8 Mile Rd">
+<meta property="business:contact_data:locality" content="Ferndale">
+<meta property="business:contact_data:region" content="MI">
+<meta property="business:contact_data:postal_code" content="48220">
+<meta property="business:contact_data:country_name" content="United States">
+
+<!-- Schema.org LocalBusiness + AutoRepair -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "AutoRepair"],
+  "name": "Wheel Repair Specialists of Michigan",
+  "image": "https://wrs-mi.com/wp-content/uploads/2024/01/shutterstock_1834461940-scaled.jpg",
+  "telephone": "+1-248-900-9100",
+  "email": "info@wrs-mi.com",
+  "url": "https://wrs-mi.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "10500 W 8 Mile Rd",
+    "addressLocality": "Ferndale",
+    "addressRegion": "MI",
+    "postalCode": "48220",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.4434,
+    "longitude": -83.1499
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "08:00",
+    "closes": "17:00"
+  }],
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {"@type": "GeoCoordinates", "latitude": 42.4434, "longitude": -83.1499},
+    "geoRadius": "25mi"
+  },
+  "serviceType": ["Wheel Repair", "Powder Coating", "Custom Rim Refinishing", "Mount and Balance", "OEM Wheel Replacement"],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "150"}
+}
+</script>
+
+<style>
+:root {
+  --bg: #0a0a0b;
+  --bg-elev: #141416;
+  --panel: #1a1a1d;
+  --border: rgba(255,255,255,0.08);
+  --border-bright: rgba(255,255,255,0.15);
+  --ink: #f4f4f5;
+  --ink-muted: #a1a1aa;
+  --ink-dim: #71717a;
+  --accent: #ff6b35;
+  --accent-soft: rgba(255,107,53,0.12);
+  --accent-dim: rgba(255,107,53,0.25);
+  --success: #4ade80;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+.topbar-inner {
+  max-width: 1240px; margin: 0 auto; padding: 0 20px;
+  display: flex; gap: 24px; flex-wrap: wrap; align-items: center; justify-content: space-between;
+}
+.topbar-inner a { color: var(--ink); font-weight: 500; }
+.topbar .ph { color: var(--accent); font-weight: 600; }
+
+/* ---------- Header / Nav ---------- */
+header.site {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10,10,11,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  max-width: 1240px; margin: 0 auto; padding: 16px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo {
+  display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
+}
+.logo-mark {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent) 0deg, #cc4e20 120deg, var(--accent) 240deg, #cc4e20 360deg);
+  position: relative; box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--border-bright);
+}
+.logo-mark::after {
+  content: ''; position: absolute; inset: 6px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--border-bright);
+}
+.nav ul { list-style: none; display: flex; gap: 28px; }
+.nav ul a { color: var(--ink-muted); font-size: 14px; font-weight: 500; }
+.nav ul a:hover { color: var(--ink); text-decoration: none; }
+.nav-cta {
+  background: var(--accent); color: #0a0a0b !important; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.nav-cta:hover { background: #ff8559; text-decoration: none !important; transform: translateY(-1px); }
+@media (max-width: 760px) { .nav ul { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 80px 20px 64px;
+  background:
+    radial-gradient(ellipse at top, rgba(255,107,53,0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255,107,53,0.06) 0%, transparent 60%);
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner { max-width: 1240px; margin: 0 auto; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-soft); border: 1px solid var(--accent-dim); color: var(--accent);
+  padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+h1 {
+  font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.025em;
+  line-height: 1.05; margin-bottom: 20px; max-width: 900px;
+}
+h1 .accent { color: var(--accent); }
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px); color: var(--ink-muted); max-width: 680px; margin-bottom: 36px; line-height: 1.55;
+}
+.hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 26px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; border: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn-primary { background: var(--accent); color: #0a0a0b; }
+.btn-primary:hover { background: #ff8559; text-decoration: none !important; transform: translateY(-1px); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border-bright); }
+.btn-secondary:hover { background: var(--panel); text-decoration: none !important; border-color: var(--accent-dim); }
+.hero-stats { display: flex; gap: 48px; flex-wrap: wrap; padding-top: 36px; border-top: 1px solid var(--border); }
+.hero-stat { }
+.hero-stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.hero-stat-label { font-size: 13px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+
+/* ---------- Section base ---------- */
+section.block { padding: 80px 20px; border-bottom: 1px solid var(--border); }
+.block-inner { max-width: 1240px; margin: 0 auto; }
+.block-eyebrow { color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; max-width: 820px; }
+h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
+.block-sub { color: var(--ink-muted); font-size: 17px; max-width: 680px; margin-bottom: 48px; line-height: 1.55; }
+
+/* ---------- Services grid ---------- */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.service-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 28px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.service-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.service-icon {
+  width: 44px; height: 44px; border-radius: 10px; background: var(--accent-soft);
+  display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px;
+}
+.service-card p { color: var(--ink-muted); font-size: 14px; line-height: 1.6; }
+
+/* ---------- Pricing table ---------- */
+.pricing-wrap { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+.pricing-table { width: 100%; border-collapse: collapse; }
+.pricing-table th, .pricing-table td {
+  text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 15px;
+}
+.pricing-table th { color: var(--ink-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+.pricing-table td:last-child { text-align: right; color: var(--accent); font-weight: 600; font-family: var(--font-mono); }
+.pricing-note { color: var(--ink-muted); font-size: 13px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.pricing-other { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.pricing-other-item {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.pricing-other-item span:first-child { color: var(--ink); font-size: 14px; }
+.pricing-other-item span:last-child { color: var(--accent); font-weight: 600; font-family: var(--font-mono); font-size: 14px; }
+
+/* ---------- Inventory ---------- */
+.inventory-controls {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; padding: 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+}
+.filter-btn {
+  background: transparent; border: 1px solid var(--border-bright); color: var(--ink-muted);
+  padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500;
+  transition: all 0.15s ease;
+}
+.filter-btn:hover { border-color: var(--accent-dim); color: var(--ink); }
+.filter-btn.active { background: var(--accent); color: #0a0a0b; border-color: var(--accent); }
+#inv-search {
+  flex: 1; min-width: 180px;
+  background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
+  padding: 8px 12px; border-radius: 8px; font-size: 13px;
+}
+#inv-search:focus { outline: none; border-color: var(--accent); }
+
+.inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.inv-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  display: flex; flex-direction: column;
+}
+.inv-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.inv-img {
+  aspect-ratio: 1 / 1; background: var(--bg); display: flex; align-items: center; justify-content: center;
+  color: var(--ink-dim); font-size: 40px; border-bottom: 1px solid var(--border); overflow: hidden;
+}
+.inv-img img { width: 100%; height: 100%; object-fit: cover; }
+.inv-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+.inv-finish {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 8px;
+}
+.inv-title { font-size: 13px; line-height: 1.4; color: var(--ink); margin-bottom: 10px; min-height: 54px; }
+.inv-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.inv-chip {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+  padding: 3px 8px; font-size: 10px; color: var(--ink-muted); font-family: var(--font-mono);
+}
+.inv-price-row { display: flex; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
+.inv-sale { font-weight: 700; font-size: 18px; color: var(--accent); font-family: var(--font-mono); }
+.inv-list { font-size: 13px; color: var(--ink-muted); text-decoration: line-through; font-family: var(--font-mono); }
+.inv-cta {
+  margin-top: 12px;
+  display: block; text-align: center;
+  background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
+  padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  transition: all 0.15s ease;
+}
+.inv-cta:hover { background: var(--accent); color: #0a0a0b; border-color: var(--accent); text-decoration: none !important; }
+
+/* ---------- Appointment form ---------- */
+.appt-wrap {
+  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-elev) 100%);
+  border: 1px solid var(--border); border-radius: 16px; padding: 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+@media (max-width: 780px) { .appt-wrap { grid-template-columns: 1fr; padding: 28px; } }
+.appt-form { display: grid; gap: 14px; }
+.appt-form label { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 6px; display: block; }
+.appt-form input, .appt-form select, .appt-form textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
+  padding: 11px 14px; border-radius: 8px; font-size: 14px; font-family: inherit;
+}
+.appt-form input:focus, .appt-form select:focus, .appt-form textarea:focus { outline: none; border-color: var(--accent); }
+.appt-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.appt-side p { color: var(--ink-muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+.appt-contact-row {
+  display: flex; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid var(--border);
+}
+.appt-contact-row:first-of-type { border-top: none; }
+.appt-contact-icon { font-size: 18px; }
+.appt-contact-label { font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.appt-contact-val { font-size: 15px; color: var(--ink); font-weight: 500; }
+.appt-contact-val a { color: var(--ink); }
+
+/* ---------- Chatbot ---------- */
+#chat-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 100;
+  width: 60px; height: 60px; border-radius: 30px; background: var(--accent);
+  color: #0a0a0b; border: none; cursor: pointer; font-size: 26px;
+  box-shadow: 0 8px 24px rgba(255,107,53,0.4);
+  transition: transform 0.15s ease;
+}
+#chat-fab:hover { transform: scale(1.05); }
+#chat-panel {
+  position: fixed; bottom: 94px; right: 24px; z-index: 99;
+  width: 360px; max-width: calc(100vw - 48px); height: 520px; max-height: calc(100vh - 140px);
+  background: var(--panel); border: 1px solid var(--border-bright); border-radius: 16px;
+  display: none; flex-direction: column; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+#chat-panel.open { display: flex; }
+.chat-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 12px;
+}
+.chat-header-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+.chat-header-sub { font-size: 11px; color: var(--success); display: flex; align-items: center; gap: 6px; }
+.chat-header-sub::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
+.chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; word-wrap: break-word; }
+.chat-msg.bot { background: var(--bg-elev); border-bottom-left-radius: 4px; align-self: flex-start; }
+.chat-msg.user { background: var(--accent); color: #0a0a0b; border-bottom-right-radius: 4px; align-self: flex-end; font-weight: 500; }
+.chat-quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chat-quick button {
+  background: transparent; border: 1px solid var(--border-bright); color: var(--ink-muted);
+  padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;
+}
+.chat-quick button:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-dim); }
+.chat-input-row { padding: 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
+#chat-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
+  padding: 10px 14px; border-radius: 8px; font-size: 13px; font-family: inherit;
+}
+#chat-input:focus { outline: none; border-color: var(--accent); }
+#chat-send {
+  background: var(--accent); border: none; color: #0a0a0b; padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  padding: 48px 20px 32px; background: var(--bg-elev); border-top: 1px solid var(--border);
+}
+.footer-grid {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+}
+@media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+.footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 14px; font-weight: 600; }
+.footer-col p, .footer-col li { font-size: 14px; color: var(--ink-muted); line-height: 1.7; }
+.footer-col ul { list-style: none; }
+.footer-col a { color: var(--ink-muted); }
+.footer-col a:hover { color: var(--ink); }
+.footer-bottom {
+  max-width: 1240px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+  font-size: 13px; color: var(--ink-dim);
+}
+.toast {
+  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
+  background: var(--panel); border: 1px solid var(--accent); color: var(--ink);
+  padding: 12px 24px; border-radius: 10px; font-size: 14px; z-index: 200;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+  opacity: 0; transition: opacity 0.2s ease;
+}
+.toast.show { opacity: 1; }
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><strong style="color:var(--ink)">60+ years</strong> of wheel expertise · Metro Detroit</span>
+    <span>Mon–Fri 8:00am–5:00pm · <a href="tel:+12489009100" class="ph">📞 (248) 900-9100</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="nav">
+    <a href="#top" class="logo">
+      <div class="logo-mark"></div>
+      <span>Wheel Repair Specialists</span>
+    </a>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#inventory">Inventory</a></li>
+      <li><a href="#appointment">Appointment</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#appointment" class="nav-cta">Book a Quote</a>
+  </div>
+</header>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-badge">★ Rated 4.9 · Metro Detroit's Trusted Wheel Shop</div>
+    <h1>Restore, refinish, and refurbish <span class="accent">any wheel</span> — in 2 days.</h1>
+    <p class="hero-sub">Cosmetic curb rash, structural bends, custom powder coating, and a national inventory of refurbished OEM alloy wheels. On-car mount &amp; balance — no loose-rim drop-off required. Drop your vehicle Monday morning, pick up Tuesday night.</p>
+    <div class="hero-cta-row">
+      <a href="#appointment" class="btn btn-primary">Get a Free Quote →</a>
+      <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">60+</div>
+        <div class="hero-stat-label">Years of experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2 days</div>
+        <div class="hero-stat-label">Vehicle drop-off turnaround</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">90%+</div>
+        <div class="hero-stat-label">Wheel damage is repairable</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">150+</div>
+        <div class="hero-stat-label">Refurbished OEM wheels in stock</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SERVICES ======= -->
+<section class="block" id="services">
+  <div class="block-inner">
+    <div class="block-eyebrow">What we do</div>
+    <h2>Full-service wheel repair, custom coating, and OEM refurbishment.</h2>
+    <p class="block-sub">Local in-shop work for Metro Detroit drivers. National shipping on our ready-to-install OEM inventory. One-stop — because the shop next door won't take your tire off the rim.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3>Structural Wheel Repair</h3>
+        <p>Bent rims, cracks, welds, straightening. Most "totaled" wheels are recoverable for a fraction of OEM replacement cost.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Custom Powder Coating</h3>
+        <p>Chemical strip, sandblast, electrostatic powder spray, 400°F cure. Any color — OEM match or custom. Also: calipers, suspension, full frames.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Curb Rash &amp; Cosmetic</h3>
+        <p>Scratches, nicks, dings, road rash. Machined or painted finishes restored. Most cosmetic work turns in 2 days when you drop the vehicle.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Mount &amp; Balance on Vehicle</h3>
+        <p>Full service — we pull the tire, fix the rim, balance, and remount on your car. No loose-rim drop-offs required. Indoor vehicle storage while we work.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚗</div>
+        <h3>OEM Wheel Replacement</h3>
+        <p>When a wheel is beyond repair, we stock refurbished factory OEM replacements at a fraction of dealer price. Ships nationwide.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Secure Indoor Storage</h3>
+        <p>Leave your car with us while we work. Indoor, climate-controlled bay. No risk to paint, wheels, or interior while you're without the vehicle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= PRICING ======= -->
+<section class="block" id="pricing" style="background: var(--bg-elev);">
+  <div class="block-inner">
+    <div class="block-eyebrow">Transparent pricing</div>
+    <h2>Powder coating, per wheel.</h2>
+    <p class="block-sub">Honest, tiered pricing by wheel diameter. These are the numbers we quote. No hidden fees. Custom colors and structural repair quoted per project — call us.</p>
+    <div class="pricing-wrap">
+      <table class="pricing-table">
+        <thead><tr><th>Wheel Size</th><th></th><th>Price per wheel</th></tr></thead>
+        <tbody>
+          <tr><td>13″ – 15″</td><td style="color:var(--ink-dim); font-size:13px">Compact / economy</td><td>$105 – $110</td></tr>
+          <tr><td>16″ – 17″</td><td style="color:var(--ink-dim); font-size:13px">Sedan / crossover</td><td>$115 – $120</td></tr>
+          <tr><td>18″ – 19″</td><td style="color:var(--ink-dim); font-size:13px">Sport / performance</td><td>$125</td></tr>
+          <tr><td>20″ – 21″</td><td style="color:var(--ink-dim); font-size:13px">Light truck / SUV</td><td>$135 – $145</td></tr>
+          <tr><td>22″ – 23″</td><td style="color:var(--ink-dim); font-size:13px">Full-size SUV / heavy</td><td>$145 – $155</td></tr>
+          <tr><td>24″ – 26″</td><td style="color:var(--ink-dim); font-size:13px">Specialty / show</td><td>$165 – $175</td></tr>
+        </tbody>
+      </table>
+      <p class="pricing-note"><strong style="color:var(--ink)">Adders:</strong> Chemical stripping +$35 per wheel · Protective clear coat +$25 per wheel</p>
+
+      <h3 style="margin-top:32px; color:var(--ink); font-size:15px; text-transform:uppercase; letter-spacing:0.06em;">Other Powder Coating</h3>
+      <div class="pricing-other">
+        <div class="pricing-other-item"><span>Brake Calipers (each)</span><span>$45 – $75</span></div>
+        <div class="pricing-other-item"><span>Suspension Parts (each)</span><span>$35 – $80</span></div>
+        <div class="pricing-other-item"><span>Full Car Frame (up to 15′)</span><span>$1,200 – $1,400</span></div>
+      </div>
+
+      <div style="margin-top:28px; padding:16px; background:var(--accent-soft); border:1px solid var(--accent-dim); border-radius:10px; display:flex; gap:14px; align-items:center;">
+        <div style="font-size:24px">⏱️</div>
+        <div>
+          <div style="color:var(--ink); font-weight:600; margin-bottom:2px;">Turnaround</div>
+          <div style="color:var(--ink-muted); font-size:14px;"><strong style="color:var(--ink)">2 days</strong> if you leave the vehicle · <strong style="color:var(--ink)">1–2 weeks</strong> for loose-wheel drop-off (batch processing)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= INVENTORY ======= -->
+<section class="block" id="inventory">
+  <div class="block-inner">
+    <div class="block-eyebrow">In-stock inventory</div>
+    <h2>Refurbished OEM alloy wheels — ships nationwide.</h2>
+    <p class="block-sub">Professionally restored factory wheels across five hot finishes. Every listing is ready to install. Filter by finish or search by make, model, or part number.</p>
+    <div class="inventory-controls">
+      <input type="search" id="inv-search" placeholder="Search by make, model, part #, or finish…" aria-label="Search inventory">
+      <button class="filter-btn active" data-filter="all">All finishes</button>
+      <button class="filter-btn" data-filter="Machined Gunmetal">Machined Gunmetal</button>
+      <button class="filter-btn" data-filter="Gloss Black">Gloss Black</button>
+      <button class="filter-btn" data-filter="Hyper">Hyper Graphite</button>
+      <button class="filter-btn" data-filter="Matte Black Machined">Matte Black Machined</button>
+      <button class="filter-btn" data-filter="Polished">Polished</button>
+    </div>
+    <div class="inv-grid" id="inv-grid">
+      <div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">Loading inventory…</div>
+    </div>
+    <div style="margin-top:28px; text-align:center; color:var(--ink-muted); font-size:14px;">
+      Showing <span id="inv-visible-count">0</span> of <span id="inv-total-count">0</span> in-stock products. Need a specific fitment? <a href="#appointment">Ask us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======= APPOINTMENT ======= -->
+<section class="block" id="appointment" style="background: var(--bg-elev);">
+  <div class="block-inner">
+    <div class="block-eyebrow">Book an appointment</div>
+    <h2>Get a free quote in under 60 seconds.</h2>
+    <p class="block-sub">Tell us what you need. We'll respond within one business day with an exact number and a drop-off window.</p>
+    <div class="appt-wrap">
+      <form class="appt-form" id="appt-form" onsubmit="return submitAppointment(event)">
+        <div class="row-2">
+          <div><label>Your Name</label><input type="text" name="name" required></div>
+          <div><label>Phone</label><input type="tel" name="phone" required></div>
+        </div>
+        <div><label>Email</label><input type="email" name="email" required></div>
+        <div class="row-2">
+          <div>
+            <label>Service Needed</label>
+            <select name="service" required>
+              <option value="">Choose one…</option>
+              <option>Powder Coating (full set of 4)</option>
+              <option>Powder Coating (single wheel)</option>
+              <option>Curb Rash / Cosmetic Repair</option>
+              <option>Structural / Bent Rim Repair</option>
+              <option>Mount and Balance on Vehicle</option>
+              <option>OEM Replacement Wheel</option>
+              <option>Brake Caliper / Suspension Coating</option>
+              <option>Other / Custom</option>
+            </select>
+          </div>
+          <div>
+            <label>Vehicle Year/Make/Model</label>
+            <input type="text" name="vehicle" placeholder="e.g. 2022 Jeep Wrangler" required>
+          </div>
+        </div>
+        <div><label>Describe what you need</label><textarea name="message" rows="4" placeholder="Wheel size, damage description, preferred finish or color, ideal drop-off window…"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="margin-top:6px; justify-content:center;">Request My Quote →</button>
+        <p style="font-size:12px; color:var(--ink-dim); text-align:center; margin-top:4px;">We respond within one business day, Mon–Fri 8:00–5:00.</p>
+      </form>
+      <div class="appt-side">
+        <p>Prefer to talk? Call the shop. If it's after hours, leave a message — we return every call next business day.</p>
+        <div class="appt-contact-row">
+          <span class="appt-contact-icon">📞</span>
+          <div>
+            <div class="appt-contact-label">Phone</div>
+            <div class="appt-contact-val"><a href="tel:+12489009100">(248) 900-9100</a></div>
+          </div>
+        </div>
+        <div class="appt-contact-row">
+          <span class="appt-contact-icon">📍</span>
+          <div>
+            <div class="appt-contact-label">Location</div>
+            <div class="appt-contact-val">10500 W 8 Mile Rd<br>Ferndale, MI 48220</div>
+          </div>
+        </div>
+        <div class="appt-contact-row">
+          <span class="appt-contact-icon">🕗</span>
+          <div>
+            <div class="appt-contact-label">Hours</div>
+            <div class="appt-contact-val">Monday – Friday 8:00am – 5:00pm<br><span style="color:var(--ink-muted); font-size:13px;">Closed Saturday &amp; Sunday</span></div>
+          </div>
+        </div>
+        <div class="appt-contact-row">
+          <span class="appt-contact-icon">🌐</span>
+          <div>
+            <div class="appt-contact-label">Online</div>
+            <div class="appt-contact-val">
+              <a href="https://www.tiktok.com/@wrsmichigan">TikTok @wrsmichigan</a> ·
+              <a href="https://x.com/Wheelfixitmi">X @Wheelfixitmi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom:16px">
+        <div class="logo-mark"></div>
+        <span>Wheel Repair Specialists of Michigan</span>
+      </div>
+      <p>60+ years of combined wheel restoration experience. Metro Detroit's trusted shop for powder coating, structural repair, and refurbished OEM replacements.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Wheel Repair</a></li>
+        <li><a href="#services">Powder Coating</a></li>
+        <li><a href="#services">Mount &amp; Balance</a></li>
+        <li><a href="#inventory">OEM Inventory</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li>10500 W 8 Mile Rd</li>
+        <li>Ferndale, MI 48220</li>
+        <li><a href="tel:+12489009100">(248) 900-9100</a></li>
+        <li>Mon–Fri 8am–5pm</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.tiktok.com/@wrsmichigan">TikTok</a></li>
+        <li><a href="https://x.com/Wheelfixitmi">X / Twitter</a></li>
+        <li><a href="#appointment">Book a Quote</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Wheel Repair Specialists of Michigan · All rights reserved</span>
+    <span>Powered by 10 Research Group</span>
+  </div>
+</footer>
+
+<!-- ======= CHATBOT ======= -->
+<button id="chat-fab" aria-label="Open chat">💬</button>
+
+<div id="chat-panel" role="dialog" aria-label="Chat with WRS">
+  <div class="chat-header">
+    <div style="width:36px; height:36px; border-radius:50%; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; font-size:18px;">🛞</div>
+    <div style="flex:1">
+      <div class="chat-header-title">WRS Assistant</div>
+      <div class="chat-header-sub">online now</div>
+    </div>
+    <button onclick="toggleChat()" style="background:none;border:none;color:var(--ink-muted);font-size:22px;cursor:pointer;">×</button>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-input-row">
+    <input type="text" id="chat-input" placeholder="Ask about pricing, availability, hours…" onkeydown="if(event.key==='Enter')sendChat()" aria-label="Chat input">
+    <button id="chat-send" onclick="sendChat()">Send</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+// ─────────── INVENTORY ───────────
+let ALL_PRODUCTS = [];
+let CURRENT_FILTER = 'all';
+
+async function loadInventory() {
+  try {
+    const res = await fetch('_products.json');
+    ALL_PRODUCTS = await res.json();
+    document.getElementById('inv-total-count').textContent = ALL_PRODUCTS.length;
+    renderInventory();
+  } catch (e) {
+    document.getElementById('inv-grid').innerHTML = '<div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">Inventory temporarily unavailable. Call (248) 900-9100 for real-time stock.</div>';
+  }
+}
+
+function renderInventory() {
+  const search = (document.getElementById('inv-search').value || '').toLowerCase().trim();
+  const grid = document.getElementById('inv-grid');
+  const filtered = ALL_PRODUCTS.filter(p => {
+    if (CURRENT_FILTER !== 'all' && !p.finish.toLowerCase().includes(CURRENT_FILTER.toLowerCase())) return false;
+    if (search) {
+      const hay = (p.title + ' ' + p.make + ' ' + p.model + ' ' + p.part + ' ' + p.finish).toLowerCase();
+      if (!hay.includes(search)) return false;
+    }
+    return true;
+  });
+  document.getElementById('inv-visible-count').textContent = filtered.length;
+  if (!filtered.length) {
+    grid.innerHTML = '<div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">No matches. <a href="#appointment">Ask us for a specific fitment →</a></div>';
+    return;
+  }
+  grid.innerHTML = filtered.map(p => {
+    const salePrice = (p.sale_price || p.price).replace(' USD', '');
+    const listPrice = p.price.replace(' USD', '');
+    const hasDiscount = p.sale_price && p.sale_price !== p.price;
+    return `
+      <article class="inv-card" itemscope itemtype="https://schema.org/Product">
+        <meta itemprop="sku" content="${p.id}">
+        <meta itemprop="brand" content="${p.make || ''}">
+        <div class="inv-img">
+          ${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy" itemprop="image">` : '🛞'}
+        </div>
+        <div class="inv-body">
+          <div class="inv-finish">${p.finish}</div>
+          <div class="inv-title" itemprop="name">${p.title}</div>
+          <div class="inv-meta">
+            ${p.size ? `<span class="inv-chip">${p.size}</span>` : ''}
+            ${p.bolt ? `<span class="inv-chip">${p.bolt}</span>` : ''}
+            ${p.part ? `<span class="inv-chip">#${p.part}</span>` : ''}
+          </div>
+          <div class="inv-price-row" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <meta itemprop="priceCurrency" content="USD">
+            <meta itemprop="price" content="${salePrice}">
+            <meta itemprop="availability" content="https://schema.org/InStock">
+            <span class="inv-sale">$${salePrice}</span>
+            ${hasDiscount ? `<span class="inv-list">$${listPrice}</span>` : ''}
+          </div>
+          <a href="#appointment" class="inv-cta" onclick="prefillAppointment('${p.id}', '${p.title.replace(/'/g, '')}')">Request this wheel →</a>
+        </div>
+      </article>`;
+  }).join('');
+}
+
+function prefillAppointment(id, title) {
+  const form = document.getElementById('appt-form');
+  form.service.value = 'OEM Replacement Wheel';
+  form.message.value = `Interested in part ${id}: ${title}`;
+}
+
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    CURRENT_FILTER = btn.dataset.filter;
+    renderInventory();
+  });
+});
+document.getElementById('inv-search').addEventListener('input', renderInventory);
+
+loadInventory();
+
+// ─────────── APPOINTMENT FORM ───────────
+function submitAppointment(e) {
+  e.preventDefault();
+  const f = e.target;
+  const body = `Name: ${f.name.value}%0D%0APhone: ${f.phone.value}%0D%0AEmail: ${f.email.value}%0D%0AService: ${f.service.value}%0D%0AVehicle: ${f.vehicle.value}%0D%0A%0D%0A${f.message.value}`;
+  const subject = `Quote request — ${f.service.value} — ${f.vehicle.value}`;
+  window.location.href = `mailto:info@wrs-mi.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  showToast('Opening your email client… If nothing happens, call (248) 900-9100.');
+  return false;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 4000);
+}
+
+// ─────────── CHATBOT ───────────
+const CHAT_STATE = { open: false, history: [] };
+
+const INTRO_MESSAGES = [
+  { from: 'bot', text: "Hey — WRS assistant here. I can help with pricing, hours, availability, and booking a quote. What do you need?" },
+  { from: 'bot', quick: ["Powder coat pricing", "How long does it take?", "Do you have my wheel?", "Book a quote"] }
+];
+
+const PRICING_TIERS = [
+  { sizes: ['13', '14', '15'], price: '$105 – $110' },
+  { sizes: ['16', '17'], price: '$115 – $120' },
+  { sizes: ['18', '19'], price: '$125' },
+  { sizes: ['20', '21'], price: '$135 – $145' },
+  { sizes: ['22', '23'], price: '$145 – $155' },
+  { sizes: ['24', '25', '26'], price: '$165 – $175' }
+];
+
+function findPricingForSize(userText) {
+  const m = userText.match(/(\d{2})\s*(?:in|inch|"|″|″)?/);
+  if (!m) return null;
+  const size = m[1];
+  const tier = PRICING_TIERS.find(t => t.sizes.includes(size));
+  return tier ? { size, price: tier.price } : null;
+}
+
+function routeChat(userText) {
+  const t = userText.toLowerCase();
+
+  // Greeting
+  if (/^(hi|hey|hello|yo|sup)\b/.test(t)) {
+    return "Hey. What can I help you with — pricing, availability on a specific wheel, or booking a quote?";
+  }
+
+  // Pricing — specific size
+  const sizePrice = findPricingForSize(userText);
+  if (sizePrice && /(price|cost|how much|quote|rate)/.test(t)) {
+    return `For ${sizePrice.size}″ wheels, powder coating runs ${sizePrice.price} per wheel. Chemical stripping is +$35 per wheel, protective clear coat is +$25 per wheel. That's for a clean cosmetic refinish — structural repair (bends, cracks) is quoted separately. Want me to pull up the appointment form?`;
+  }
+
+  // Pricing — general
+  if (/(price|cost|how much|quote|rate|pricing)/.test(t) && /(powder|coat)/.test(t)) {
+    return "Powder coating is tiered by wheel diameter:\n\n• 13″–15″: $105–$110\n• 16″–17″: $115–$120\n• 18″–19″: $125\n• 20″–21″: $135–$145\n• 22″–23″: $145–$155\n• 24″–26″: $165–$175\n\nAll per wheel. Adders: strip +$35, clear coat +$25. What size are yours?";
+  }
+  if (/(price|cost|how much)/.test(t)) {
+    return "Pricing depends on the service. Powder coating by wheel size runs $105–$175 per wheel. Brake calipers $45–$75 each. Suspension parts $35–$80 each. Full car frame $1,200–$1,400. Refurbished OEM wheels vary by part. What service are you looking at?";
+  }
+
+  // Turnaround
+  if (/(how long|turnaround|time|wait|days?|weeks?|fast|quick|when)/.test(t)) {
+    return "Two turnaround paths:\n\n• Drop the vehicle and we store it indoors → done in 2 days (e.g. Monday 9am drop-off, ready by Tuesday 6pm)\n• Drop loose wheels (no vehicle) → 1–2 weeks due to batch processing\n\nFastest path is almost always leaving the car with us.";
+  }
+
+  // Hours
+  if (/(hour|open|clos(ed|e)|when|today|saturday|sunday|weekend)/.test(t)) {
+    return "We're open Monday through Friday, 8:00am to 5:00pm. Closed Saturday and Sunday. Call us at (248) 900-9100 during those hours or use the appointment form below anytime.";
+  }
+
+  // Location / address
+  if (/(where|location|address|directions|find|near|detroit|ferndale|michigan)/.test(t)) {
+    return "We're at 10500 W 8 Mile Rd, Ferndale, MI 48220 — right in Metro Detroit. 25-mile service radius for local vehicle drop-offs. Inventory ships nationwide.";
+  }
+
+  // Phone
+  if (/(phone|call|number|contact)/.test(t)) {
+    return "Shop phone: (248) 900-9100. Mon–Fri 8–5. If it's after hours, leave a message or use the appointment form and we'll call you back next business day.";
+  }
+
+  // Damage severity / photo estimate
+  if (/(damage|bent|crack|curb rash|scratch|ding|chip)/.test(t)) {
+    return "Over 90% of wheel damage is cosmetic and repairable for a fraction of OEM replacement. For a real quote I'd want to see a photo — easiest path is to fill the appointment form below with a photo attached, or just call (248) 900-9100 and text a pic to the shop.";
+  }
+
+  // Specific wheel availability
+  if (/(have|stock|available|part|wheel for|fit)/.test(t)) {
+    const model = userText.replace(/[^a-zA-Z0-9 ]/g, '').trim();
+    return `Check the inventory section just above — there's a search box where you can type a make, model, or part number. If you don't see what you need there, we can source an OEM replacement; just submit the appointment form with your year/make/model and we'll confirm.`;
+  }
+
+  // Appointment
+  if (/(book|appointment|schedule|quote|estimate|when can|drop off)/.test(t)) {
+    return "Fill the appointment form right below the inventory section and we'll respond within one business day with an exact quote. Or call (248) 900-9100 if you want to talk live.";
+  }
+
+  // Shipping
+  if (/(ship|delivery|nationwide|national)/.test(t)) {
+    return "Yes — we ship refurbished OEM wheels nationwide. In-stock items ship within 2 business days. Local service (repair, powder coating, mount &amp; balance) is Metro Detroit only, 25-mile radius.";
+  }
+
+  // OEM replacement
+  if (/(oem|replacement|new wheel|stock wheel)/.test(t)) {
+    return "We stock refurbished factory OEM wheels across 5 finishes — Machined Gunmetal, PVD Chrome, Gloss Black, Hyper Graphite, Matte Black Machined. Every listing is professionally restored and ready to install. Search the inventory above or tell me your year/make/model.";
+  }
+
+  // Frame / calipers
+  if (/(caliper|brake|suspension|frame|control arm)/.test(t)) {
+    return "Yes, we powder coat those too:\n• Brake calipers: $45–$75 each (depending on piston count)\n• Suspension parts (a-arms, control arms): $35–$80 each\n• Full car frame (up to 15′): $1,200–$1,400\n\nFor anything else, tell me what you're coating and I'll get a ballpark.";
+  }
+
+  // Fallback
+  return "I can help with pricing, hours, location, turnaround times, and general questions. For specifics on your vehicle or to book a quote, call (248) 900-9100 or fill the appointment form. What else?";
+}
+
+function addMsg(msg) {
+  const body = document.getElementById('chat-body');
+  if (msg.quick) {
+    const div = document.createElement('div');
+    div.className = 'chat-quick';
+    msg.quick.forEach(q => {
+      const btn = document.createElement('button');
+      btn.textContent = q;
+      btn.onclick = () => { document.getElementById('chat-input').value = q; sendChat(); };
+      div.appendChild(btn);
+    });
+    body.appendChild(div);
+  } else {
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + msg.from;
+    div.innerText = msg.text;
+    body.appendChild(div);
+  }
+  body.scrollTop = body.scrollHeight;
+}
+
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  addMsg({ from: 'user', text });
+  input.value = '';
+  setTimeout(() => {
+    const reply = routeChat(text);
+    addMsg({ from: 'bot', text: reply });
+  }, 400);
+}
+
+function toggleChat() {
+  const panel = document.getElementById('chat-panel');
+  CHAT_STATE.open = !CHAT_STATE.open;
+  panel.classList.toggle('open', CHAT_STATE.open);
+  if (CHAT_STATE.open && CHAT_STATE.history.length === 0) {
+    INTRO_MESSAGES.forEach(m => addMsg(m));
+    CHAT_STATE.history = INTRO_MESSAGES.slice();
+  }
+}
+document.getElementById('chat-fab').addEventListener('click', toggleChat);
+</script>
+
+</body>
+</html>

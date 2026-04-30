@@ -1,0 +1,30 @@
+campaign,ad_group,keyword,match_type,max_cpc,negative
+Local Services,AG1 Wheel Repair,wheel repair near me,phrase,3.50,false
+Local Services,AG1 Wheel Repair,wheel repair detroit,exact,3.50,false
+Local Services,AG1 Wheel Repair,curb rash repair,phrase,3.00,false
+Local Services,AG1 Wheel Repair,bent wheel repair,exact,3.00,false
+Local Services,AG1 Wheel Repair,rim repair shop,phrase,3.00,false
+Local Services,AG1 Wheel Repair,cracked rim repair,exact,3.00,false
+Local Services,AG1 Wheel Repair,alloy wheel repair,phrase,3.00,false
+Local Services,AG1 Wheel Repair,rim straightening detroit,phrase,2.75,false
+Local Services,AG1 Wheel Repair,wheel welding detroit,phrase,2.75,false
+Local Services,AG1 Wheel Repair,free,,,true
+Local Services,AG1 Wheel Repair,diy,,,true
+Local Services,AG1 Wheel Repair,how to,,,true
+Local Services,AG1 Wheel Repair,youtube,,,true
+Local Services,AG2 Powder Coating,powder coat wheels,phrase,3.00,false
+Local Services,AG2 Powder Coating,powder coating near me,exact,3.00,false
+Local Services,AG2 Powder Coating,custom wheel color,phrase,2.75,false
+Local Services,AG2 Powder Coating,rim powder coat,exact,3.00,false
+Local Services,AG2 Powder Coating,caliper powder coating,phrase,2.50,false
+Local Services,AG2 Powder Coating,frame powder coating,phrase,2.50,false
+Local Services,AG2 Powder Coating,powder coating detroit,phrase,2.75,false
+Local Services,AG2 Powder Coating,kit,,,true
+Local Services,AG2 Powder Coating,diy,,,true
+Local Services,AG3 Mount Balance,mount and balance shop,phrase,3.25,false
+Local Services,AG3 Mount Balance,tire mount balance near me,exact,3.25,false
+Local Services,AG3 Mount Balance,wheel mount balance on car,phrase,3.00,false
+Local Services,AG3 Mount Balance,loose tire mount balance,phrase,2.75,false
+Local Services,AG3 Mount Balance,discount tire,,,true
+Local Services,AG3 Mount Balance,belle tire,,,true
+Local Services,AG3 Mount Balance,free,,,true

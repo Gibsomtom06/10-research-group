@@ -1,0 +1,29 @@
+{
+  "name": "dba-workers",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "sender": "tsx sender.ts",
+    "sender:once": "tsx sender.ts --once",
+    "sender:dryrun": "cross-env SENDER_DRY_RUN=true tsx sender.ts --once",
+    "freshness-sweep": "tsx freshness_sweep.ts",
+    "freshness-sweep:once": "tsx freshness_sweep.ts --once",
+    "bounce-handler": "tsx bounce_handler.ts",
+    "bounce-handler:once": "tsx bounce_handler.ts --once",
+    "reminder-sweep": "tsx reminder_sweep.ts",
+    "reminder-sweep:once": "tsx reminder_sweep.ts --once",
+    "followup-queue": "tsx followup_queue.ts",
+    "followup-queue:once": "tsx followup_queue.ts --once"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "dotenv": "^17.4.2",
+    "googleapis": "^144.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "cross-env": "^7.0.3",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3"
+  }
+}
