@@ -56,3 +56,6 @@ desktop.ini
 
 # Per-trading-shadow gitignore handles its own data/ rules (uses negation
 # for content_ideas.jsonl + ideas_brainstorm.jsonl). Let it do that.
+
+# Model router runtime decisions log
+**/model_router/decisions.jsonl

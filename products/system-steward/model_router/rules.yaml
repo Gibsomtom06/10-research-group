@@ -1,0 +1,192 @@
+# Model Router — Routing Rules
+#
+# Order matters: first match wins. Higher-stakes / more-specific rules go up top.
+# Edit this file to tune routing without touching code.
+#
+# Each rule has:
+#   name          — human label
+#   matches       — conditions; ALL must be true for the rule to fire
+#   model         — which Anthropic model to route to
+#   reasoning     — short explanation logged with each decision
+#   confidence    — float 0.0-1.0; how sure the rule is right (used for eval)
+#
+# Match keys (case-insensitive substring match on the task description, unless suffixed _exact):
+#   keywords      — list; ANY keyword in the task description triggers
+#   keywords_all  — list; ALL keywords must be present
+#   stakes        — one of: low, medium, high (caller passes; default: medium)
+#   reversibility — one of: reversible, irreversible (caller passes; default: reversible)
+#   token_volume  — one of: low (<5K), medium (<50K), high (>=50K); estimate
+
+rules:
+
+  # ============================================================
+  # SAFETY-FIRST RULES (high stakes / irreversibility override cost)
+  # ============================================================
+
+  - name: high-stakes-financial-trade
+    matches:
+      stakes: high
+      keywords: [trade, buy stock, sell stock, place order, position size, $100, $1000]
+    model: claude-opus-4-7
+    reasoning: "Real-money trading decisions. Stakes >> cost. Always Opus."
+    confidence: 0.95
+
+  - name: irreversible-action
+    matches:
+      reversibility: irreversible
+    model: claude-opus-4-7
+    reasoning: "Irreversible action (sent email, deleted file, executed transaction). Use best judgment available."
+    confidence: 0.90
+
+  - name: legal-or-medical
+    matches:
+      keywords: [legal advice, medical, contract review, lawsuit, expungement, diagnosis]
+    model: claude-opus-4-7
+    reasoning: "Legal/medical domain — get it right; cost is irrelevant."
+    confidence: 0.95
+
+  # ============================================================
+  # STRATEGIC / JUDGMENT RULES
+  # ============================================================
+
+  - name: strategic-planning
+    matches:
+      keywords: [strategy, plan, design, architecture, decide, recommendation, restate, roadmap, prioritize]
+    model: claude-opus-4-7
+    reasoning: "Strategic reasoning — Opus's deep thinking pays for itself in better decisions."
+    confidence: 0.85
+
+  - name: complex-debug
+    matches:
+      keywords_all: [debug, complex]
+    model: claude-opus-4-7
+    reasoning: "Hard debugging benefits from Opus's pattern recognition."
+    confidence: 0.80
+
+  - name: prompt-engineering
+    matches:
+      keywords: [system prompt, prompt design, prompt rewrite, persona]
+    model: claude-opus-4-7
+    reasoning: "Designing other models' prompts requires meta-reasoning."
+    confidence: 0.85
+
+  # ============================================================
+  # CODE / IMPLEMENTATION RULES (Sonnet sweet spot)
+  # ============================================================
+
+  - name: code-generation-medium
+    matches:
+      keywords: [write code, implement, function, class, refactor, port, translate, write a script]
+      stakes: [low, medium]
+    model: claude-sonnet-4-6
+    reasoning: "Sonnet handles structured code at 5x cheaper than Opus."
+    confidence: 0.85
+
+  - name: code-review-medium
+    matches:
+      keywords: [code review, review pr, find bug]
+      stakes: [low, medium]
+    model: claude-sonnet-4-6
+    reasoning: "Sonnet is sufficient for code review unless stakes are high."
+    confidence: 0.75
+
+  - name: test-writing
+    matches:
+      keywords: [write test, unit test, tdd, pytest, jest]
+    model: claude-sonnet-4-6
+    reasoning: "Test code is structured; Sonnet handles it."
+    confidence: 0.85
+
+  # ============================================================
+  # RESEARCH / ANALYSIS RULES
+  # ============================================================
+
+  - name: research-readonly
+    matches:
+      keywords: [research, find, search, look up, locate, scan, inventory, analyze]
+      reversibility: reversible
+    model: claude-sonnet-4-6
+    reasoning: "Read-only research — Sonnet sufficient; Haiku risks missing nuance."
+    confidence: 0.75
+
+  - name: classification
+    matches:
+      keywords: [classify, categorize, label, tag, sort into, route to]
+    model: claude-haiku-4-5
+    reasoning: "Classification with clear labels — Haiku handles it cheaply."
+    confidence: 0.80
+
+  # ============================================================
+  # ATOMIC / SIMPLE-OP RULES (Haiku sweet spot)
+  # ============================================================
+
+  - name: git-commit
+    matches:
+      keywords: [git commit, commit changes, stage and commit, git push, commit, commit and push]
+    model: claude-haiku-4-5
+    reasoning: "Atomic git ops with clear correct output."
+    confidence: 0.95
+
+  - name: file-move
+    matches:
+      keywords: [move file, rename file, copy file, batch move, organize files, consolidate files, move files, rename, batch organize, file moves, move N files, move them, batch-move]
+    model: claude-haiku-4-5
+    reasoning: "Mechanical file ops."
+    confidence: 0.95
+
+  - name: simple-format-transform
+    matches:
+      keywords: [convert format, parse json, parse csv, extract field, json to csv, format date]
+    model: claude-haiku-4-5
+    reasoning: "Format transforms have clear correct output."
+    confidence: 0.85
+
+  - name: text-summarize-short
+    matches:
+      keywords: [summarize, tldr, one-line, abstract]
+      token_volume: [low, medium]
+    model: claude-haiku-4-5
+    reasoning: "Short summarization — Haiku handles it."
+    confidence: 0.75
+
+  # ============================================================
+  # FILLED-IN RULES (added 2026-04-30 v2 from self-eval gaps)
+  # ============================================================
+
+  - name: pdf-parsing
+    matches:
+      keywords: [parse pdf, parse the pdf, pdf attachment, pdf parsing, extract from pdf, read pdf, pdf offer, attachment]
+    model: claude-sonnet-4-6
+    reasoning: "PDF parsing requires structured extraction; Sonnet handles it. Opus only when stakes are high."
+    confidence: 0.75
+
+  - name: debug-default
+    matches:
+      keywords: [debug, troubleshoot, fix bug, diagnose, why is this broken, why isn't it working]
+    model: claude-sonnet-4-6
+    reasoning: "Default debug to Sonnet. Use complex-debug rule (above) only when 'complex' is also present."
+    confidence: 0.70
+
+  - name: classification-bulk
+    matches:
+      keywords: [classify, categorize, label, sort into, route to, bucket into, tag with, group by]
+    model: claude-haiku-4-5
+    reasoning: "Bulk classification — Haiku is sufficient with clear taxonomy. Moved here from below to fix v1 substring bug where 'class' in 'classify' wrongly hit code-generation."
+    confidence: 0.85
+
+  # ============================================================
+  # FALLBACK
+  # ============================================================
+
+  - name: unmatched-default
+    matches:
+      stakes: low
+    model: claude-sonnet-4-6
+    reasoning: "Default to Sonnet for low-stakes tasks (balanced quality + cost)."
+    confidence: 0.50
+
+  - name: unmatched-medium-or-higher
+    matches: {}  # catch-all
+    model: claude-sonnet-4-6
+    reasoning: "Catch-all default — Sonnet is the safe middle ground."
+    confidence: 0.40

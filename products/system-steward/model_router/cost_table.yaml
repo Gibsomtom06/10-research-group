@@ -1,0 +1,25 @@
+# Model cost table (Anthropic API)
+# Prices are per-million-tokens.
+# Source: Anthropic public pricing as of 2026-04-30.
+# Update whenever Anthropic changes pricing OR a new model lands.
+
+models:
+  claude-opus-4-7:
+    input_per_mtok_usd: 15.00
+    output_per_mtok_usd: 75.00
+    notes: "Best reasoning. Use for high-stakes, irreversible, strategic, complex debug."
+
+  claude-sonnet-4-6:
+    input_per_mtok_usd: 3.00
+    output_per_mtok_usd: 15.00
+    notes: "Balanced. ~5x cheaper than Opus. Use for code, structured tasks, research."
+
+  claude-haiku-4-5:
+    input_per_mtok_usd: 0.80
+    output_per_mtok_usd: 4.00
+    notes: "Cheap and fast. ~25x cheaper than Opus. Use for atomic ops, classification, simple summarization, git."
+
+# Quick comparison (relative cost vs Haiku):
+# Opus = ~18.75x Haiku   (15+75) / (0.8+4)
+# Sonnet = ~3.75x Haiku  (3+15) / (0.8+4)
+# Haiku = 1x baseline
