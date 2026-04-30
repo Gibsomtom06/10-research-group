@@ -1,0 +1,79 @@
+THE CATALOG MANAGEMENT PROBLEM
+Here's what you're actually dealing with. This isn't one problem — it's five distinct inventory categories that each have different statuses, different owners, different monetization paths, and different urgency levels. Right now they're all living in your head.
+BUCKET 1: RELEASED & LIVE
+Distributed through VMG, live on all DSPs + SoundCloud + YouTube.
+These have ISRCs, UPCs, streaming data. They're working assets.
+Action needed: Track decay, monitor popularity scores, feed back into
+the release cadence clock.
+BUCKET 2: RELEASED — ORGANIC ONLY
+SoundCloud exclusives, YouTube uploads, free downloads.
+No ISRC, no distribution deal, no royalty collection.
+These are unmonetized assets sitting on the table.
+Action needed: Evaluate each for redistribution through VMG,
+or strategic waterfall into upcoming EPs.
+BUCKET 3: WIPs (Work In Progress)
+Tracked, named, partially finished. No release date.
+These need a production status (skeleton / arranged / mixed / mastered)
+and a decision: finish it, archive it, or hand it to a collab.
+Action needed: Production stage tagging + release pipeline slot assignment.
+BUCKET 4: COLLABS (Outbound / Inbound)
+Tracks involving other artists. Two sub-categories:
+a) You sent stems/ideas to someone — waiting on them
+b) Someone sent you something — waiting on your response
+These have legal implications (split sheets, credit agreements).
+Action needed: Status tracking + split sheet status + deadline pressure.
+BUCKET 5: LABEL SUBMISSIONS
+Tracks sent to labels. Three sub-states:
+a) Under consideration (waiting on response)
+b) Accepted — deal terms being negotiated
+c) Rejected — now available to self-release or pitch elsewhere
+Action needed: Response deadline tracking + fallback path if rejected.
+THE SCHEMA
+Every track in the catalog needs these fields, regardless of bucket:
+TRACK RECORD
+────────────────────────────────────────
+Title [string]
+Bucket [1–5 above]
+Production Status [idea / skeleton / arranged / mixed / mastered / delivered]
+ISRC [if exists]
+UPC [if part of a project]
+Release Date [if released]
+Platform(s) [Spotify / SC / YT / all DSPs / etc.]
+Collab Artists [names + split %]
+Split Sheet Signed? [yes / no / pending]
+Label Submitted To [if applicable]
+Label Response Status [pending / accepted / rejected / expired]
+Response Deadline [date — put pressure on it]
+Release Cadence Slot [which 6-week window does this target?]
+Strategic Priority [high / medium / hold / archive]
+Notes [anything relevant]
+────────────────────────────────────────
+THE DECISION ENGINE (FOR EACH TRACK)
+Every WIP and unreleased track needs ONE decision made about it. The decision tree is:
+Is it finished (mixed + mastered)?
+YES → Is it under label consideration?
+YES → Has the response deadline passed?
+YES → Pull it, route to self-release or pitch elsewhere
+NO → Hold, set a follow-up date
+NO → Does it fit the next 6-week release slot?
+YES → Schedule it. Lock VMG upload by [date].
+NO → Queue it for a future slot or bundle into EP.
+NO → Is it worth finishing?
+YES → Assign a production deadline. Who finishes it?
+NO → Archive. Don't let half-finished tracks sit and rot.
+WHAT WE NEED TO BUILD
+Three things:
+1. The Master Catalog Sheet
+A spreadsheet (or Notion database, or Airtable) with all tracks across all 5 buckets. Every record has the schema above. This is your single source of truth for the catalog — same function as the Tour Status doc is for shows.
+2. The Release Pipeline View
+A filtered view of the catalog showing only tracks that are release-ready or close to it, sorted by the 6-week release windows. Next slot is April 10 (decay deadline from "Drugs In Da Club"). What track is going in that slot? That answer should be in the catalog, not in someone's memory.
+3. The Collab/Label Tracker
+A separate view showing every track with an external dependency — a collab partner who hasn't responded, a label that's sitting on a submission, a split sheet that hasn't been signed. These have deadlines. Deadlines need pressure. Right now there's no system applying that pressure.
+IMMEDIATE QUESTIONS TO ANSWER
+Before I can build the actual catalog document or tracker, I need to know the scope. Help me answer these so we can start populating it:
+Roughly how many tracks are we talking across all 5 buckets? (ballpark — 10? 50? 100+?)
+Are the WIPs documented anywhere (even in a notes app or folder structure), or is it purely in Lee's head?
+How many active collabs are in flight right now — and do you know the split sheet status on any of them?
+Which labels have tracks under consideration, and when were they submitted?
+Do the SoundCloud/YouTube-only tracks have metadata saved anywhere (title, date uploaded, approximate stream counts)?
+Once I have those answers I'll build the actual catalog management tool — either a spreadsheet with the full schema, or an interactive tracker artifact, whichever makes more sense for how you're actually going to use it day-to-day.

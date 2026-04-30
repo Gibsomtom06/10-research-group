@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent 5: Show Onboarding</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .agent-badge {
+            background: #00E5FF;
+            color: #1E1E24;
+            padding: 4px 12px;
+            font-size: 18px;
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .trigger-box {
+            background: rgba(0, 229, 255, 0.1);
+            border-left: 4px solid #00E5FF;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .trigger-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #00E5FF;
+            margin-bottom: 5px;
+        }
+
+        .trigger-text {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .action-list {
+            list-style: none;
+        }
+
+        .action-item {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-icon {
+            color: #64748B;
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .action-text h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            color: #E2E8F0;
+            margin-bottom: 4px;
+        }
+
+        .action-text p {
+            font-size: 14px;
+            color: #94A3B8;
+            line-height: 1.4;
+        }
+
+        /* Right Column: Visuals */
+        .visual-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .terminal-window {
+            background: #0F0F12;
+            border: 1px solid #333;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #A0A0A0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .terminal-header {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #64748B;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tree-item {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .folder-icon { color: #E2E8F0; }
+        .file-icon { color: #64748B; }
+        .highlight-text { color: #00E5FF; }
+
+        .email-card {
+            background: #FFFFFF;
+            color: #1E1E24;
+            padding: 20px;
+            border-top: 4px solid #00E5FF;
+            font-family: 'Public Sans', sans-serif;
+            position: relative;
+        }
+
+        .email-header {
+            border-bottom: 1px solid #E2E8F0;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #64748B;
+        }
+
+        .email-subject {
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .email-body {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .email-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #00E5FF;
+            color: #1E1E24;
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .mcp-tools {
+            margin-top: auto;
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .tool-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #64748B;
+            border: 1px solid #333;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <h2><span class="agent-badge">AGENT 05</span> Show Onboarding</h2>
+            <div class="subtitle">"The Setup Crew" — Instant Infrastructure for Every Show</div>
+        </div>
+
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="trigger-box">
+                    <div class="trigger-label">TRIGGER EVENT</div>
+                    <div class="trigger-text">DEAL STATUS -> CONFIRMED</div>
+                </div>
+
+                <ul class="action-list">
+                    <li class="action-item">
+                        <i class="fas fa-folder-plus action-icon"></i>
+                        <div class="action-text">
+                            <h4>Create Show Folder</h4>
+                            <p>Builds standardized directory structure in Google Drive for contracts, assets, and reports.</p>
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <i class="fas fa-history action-icon"></i>
+                        <div class="action-text">
+                            <h4>Archive Deal Thread</h4>
+                            <p>Pulls the full negotiation history from Gmail and saves it as a PDF in the show folder.</p>
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <i class="fas fa-address-book action-icon"></i>
+                        <div class="action-text">
+                            <h4>Build Contact Sheet</h4>
+                            <p>Extracts promoter, venue, and production contacts into a structured file.</p>
+                        </div>
+                    </li>
+                    <li class="action-item">
+                        <i class="fas fa-paper-plane action-icon"></i>
+                        <div class="action-text">
+                            <h4>Send Marketing Letter</h4>
+                            <p>Auto-sends the "Crankdat Standard" expectations email with timeline, budget, and asset links.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="mcp-tools">
+                    <div class="tool-tag"><i class="fab fa-google-drive"></i> Drive API</div>
+                    <div class="tool-tag"><i class="fas fa-envelope"></i> Gmail API</div>
+                    <div class="tool-tag"><i class="far fa-calendar-alt"></i> Calendar API</div>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="visual-container">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span>/home/drive/Tours/2026/</span>
+                            <span>STATUS: CREATED</span>
+                        </div>
+                        <div class="tree-item"><i class="fas fa-folder folder-icon"></i> <span class="highlight-text">2026-04-11_Rochester_NY/</span></div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-folder folder-icon"></i> 01_Contracts/</div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-folder folder-icon"></i> 02_Assets/</div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-folder folder-icon"></i> 03_Marketing/</div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-folder folder-icon"></i> 04_Reports/</div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-file-alt file-icon"></i> contact_sheet.json</div>
+                        <div class="tree-item" style="padding-left: 20px;"><i class="fas fa-file-pdf file-icon"></i> deal_thread_archive.pdf</div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-badge">AUTO-SENT</div>
+                        <div class="email-header">
+                            TO: promoter@venue.com<br>
+                            SUBJECT: Marketing Assets & Timeline - DirtySnatcha @ Rochester (4/11)
+                        </div>
+                        <div class="email-subject">DirtySnatcha x Rochester Marketing Plan</div>
+                        <div class="email-body">
+                            <p>Hi Team,</p>
+                            <p>Looking forward to the show. Attached is our standard marketing rollout plan.</p>
+                            <p><strong>Timeline:</strong><br>
+                            - Announce: Feb 28 @ 12pm ET<br>
+                            - On-Sale: Mar 01 @ 10am ET</p>
+                            <p><strong>Assets:</strong><br>
+                            <span style="color: #0066CC; text-decoration: underline;">[Link to Approved Assets Folder]</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

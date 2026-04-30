@@ -32,13 +32,13 @@ Thomas's vision for cleaning \	homas@dirtysnatcharecords.com\ and \	homas@dirtys
 
 ## Layer 2: Tooling (BACKBURNERED — DBA Phase 1)
 
-**Status:** Not active until Data Broker Agent Phase 1 ships  
+**Status:** Not active until Digital Booking Agent Phase 1 ships  
 **Capabilities (when ready):**
 - Inbound Classifier — auto-route by entity
 - Voyage semantic search across inbox history
 - Auto-archive low-priority transactional
 - Daily Discord digest (key messages by entity)
-- Apollo enrichment via DBA Research agent
+- Apollo enrichment via Digital Booking Agent Research agent
 - Promoter sentiment scoring (booking-flow signal)
 
 ---

@@ -1,0 +1,17 @@
+{
+    "show_number": 6,
+    "date": "03/28/2026",
+    "city": "Covington",
+    "state": "KY",
+    "venue": "",
+    "offer": 1250.0,
+    "commission": {
+        "management": 125.0,
+        "agent": 125.0
+    },
+    "artist_payout": "$1,125",
+    "deal_type": "CONTRACT",
+    "hgr": true,
+    "notes": "Sent admas 2/13.",
+    "campaign_phase": ""
+}

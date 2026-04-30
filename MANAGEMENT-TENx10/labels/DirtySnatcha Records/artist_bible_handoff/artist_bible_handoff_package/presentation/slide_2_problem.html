@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Problem</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 42px;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 24px;
+            color: #64748B;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            flex-grow: 1;
+        }
+
+        .pain-points {
+            list-style: none;
+        }
+
+        .pain-point-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            font-size: 20px;
+            color: #E2E8F0;
+            line-height: 1.4;
+        }
+
+        .icon-box {
+            min-width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #64748B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: #00E5FF;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+        }
+
+        .real-example-box {
+            border: 1px dashed #64748B;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            color: #E2E8F0;
+            position: relative;
+        }
+
+        .real-example-box::before {
+            content: "SYSTEM_ALERT: CRITICAL_FAILURE";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #1E1E24;
+            padding: 0 10px;
+            color: #00E5FF;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .example-header {
+            color: #64748B;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .example-content {
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #FFFFFF;
+            background: rgba(0, 229, 255, 0.1);
+            padding: 2px 6px;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #64748B;
+            margin-right: 8px;
+        }
+
+        .status-indicator.active {
+            background-color: #00E5FF;
+            box-shadow: 0 0 10px #00E5FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h2>The Operational Gap</h2>
+        <div class="subtitle">Touring operations are fragmented, manual, and leaking revenue.</div>
+
+        <div class="content-grid">
+            <ul class="pain-points">
+                <li class="pain-point-item">
+                    <div class="icon-box">01</div>
+                    <div>No standardized marketing rollout across tour dates—inconsistent execution.</div>
+                </li>
+                <li class="pain-point-item">
+                    <div class="icon-box">02</div>
+                    <div>Zero visibility into promoter execution or marketing spend.</div>
+                </li>
+                <li class="pain-point-item">
+                    <div class="icon-box">03</div>
+                    <div>No true cost-per-ticket-sold metric; ROI is a guessing game.</div>
+                </li>
+                <li class="pain-point-item">
+                    <div class="icon-box">04</div>
+                    <div>Asset approvals bottleneck every campaign launch.</div>
+                </li>
+                <li class="pain-point-item">
+                    <div class="icon-box">05</div>
+                    <div>Contract and deposit tracking lives in scattered spreadsheets.</div>
+                </li>
+            </ul>
+
+            <div class="real-example-box">
+                <div class="example-header">Real-World Case Study: Lincoln, NE (Tomorrow)</div>
+                <div class="example-content">
+                    <p>> SHOW_DATE: 2026-02-27</p>
+                    <p>> STATUS: <span class="highlight">CRITICAL</span></p>
+                    <br>
+                    <p>[!] No active ad campaign running</p>
+                    <p>[!] Marketing budget breakdown: UNKNOWN</p>
+                    <p>[!] Standardized reporting: MISSING</p>
+                    <p>[!] Cost-per-ticket data: UNAVAILABLE</p>
+                    <br>
+                    <p>RESULT: Missed revenue and last-minute firefighting.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

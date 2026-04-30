@@ -1,0 +1,438 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <Styles>
+  <Style ss:ID="sHeader">
+   <Font ss:Bold="1"/>
+   <Interior ss:Color="#F2F2F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="sPercent">
+   <NumberFormat ss:Format="0.00%"/>
+  </Style>
+  <Style ss:ID="sPercentPlain">
+   <NumberFormat ss:Format="0.00"/>
+  </Style>
+  <Style ss:ID="sWrap">
+   <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+  </Style>
+ </Styles>
+ 
+ <Worksheet ss:Name="Mandem EP">
+  <Table ss:ExpandedColumnCount="24" ss:DefaultRowHeight="16">
+   <!-- Column widths -->
+   <Column ss:Width="120"/> <!-- A Album Title -->
+   <Column ss:Width="110"/> <!-- B Main Artist -->
+   <Column ss:Width="85"/>  <!-- C First -->
+   <Column ss:Width="85"/>  <!-- D Last -->
+   <Column ss:Width="200"/> <!-- E Mailing -->
+   <Column ss:Width="160"/> <!-- F Email -->
+   <Column ss:Width="60"/>  <!-- G PRO -->
+   <Column ss:Width="90"/>  <!-- H PRO # -->
+   <Column ss:Width="140"/> <!-- I Track Title -->
+   <Column ss:Width="130"/> <!-- J Contrib Artist (Stage) -->
+   <Column ss:Width="85"/>  <!-- K First -->
+   <Column ss:Width="85"/>  <!-- L Last -->
+   <Column ss:Width="200"/> <!-- M Mailing -->
+   <Column ss:Width="160"/> <!-- N Email -->
+   <Column ss:Width="60"/>  <!-- O PRO -->
+   <Column ss:Width="90"/>  <!-- P PRO # -->
+   <Column ss:Width="110"/> <!-- Q Role -->
+   <Column ss:Width="90"/>  <!-- R Artist % -->
+   <Column ss:Width="90"/>  <!-- S Label % -->
+   <Column ss:Width="220"/> <!-- T Publisher(s) -->
+   <Column ss:Width="90"/>  <!-- U Writer % -->
+   <Column ss:Width="90"/>  <!-- V Publisher % -->
+   <Column ss:Width="160"/> <!-- W Notes -->
+
+   <!-- Header Row -->
+   <Row ss:StyleID="sHeader">
+    <Cell><Data ss:Type="String">Album Title</Data></Cell>
+    <Cell><Data ss:Type="String">Main Artist (Stage)</Data></Cell>
+    <Cell><Data ss:Type="String">First Name</Data></Cell>
+    <Cell><Data ss:Type="String">Last Name</Data></Cell>
+    <Cell><Data ss:Type="String">Mailing Address</Data></Cell>
+    <Cell><Data ss:Type="String">Email</Data></Cell>
+    <Cell><Data ss:Type="String">PRO</Data></Cell>
+    <Cell><Data ss:Type="String">PRO #</Data></Cell>
+    <Cell><Data ss:Type="String">Track Title</Data></Cell>
+    <Cell><Data ss:Type="String">Contributing Artist (Stage)</Data></Cell>
+    <Cell><Data ss:Type="String">First Name</Data></Cell>
+    <Cell><Data ss:Type="String">Last Name</Data></Cell>
+    <Cell><Data ss:Type="String">Mailing Address</Data></Cell>
+    <Cell><Data ss:Type="String">Email</Data></Cell>
+    <Cell><Data ss:Type="String">PRO</Data></Cell>
+    <Cell><Data ss:Type="String">PRO #</Data></Cell>
+    <Cell><Data ss:Type="String">Role</Data></Cell>
+    <Cell><Data ss:Type="String">Artist Royalty %</Data></Cell>
+    <Cell><Data ss:Type="String">Label Royalty %</Data></Cell>
+    <Cell><Data ss:Type="String">Publisher(s) (PRO, IPI#)</Data></Cell>
+    <Cell><Data ss:Type="String">Writer %</Data></Cell>
+    <Cell><Data ss:Type="String">Publisher %</Data></Cell>
+    <Cell><Data ss:Type="String">Notes</Data></Cell>
+   </Row>
+
+   <!-- Parent album row -->
+   <Row>
+    <Cell><Data ss:Type="String">Mandem EP</Data></Cell>
+    <Cell><Data ss:Type="String">Rivibes</Data></Cell>
+    <Cell><Data ss:Type="String">Ché</Data></Cell>
+    <Cell><Data ss:Type="String">Leader</Data></Cell>
+    <Cell><Data ss:Type="String">9 Field Road, London E7 9DW</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1137750263</Data></Cell>
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+   </Row>
+
+   <!-- WHAT IF contributors -->
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">What If</Data></Cell>
+    <Cell><Data ss:Type="String">Rivibes</Data></Cell>
+    <Cell><Data ss:Type="String">Ché</Data></Cell>
+    <Cell><Data ss:Type="String">Leader</Data></Cell>
+    <Cell><Data ss:Type="String">9 Field Road, London E7 9DW</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1137750263</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">What If</Data></Cell>
+    <Cell><Data ss:Type="String">Martial Taktics</Data></Cell>
+    <Cell><Data ss:Type="String">Rupert Ziggy</Data></Cell>
+    <Cell><Data ss:Type="String">Heming</Data></Cell>
+    <Cell><Data ss:Type="String">62a Dunlace Road, London E50NE</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1144875834</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">What If</Data></Cell>
+    <Cell><Data ss:Type="String">Mport</Data></Cell>
+    <Cell><Data ss:Type="String">Marc</Data></Cell>
+    <Cell><Data ss:Type="String">Mount</Data></Cell>
+    <Cell><Data ss:Type="String">8611 Concord LN, Westminster, 80031</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">BMI</Data></Cell>
+    <Cell><Data ss:Type="String">00807724139</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">What If</Data></Cell>
+    <Cell><Data ss:Type="String">Monroller</Data></Cell>
+    <Cell><Data ss:Type="String">Louis Harold</Data></Cell>
+    <Cell><Data ss:Type="String">Monro</Data></Cell>
+    <Cell><Data ss:Type="String">No2 Hopgrass Farm, Stonegrove Hill, Bath Road, Hubgerford RG170SJ</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="String">IPI not provided in contract</Data></Cell>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">What If</Data></Cell>
+    <Cell><Data ss:Type="String">Big Nut Chuck</Data></Cell>
+    <Cell><Data ss:Type="String">Collin</Data></Cell>
+    <Cell><Data ss:Type="String">Burdick</Data></Cell>
+    <Cell><Data ss:Type="String">108 W. 81st PL, Denver, CO 80221</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">ASCAP</Data></Cell>
+    <Cell><Data ss:Type="String">871589296</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">20</Data></Cell>
+    <Cell><Data ss:Type="Number">10</Data></Cell>
+    <Cell/>
+   </Row>
+   <!-- TOTAL What If row (values shown, you can replace with formulas if desired) -->
+   <Row ss:StyleID="sHeader">
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">TOTAL – What If</Data></Cell>
+   </Row>
+
+   <!-- MAKIN' THEM STARE -->
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">Makin’ Them Stare</Data></Cell>
+    <Cell><Data ss:Type="String">Rivibes</Data></Cell>
+    <Cell><Data ss:Type="String">Ché</Data></Cell>
+    <Cell><Data ss:Type="String">Leader</Data></Cell>
+    <Cell><Data ss:Type="String">9 Field Road, London E7 9DW</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1137750263</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">Makin’ Them Stare</Data></Cell>
+    <Cell><Data ss:Type="String">Mport</Data></Cell>
+    <Cell><Data ss:Type="String">Marc</Data></Cell>
+    <Cell><Data ss:Type="String">Mount</Data></Cell>
+    <Cell><Data ss:Type="String">8611 Concord LN, Westminster, 80031</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">BMI</Data></Cell>
+    <Cell><Data ss:Type="String">00807724139</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:StyleID="sHeader">
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">TOTAL – Makin’ Them Stare</Data></Cell>
+   </Row>
+
+   <!-- STEP IN -->
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">Step In</Data></Cell>
+    <Cell><Data ss:Type="String">Rivibes</Data></Cell>
+    <Cell><Data ss:Type="String">Ché</Data></Cell>
+    <Cell><Data ss:Type="String">Leader</Data></Cell>
+    <Cell><Data ss:Type="String">9 Field Road, London E7 9DW</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1137750263</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">16.67</Data></Cell>
+    <Cell><Data ss:Type="Number">16.67</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">33.34</Data></Cell>
+    <Cell><Data ss:Type="Number">16.66</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">Step In</Data></Cell>
+    <Cell><Data ss:Type="String">Big Nut Chuck</Data></Cell>
+    <Cell><Data ss:Type="String">Collin</Data></Cell>
+    <Cell><Data ss:Type="String">Burdick</Data></Cell>
+    <Cell><Data ss:Type="String">108 W. 81st PL, Denver, CO 80221</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">ASCAP</Data></Cell>
+    <Cell><Data ss:Type="String">871589296</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">16.67</Data></Cell>
+    <Cell><Data ss:Type="Number">16.67</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">33.34</Data></Cell>
+    <Cell><Data ss:Type="Number">16.66</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">Step In</Data></Cell>
+    <Cell><Data ss:Type="String">Nyquist</Data></Cell>
+    <Cell><Data ss:Type="String">Derek</Data></Cell>
+    <Cell><Data ss:Type="String">Nyquist</Data></Cell>
+    <Cell><Data ss:Type="String">495 S. Quay Street, Lakewood, CO 80226</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">BMI</Data></Cell>
+    <Cell><Data ss:Type="String">1077945124</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">16.66</Data></Cell>
+    <Cell><Data ss:Type="Number">16.66</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">33.32</Data></Cell>
+    <Cell><Data ss:Type="Number">16.66</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:StyleID="sHeader">
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">TOTAL – Step In</Data></Cell>
+   </Row>
+
+   <!-- WHITE CLAW -->
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">White Claw</Data></Cell>
+    <Cell><Data ss:Type="String">Rivibes</Data></Cell>
+    <Cell><Data ss:Type="String">Ché</Data></Cell>
+    <Cell><Data ss:Type="String">Leader</Data></Cell>
+    <Cell><Data ss:Type="String">9 Field Road, London E7 9DW</Data></Cell>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String">1137750263</Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell/>
+   </Row>
+   <Row ss:OutlineLevel="1">
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+    <Cell><Data ss:Type="String">White Claw</Data></Cell>
+    <Cell><Data ss:Type="String">King Fluff</Data></Cell>
+    <Cell><Data ss:Type="String">King</Data></Cell>
+    <Cell><Data ss:Type="String">Flufferton</Data></Cell>
+    <Cell/>
+    <Cell/>
+    <Cell><Data ss:Type="String">PRS</Data></Cell>
+    <Cell><Data ss:Type="String"></Data></Cell>
+    <Cell><Data ss:Type="String">Performer/Writer</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell ss:StyleID="sWrap"><Data ss:Type="String">DirtySnatcha Records Publishing (ASCAP) 1238282844 / LAB10 (BMI) 01262829440</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">25</Data></Cell>
+    <Cell><Data ss:Type="String">PRO listed; IPI not provided</Data></Cell>
+   </Row>
+   <Row ss:StyleID="sHeader">
+    <Cell ss:Index="18"><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell ss:Index="21"><Data ss:Type="Number">100</Data></Cell>
+    <Cell><Data ss:Type="Number">50</Data></Cell>
+    <Cell><Data ss:Type="String">TOTAL – White Claw</Data></Cell>
+   </Row>
+
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <Outline>
+    <SummaryBelow/>
+   </Outline>
+  </WorksheetOptions>
+ </Worksheet>
+
+ <Worksheet ss:Name="Blank Template (6 rows)">
+  <Table ss:ExpandedColumnCount="24" ss:DefaultRowHeight="16">
+   <!-- same column widths as above -->
+   <Column ss:Width="120"/>
+   <Column ss:Width="110"/>
+   <Column ss:Width="85"/>
+   <Column ss:Width="85"/>
+   <Column ss:Width="200"/>
+   <Column ss:Width="160"/>
+   <Column ss:Width="60"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="140"/>
+   <Column ss:Width="130"/>
+   <Column ss:Width="85"/>
+   <Column ss:Width="85"/>
+   <Column ss:Width="200"/>
+   <Column ss:Width="160"/>
+   <Column ss:Width="60"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="110"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="220"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="90"/>
+   <Column ss:Width="160"/>
+
+   <Row ss:StyleID="sHeader">
+    <Cell><Data ss:Type="String">Album Title</Data></Cell>
+    <Cell><Data ss:Type="String">Main Artist (Stage)</Data></Cell>
+    <Cell><Data ss:Type="String">First Name</Data></Cell>
+    <Cell><Data ss:Type="String">Last Name</Data></Cell>
+    <Cell><Data ss:Type="String">Mailing Address</Data></Cell>
+    <Cell><Data ss:Type="String">Email</Data></Cell>
+    <Cell><Data ss:Type="String">PRO</Data></Cell>
+    <Cell><Data ss:Type="String">PRO #</Data></Cell>
+    <Cell><Data ss:Type="String">Track Title</Data></Cell>
+    <Cell><Data ss:Type="String">Contributing Artist (Stage)</Data></Cell>
+    <Cell><Data ss:Type="String">First Name</Data></Cell>
+    <Cell><Data ss:Type="String">Last Name</Data></Cell>
+    <Cell><Data ss:Type="String">Mailing Address</Data></Cell>
+    <Cell><Data ss:Type="String">Email</Data></Cell>
+    <Cell><Data ss:Type="String">PRO</Data></Cell>
+    <Cell><Data ss:Type="String">PRO #</Data></Cell>
+    <Cell><Data ss:Type="String">Role</Data></Cell>
+    <Cell><Data ss:Type="String">Artist Royalty %</Data></Cell>
+    <Cell><Data ss:Type="String">Label Royalty %</Data></Cell>
+    <Cell><Data ss:Type="String">Publisher(s) (PRO, IPI#)</Data></Cell>
+    <Cell><Data ss:Type="String">Writer %</Data></Cell>
+    <Cell><Data ss:Type="String">Publisher %</Data></Cell>
+    <Cell><Data ss:Type="String">Notes</Data></Cell>
+   </Row>
+
+   <!-- Parent album row -->
+   <Row>
+    <Cell><Data ss:Type="String">ALBUM_NAME</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_ARTIST</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_FIRST</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_LAST</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_ADDRESS</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_EMAIL</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_PRO</Data></Cell>
+    <Cell><Data ss:Type="String">MAIN_PRO_NO</Data></Cell>
+    <Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/><Cell/>
+   </Row>
+
+   <!-- 6 grouped sub-rows (blank) -->
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 1</Data></Cell></Row>
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 1</Data></Cell></Row>
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 2</Data></Cell></Row>
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 3</Data></Cell></Row>
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 4</Data></Cell></Row>
+   <Row ss:OutlineLevel="1"><Cell ss:Index="9"><Data ss:Type="String">TRACK 5</Data></Cell></Row>
+
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+   <Outline>
+    <SummaryBelow/>
+   </Outline>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>

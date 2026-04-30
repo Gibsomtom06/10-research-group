@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        .roadmap-container {
+            display: flex;
+            gap: 40px;
+            height: 100%;
+            padding-top: 20px;
+        }
+
+        .phase-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .phase-header {
+            border-bottom: 2px solid;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .phase-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .phase-time {
+            font-size: 12px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Phase 1 Styles */
+        .p1 .phase-header { border-color: #00E5FF; }
+        .p1 .phase-title { color: #00E5FF; }
+        .p1 .phase-time { color: #00E5FF; }
+
+        /* Phase 2 Styles */
+        .p2 .phase-header { border-color: #E2E8F0; }
+        .p2 .phase-title { color: #E2E8F0; }
+        .p2 .phase-time { color: #94A3B8; }
+
+        /* Phase 3 Styles */
+        .p3 .phase-header { border-color: #64748B; }
+        .p3 .phase-title { color: #64748B; }
+        .p3 .phase-time { color: #64748B; }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .task-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #333;
+            padding: 15px;
+            position: relative;
+        }
+
+        .p1 .task-card { border-left: 3px solid #00E5FF; background: rgba(0, 229, 255, 0.05); }
+        .p2 .task-card { border-left: 3px solid #E2E8F0; }
+        .p3 .task-card { border-left: 3px solid #64748B; opacity: 0.7; }
+
+        .task-type {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #64748B;
+        }
+
+        .task-name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: #FFFFFF;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .task-desc {
+            font-size: 12px;
+            color: #94A3B8;
+            line-height: 1.3;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 9px;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-live { background: #00E5FF; color: #1E1E24; }
+        .status-next { border: 1px solid #00E5FF; color: #00E5FF; }
+        .status-queue { border: 1px solid #64748B; color: #64748B; }
+
+        .tech-enabler {
+            margin-top: auto;
+            border-top: 1px dashed #333;
+            padding-top: 15px;
+        }
+
+        .tech-title {
+            font-size: 10px;
+            color: #64748B;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #94A3B8;
+            margin-bottom: 5px;
+        }
+
+        .tech-icon { color: #64748B; }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <h2>Build Roadmap</h2>
+            <div class="subtitle">Phased Delivery: From Triage to Transformation</div>
+        </div>
+
+        <div class="roadmap-container">
+            <!-- Phase 1 -->
+            <div class="phase-col p1">
+                <div class="phase-header">
+                    <div class="phase-title">PHASE 1: IMMEDIATE</div>
+                    <div class="phase-time">WEEKS 1-2 // "STOP THE BLEEDING"</div>
+                </div>
+                <div class="task-list">
+                    <div class="task-card">
+                        <div class="status-badge status-live">LIVE</div>
+                        <div class="task-type">AGENT 1</div>
+                        <div class="task-name">Tour Marketing</div>
+                        <div class="task-desc">Paid ads execution + Email blasts. Immediate revenue generation.</div>
+                    </div>
+                    <div class="task-card">
+                        <div class="status-badge status-next">NEXT</div>
+                        <div class="task-type">AGENT 5</div>
+                        <div class="task-name">Show Onboarding</div>
+                        <div class="task-desc">Folder setup, contact sheets, and promoter communication.</div>
+                    </div>
+                    <div class="task-card">
+                        <div class="status-badge status-queue">QUEUE</div>
+                        <div class="task-type">AGENT 4</div>
+                        <div class="task-name">Docs & Contracts</div>
+                        <div class="task-desc">Deposit tracking and contract compliance.</div>
+                    </div>
+                </div>
+                <div class="tech-enabler">
+                    <div class="tech-title">Tech Enablers</div>
+                    <div class="tech-item"><i class="fas fa-plug tech-icon"></i> Meta MCP (Connected)</div>
+                    <div class="tech-item"><i class="fas fa-plug tech-icon"></i> Gmail MCP (Connected)</div>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-col p2">
+                <div class="phase-header">
+                    <div class="phase-title">PHASE 2: SCALE</div>
+                    <div class="phase-time">WEEKS 3-4 // "AUTOMATION"</div>
+                </div>
+                <div class="task-list">
+                    <div class="task-card">
+                        <div class="status-badge status-queue">QUEUE</div>
+                        <div class="task-type">AGENT 3</div>
+                        <div class="task-name">Asset Manager</div>
+                        <div class="task-desc">Automated asset collection and approval workflows.</div>
+                    </div>
+                    <div class="task-card">
+                        <div class="status-badge status-queue">QUEUE</div>
+                        <div class="task-type">AGENT 6</div>
+                        <div class="task-name">Creative Production</div>
+                        <div class="task-desc">Batch generation of resized marketing assets.</div>
+                    </div>
+                </div>
+                <div class="tech-enabler">
+                    <div class="tech-title">Tech Enablers</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> Google Analytics API</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> Google Ads API</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> Mailchimp API</div>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-col p3">
+                <div class="phase-header">
+                    <div class="phase-title">PHASE 3: GROWTH</div>
+                    <div class="phase-time">MONTH 2+ // "EXPANSION"</div>
+                </div>
+                <div class="task-list">
+                    <div class="task-card">
+                        <div class="task-type">AGENT 2</div>
+                        <div class="task-name">Social Content</div>
+                        <div class="task-desc">Organic brand building and content calendar.</div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-type">AGENT 7</div>
+                        <div class="task-name">DSP Growth</div>
+                        <div class="task-desc">Strategic audience building in tour markets.</div>
+                    </div>
+                </div>
+                <div class="tech-enabler">
+                    <div class="tech-title">Tech Enablers</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> TikTok Ads API</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> X / Twitter API</div>
+                    <div class="tech-item"><i class="fas fa-code tech-icon"></i> Snapchat API</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

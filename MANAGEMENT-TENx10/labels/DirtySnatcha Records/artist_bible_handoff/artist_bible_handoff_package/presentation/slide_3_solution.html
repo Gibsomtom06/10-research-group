@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+            margin-bottom: 60px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .agent-network {
+            position: relative;
+            width: 1000px;
+            height: 450px;
+            /* border: 1px dashed #333; */ /* Guide for placement */
+        }
+
+        .core-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            border: 2px solid #00E5FF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: rgba(0, 229, 255, 0.05);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+            z-index: 10;
+        }
+
+        .core-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .agent-node {
+            position: absolute;
+            width: 220px;
+            padding: 15px;
+            border: 1px solid #64748B;
+            background: #1E1E24;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .agent-icon {
+            color: #00E5FF;
+            font-size: 20px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .agent-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .agent-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .agent-desc {
+            font-size: 10px;
+            color: #94A3B8;
+            line-height: 1.2;
+        }
+
+        /* Positioning the 7 agents around the core */
+        /* Top Center */
+        .agent-1 { top: 0; left: 50%; transform: translateX(-50%); }
+        /* Top Right */
+        .agent-2 { top: 80px; right: 0; }
+        /* Bottom Right */
+        .agent-3 { bottom: 80px; right: 0; }
+        /* Bottom Center */
+        .agent-4 { bottom: 0; left: 50%; transform: translateX(-50%); }
+        /* Bottom Left */
+        .agent-5 { bottom: 80px; left: 0; }
+        /* Top Left */
+        .agent-6 { top: 80px; left: 0; }
+        /* Extra one - maybe squeeze in or put near core */
+        /* Let's distribute them circular */
+        
+        /* Re-doing positioning for 7 items in a circle */
+        /* Center is 500, 225 */
+        /* Radius approx 300px */
+        
+        .agent-pos-1 { top: 20px; left: 50%; transform: translateX(-50%); } /* Top */
+        .agent-pos-2 { top: 100px; right: 50px; } /* Top Right */
+        .agent-pos-3 { bottom: 100px; right: 50px; } /* Bottom Right */
+        .agent-pos-4 { bottom: 20px; left: 60%; transform: translateX(-50%); } /* Bottom Rightish */
+        .agent-pos-5 { bottom: 20px; left: 40%; transform: translateX(-50%); } /* Bottom Leftish */
+        .agent-pos-6 { bottom: 100px; left: 50px; } /* Bottom Left */
+        .agent-pos-7 { top: 100px; left: 50px; } /* Top Left */
+
+        /* Connector Lines (simplified with CSS borders or pseudo elements) */
+        .connector {
+            position: absolute;
+            background: #64748B;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        
+        /* Central lines */
+        .line-v { width: 1px; height: 100%; left: 50%; top: 0; }
+        .line-h { height: 1px; width: 100%; top: 50%; left: 0; }
+        .line-d1 { width: 1px; height: 100%; left: 50%; top: 0; transform: rotate(45deg); }
+        .line-d2 { width: 1px; height: 100%; left: 50%; top: 0; transform: rotate(-45deg); }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h2>The Virtual Team</h2>
+        <div class="subtitle">7 Specialized AI Agents Orchestrated by One Central Intelligence</div>
+
+        <div class="agent-network">
+            <!-- Connectors -->
+            <div class="connector line-v"></div>
+            <div class="connector line-h"></div>
+            <div class="connector line-d1"></div>
+            <div class="connector line-d2"></div>
+
+            <div class="core-node">
+                <div class="core-label">ORCHESTRATOR<br>CORE</div>
+            </div>
+
+            <!-- Agent 1 -->
+            <div class="agent-node agent-pos-1">
+                <div class="agent-icon"><i class="fas fa-bullhorn"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">TOUR MARKETING</div>
+                    <div class="agent-desc">Paid Ads & Revenue</div>
+                </div>
+            </div>
+
+            <!-- Agent 2 -->
+            <div class="agent-node agent-pos-2">
+                <div class="agent-icon"><i class="fas fa-hashtag"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">SOCIAL CONTENT</div>
+                    <div class="agent-desc">Brand & Engagement</div>
+                </div>
+            </div>
+
+            <!-- Agent 3 -->
+            <div class="agent-node agent-pos-3">
+                <div class="agent-icon"><i class="fas fa-layer-group"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">ASSET MANAGER</div>
+                    <div class="agent-desc">Creative Logistics</div>
+                </div>
+            </div>
+
+            <!-- Agent 4 -->
+            <div class="agent-node agent-pos-4">
+                <div class="agent-icon"><i class="fas fa-file-contract"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">DOCS & CONTRACTS</div>
+                    <div class="agent-desc">Compliance & Finance</div>
+                </div>
+            </div>
+
+            <!-- Agent 5 -->
+            <div class="agent-node agent-pos-5">
+                <div class="agent-icon"><i class="fas fa-door-open"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">SHOW ONBOARDING</div>
+                    <div class="agent-desc">Infrastructure Setup</div>
+                </div>
+            </div>
+
+            <!-- Agent 6 -->
+            <div class="agent-node agent-pos-6">
+                <div class="agent-icon"><i class="fas fa-paint-brush"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">CREATIVE PROD</div>
+                    <div class="agent-desc">Asset Generation</div>
+                </div>
+            </div>
+
+            <!-- Agent 7 -->
+            <div class="agent-node agent-pos-7">
+                <div class="agent-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="agent-info">
+                    <div class="agent-title">DSP GROWTH</div>
+                    <div class="agent-desc">Audience Building</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

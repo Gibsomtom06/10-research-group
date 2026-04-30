@@ -1,0 +1,17 @@
+{
+    "show_number": 5,
+    "date": "03/27/2026",
+    "city": "Louisville",
+    "state": "KY",
+    "venue": "",
+    "offer": 1250.0,
+    "commission": {
+        "management": 125.0,
+        "agent": 125.0
+    },
+    "artist_payout": "$1,125",
+    "deal_type": "CONTRACT",
+    "hgr": true,
+    "notes": "Sent admas 2/12.",
+    "campaign_phase": ""
+}

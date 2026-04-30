@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent 3: Asset Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .agent-badge {
+            background: #00E5FF;
+            color: #1E1E24;
+            font-size: 18px;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .role-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #E2E8F0;
+            margin-bottom: 30px;
+        }
+
+        .capabilities-list {
+            list-style: none;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #94A3B8;
+        }
+
+        .capability-icon {
+            color: #00E5FF;
+            margin-right: 15px;
+            margin-top: 4px;
+        }
+
+        .tools-section {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+        }
+
+        .tools-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tool-tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tool-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #64748B;
+            padding: 6px 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Right Column: Asset Monitor */
+        .monitor-container {
+            background: #0F0F12;
+            border: 1px solid #333;
+            padding: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .monitor-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #64748B;
+            font-size: 12px;
+        }
+
+        .monitor-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        .asset-name {
+            color: #E2E8F0;
+        }
+
+        .asset-meta {
+            font-size: 12px;
+            color: #64748B;
+            margin-left: 10px;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .status-approved {
+            background: rgba(0, 255, 128, 0.1);
+            color: #00FF80;
+            border: 1px solid rgba(0, 255, 128, 0.3);
+        }
+
+        .status-pending {
+            background: rgba(255, 200, 0, 0.1);
+            color: #FFC800;
+            border: 1px solid rgba(255, 200, 0, 0.3);
+        }
+
+        .status-missing {
+            background: rgba(255, 75, 75, 0.1);
+            color: #FF4B4B;
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        .alert-box {
+            margin-top: 20px;
+            background: rgba(255, 75, 75, 0.1);
+            border-left: 3px solid #FF4B4B;
+            padding: 15px;
+            font-size: 12px;
+            color: #E2E8F0;
+        }
+
+        .alert-title {
+            color: #FF4B4B;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <h2><span class="agent-badge">AGENT 03</span> Asset Manager</h2>
+            <div class="subtitle">"The Prep Cook" — Ensuring Ingredients are Ready</div>
+        </div>
+
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="role-description">
+                    Before any marketing can happen, raw materials must be collected, organized, and approved. This agent automates the chase, ensuring no campaign is blocked by missing files.
+                </div>
+
+                <ul class="capabilities-list">
+                    <li class="capability-item">
+                        <i class="fas fa-folder-open capability-icon"></i>
+                        <div>Monitors Google Drive asset folders per show</div>
+                    </li>
+                    <li class="capability-item">
+                        <i class="fas fa-tasks capability-icon"></i>
+                        <div>Tracks approval status (Pending, Approved, Revision)</div>
+                    </li>
+                    <li class="capability-item">
+                        <i class="fas fa-hourglass-half capability-icon"></i>
+                        <div>Flags missing assets with time-based urgency</div>
+                    </li>
+                    <li class="capability-item">
+                        <i class="fas fa-envelope capability-icon"></i>
+                        <div>Chases promoters via Gmail for missing items</div>
+                    </li>
+                    <li class="capability-item">
+                        <i class="fas fa-share-alt capability-icon"></i>
+                        <div>Distributes approved links to Creative & Marketing agents</div>
+                    </li>
+                </ul>
+
+                <div class="tools-section">
+                    <div class="tools-label">Connected Tools</div>
+                    <div class="tool-tags">
+                        <div class="tool-tag"><i class="fab fa-google-drive"></i> Google Drive</div>
+                        <div class="tool-tag"><i class="fas fa-envelope"></i> Gmail</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-col">
+                <div class="monitor-container">
+                    <div class="monitor-header">
+                        <span>SHOW: LINCOLN_NE_2026-02-27</span>
+                        <span>STATUS: CRITICAL</span>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Press Photo (High Res)</span>
+                            <span class="asset-meta">.jpg</span>
+                        </div>
+                        <div class="status-badge status-approved">APPROVED</div>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Tour Logo (Vector)</span>
+                            <span class="asset-meta">.ai</span>
+                        </div>
+                        <div class="status-badge status-approved">APPROVED</div>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Venue Logo</span>
+                            <span class="asset-meta">.png</span>
+                        </div>
+                        <div class="status-badge status-missing">MISSING</div>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Support Act Photo</span>
+                            <span class="asset-meta">.jpg</span>
+                        </div>
+                        <div class="status-badge status-pending">PENDING</div>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Video Trailer Clip</span>
+                            <span class="asset-meta">.mp4</span>
+                        </div>
+                        <div class="status-badge status-approved">APPROVED</div>
+                    </div>
+
+                    <div class="monitor-row">
+                        <div>
+                            <span class="asset-name">Localized Flyer</span>
+                            <span class="asset-meta">.psd</span>
+                        </div>
+                        <div class="status-badge status-missing">MISSING</div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div class="alert-title"><i class="fas fa-exclamation-triangle"></i> ACTION REQUIRED</div>
+                        <div>Show is in 24 hours. Missing Venue Logo and Localized Flyer. Agent has escalated to Promoter via Gmail Priority Thread.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
