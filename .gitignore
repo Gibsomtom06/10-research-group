@@ -30,3 +30,29 @@ yarn-error.log*
 **/.vercel/
 **/prisma/dev.sqlite
 **/prisma/dev.sqlite-journal
+
+# Next.js
+**/.next/
+**/.turbo/
+
+# Python
+**/__pycache__/
+**/.venv/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+*.pyc
+*.pyo
+
+# Logs / runtime
+**/logs/
+**/*.log
+**/coverage/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Per-trading-shadow gitignore handles its own data/ rules (uses negation
+# for content_ideas.jsonl + ideas_brainstorm.jsonl). Let it do that.
