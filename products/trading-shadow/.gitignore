@@ -1,10 +1,20 @@
 .env
 .env.paper
 .env.live
-data/
 __pycache__/
 *.pyc
 .pytest_cache/
 .venv/
 .ruff_cache/
-*.jsonl
+
+# data/ is ignored by default (transient run data: decisions.jsonl,
+# shadow_predictions.jsonl, paper account snapshots, etc). Use data/*
+# rather than data/ so negation rules below can re-include foundation
+# files that DO belong in the repo.
+data/*
+!data/.gitkeep
+!data/content_ideas.jsonl
+!data/ideas_brainstorm.jsonl
+
+# Top-level rotating run logs
+logs/
