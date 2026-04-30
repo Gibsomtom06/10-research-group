@@ -5,6 +5,10 @@
             "path": "."
         },
         {
+            "name": "MANAGEMENT-TENx10 (the business)",
+            "path": "MANAGEMENT-TENx10"
+        },
+        {
             "name": "DBA — Digital Booking Agent",
             "path": "products/digital-booking-agent"
         },

@@ -64,22 +64,36 @@ Rules:
 │       ├── refinishing-agent\   ("Not Ready" inventory prioritization agent)
 │       └── site\                (Next.js site — WIP, launches tomorrow)
 │
-├── artists\                      ← per-roster-ARTIST assets + data (no code)
-│   ├── dirtysnatcha\            ← the ARTIST (Leigh Bray). NOT the label.
-│   │   ├── press-kit\
-│   │   ├── voice-corpus\        (source for voice_samples ingestion)
-│   │   ├── contracts\           (Leigh's performer contracts — shows, features)
-│   │   └── assets\              (his logos, photos, riders)
-│   ├── whoisee\
-│   ├── dark-matter\
-│   └── kotrax\
-│
-├── labels\                       ← record LABELS TENx10 manages / co-manages
-│   └── DirtySnatcha Records\    ← DSR (more labels will sign up here over time)
-│       ├── catalog\             (154 releases, DSR002–DSR178 metadata)
-│       ├── contracts\           (VMG distribution, label artist agreements)
-│       ├── releases\            (per-release assets, marketing, timelines)
-│       └── ops\                 (demo intake, label playbooks, editorial)
+├── MANAGEMENT-TENx10\             ← TENx10 the management BUSINESS. Everything that's TENx10's management roster lives here.
+│   ├── BRAIN.md                  ← (TODO: write fresh management business BRAIN — old tenx10/BRAIN.md was a stale platform clone, archived)
+│   ├── artists\                   ← per-roster-ARTIST assets + data (no code)
+│   │   ├── dirtysnatcha\         ← the ARTIST (Leigh Bray). NOT the label.
+│   │   │   ├── press-kit\
+│   │   │   ├── voice-corpus\     (source for voice_samples ingestion)
+│   │   │   ├── contracts\        (Leigh's performer contracts — shows, features)
+│   │   │   └── assets\           (his logos, photos, riders)
+│   │   ├── whoisee\
+│   │   ├── dark-matter\
+│   │   └── kotrax\
+│   │
+│   └── labels\                    ← record LABELS TENx10 manages / co-manages
+│       └── DirtySnatcha Records\ ← DSR (more labels will sign up here over time)
+│           ├── BRAIN.md
+│           ├── catalog\          (154 releases, DSR002–DSR178 metadata)
+│           ├── contracts\        (VMG distribution, label artist agreements)
+│           ├── releases\         (per-release assets, marketing, timelines)
+│           ├── publishing\
+│           ├── operations\
+│           ├── ops\              (demo intake, label playbooks, editorial)
+│           ├── brand\
+│           ├── brand-assets\
+│           ├── career-dev\
+│           ├── catalog-views\
+│           ├── merch\
+│           ├── mgmt-contracts\
+│           ├── releases-refs\
+│           ├── socials\
+│           └── tours\
 │
 ├── docs\                         ← COMPANY-level docs (not product-specific)
 │   ├── brand\                   (TENx10 brand guide, voice guidelines)
@@ -101,13 +115,14 @@ Rules:
 |---|---|
 | Software TENx10 ships | `10 Research Group\products\<product>\` |
 | DBA code, agents, schema, migrations | `10 Research Group\products\digital-booking-agent\` |
-| tenx10.co site source | `10 Research Group\products\tenx10-platform\` |
+| tenx10.co site source (the PLATFORM product) | `10 Research Group\products\tenx10-platform\` |
 | Rim Shop (Wheel Repair Specialists MI) — chatbot, GMC feed, site, google-ads, refinishing agent | `10 Research Group\products\rim-shop\` |
-| A single artist's press kit, voice corpus, or performer contracts | `10 Research Group\artists\<slug>\` |
-| Leigh's own performer show contracts / booking deal memos (he's the artist here) | `10 Research Group\artists\dirtysnatcha\contracts\` |
-| DSR label ops — catalog, VMG distribution, demo intake, label artist rosters | `10 Research Group\labels\DirtySnatcha Records\` |
-| DSR release paperwork + marketing assets for a specific catalog release | `10 Research Group\labels\DirtySnatcha Records\releases\` |
-| A new label signing up with TENx10 | `10 Research Group\labels\<Label Name>\` |
+| A single artist's press kit, voice corpus, or performer contracts | `10 Research Group\MANAGEMENT-TENx10\artists\<slug>\` |
+| Leigh's own performer show contracts / booking deal memos (he's the artist here) | `10 Research Group\MANAGEMENT-TENx10\artists\dirtysnatcha\contracts\` |
+| DSR label ops — catalog, VMG distribution, demo intake, label artist rosters | `10 Research Group\MANAGEMENT-TENx10\labels\DirtySnatcha Records\` |
+| DSR release paperwork + marketing assets for a specific catalog release | `10 Research Group\MANAGEMENT-TENx10\labels\DirtySnatcha Records\releases\` |
+| A new label signing up with TENx10 | `10 Research Group\MANAGEMENT-TENx10\labels\<Label Name>\` |
+| TENx10 management business strategy, ops, internal docs (not platform-product, not artist-specific) | `10 Research Group\MANAGEMENT-TENx10\` (root or sub-folder by topic) |
 | TENx10 brand / voice / playbook docs (not product-specific) | `10 Research Group\docs\` |
 | Legacy dumps that predate this map | `10 Research Group\_archive\scattered-sources\` |
 | Thomas's cross-project notes, people cards, glossaries | `C:\Users\Slash\memory\` — OUT of this folder |
@@ -118,10 +133,13 @@ Rules:
 ## Anti-patterns — things that should NEVER happen
 
 - A product folder living at the `10 Research Group\` top level instead of under `products\`.
-- A duplicate `tenx10-platform\`, `digital-booking-agent\`, or `rim-shop\` at the Cowork workspace root (`C:\Users\Slash\`) when one already exists under `products\`. If `C:\Users\Slash\Rim Shop\` still exists, it's stale — delete it.
-- Artist assets (voice corpus, press kit, contracts) copied into a product folder — they belong under `artists\<slug>\`.
-- **DSR label files nested under `artists\dirtysnatcha\`.** DirtySnatcha the artist and DirtySnatcha Records the label are DIFFERENT entities. Leigh is both the artist AND co-owns the label, but the label has 110+ other artists and its own ops — label stuff goes under `labels\DirtySnatcha Records\`, artist-Leigh stuff goes under `artists\dirtysnatcha\`.
-- A label folder (DSR or any future label) sitting at the `10 Research Group\` root instead of inside `labels\` — all labels live under the `labels\` bucket so new ones slot in cleanly.
+- A duplicate `tenx10-platform\`, `digital-booking-agent\`, or `rim-shop\` at the Cowork workspace root (`C:\Users\Slash\`) when one already exists under `products\`. If `C:\Users\Slash\Rim Shop\` or `C:\Users\Slash\Projects\tenx10\` still exist, they're stale — delete them.
+- A bare `tenx10\` folder at the umbrella root that holds platform code (or anything else) — that's confusing because TENx10 is BOTH the platform product AND the management business. The PLATFORM lives at `products\tenx10-platform\`. The MANAGEMENT BUSINESS lives at `MANAGEMENT-TENx10\`. Nothing called just `tenx10\` belongs at the umbrella root.
+- Artist assets (voice corpus, press kit, contracts) copied into a product folder — they belong under `MANAGEMENT-TENx10\artists\<slug>\`.
+- Artists or labels at the umbrella root (`10 Research Group\artists\`, `10 Research Group\labels\`) — those have moved under `MANAGEMENT-TENx10\` (2026-04-29 reorg).
+- **DSR label files nested under `MANAGEMENT-TENx10\artists\dirtysnatcha\`.** DirtySnatcha the artist and DirtySnatcha Records the label are DIFFERENT entities. Leigh is both the artist AND co-owns the label, but the label has 110+ other artists and its own ops — label stuff goes under `MANAGEMENT-TENx10\labels\DirtySnatcha Records\`, artist-Leigh stuff goes under `MANAGEMENT-TENx10\artists\dirtysnatcha\`.
+- A label folder (DSR or any future label) sitting outside `MANAGEMENT-TENx10\labels\` — all labels live under the `labels\` bucket inside `MANAGEMENT-TENx10\` so new ones slot in cleanly.
+- A duplicate label folder using a different casing or slug (e.g. `dirtysnatcha-records\` alongside `DirtySnatcha Records\`). Canonical is the title-case version. Lowercase slugs were merged + archived 2026-04-29.
 - `memory\` copied into `10 Research Group\`.
 - A second `CLAUDE.md` at `10 Research Group\` top level that conflicts with the product-scoped ones. Product CLAUDE.md files belong inside the product folder only.
 - Anything new dropped into `_archive\`. That folder is read-only / historical.

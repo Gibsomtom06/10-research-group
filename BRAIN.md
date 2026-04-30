@@ -28,9 +28,14 @@ Every project has one BRAIN.md at its root. That file is the living context for 
 10 Research Group/
   BRAIN.md                          ← this file (top-level operating system)
   products/
-    tenx10-platform/BRAIN.md        ← platform build state
-    rim-shop/BRAIN.md               ← client work
-  TENx10/                           ← management company (to be restructured)
+    tenx10-platform/BRAIN.md        ← TENx10 the PLATFORM (the SaaS product)
+    digital-booking-agent/BRAIN.md
+    rim-shop/BRAIN.md               ← client work (WRS)
+    system-steward/                  ← local Python utilities
+    trading-shadow/BRAIN.md
+    mhp/BRAIN.md
+  MANAGEMENT-TENx10/                ← TENx10 the BUSINESS (management company). Reorg'd 2026-04-29 — was previously bare TENx10/ at the umbrella root.
+    BRAIN.md                         ← (TODO: write fresh management business BRAIN — old tenx10/BRAIN.md was a stale platform clone, archived to _archive/stale-clones/)
     labels/
       DirtySnatcha Records/BRAIN.md
     artists/
@@ -54,10 +59,61 @@ Every project has one BRAIN.md at its root. That file is the living context for 
 
 ---
 
+## Capitulate and Cultivate (the strategic principle)
+
+We **rent** foundation models from Anthropic (Claude) and Ollama (local). We do NOT try to build models or compete with frontier labs — that's capitulation. **Our moat is what we build ON TOP of the rented models:**
+
+1. **The orchestration layer** — Factory Boss, Department Leads, Subs, the routing logic, the guardrails, the human-in-loop checkpoints
+2. **The conversation corpus** — every Thomas ↔ Claude session auto-logs to `data/conversation_log/` (since 2026-04-27). This corpus is uniquely ours; no competitor has it. It captures Thomas's decision patterns, business judgment, what gets rejected and why.
+3. **The per-project BRAIN.md files** — the operational context for every business unit, written in Thomas's voice. Subagents read these to act in-character.
+4. **The shadow team** — Ollama agents that learn from the corpus + task execution and graduate to handle work independently. Drives marginal cost toward zero.
+
+**Practical implication:** never build something a frontier lab will commoditize in 6 months. Build everything that's specific to Thomas's businesses, his voice, his judgment, his portfolio. The model layer changes; the orchestration + corpus + brains + shadows do not.
+
+This principle was identified in the 2026-04-28 strategic review (`docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md`) and made explicit here per Brain Gap #3.
+
+---
+
 ## What BRAIN means
 
 Thomas calls these files "brain." In other contexts you may see:
 **project brief / context file / north star doc** — same thing.
+
+---
+
+## Unified Observability — the agent contract
+
+To prevent **Orchestration Debt** (the risk identified in the 2026-04-28 strategic review where multiple in-flight agent systems each get their own JSONL/runner/Discord pattern), every agent in the Factory MUST report in a unified shape.
+
+**Required fields per agent invocation:**
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `timestamp` | ✅ | ISO-8601 UTC |
+| `agent_id` | ✅ | Unique within the Factory (e.g. `cmo`, `trader-track-a`, `inbound-classifier`) |
+| `agent_layer` | ✅ | `L1` / `L2` / `L3` / `L4-shadow` |
+| `project` | ✅ | Which Layer-4 project the work is for (TENx10, DSR, MHP, etc.) |
+| `task_id` | ✅ | UUID for the task run; subagents inherit and append |
+| `status` | ✅ | `started` / `succeeded` / `failed` / `requires_approval` / `rolled_back` |
+| `output_summary` | optional | One-line summary of the result |
+| `output_pointer` | optional | File path / DB row ID / URL where full output lives |
+| `cost_tokens` | ✅ for LLM agents | Input + output token counts |
+| `cost_usd` | ✅ for LLM agents | Estimated USD cost of the call |
+| `error` | required when status=failed | Exception message + stack trace pointer |
+| `parent_task_id` | optional | If invoked by another agent, the parent's task_id |
+| `prior_state_id` | optional (Risk #2 mitigation) | For rollback — pointer to the last-known-good state before this action |
+
+**Single observability surface:**
+
+- All agent invocations append to a single store (Supabase table `agent_invocations` OR a unified JSONL at `data/agent_invocations.jsonl`)
+- Discord summaries roll up by project + status + cost — one channel, one schema, not one channel per agent
+- Cost tracking is unified — The Router (10RG infra agent F per the factory architecture spec) reads from this store to flag bloat
+
+**Enforcement:** the Factory Boss orchestrator will refuse to dispatch to an agent that doesn't write its invocation row. New agent? It implements the contract OR it doesn't ship.
+
+**Practical implication for ANY agent being built right now** (trading-shadow, MHP merch generators, conversation shadow, future TENx10 agents): wire to this contract from day one. Retrofitting is more expensive than getting it right at scaffold time.
+
+This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 
 ---
 
@@ -75,6 +131,7 @@ Thomas calls these files "brain." In other contexts you may see:
 | **Factory architecture (CURRENT)** | `docs/superpowers/specs/2026-04-27-factory-architecture-design.md` |
 | **Trading shadow A/B test spec** | `docs/superpowers/specs/2026-04-27-trading-shadow-test-design.md` |
 | **Trading shadow implementation plan** | `docs/superpowers/plans/2026-04-27-trading-shadow-implementation.md` |
+| **Strategic review + gaps audit (2026-04-28)** | `docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md` |
 | Per-project context | `products/<project>/BRAIN.md` |
 | Conversation log (shadow corpus Layer B) | `data/conversation_log/` |
 
@@ -105,6 +162,6 @@ Thomas's main thread is for thinking, not typing. Typing happens in subagent thr
 
 ## Pending — Folder Restructure
 
-`artists/` and `labels/` currently sit directly under `10 Research Group/`.
-They need to move under `TENx10/` to reflect the actual business structure.
-This is assigned to a subagent — not done yet.
+~~`artists/` and `labels/` currently sit directly under `10 Research Group/`. They need to move under `TENx10/` to reflect the actual business structure.~~
+
+**DONE 2026-04-29:** `artists/` and `labels/` moved to `MANAGEMENT-TENx10/artists/` and `MANAGEMENT-TENx10/labels/`. The bare `tenx10/` clone at the umbrella root (was a stale platform clone, NOT a real management folder) was archived to `_archive/stale-clones/tenx10-cc65688-stale-clone/`. Lowercase duplicate `labels/dirtysnatcha-records/` merged into `DirtySnatcha Records/` and archived. The MANAGEMENT-TENx10/BRAIN.md still needs to be written from scratch — there is no real management business BRAIN yet; the old `tenx10/BRAIN.md` was just the platform's BRAIN duplicated into the wrong place.

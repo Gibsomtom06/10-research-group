@@ -1,4 +1,6 @@
 .env
+.env.paper
+.env.live
 data/
 __pycache__/
 *.pyc

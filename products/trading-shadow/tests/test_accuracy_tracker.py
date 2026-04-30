@@ -7,10 +7,11 @@ def _d(agent, action, ticker="SPY", track="A"):
 
 
 def test_accuracy_perfect_match():
+    # Each pair needs a unique (timestamp, ticker) key
     decisions = [
-        _d("claude", "buy"), _d("shadow", "buy"),
-        _d("claude", "hold"), _d("shadow", "hold"),
-        _d("claude", "sell"), _d("shadow", "sell"),
+        _d("claude", "buy", "SPY"), _d("shadow", "buy", "SPY"),
+        _d("claude", "hold", "AAPL"), _d("shadow", "hold", "AAPL"),
+        _d("claude", "sell", "MSFT"), _d("shadow", "sell", "MSFT"),
     ]
     acc = compute_accuracy(decisions, asset_class="equities")
     assert acc.total_pairs == 3
@@ -20,9 +21,9 @@ def test_accuracy_perfect_match():
 
 def test_accuracy_partial_match():
     decisions = [
-        _d("claude", "buy"), _d("shadow", "hold"),
-        _d("claude", "hold"), _d("shadow", "hold"),
-        _d("claude", "sell"), _d("shadow", "sell"),
+        _d("claude", "buy", "SPY"), _d("shadow", "hold", "SPY"),
+        _d("claude", "hold", "AAPL"), _d("shadow", "hold", "AAPL"),
+        _d("claude", "sell", "MSFT"), _d("shadow", "sell", "MSFT"),
     ]
     acc = compute_accuracy(decisions, asset_class="equities")
     assert acc.total_pairs == 3
