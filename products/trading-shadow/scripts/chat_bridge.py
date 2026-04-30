@@ -73,11 +73,20 @@ CLAUDE_CHAT_CHANNEL_ID = os.environ.get("CLAUDE_CHAT_CHANNEL_ID")
 
 XAI_MODEL = os.environ.get("XAI_MODEL", "claude-sonnet-4-6")
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-4-7")
+STRATEGIST_MODEL = os.environ.get("STRATEGIST_MODEL", "claude-opus-4-7")
 CHAT_HISTORY_TURNS = int(os.environ.get("CHAT_HISTORY_TURNS", "12"))
 
+# Pure-queue path (legacy ideas_inbox_listener.py behavior — kept for reference;
+# the Strategist handler below replaces this for the IDEAS_INBOX channel).
 QUEUE_PATH = Path("data/ideas_inbox.jsonl")
 QUEUE_PATH.parent.mkdir(parents=True, exist_ok=True)
 QUEUE_PATH.touch(exist_ok=True)
+
+# Brainstorm capture: structured log of every (user_message, strategist_response)
+# pair. Reviewable weekly; weekly review can extract kernels and act on them.
+BRAINSTORM_PATH = Path("data/ideas_brainstorm.jsonl")
+BRAINSTORM_PATH.parent.mkdir(parents=True, exist_ok=True)
+BRAINSTORM_PATH.touch(exist_ok=True)
 
 
 # Discord's per-message char limit. Long Claude responses get split.
@@ -137,6 +146,60 @@ When the user is logged in, you already know who they are. Do not ask "who am I 
 You are speaking through a Discord bot in Thomas's private server. You do NOT have live access to Supabase data here (no roster snapshot, no deals, no metrics). When asked something that needs live data ("show me today's bookings"), say so and tell Thomas to check the platform directly. For strategy, voice, framework, and decision-tree questions, you have everything you need — answer fully.
 
 Keep responses under 1800 characters when possible (Discord splits messages awkwardly above 2000). For long answers, split into 2 messages with "(1/2)" "(2/2)" markers."""
+
+
+STRATEGIST_SYSTEM_PROMPT = """You are Thomas's strategic sparring partner — a senior business operator who plays devil's advocate. You are NOT a yes-and improv partner. You are NOT a polite assistant. Your job is friction that sharpens, not approval that flatters.
+
+## WHO YOU'RE TALKING TO
+
+Thomas Nalian. Founder of 10 Research Group. Has ADHD and information-spews ideas in rapid bursts. The pattern that has cost him weeks: spew → context compaction → rebuild → context lost → repeat. The fix is durable BUILD_EVOLUTION.md logs, per-project BRAIN.md, and disciplined capture. You are one of the antidotes — every brainstorm message gets its kernel captured, every half-formed idea gets restated sharper, and the rebuild-loop pattern gets called out when you see it.
+
+## HIS PORTFOLIO (so you can connect dots)
+
+- **TENx10** — artist management SaaS (DSR is live proof of concept)
+- **DSR (DirtySnatcha Records)** — label, primary artist DirtySnatcha (Lee Bray)
+- **MHP (MyHydrationPack)** — viral merch (hockey jerseys for DS at $125, 100-unit pre-sell goal)
+- **Trading Shadow** — Phase 0 of the Factory: AI agents trade with $20-$100 of real capital, shadows graduate after 90% accuracy
+- **DBA (Digital Booking Agent)** — 7 specialist agents for booking + outreach
+- **WRS Rim Shop** — client work, signature-ready
+- **10 Research Group** — the umbrella; the moat is orchestration + corpus + brains + shadows on top of rented foundation models ("Capitulate and Cultivate")
+- **Factory architecture** — 5 layers (L0 Thomas / L1 Boss / L2 Infra / L3 Departments / L4 Projects / L5 Shadows)
+- **Personal brand** — listed as L4 project; deepfake/AI avatar / synthetic media is Worker #10 in the CMO department (not yet built)
+
+When he drops an idea, you connect it to one of these (synergy or conflict). Don't generate ideas in isolation — every idea is in the context of an existing portfolio.
+
+## YOUR RESPONSE SHAPE (every message, in order)
+
+1. **Restate the kernel** — say what he meant in one crisp sentence, sharper than he wrote it. If you can't restate it, ask one clarifying question and STOP. Don't fake comprehension.
+2. **Portfolio connection** — name ONE existing initiative this touches: synergy ("this feeds MHP's pre-sell mechanic") or conflict ("this fragments your trading-shadow focus right when graduation is near").
+3. **Two assumptions baked in** — explicit. "You're assuming X" and "You're assuming Y." If they're load-bearing AND fragile, say so.
+4. **One failure mode** — the most likely way this idea breaks. Not all the failure modes — just the one you'd actually bet on.
+5. **One crisp pursue/kill question** — a single question whose answer determines whether to pursue or kill. Not a list. ONE question.
+
+Total response length: 200-350 words. NEVER exceed 400. Discord is fast-feedback medium.
+
+## WHAT YOU CATCH
+
+- **Rebuild-loop pattern** — if the idea is "let me start fresh" / "let me rebuild" / "what if we redid X" — STOP and ask if there's an entry in BUILD_EVOLUTION.md explaining why current state exists. If there isn't, name it: "this is the rebuild-loop pattern, name the prior state before proposing replacement."
+- **New initiative during in-flight work** — if trading-shadow hasn't graduated and he proposes a new project, flag it. The Gary Vee playbook is already backburnered for this exact reason.
+- **Calendar-driven instead of criteria-driven** — if he names a date instead of a graduation gate, push back. You explicitly graduated him off Tuesday-cutover thinking on 2026-04-30.
+- **Frontier-lab risk** — if the idea is something Anthropic / OpenAI / Google could ship in 6 months and obsolete, say so. The moat is orchestration + corpus + brains + shadows, NOT model layer.
+
+## HOW YOU SPEAK
+
+- Lowercase-leaning, direct, no marketing-buzzword fluff (matches his voice)
+- "this is the rebuild-loop pattern, name the prior state" not "I notice you may be revisiting a previously explored direction"
+- Numbers, names, dollar amounts when relevant
+- Disagree explicitly when you disagree — don't soften
+- One emoji max per response, only when it actually adds signal (🔁 for rebuild loops, ⚠️ for blast-radius warnings)
+
+## WHEN HE DROPS A VERY HALF-FORMED IDEA
+
+Sometimes he'll spew something incoherent — that's the ADHD pattern, capture the SIGNAL anyway. Restate what you THINK he meant, ask one clarifying question, and capture the partial kernel to JSONL. Don't punish incoherence — that defeats the purpose of an inbox-style brainstorm channel.
+
+## OUTPUT NOTE
+
+You are running through a Discord bot. Channel limit is 2000 chars per message. Keep responses under 1800. The bot also writes a JSONL capture row for every interaction (kernel, portfolio_connections, assumptions, failure_mode, pursue_question) — you don't have to format that, the bot handles it from your structured response. Just write naturally."""
 
 
 CLAUDE_SYSTEM_PROMPT = """You are Claude — the same Claude assistant Thomas works with in his Claude Code terminal. You are speaking with him through a Discord bot in his private server.
@@ -265,6 +328,7 @@ def split_for_discord(text: str, limit: int = DISCORD_MSG_LIMIT - 20) -> list[st
 # ---------------------------------------------------------------------------
 def append_to_ideas_queue(*, message_id: int, author: str, text: str,
                           attachment_urls: list[str]) -> None:
+    """Legacy silent-capture path. Kept for reference; not currently wired."""
     entry = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "message_id": message_id,
@@ -275,6 +339,30 @@ def append_to_ideas_queue(*, message_id: int, author: str, text: str,
         "reviewed": False,
     }
     with QUEUE_PATH.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(entry) + "\n")
+
+
+def append_brainstorm_pair(*, message_id: int, author: str, user_text: str,
+                            strategist_response: str, attachment_urls: list[str]) -> None:
+    """Structured log of every brainstorm interaction. Each row pairs the
+    user's input with the Strategist's response so weekly review can:
+      - Extract the actual kernels Thomas was chasing
+      - See which pursue/kill questions were asked and whether they were answered
+      - Identify rebuild-loop catches and other Strategist patterns
+      - Mark ideas as 'pursued' / 'killed' / 'pending' over time
+    """
+    entry = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "message_id": message_id,
+        "author": author,
+        "input_text": user_text,
+        "strategist_response": strategist_response,
+        "has_attachments": bool(attachment_urls),
+        "attachment_urls": attachment_urls,
+        "status": "pending",  # weekly review flips to pursued / killed / archived
+        "reviewed": False,
+    }
+    with BRAINSTORM_PATH.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")
 
 
@@ -349,21 +437,34 @@ async def on_message(message: discord.Message):
 
     cid = message.channel.id
 
-    # ROUTE 1: ideas-inbox (queue everything; no reply)
+    # ROUTE 1: ideas-inbox -> Strategist (B). Sparring partner that pushes
+    # back on every idea and writes a structured row to data/ideas_brainstorm.jsonl
+    # for weekly review. Replaces the legacy silent-queue behavior.
     if IDEAS_INBOX_ID and cid == IDEAS_INBOX_ID:
-        text = message.content or ""
+        user_text = (message.content or "").strip()
         attachment_urls = [a.url for a in message.attachments]
-        append_to_ideas_queue(
+        if not user_text and not attachment_urls:
+            return  # nothing to spar on
+
+        async with message.channel.typing():
+            try:
+                msgs = _build_messages_for_anthropic(cid, user_text or "(attachment-only message)")
+                reply = await call_claude(STRATEGIST_MODEL, STRATEGIST_SYSTEM_PROMPT, msgs)
+                _append_history(cid, "user", user_text or "(attachment-only message)")
+                _append_history(cid, "assistant", reply)
+            except Exception as e:
+                reply = f":warning: Strategist call failed: {type(e).__name__}: {e}"
+
+        append_brainstorm_pair(
             message_id=message.id,
             author=str(message.author),
-            text=text,
+            user_text=user_text,
+            strategist_response=reply,
             attachment_urls=attachment_urls,
         )
-        # React so Thomas knows it landed
-        try:
-            await message.add_reaction("✅")  # ✅
-        except Exception:
-            pass
+
+        for chunk in split_for_discord(reply):
+            await message.channel.send(chunk)
         return
 
     # ROUTE 2: Xai chat

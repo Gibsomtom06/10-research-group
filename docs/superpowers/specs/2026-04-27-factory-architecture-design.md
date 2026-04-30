@@ -226,6 +226,44 @@ Shadow team observes ALL Thomas + Claude conversations, not just task outputs. C
 
 Each Claude agent's shadow graduates independently. Some agents graduate fast (image generation, listing copy, voice consistency check) — these are heavily model-driven, low judgment. Others graduate slow (strategy, conflict resolution, deal-closing) — these need Claude-level reasoning longer.
 
+### Rollback Contract
+
+**Added 2026-04-29 per Brain Gap #1 from the 2026-04-28 strategic review.**
+
+Reversible reasoning is not optional. Every layer defines what "roll back to a safe point" MEANS in its context. Without an explicit definition, an agent that detects a contradiction has no way to recover — it can only halt.
+
+**Per-layer rollback semantics:**
+
+| Layer | Rollback means | Implementation |
+|-------|----------------|----------------|
+| **L1 Factory Boss** | Mark the parent task as `rolled_back`, fan-out a rollback request to every L3 Lead that received any of its sub-briefs, persist a `rollback_event` row pointing to the original `task_id` + `prior_state_id`. | Orchestrator function: `rollback(task_id, reason)`. Idempotent: re-running it on already-rolled-back work is a no-op. |
+| **L2 Infrastructure (System Brain, Router, Memory Steward, etc.)** | Restore configuration / context state to the snapshot referenced by `prior_state_id`. For The Router specifically: revert any model-routing decisions made by the rolled-back parent. | Each L2 agent persists state snapshots before mutating decisions; rollback reads the snapshot. |
+| **L3 Lead** | Cancel any in-flight Sub work spawned for the rolled-back brief, drop the project context that was loaded for that brief. | Lead's task queue is filterable by `parent_task_id`. Filter + cancel. |
+| **L3 Sub** | Action-type specific. **Defined per agent role**, not generically. Examples below. |
+| **L4 Project** | A rollback at L1-L3 propagates to the project's storage layer (Supabase rows, file artifacts) by re-running the relevant project-side undo (e.g., delete the draft email row, mark the inventory listing as rolled-back). |
+| **L5 Shadow** | Shadow's prediction history is append-only — no rollback at the corpus level. But the graduation-evaluator must EXCLUDE rolled-back task pairs from its accuracy denominator (a rolled-back Claude decision shouldn't count as "ground truth" for shadow accuracy). |
+
+**Per-action rollback definitions (L3 Sub level — must be defined for each agent):**
+
+| Agent type | Action | Rollback means |
+|------------|--------|----------------|
+| **The Trader** (Finance) | Submitted a trade order | If unfilled: cancel the order. If filled: close the position at market and accept the slippage as the rollback cost. (NOT "wait for the price to come back" — that's not rollback, that's hope.) |
+| **The Trader** (Finance) | Changed strategy parameters | Restore the prior parameter set from the decision log's `prior_state_id`. |
+| **Pitcher / Outbound** (Sales) | Sent an email | **No rollback.** Sent emails cannot be unsent. The agent must therefore wait for human approval before sending — this is enforced at the guardrail layer, not the rollback layer. |
+| **Pitcher / Outbound** (Sales) | Drafted (not sent) an email | Mark the draft as `rolled_back`, do not send. |
+| **Catalog Operator** (Operations) | Pushed a listing to Shopify | Mark the listing as draft / unpublished via the Shopify API. |
+| **Inbound Classifier** (Sales) | Categorized an email + spawned downstream work | Mark the classification as `rolled_back`, cancel any spawned work via L3 Lead's filter. |
+
+**Decision logger schema requirement:** every agent invocation row must include `prior_state_id` (the most recent state snapshot relevant to this agent before the action). Without it, rollback cannot reach back further than one step.
+
+**Hard rule:** if an agent CANNOT define its rollback semantics for an action, that action requires explicit Thomas approval before execution. No silent irreversibility.
+
+**Trading-shadow specific (live Friday 2026-05-01):**
+- Pre-cutover work item: define and ship the rollback handler for the Trader Sub. Two specific rollback definitions:
+  1. **Filled position rollback** = close at market, log slippage cost. NOT "wait for recovery."
+  2. **Strategy parameter rollback** = restore prior parameter set from `prior_state_id`.
+- Without these defined, the only safe-recovery move is the existing halt switch. Halt is not rollback. Both should exist; rollback is the granular tool, halt is the nuclear option.
+
 ---
 
 ## Use Cases
