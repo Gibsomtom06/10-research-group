@@ -128,17 +128,33 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 | Folder structure rules | `HIERARCHY.md` |
 | Rolling status | `STATUS.md` |
 | Delegation playbook (Gemini, Ollama) | `docs/DELEGATION_PLAYBOOK.md` |
+| **Employee Directory (current agent roster + status)** | `EMPLOYEE_DIRECTORY.md` ← updated 2026-04-30 |
+| **Skill Directory (current skills + locations)** | `SKILL_DIRECTORY.md` ← new 2026-04-30 |
+| **Audit (current .md inventory across umbrella)** | `_AUDIT_2026-04-30.md` |
 | **Factory architecture (CURRENT)** | `docs/superpowers/specs/2026-04-27-factory-architecture-design.md` |
 | **Trading shadow A/B test spec** | `docs/superpowers/specs/2026-04-27-trading-shadow-test-design.md` |
 | **Trading shadow implementation plan** | `docs/superpowers/plans/2026-04-27-trading-shadow-implementation.md` |
 | **Strategic review + gaps audit (2026-04-28)** | `docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md` |
+| **Rollback Handler spec (Trader Sub)** | `products/trading-shadow/ROLLBACK_HANDLER_SPEC.md` |
+| **Cutover Runbook (graduation-gated)** | `products/trading-shadow/CUTOVER_RUNBOOK.md` |
+| **Discord Bot Setup** | `products/trading-shadow/DISCORD_BOT_SETUP.md` |
+| Gary Vee local agency playbook (BACKBURNERED) | `docs/superpowers/specs/2026-04-28-gary-vee-local-agency-playbook.md` |
+| Revenue funds trading (BACKBURNERED) | `docs/superpowers/specs/2026-04-28-revenue-funds-trading.md` |
+| Personal brand / deepfake / voice mode (BACKBURNERED) | `docs/superpowers/specs/2026-04-30-personal-brand-launch.md` |
+| Label catalog evaluator (BACKBURNERED, pursue/kill open) | `docs/superpowers/specs/2026-04-30-label-catalog-evaluator.md` |
+| Faceless music channel (BACKBURNERED, pursue/kill open) | `docs/superpowers/specs/2026-04-30-faceless-music-channel.md` |
+| DSP playlists + repost chain (Layer 1 ship-ready / Layer 2 BACKBURNERED) | `docs/superpowers/specs/2026-04-30-dsp-playlists-repost-chain.md` |
+| Analytics MCP everywhere (BACKBURNERED, pursue/kill open) | `docs/superpowers/specs/2026-04-30-analytics-mcp-everywhere.md` |
 | Per-project context | `products/<project>/BRAIN.md` |
 | Conversation log (shadow corpus Layer B) | `data/conversation_log/` |
+
+### NOTE on EMPLOYEE_DIRECTORY (updated 2026-04-30)
+
+Earlier audits flagged this as "superseded" — that was wrong. Thomas actively uses it as the at-a-glance roster. As of 2026-04-30 it has been REFRESHED (not archived) to align with the current 5-layer factory architecture. Cross-references the architecture spec for design details + KB Module 24 for persona detail. **Use this file when you want to know which agents exist and what their status is.**
 
 ### Superseded — kept for reference, do NOT use as source of truth
 
 - `FACTORY_BRAIN.md` — legacy 12-worker factory architecture. Superseded by the 2026-04-27 architecture spec above.
-- `EMPLOYEE_DIRECTORY.md` — legacy 19-agent roster. Superseded by the new department structure in the 2026-04-27 spec.
 
 When new specs/plans get written, **add them to the table above** before leaving the topic. If it isn't indexed here, it doesn't exist.
 
