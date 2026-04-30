@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Literal
 from anthropic import Anthropic
 from trading_shadow.alpaca_client import AccountState
-from trading_shadow.prompts import CLAUDE_TRADER_SYSTEM
+from trading_shadow.prompts_v2 import CLAUDE_TRADER_SYSTEM  # 2026-04-30: swapped from prompts (v1) to prompts_v2. v1 still in tree as baseline; revert by importing from `prompts` instead.
 
 
 @dataclass(frozen=True)
