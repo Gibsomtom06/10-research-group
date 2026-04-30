@@ -24,7 +24,7 @@ Translation: stand up DSR-branded playlists across the major DSPs (Spotify, Appl
 | Create "DSR Records" Apple Music playlist | Same content; Apple's editorial submission process | 30 min |
 | Create "DSR Records" SoundCloud playlist | Same; SoundCloud's social mechanics (likes/reposts visible) | 30 min |
 | Genre/mood sub-playlists | "Heavy Bass," "Dubstep Drops," "Riddim Selects" — narrow themes that match algorithmic taxonomies | 1 hr each, plan 3-5 |
-| Cross-artist roster playlists | "TENx10 Roster" or "Andrew Bass / DSR Roster" mixing DirtySnatcha + WHOiSEE + Dark Matter | 30 min |
+| Cross-artist roster playlists | "TENx10 Roster" or "Andrew Lehr / DSR Roster" mixing DirtySnatcha + WHOiSEE + Dark Matter | 30 min |
 | SoundCloud repost-chain network setup | Identify 8-12 peer artists/labels with overlapping audience; reach out individually to propose mutual-repost agreements; create a tracker spreadsheet | 4-6 hr over 2 weeks |
 
 This work has **zero build dependencies**. Thomas can do it, or RJ Jackson agent can draft the outreach emails / playlist descriptions, or both.

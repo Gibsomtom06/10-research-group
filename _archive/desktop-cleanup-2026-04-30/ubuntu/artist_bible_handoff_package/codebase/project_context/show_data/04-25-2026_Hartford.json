@@ -1,0 +1,17 @@
+{
+    "show_number": 12,
+    "date": "04/25/2026",
+    "city": "Hartford",
+    "state": "CT",
+    "venue": "",
+    "offer": 2500.0,
+    "commission": {
+        "management": 250.0,
+        "agent": 250.0
+    },
+    "artist_payout": "$2,250",
+    "deal_type": "OFFER",
+    "hgr": true,
+    "notes": "Spoke to Julian 2/10 re: marketing + deposit.",
+    "campaign_phase": ""
+}

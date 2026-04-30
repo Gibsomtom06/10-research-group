@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' xmlns:apps='http://schemas.google.com/apps/2006'>
+  <title>Mail Filters — DSR / TENx10 starter set</title>
+  <id>tag:mail.google.com,2008:filters:starter-2026-04-30</id>
+  <updated>2026-04-30T00:00:00Z</updated>
+
+  <!-- ====================================================== -->
+  <!-- BOOKINGS                                                -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>Andrew (AB Touring) - Bookings VIP</title>
+    <id>filter-1</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@abtouring.com'/>
+    <apps:property name='label' value='DSR/Bookings'/>
+    <apps:property name='label' value='VIP'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+    <apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>Colton (PRYSM legacy) - Bookings</title>
+    <id>filter-2</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@prysmtalentagency.com'/>
+    <apps:property name='label' value='DSR/Bookings'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>Generic offer/booking subject</title>
+    <id>filter-3</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='subject' value='offer OR "show offer" OR "booking offer" OR "performance offer"'/>
+    <apps:property name='label' value='DSR/Bookings/Offers'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <!-- ====================================================== -->
+  <!-- PUBLISHING                                              -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>BMI</title>
+    <id>filter-4</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@bmi.com'/>
+    <apps:property name='label' value='DSR/Publishing/BMI'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>ASCAP</title>
+    <id>filter-5</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@ascap.com'/>
+    <apps:property name='label' value='DSR/Publishing/ASCAP'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>MLC</title>
+    <id>filter-6</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@themlc.com OR @themlc.org'/>
+    <apps:property name='label' value='DSR/Publishing/MLC'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>SoundExchange</title>
+    <id>filter-7</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@soundexchange.com'/>
+    <apps:property name='label' value='DSR/Publishing/SoundExchange'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>CMRRA Canada</title>
+    <id>filter-8</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@cmrra.ca'/>
+    <apps:property name='label' value='DSR/Publishing/CMRRA'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>International societies (PRS GEMA SACEM etc)</title>
+    <id>filter-9</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@prsformusic.com OR @gema.de OR @sacem.fr OR @apraamcos.com.au OR @jasrac.or.jp OR @komca.or.kr OR @bumastemra.nl OR @stim.se'/>
+    <apps:property name='label' value='DSR/Publishing/International'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <!-- ====================================================== -->
+  <!-- OPERATIONS                                              -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>VMG (Virgin Music Group) distribution</title>
+    <id>filter-10</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@vmg.com OR @virginmusic.com OR @assets.vmg.com'/>
+    <apps:property name='label' value='DSR/Operations/VMG'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+  <!-- ====================================================== -->
+  <!-- TICKETING                                               -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>Eventbrite (ticketing platform)</title>
+    <id>filter-11</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@eventbrite.com'/>
+    <apps:property name='label' value='DSR/Bookings/Confirmed'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>DICE (ticketing platform)</title>
+    <id>filter-12</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@dice.fm'/>
+    <apps:property name='label' value='DSR/Bookings/Confirmed'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>Resident Advisor (ticketing/promotion)</title>
+    <id>filter-13</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@residentadvisor.net OR @ra.co'/>
+    <apps:property name='label' value='DSR/Bookings/Confirmed'/>
+  </entry>
+
+  <!-- ====================================================== -->
+  <!-- AUTO-ARCHIVE NOISE                                      -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>Auto-archive: SaaS notifications</title>
+    <id>filter-14</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@discord.com OR @notion.so OR @airtable.com OR @zoom.us OR @docusign.net OR @hellosign.com'/>
+    <apps:property name='label' value='_Archive'/>
+    <apps:property name='shouldArchive' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>Auto-archive: e-receipts</title>
+    <id>filter-15</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='subject' value='receipt OR "your order" OR "order confirmation" OR "your invoice"'/>
+    <apps:property name='label' value='_Archive'/>
+    <apps:property name='shouldArchive' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>Auto-archive: GitHub notifications</title>
+    <id>filter-16</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='@github.com'/>
+    <apps:property name='label' value='_Archive'/>
+    <apps:property name='shouldArchive' value='true'/>
+  </entry>
+
+  <!-- ====================================================== -->
+  <!-- VIP                                                     -->
+  <!-- ====================================================== -->
+
+  <entry>
+    <category term='filter'></category>
+    <title>VIP - Lee Bray (DirtySnatcha)</title>
+    <id>filter-17</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='contact@dirtysnatcha.com OR leigh@dirtysnatcha.com OR lee@dirtysnatcha.com'/>
+    <apps:property name='label' value='VIP'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+    <apps:property name='shouldAlwaysMarkAsImportant' value='true'/>
+  </entry>
+
+  <entry>
+    <category term='filter'></category>
+    <title>VIP - Brett Hopkin (WHOiSEE)</title>
+    <id>filter-18</id>
+    <updated>2026-04-30T00:00:00Z</updated>
+    <content></content>
+    <apps:property name='from' value='brett@'/>
+    <apps:property name='label' value='DSR/Artists/WHOiSEE'/>
+    <apps:property name='label' value='VIP'/>
+    <apps:property name='shouldNeverSpam' value='true'/>
+  </entry>
+
+</feed>

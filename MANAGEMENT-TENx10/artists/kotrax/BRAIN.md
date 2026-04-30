@@ -25,7 +25,7 @@ IPI: TBD — needs to be captured.
 
 ## Booking
 
-Status: TBD. Booking team unclear — may share Andrew Bass (AB Touring) with DirtySnatcha as the primary, or may have a separate agent. Confirm with Thomas.
+Status: TBD. Booking team unclear — may share Andrew Lehr (AB Touring) with DirtySnatcha as the primary, or may have a separate agent. Confirm with Thomas.
 
 ---
 

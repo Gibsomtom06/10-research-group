@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Integration Map</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        /* Data Grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr 1fr;
+            gap: 0;
+            border: 1px solid #333;
+            background: rgba(30, 30, 36, 0.5);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+        }
+
+        .grid-header {
+            background: rgba(0, 229, 255, 0.05);
+            color: #00E5FF;
+            font-weight: 700;
+            padding: 15px 20px;
+            border-bottom: 1px solid #333;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+
+        .grid-row {
+            display: contents;
+        }
+
+        .grid-cell {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            color: #E2E8F0;
+        }
+
+        .grid-row:last-child .grid-cell {
+            border-bottom: none;
+        }
+
+        .platform-cell {
+            gap: 10px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .platform-icon {
+            width: 20px;
+            text-align: center;
+            color: #64748B;
+        }
+
+        .check-active {
+            color: #00E5FF;
+            margin-right: 8px;
+        }
+
+        .check-inactive {
+            color: #333;
+            margin-right: 8px;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            width: 80px;
+            text-align: center;
+        }
+
+        .status-live {
+            background: rgba(0, 229, 255, 0.2);
+            color: #00E5FF;
+            border: 1px solid #00E5FF;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+        }
+
+        .status-planned {
+            background: rgba(100, 116, 139, 0.2);
+            color: #94A3B8;
+            border: 1px solid #64748B;
+        }
+
+        .note {
+            font-size: 10px;
+            color: #64748B;
+            margin-left: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <h2>Platform Integration Map</h2>
+            <div class="subtitle">8 Platforms, Full Funnel Coverage</div>
+        </div>
+
+        <div class="data-grid">
+            <!-- Headers -->
+            <div class="grid-header">Platform</div>
+            <div class="grid-header">Paid Ads (Ag 1)</div>
+            <div class="grid-header">Organic (Ag 2)</div>
+            <div class="grid-header">Analytics / Reporting</div>
+            <div class="grid-header">Status</div>
+
+            <!-- Row 1: Meta -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-meta platform-icon"></i> Meta (FB+IG)</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 1</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 2</div>
+                <div class="grid-cell">MCP + Ads Analyzer</div>
+                <div class="grid-cell"><div class="status-badge status-live">LIVE</div></div>
+            </div>
+
+            <!-- Row 2: TikTok -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-tiktok platform-icon"></i> TikTok</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 1</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 2</div>
+                <div class="grid-cell">Ads Manager API</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 3: X -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-x-twitter platform-icon"></i> X (Twitter)</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 1</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 2</div>
+                <div class="grid-cell">Ads Manager API</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 4: Snapchat -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-snapchat platform-icon"></i> Snapchat</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 1</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 2</div>
+                <div class="grid-cell">Ads Manager API</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 5: YouTube -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-youtube platform-icon"></i> YouTube</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Via Google</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Shorts</div>
+                <div class="grid-cell">Google Analytics</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 6: Google Ads -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fab fa-google platform-icon"></i> Google Ads</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Agent 1</div>
+                <div class="grid-cell"><span style="color: #64748B;">--</span></div>
+                <div class="grid-cell">Google Analytics</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 7: Google Analytics -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fas fa-chart-bar platform-icon"></i> Google Analytics</div>
+                <div class="grid-cell"><span style="color: #64748B;">--</span></div>
+                <div class="grid-cell"><span style="color: #64748B;">--</span></div>
+                <div class="grid-cell" style="color: #00E5FF;">Full Funnel Tracking</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+
+            <!-- Row 8: Email/SMS -->
+            <div class="grid-row">
+                <div class="grid-cell platform-cell"><i class="fas fa-envelope platform-icon"></i> Email / SMS</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Blasts</div>
+                <div class="grid-cell"><i class="fas fa-check-circle check-active"></i> Newsletters</div>
+                <div class="grid-cell">Open/Click Rates</div>
+                <div class="grid-cell"><div class="status-badge status-planned">PLANNED</div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
