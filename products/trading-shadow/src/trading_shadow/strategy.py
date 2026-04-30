@@ -3,6 +3,17 @@ from enum import Enum
 import pandas as pd
 
 
+# Compile-time strategy defaults. Used by the rollback handler as the fallback
+# parameter set when the safe state's `prior_state_id` is None — i.e. there's
+# no earlier decision in the chain to restore from. Mirrors the constants used
+# by `compute_signal` below.
+DEFAULT_PARAMS: dict[str, float] = {
+    "sma_window": 20,
+    "rsi_oversold": 30.0,
+    "rsi_overbought": 70.0,
+}
+
+
 class SignalType(str, Enum):
     BUY = "buy"
     SELL = "sell"

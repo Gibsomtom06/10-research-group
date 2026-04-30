@@ -36,3 +36,11 @@ def test_get_positions_returns_dict():
     positions = wrapper.positions()
     assert "AAPL" in positions
     assert positions["AAPL"].qty == 0.025
+
+
+def test_cancel_order_calls_alpaca():
+    """Rollback handler depends on cancel_order(order_id) for unfilled buys."""
+    raw_client = MagicMock()
+    wrapper = AlpacaWrapper(raw_client)
+    wrapper.cancel_order("order-abc")
+    raw_client.cancel_order_by_id.assert_called_once_with("order-abc")

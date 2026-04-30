@@ -53,3 +53,31 @@ class AlpacaWrapper:
 
     def close_position(self, ticker: str) -> None:
         self.client.close_position(ticker)
+
+    def cancel_order(self, order_id: str) -> None:
+        """Cancel an unfilled order by id. Used by the rollback handler to
+        reverse `buy` decisions that were submitted but not yet filled."""
+        self.client.cancel_order_by_id(order_id)
+
+    def get_order(self, order_id: str):
+        """Fetch an order by id. Used by the rollback handler to determine
+        whether a `buy` was filled (close_position) vs unfilled (cancel)."""
+        return self.client.get_order_by_id(order_id)
+
+    def get_latest_price(self, ticker: str) -> float:
+        """Best-effort current market price for a ticker. Tries the open
+        position first (cheapest, no extra API call), then falls back to
+        market_data.get_quote so the rollback handler logs real slippage
+        even AFTER close_position has fired and the position is gone."""
+        try:
+            pos = self.client.get_open_position(ticker)
+            qty = float(pos.qty)
+            if qty:
+                return float(pos.market_value) / qty
+        except Exception:
+            pass
+        try:
+            from trading_shadow.market_data import get_quote
+            return float(get_quote(ticker))
+        except Exception:
+            return 0.0
