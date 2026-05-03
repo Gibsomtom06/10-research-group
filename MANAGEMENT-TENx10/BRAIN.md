@@ -153,4 +153,75 @@ DSR's label-side roster has **additional artists who are signed to DSR but NOT u
 
 ---
 
-*BRAIN v1 (real content) — 2026-04-30. Replaces stub. Update as roster + entity state changes.*
+## Revenue state per artist (2026-05-03)
+
+| Artist | Live (shows/mo) | Streaming (~$0.004/stream) | Publishing | Merch | Content | Education | Brand | Active pillars |
+|---|---|---|---|---|---|---|---|---|
+| **DirtySnatcha** | $2,270 avg × 17 shows (TMTYL) | ~8-9K MAU = ~$35/mo | **$0 — LAB10 0/82 tracks registered, DSR 54/82 at MLC only** | **$0 live** (jersey drop pending) | $0 | $0 | $0 | 1 of 7 |
+| **WHOiSEE** | Unknown | Unknown | **$0 — IPI not in DB** | $0 | $0 | $0 | $0 | 0 of 7 |
+| **Dark Matter** | Unknown | Unknown | **$0 — artist IPI unknown** | $0 | $0 | $0 | $0 | 0 of 7 |
+| **Kotrax** | Unknown | Unknown | Unknown | $0 | $0 | $0 | $0 | 0 of 7 |
+
+**Key insight:** DirtySnatcha is the only revenue-generating artist and is on 1 of 7 pillars. Streaming royalties are nearly uncollected (~$35/mo vs. potential $200-500/mo if streams grow + publishing is registered). Publishing is the nearest zero-to-active unlock for 3 of 4 artists.
+
+---
+
+## Pilots + experiments in flight (2026-05-03)
+
+### WRS Rim Shop — agency Client 0
+- **Status:** Verbal pending. SOW_v1.md and PILOT_BRIEF.md ready since 2026-04-22. No movement.
+- **Next action:** Verbal with WRS owner → send SOW same day.
+- **Structure:** Performance-share, flat $ per booked appointment (no upfront retainer)
+- **Success criteria:** Signed SOW + 1 booked appointment attributed
+- **Detail doc:** `products/rim-shop/` (SOW_v1.md, PILOT_BRIEF.md, PILOT_RUN_LOG.md)
+
+### LAB10 Publishing registration
+- **Status:** 0 of 82 Leigh Bray tracks registered at BMI/MLC/SoundExchange. CSV tooling ready. Never run live.
+- **Next action:** Run one track end-to-end (BMI → MLC → SoundExchange), validate Supabase tracker + CSV output. Document as `LAB10_PILOT_TRACK_RUN.md`.
+- **Registry order:** BMI first (source of truth for composition) → MLC second (needs BMI Work ID) → SoundExchange third (independent channel)
+- **Success criteria:** 1 track with BMI Work ID + MLC Song Code + SoundExchange confirmation, all in Supabase with timestamps, CSV clean
+- **Chain reaction:** Unblocks 81 remaining tracks (~40 hrs batch), MLC back-claim up to 3.5 years, DAD product UX validation
+- **Detail doc:** `MANAGEMENT-TENx10/LAB10_PILOT_TRACK_RUN.md`
+
+### MHP × DSR Hockey Jersey pre-sale
+- **Status:** Physical prototype exists. Vendor invoice pending Thomas approval. Goal: 100 units × $125 before Electric Forest (late June, ~7 weeks out).
+- **Next action:** Approve vendor invoice → stand up dirtysnatcharecords.com/merch → launch pre-sale.
+- **Success criteria:** 100 units pre-sold = $12,500 gross, ~$5,000 net; first Factory shadow training signal
+- **Detail doc:** `MANAGEMENT-TENx10/MHP_JERSEY_DROP.md`
+
+---
+
+## Operating cadence
+
+### Daily
+- Morning brief: pull from TENx10 dashboard (`/dashboard`) — show status, DSP alerts, publishing gaps, Xai escalations from artist chat
+- Gmail triage: DSR management inbox (thomas@dirtysnatcharecords.com). Note: OAuth must stay valid — add token-expiry alert to morning brief.
+- Discord check: trading-shadow heartbeat, ideas-inbox items, agent alerts
+
+### Weekly (Monday)
+- Revenue review: shows with deposits outstanding, new offers in pipeline, publishing registration progress
+- Platform health: any 404s, auth failures, MCP tool errors
+- Pilot status: WRS units/week, LAB10 tracks registered count, MHP jersey pre-sale unit count
+- BRAIN.md update: bump "Last updated" timestamp, close any resolved open items
+
+### Monthly
+- P&L: shows settled, streaming royalty deposits, merch net, publishing deposits (quarterly rhythm)
+- Roster review: per-artist KPIs (PS, MAU, save-to-stream ratio vs. targets)
+- Pipeline planning: upcoming show submissions, release schedule, 90-day goals
+
+---
+
+## Open decisions — answer-by dates
+
+| Decision | Answer-by | Context |
+|---|---|---|
+| **Management vs. SaaS as primary** | 2026-05-10 | Determines whether Stripe/billing is P0 or internal-only tooling. Currently both at half-strength. |
+| **DBA: standalone or absorb into TENx10** | 2026-05-10 | Territorial overlap with TENx10 booking features. DBA fully built, blocked on Supabase provisioning since Apr 22. |
+| **Revenue-funds-trading** | Before live Alpaca cutover | Does umbrella revenue capitalize the live account, or does trading raise its own capital? $0 in live account currently. |
+| **ReAgent vs. Orchestral AI evaluation** | Before next agent ships | Which orchestration substrate does Factory Boss sit on? |
+| **WHOiSEE BMI IPI** | 2026-05-10 | In emails/contracts somewhere. Look up, add to DB. 15-min task. |
+| **Dark Matter ASCAP artist IPI** | 2026-05-10 | Call ASCAP Member Services or search ASCAP Repertoire. |
+
+---
+
+*BRAIN v2 — 2026-05-03. Added: revenue state per artist, pilots section, operating cadence, open decisions with answer-by dates. Next update due: 2026-05-10 (weekly Monday review).*
