@@ -11,6 +11,7 @@ dependencies = [
     "requests>=2.32.0",
     "python-dotenv>=1.0.0",
     "supabase>=2.0",
+    "pytrends>=4.9.2",
 ]
 
 [project.optional-dependencies]
