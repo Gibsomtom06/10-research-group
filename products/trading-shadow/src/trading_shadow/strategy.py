@@ -36,7 +36,7 @@ def compute_signal(closes_df: pd.DataFrame, current_rsi: float) -> Signal:
     - SELL when price < 20SMA (downtrend) AND RSI > 70 (overbought rally)
     - HOLD otherwise
     """
-    sma20 = closes_df["Close"].tail(20).mean()
+    sma20 = float(closes_df["Close"].tail(20).mean())
     current = float(closes_df["Close"].iloc[-1])
 
     if current > sma20 and current_rsi < 30:

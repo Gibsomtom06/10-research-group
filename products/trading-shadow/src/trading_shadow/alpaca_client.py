@@ -17,6 +17,8 @@ class Position:
     symbol: str
     qty: float
     market_value: float
+    avg_entry_price: float
+    current_price: float
 
 
 class AlpacaWrapper:
@@ -38,7 +40,13 @@ class AlpacaWrapper:
     def positions(self) -> dict[str, Position]:
         out = {}
         for p in self.client.get_all_positions():
-            out[p.symbol] = Position(symbol=p.symbol, qty=float(p.qty), market_value=float(p.market_value))
+            out[p.symbol] = Position(
+            symbol=p.symbol,
+            qty=float(p.qty),
+            market_value=float(p.market_value),
+            avg_entry_price=float(p.avg_entry_price),
+            current_price=float(p.current_price),
+        )
         return out
 
     def submit_market_order(self, ticker: str, notional_usd: float, side: Literal["buy", "sell"]) -> str:
