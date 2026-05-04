@@ -22,6 +22,15 @@ yarn-error.log*
 **/.env.production
 **/.env.production.local
 
+# OAuth / credential JSONs — never commit
+**/client_secret*.json
+**/*credentials*.json
+**/*oauth*.json
+**/service-account*.json
+**/service_account*.json
+**/*refresh_token*.json
+**/token.json
+
 # Shopify app build / runtime artifacts
 **/.shopify/
 **/build/
