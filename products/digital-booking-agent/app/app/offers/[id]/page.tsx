@@ -151,33 +151,37 @@ async function loadRadiusAudit(offerId: string): Promise<RadiusAudit> {
 }
 
 async function load(id: string): Promise<OfferDetail | null> {
+  // `offers` is a view-over-deals (post-merger). FK-named contact joins
+  // don't work on views. Fetch the offer + venue, then look up the artist
+  // separately via artist_slug. Contact info is dropped (deals.promoter_id
+  // points to promoters table, not contacts — pass 2 territory).
   try {
     const sb = serverClient();
     const { data, error } = await sb
       .from("offers")
-      .select(
-        `*,
-         contact:contacts!offers_contact_id_fkey(full_name, email, role, city, state, relationship_tier),
-         venue:venues(name, city, state, capacity),
-         artist:artists(name, slug),
-         relayed_by:contacts!offers_relayed_by_contact_id_fkey(full_name, email, role),
-         promoter:contacts!offers_promoter_contact_id_fkey(full_name, email, role, city, state)`
-      )
+      .select(`*, venue:venues(name, city, state, capacity)`)
       .eq("id", id)
       .maybeSingle();
     if (error) throw error;
     if (!data) return null;
+
+    let artist: any = null;
+    if ((data as any).artist_slug) {
+      const { data: a } = await sb
+        .from("artists")
+        .select("name, slug, display_name, stage_name")
+        .eq("slug", (data as any).artist_slug)
+        .maybeSingle();
+      artist = a ?? null;
+    }
+
     const row: any = {
       ...data,
-      contact: Array.isArray(data.contact) ? data.contact[0] ?? null : data.contact,
+      contact: null,
       venue: Array.isArray(data.venue) ? data.venue[0] ?? null : data.venue,
-      artist: Array.isArray(data.artist) ? data.artist[0] ?? null : data.artist,
-      relayed_by: Array.isArray((data as any).relayed_by)
-        ? (data as any).relayed_by[0] ?? null
-        : (data as any).relayed_by,
-      promoter: Array.isArray((data as any).promoter)
-        ? (data as any).promoter[0] ?? null
-        : (data as any).promoter,
+      artist,
+      relayed_by: null,
+      promoter: null,
     };
     return row as OfferDetail;
   } catch {
