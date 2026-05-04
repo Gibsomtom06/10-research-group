@@ -7,12 +7,15 @@ from trading_shadow.decision_log import Decision
 
 
 def _rsi(closes: pd.Series, period: int = 14) -> float:
+    # yfinance can return a DataFrame instead of Series under certain conditions
+    if isinstance(closes, pd.DataFrame):
+        closes = closes.iloc[:, 0]
     if len(closes) < period + 1:
         return 50.0
     delta = closes.diff().dropna()
     gain = delta.clip(lower=0).tail(period).mean()
     loss = -delta.clip(upper=0).tail(period).mean()
-    if loss == 0:
+    if float(loss) == 0:
         return 100.0
     rs = gain / loss
     return 100.0 - (100.0 / (1.0 + rs))
