@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wheel Repair Specialists of Michigan | Metro Detroit Wheel Repair, Powder Coating & Refurbished OEM Wheels</title>
-<meta name="description" content="Metro Detroit's premier wheel repair shop. 60+ years of experience. Powder coating, structural repair, OEM refurbishment. 10500 W 8 Mile Rd, Ferndale MI. Call 248-900-9100.">
-<meta name="keywords" content="wheel repair detroit, powder coating wheels michigan, rim repair ferndale, bent rim repair, curb rash repair, OEM wheel refurbishment, custom powder coating, mount and balance metro detroit">
+<title>Wheel Repair Specialists of Michigan | Metro Detroit Wheel Repair, Powder Coating &amp; Refurbished OEM Wheels</title>
+<meta name="description" content="Metro Detroit's premier wheel repair shop. 60+ years of combined experience. Powder coating, structural repair, OEM refurbishment, mount &amp; balance on-car. 10500 W 8 Mile Rd, Ferndale MI. Call (248) 900-9100.">
+<meta name="keywords" content="wheel repair detroit, powder coating wheels michigan, rim repair ferndale, bent rim repair, curb rash repair, OEM wheel refurbishment, custom powder coating, mount and balance metro detroit, wheel refinishing michigan">
 
 <!-- Open Graph -->
 <meta property="og:type" content="business.business">
-<meta property="og:title" content="Wheel Repair Specialists of Michigan">
+<meta property="og:title" content="Wheel Repair Specialists of Michigan — Any Wheel, Any Problem">
 <meta property="og:description" content="60+ years restoring wheels. Powder coating, structural repair, refurbished OEM wheels. Metro Detroit.">
 <meta property="og:url" content="https://wrs-mi.com">
 <meta property="business:contact_data:street_address" content="10500 W 8 Mile Rd">
@@ -24,7 +24,6 @@
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "AutoRepair"],
   "name": "Wheel Repair Specialists of Michigan",
-  "image": "https://wrs-mi.com/wp-content/uploads/2024/01/shutterstock_1834461940-scaled.jpg",
   "telephone": "+1-248-900-9100",
   "email": "info@wrs-mi.com",
   "url": "https://wrs-mi.com",
@@ -59,539 +58,1609 @@
 </script>
 
 <style>
+/* ═══════════════════════════════════════════════
+   DESIGN SYSTEM
+   Primary: Deep charcoal (#111318)
+   Surface: Dark steel (#1c2028)
+   Panel: Raised surface (#242830)
+   Accent (CTA): Signal red (#d9232e) — automotive standard
+   Secondary accent: Steel blue (#3b82f6) — trust/info
+   Chrome: Silver gradient for premium feel
+   ═══════════════════════════════════════════════ */
 :root {
-  --bg: #0a0a0b;
-  --bg-elev: #141416;
-  --panel: #1a1a1d;
-  --border: rgba(255,255,255,0.08);
-  --border-bright: rgba(255,255,255,0.15);
-  --ink: #f4f4f5;
-  --ink-muted: #a1a1aa;
-  --ink-dim: #71717a;
-  --accent: #ff6b35;
-  --accent-soft: rgba(255,107,53,0.12);
-  --accent-dim: rgba(255,107,53,0.25);
-  --success: #4ade80;
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
-  --font-mono: 'SF Mono', Menlo, Consolas, monospace;
+  --bg:            #0e1014;
+  --bg-elev:       #161a20;
+  --panel:         #1e2229;
+  --panel-raised:  #252b34;
+  --border:        rgba(255,255,255,0.07);
+  --border-mid:    rgba(255,255,255,0.12);
+  --border-bright: rgba(255,255,255,0.18);
+  --ink:           #f0f2f5;
+  --ink-muted:     #9aa0ab;
+  --ink-dim:       #5c636e;
+  --red:           #d9232e;
+  --red-dark:      #b81c26;
+  --red-soft:      rgba(217,35,46,0.12);
+  --red-dim:       rgba(217,35,46,0.28);
+  --blue:          #3b82f6;
+  --blue-soft:     rgba(59,130,246,0.12);
+  --silver:        #c8cdd6;
+  --success:       #34d399;
+  --font-sans:     -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, sans-serif;
+  --font-mono:     'SF Mono', 'Fira Code', Menlo, Consolas, monospace;
+  --radius-sm:     8px;
+  --radius-md:     12px;
+  --radius-lg:     16px;
+  --shadow-card:   0 4px 20px rgba(0,0,0,0.35);
+  --shadow-float:  0 16px 48px rgba(0,0,0,0.55);
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-sans);
   background: var(--bg);
   color: var(--ink);
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-a { color: var(--accent); text-decoration: none; }
+a { color: var(--red); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; display: block; }
+button { font-family: inherit; }
 
-/* ---------- Top bar ---------- */
+/* ─── Utility ─── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ═══════════════════════════════════════════════
+   TOP BAR
+   ═══════════════════════════════════════════════ */
 .topbar {
-  background: var(--bg-elev);
-  border-bottom: 1px solid var(--border);
-  padding: 10px 0;
+  background: var(--red);
+  padding: 9px 0;
   font-size: 13px;
-  color: var(--ink-muted);
+  font-weight: 500;
+  color: rgba(255,255,255,0.92);
+  letter-spacing: 0.01em;
 }
 .topbar-inner {
-  max-width: 1240px; margin: 0 auto; padding: 0 20px;
-  display: flex; gap: 24px; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
-.topbar-inner a { color: var(--ink); font-weight: 500; }
-.topbar .ph { color: var(--accent); font-weight: 600; }
+.topbar a { color: #fff; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.topbar .divider { opacity: 0.5; }
 
-/* ---------- Header / Nav ---------- */
+/* ═══════════════════════════════════════════════
+   HEADER / NAV
+   ═══════════════════════════════════════════════ */
 header.site {
-  position: sticky; top: 0; z-index: 50;
-  background: rgba(10,10,11,0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(14,16,20,0.92);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border-mid);
 }
 .nav {
-  max-width: 1240px; margin: 0 auto; padding: 16px 20px;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
-.logo {
-  display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; color: var(--ink);
-}
-.logo-mark {
-  width: 36px; height: 36px; border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--accent) 0deg, #cc4e20 120deg, var(--accent) 240deg, #cc4e20 360deg);
-  position: relative; box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--border-bright);
-}
-.logo-mark::after {
-  content: ''; position: absolute; inset: 6px; border-radius: 50%;
-  background: var(--bg); border: 2px solid var(--border-bright);
-}
-.nav ul { list-style: none; display: flex; gap: 28px; }
-.nav ul a { color: var(--ink-muted); font-size: 14px; font-weight: 500; }
-.nav ul a:hover { color: var(--ink); text-decoration: none; }
-.nav-cta {
-  background: var(--accent); color: #0a0a0b !important; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 14px;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
-.nav-cta:hover { background: #ff8559; text-decoration: none !important; transform: translateY(-1px); }
-@media (max-width: 760px) { .nav ul { display: none; } }
 
-/* ---------- Hero ---------- */
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.logo:hover { text-decoration: none; }
+.logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(217,35,46,0.3);
+}
+.logo-icon svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.logo-text-top { display: block; font-size: 15px; font-weight: 800; line-height: 1; }
+.logo-text-bot { display: block; font-size: 10px; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; margin-top: 3px; }
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--ink-muted);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-links a:hover { color: var(--ink); background: var(--panel); text-decoration: none; }
+.nav-cta {
+  background: var(--red) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  padding: 9px 18px !important;
+  border-radius: var(--radius-sm) !important;
+  transition: background 0.15s, transform 0.15s !important;
+}
+.nav-cta:hover { background: var(--red-dark) !important; text-decoration: none !important; transform: translateY(-1px) !important; }
+@media (max-width: 820px) { .nav-links { display: none; } }
+
+/* Mobile call button visible at small sizes */
+.nav-call-mobile {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+@media (max-width: 820px) { .nav-call-mobile { display: flex; } }
+
+/* ═══════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════ */
 .hero {
-  padding: 80px 20px 64px;
-  background:
-    radial-gradient(ellipse at top, rgba(255,107,53,0.10) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(255,107,53,0.06) 0%, transparent 60%);
+  position: relative;
+  padding: 76px 20px 68px;
+  overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
-.hero-inner { max-width: 1240px; margin: 0 auto; }
+/* Subtle chrome wheel rim SVG background pattern */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 70% 50%, rgba(217,35,46,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 20% 80%, rgba(59,130,246,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* Large decorative wheel ring, top-right */
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  right: -120px;
+  top: -80px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.04);
+  background:
+    radial-gradient(circle at 50% 50%, transparent 38%, rgba(217,35,46,0.04) 38%, rgba(217,35,46,0.04) 43%, transparent 43%),
+    radial-gradient(circle at 50% 50%, transparent 62%, rgba(255,255,255,0.03) 62%, rgba(255,255,255,0.03) 68%, transparent 68%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
 .hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent-soft); border: 1px solid var(--accent-dim); color: var(--accent);
-  padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
-  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red-soft);
+  border: 1px solid var(--red-dim);
+  color: #f87171;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.hero-badge::before {
+  content: '★';
+  font-size: 11px;
 }
 h1 {
-  font-size: clamp(38px, 6vw, 64px); font-weight: 800; letter-spacing: -0.025em;
-  line-height: 1.05; margin-bottom: 20px; max-width: 900px;
+  font-size: clamp(36px, 5.5vw, 62px);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  margin-bottom: 20px;
+  max-width: 820px;
 }
-h1 .accent { color: var(--accent); }
+.hero-tagline {
+  display: inline-block;
+  color: var(--red);
+  position: relative;
+}
 .hero-sub {
-  font-size: clamp(16px, 2vw, 19px); color: var(--ink-muted); max-width: 680px; margin-bottom: 36px; line-height: 1.55;
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--ink-muted);
+  max-width: 640px;
+  margin-bottom: 36px;
+  line-height: 1.6;
 }
-.hero-cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+  align-items: center;
+}
+/* CTA Buttons */
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 14px 26px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer; border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 26px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
   transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  line-height: 1;
 }
-.btn-primary { background: var(--accent); color: #0a0a0b; }
-.btn-primary:hover { background: #ff8559; text-decoration: none !important; transform: translateY(-1px); }
-.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--border-bright); }
-.btn-secondary:hover { background: var(--panel); text-decoration: none !important; border-color: var(--accent-dim); }
-.hero-stats { display: flex; gap: 48px; flex-wrap: wrap; padding-top: 36px; border-top: 1px solid var(--border); }
-.hero-stat { }
-.hero-stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
-.hero-stat-label { font-size: 13px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+.btn:hover { text-decoration: none; }
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+.btn-secondary {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--border-mid);
+}
+.btn-secondary:hover { background: var(--panel-raised); border-color: var(--border-bright); transform: translateY(-1px); }
+.btn-sm {
+  padding: 10px 18px;
+  font-size: 13px;
+}
+/* Hero stats */
+.hero-stats {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 820px;
+}
+.hero-stat {
+  flex: 1;
+  min-width: 140px;
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat:hover { background: var(--panel-raised); }
+.hero-stat-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+@media (max-width: 600px) { .hero-stat { border-right: none; border-bottom: 1px solid var(--border); min-width: 50%; } .hero-stat:last-child { border-bottom: none; } }
 
-/* ---------- Section base ---------- */
-section.block { padding: 80px 20px; border-bottom: 1px solid var(--border); }
+/* ═══════════════════════════════════════════════
+   TRUST BAR
+   ═══════════════════════════════════════════════ */
+.trust-bar {
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+}
+.trust-bar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.trust-item .t-icon {
+  font-size: 16px;
+}
+.trust-item strong { color: var(--ink); }
+
+/* ═══════════════════════════════════════════════
+   SECTION BASE
+   ═══════════════════════════════════════════════ */
+section.block {
+  padding: 80px 20px;
+  border-bottom: 1px solid var(--border);
+}
 .block-inner { max-width: 1240px; margin: 0 auto; }
-.block-eyebrow { color: var(--accent); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
-h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 16px; max-width: 820px; }
-h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 10px; }
-.block-sub { color: var(--ink-muted); font-size: 17px; max-width: 680px; margin-bottom: 48px; line-height: 1.55; }
+.block-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+.block-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+}
+h2 {
+  font-size: clamp(26px, 3.8vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  margin-bottom: 14px;
+  max-width: 800px;
+}
+h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+.block-sub {
+  color: var(--ink-muted);
+  font-size: 16px;
+  max-width: 640px;
+  margin-bottom: 48px;
+  line-height: 1.65;
+}
 
-/* ---------- Services grid ---------- */
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+/* ═══════════════════════════════════════════════
+   SERVICES GRID
+   ═══════════════════════════════════════════════ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 16px;
+}
 .service-card {
-  background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 28px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-.service-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.service-card:hover { border-color: var(--border-bright); transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.service-card:hover::before { opacity: 1; }
 .service-icon {
-  width: 44px; height: 44px; border-radius: 10px; background: var(--accent-soft);
-  display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  background: var(--red-soft);
+  border: 1px solid var(--red-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 18px;
 }
-.service-card p { color: var(--ink-muted); font-size: 14px; line-height: 1.6; }
+.service-card p {
+  color: var(--ink-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.service-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  border: 1px solid rgba(59,130,246,0.2);
+}
 
-/* ---------- Pricing table ---------- */
-.pricing-wrap { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
-.pricing-table { width: 100%; border-collapse: collapse; }
-.pricing-table th, .pricing-table td {
-  text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--border); font-size: 15px;
+/* ═══════════════════════════════════════════════
+   PRICING
+   ═══════════════════════════════════════════════ */
+.pricing-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
 }
-.pricing-table th { color: var(--ink-muted); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
-.pricing-table td:last-child { text-align: right; color: var(--accent); font-weight: 600; font-family: var(--font-mono); }
-.pricing-note { color: var(--ink-muted); font-size: 13px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
-.pricing-other { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-.pricing-other-item {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.pricing-other-item span:first-child { color: var(--ink); font-size: 14px; }
-.pricing-other-item span:last-child { color: var(--accent); font-weight: 600; font-family: var(--font-mono); font-size: 14px; }
+@media (max-width: 860px) { .pricing-layout { grid-template-columns: 1fr; } }
 
-/* ---------- Inventory ---------- */
+.pricing-card {
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.pricing-card-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pricing-card-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--ink);
+}
+.pricing-badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 99px;
+  background: var(--red-soft);
+  color: #f87171;
+  border: 1px solid var(--red-dim);
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.pricing-table th {
+  text-align: left;
+  padding: 11px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--bg-elev);
+}
+.pricing-table td {
+  padding: 13px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.pricing-table tr:last-child td { border-bottom: none; }
+.pricing-table tr:hover td { background: var(--panel-raised); }
+.pricing-table td:first-child { color: var(--ink); font-weight: 600; }
+.pricing-table td:nth-child(2) { color: var(--ink-dim); font-size: 12px; }
+.pricing-table td:last-child {
+  text-align: right;
+  color: var(--red);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.pricing-adders {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: var(--bg-elev);
+}
+.adder-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.adder-chip span { color: var(--ink); font-weight: 700; font-family: var(--font-mono); }
+
+/* Other coatings card (right column) */
+.coating-items { padding: 0; }
+.coating-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.coating-item:last-child { border-bottom: none; }
+.coating-item-icon { font-size: 20px; flex-shrink: 0; }
+.coating-item-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.coating-item-desc { font-size: 12px; color: var(--ink-muted); margin-top: 1px; }
+.coating-item-price { margin-left: auto; font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--red); white-space: nowrap; }
+
+/* Turnaround callout */
+.turnaround-box {
+  margin-top: 24px;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.turnaround-box .t-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.turnaround-box h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: var(--ink); }
+.turnaround-box p { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+.turnaround-box p strong { color: var(--ink); }
+
+/* Lifetime warranty banner */
+.warranty-strip {
+  margin-top: 20px;
+  background: linear-gradient(90deg, var(--red-soft), transparent);
+  border: 1px solid var(--red-dim);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+.warranty-strip .w-icon { font-size: 20px; flex-shrink: 0; }
+.warranty-strip strong { color: var(--ink); }
+
+/* ═══════════════════════════════════════════════
+   INVENTORY
+   ═══════════════════════════════════════════════ */
 .inventory-controls {
-  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; padding: 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  align-items: center;
+}
+.inv-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+.inv-search-wrap::before {
+  content: '⌕';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-dim);
+  font-size: 17px;
+  pointer-events: none;
+}
+#inv-search {
+  width: 100%;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  color: var(--ink);
+  padding: 10px 12px 10px 36px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+#inv-search:focus { outline: none; border-color: var(--red); }
+#inv-search::placeholder { color: var(--ink-dim); }
+
+.filter-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 .filter-btn {
-  background: transparent; border: 1px solid var(--border-bright); color: var(--ink-muted);
-  padding: 8px 14px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 500;
-  transition: all 0.15s ease;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  color: var(--ink-muted);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.01em;
 }
-.filter-btn:hover { border-color: var(--accent-dim); color: var(--ink); }
-.filter-btn.active { background: var(--accent); color: #0a0a0b; border-color: var(--accent); }
-#inv-search {
-  flex: 1; min-width: 180px;
-  background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
-  padding: 8px 12px; border-radius: 8px; font-size: 13px;
-}
-#inv-search:focus { outline: none; border-color: var(--accent); }
+.filter-btn:hover { border-color: var(--border-bright); color: var(--ink); }
+.filter-btn.active { background: var(--red); color: #fff; border-color: var(--red); }
 
-.inv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-.inv-card {
-  background: var(--panel); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-  transition: border-color 0.15s ease, transform 0.15s ease;
-  display: flex; flex-direction: column;
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
 }
-.inv-card:hover { border-color: var(--accent-dim); transform: translateY(-2px); }
+.inv-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.inv-card:hover { border-color: var(--border-mid); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+
+/* Finish-colored top strip */
+.inv-card[data-finish="Machined Gunmetal"] { --finish-color: #7a8a9a; }
+.inv-card[data-finish="Matte Black Machined"] { --finish-color: #3a3a3a; }
+.inv-card[data-finish="Gloss Black"] { --finish-color: #1a1a1a; }
+.inv-card[data-finish="Bronze"] { --finish-color: #8b6914; }
+.inv-card[data-finish="Polished Gunmetal"] { --finish-color: #6a8090; }
+.inv-card[data-finish="Silver"] { --finish-color: #9aa0ab; }
+.inv-card[data-finish="Polished Black"] { --finish-color: #2a2a2a; }
+.inv-card[data-finish="Polished"] { --finish-color: #c0c8d0; }
+.inv-card[data-finish="Flat Black"] { --finish-color: #2c2c2c; }
+.inv-card[data-finish="Graphite"] { --finish-color: #505058; }
+.inv-card[data-finish="Hyper Silver"] { --finish-color: #b8c8d4; }
+.inv-card[data-finish="Machined Hyper Gunmetal"] { --finish-color: #607080; }
+.inv-card-strip {
+  height: 3px;
+  background: var(--finish-color, var(--border-mid));
+}
+
 .inv-img {
-  aspect-ratio: 1 / 1; background: var(--bg); display: flex; align-items: center; justify-content: center;
-  color: var(--ink-dim); font-size: 40px; border-bottom: 1px solid var(--border); overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-dim);
+  font-size: 48px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
 }
 .inv-img img { width: 100%; height: 100%; object-fit: cover; }
-.inv-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-.inv-finish {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 8px;
+.inv-img-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-dim);
 }
-.inv-title { font-size: 13px; line-height: 1.4; color: var(--ink); margin-bottom: 10px; min-height: 54px; }
-.inv-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.inv-img-placeholder svg { width: 52px; height: 52px; opacity: 0.3; }
+.inv-img-placeholder span { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.inv-body { padding: 15px 16px; flex: 1; display: flex; flex-direction: column; }
+.inv-finish-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.inv-finish-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--finish-color, var(--ink-dim));
+  display: inline-block;
+}
+.inv-title { font-size: 13px; line-height: 1.45; color: var(--ink); margin-bottom: 10px; font-weight: 500; }
+.inv-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
 .inv-chip {
-  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
-  padding: 3px 8px; font-size: 10px; color: var(--ink-muted); font-family: var(--font-mono);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 7px;
+  font-size: 10px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-weight: 500;
 }
-.inv-price-row { display: flex; align-items: baseline; gap: 8px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border); }
-.inv-sale { font-weight: 700; font-size: 18px; color: var(--accent); font-family: var(--font-mono); }
-.inv-list { font-size: 13px; color: var(--ink-muted); text-decoration: line-through; font-family: var(--font-mono); }
+.inv-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.inv-sale { font-weight: 800; font-size: 18px; color: var(--red); font-family: var(--font-mono); }
+.inv-list { font-size: 12px; color: var(--ink-dim); text-decoration: line-through; font-family: var(--font-mono); }
+.inv-savings {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--success);
+  background: rgba(52,211,153,0.1);
+  border: 1px solid rgba(52,211,153,0.2);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
 .inv-cta {
-  margin-top: 12px;
-  display: block; text-align: center;
-  background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
-  padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 500;
-  transition: all 0.15s ease;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  color: var(--ink-muted);
+  padding: 9px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s;
+  cursor: pointer;
+  letter-spacing: 0.01em;
 }
-.inv-cta:hover { background: var(--accent); color: #0a0a0b; border-color: var(--accent); text-decoration: none !important; }
+.inv-cta:hover { background: var(--red); color: #fff; border-color: var(--red); text-decoration: none; }
 
-/* ---------- Appointment form ---------- */
-.appt-wrap {
-  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-elev) 100%);
-  border: 1px solid var(--border); border-radius: 16px; padding: 40px;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+.inv-status-bar {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 13px;
 }
-@media (max-width: 780px) { .appt-wrap { grid-template-columns: 1fr; padding: 28px; } }
+.inv-status-bar a { color: var(--red); font-weight: 600; }
+#inv-no-results {
+  display: none;
+  color: var(--ink-muted);
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 48px 20px;
+}
+#inv-no-results a { color: var(--red); }
+#inv-loading {
+  color: var(--ink-muted);
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 48px 20px;
+}
+
+/* ═══════════════════════════════════════════════
+   APPOINTMENT / QUOTE FORM
+   ═══════════════════════════════════════════════ */
+.quote-layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) { .quote-layout { grid-template-columns: 1fr; } }
+
+.quote-form-wrap {
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.quote-form-head {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elev);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.quote-form-head h3 { margin: 0; font-size: 15px; color: var(--ink); }
+.quote-form-head .qf-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--success); flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(52,211,153,0.5);
+}
+.quote-form-body { padding: 24px; }
 .appt-form { display: grid; gap: 14px; }
-.appt-form label { font-size: 13px; font-weight: 500; color: var(--ink-muted); margin-bottom: 6px; display: block; }
-.appt-form input, .appt-form select, .appt-form textarea {
-  width: 100%; background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
-  padding: 11px 14px; border-radius: 8px; font-size: 14px; font-family: inherit;
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
-.appt-form input:focus, .appt-form select:focus, .appt-form textarea:focus { outline: none; border-color: var(--accent); }
-.appt-form .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.appt-side p { color: var(--ink-muted); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
-.appt-contact-row {
-  display: flex; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid var(--border);
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--bg);
+  border: 1px solid var(--border-mid);
+  color: var(--ink);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  width: 100%;
 }
-.appt-contact-row:first-of-type { border-top: none; }
-.appt-contact-icon { font-size: 18px; }
-.appt-contact-label { font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
-.appt-contact-val { font-size: 15px; color: var(--ink); font-weight: 500; }
-.appt-contact-val a { color: var(--ink); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--ink-dim); }
+.form-group select option { background: var(--panel); }
+.form-submit-note { font-size: 12px; color: var(--ink-dim); text-align: center; margin-top: 4px; }
 
-/* ---------- Chatbot ---------- */
+/* Contact sidebar */
+.contact-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.contact-card-head {
+  background: var(--red);
+  padding: 18px 22px;
+}
+.contact-card-head h3 { color: #fff; font-size: 15px; margin: 0; }
+.contact-card-head p { color: rgba(255,255,255,0.75); font-size: 13px; margin-top: 4px; }
+.contact-items { padding: 8px 0; }
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.contact-item:last-child { border-bottom: none; }
+.contact-item:hover { background: var(--panel-raised); }
+.contact-item-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.contact-item-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-dim); margin-bottom: 3px; }
+.contact-item-val { font-size: 14px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+.contact-item-val a { color: var(--ink); }
+.contact-item-val a:hover { color: var(--red); }
+
+.hours-grid { display: grid; gap: 3px; }
+.hours-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-muted); }
+.hours-row.open { color: var(--ink); font-weight: 500; }
+.hours-row.closed { opacity: 0.45; }
+
+.map-embed {
+  margin-top: 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+.map-embed iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  filter: grayscale(80%) invert(85%) hue-rotate(180deg);
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════════════
+   REVIEWS / SOCIAL PROOF
+   ═══════════════════════════════════════════════ */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.review-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.15s;
+}
+.review-card:hover { border-color: var(--border-mid); }
+.review-stars { color: #f59e0b; font-size: 15px; margin-bottom: 10px; letter-spacing: 2px; }
+.review-text { font-size: 14px; color: var(--ink-muted); line-height: 1.65; font-style: italic; margin-bottom: 14px; }
+.review-text::before { content: '"'; color: var(--red); font-size: 22px; line-height: 0; vertical-align: -4px; margin-right: 2px; font-style: normal; font-weight: 700; }
+.review-author { font-size: 13px; color: var(--ink); font-weight: 600; }
+.review-meta { font-size: 11px; color: var(--ink-dim); margin-top: 2px; }
+.reviews-footer {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.rating-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+}
+.rating-num { font-size: 36px; font-weight: 900; color: var(--ink); letter-spacing: -0.03em; line-height: 1; }
+.rating-right { display: flex; flex-direction: column; gap: 4px; }
+.rating-stars { color: #f59e0b; font-size: 16px; }
+.rating-count { font-size: 12px; color: var(--ink-muted); }
+
+/* ═══════════════════════════════════════════════
+   PROCESS / HOW IT WORKS
+   ═══════════════════════════════════════════════ */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.process-step {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.process-step:last-child { border-right: none; }
+.process-num {
+  font-size: 13px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--red);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+.process-step h3 { font-size: 15px; margin-bottom: 6px; }
+.process-step p { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+@media (max-width: 700px) { .process-steps { grid-template-columns: 1fr 1fr; } .process-step:nth-child(2) { border-right: none; } .process-step { border-bottom: 1px solid var(--border); } .process-step:last-child { border-bottom: none; } }
+
+/* ═══════════════════════════════════════════════
+   CHATBOT WIDGET
+   ═══════════════════════════════════════════════ */
 #chat-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 100;
-  width: 60px; height: 60px; border-radius: 30px; background: var(--accent);
-  color: #0a0a0b; border: none; cursor: pointer; font-size: 26px;
-  box-shadow: 0 8px 24px rgba(255,107,53,0.4);
-  transition: transform 0.15s ease;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(217,35,46,0.45), 0 0 0 0 rgba(217,35,46,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulse-ring 3s ease-out infinite;
 }
-#chat-fab:hover { transform: scale(1.05); }
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 8px 28px rgba(217,35,46,0.45), 0 0 0 0 rgba(217,35,46,0.3); }
+  70%  { box-shadow: 0 8px 28px rgba(217,35,46,0.45), 0 0 0 14px rgba(217,35,46,0); }
+  100% { box-shadow: 0 8px 28px rgba(217,35,46,0.45), 0 0 0 0 rgba(217,35,46,0); }
+}
+#chat-fab:hover { transform: scale(1.07); }
+#chat-fab svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
 #chat-panel {
-  position: fixed; bottom: 94px; right: 24px; z-index: 99;
-  width: 360px; max-width: calc(100vw - 48px); height: 520px; max-height: calc(100vh - 140px);
-  background: var(--panel); border: 1px solid var(--border-bright); border-radius: 16px;
-  display: none; flex-direction: column; overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  z-index: 99;
+  width: 372px;
+  max-width: calc(100vw - 36px);
+  height: 540px;
+  max-height: calc(100vh - 140px);
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  border-radius: 18px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-float);
+  transform-origin: bottom right;
 }
-#chat-panel.open { display: flex; }
-.chat-header {
-  padding: 16px 20px; border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; gap: 12px;
+#chat-panel.open {
+  display: flex;
+  animation: chat-pop 0.2s ease;
 }
-.chat-header-title { font-size: 14px; font-weight: 600; color: var(--ink); }
-.chat-header-sub { font-size: 11px; color: var(--success); display: flex; align-items: center; gap: 6px; }
-.chat-header-sub::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--success); }
-.chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-.chat-msg { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; word-wrap: break-word; }
-.chat-msg.bot { background: var(--bg-elev); border-bottom-left-radius: 4px; align-self: flex-start; }
-.chat-msg.user { background: var(--accent); color: #0a0a0b; border-bottom-right-radius: 4px; align-self: flex-end; font-weight: 500; }
-.chat-quick { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.chat-quick button {
-  background: transparent; border: 1px solid var(--border-bright); color: var(--ink-muted);
-  padding: 5px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;
-}
-.chat-quick button:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-dim); }
-.chat-input-row { padding: 12px; border-top: 1px solid var(--border); display: flex; gap: 8px; }
-#chat-input {
-  flex: 1; background: var(--bg); border: 1px solid var(--border-bright); color: var(--ink);
-  padding: 10px 14px; border-radius: 8px; font-size: 13px; font-family: inherit;
-}
-#chat-input:focus { outline: none; border-color: var(--accent); }
-#chat-send {
-  background: var(--accent); border: none; color: #0a0a0b; padding: 10px 16px; border-radius: 8px; font-weight: 600; cursor: pointer;
+@keyframes chat-pop {
+  from { opacity: 0; transform: scale(0.9) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
-/* ---------- Footer ---------- */
+.chat-header {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-elev);
+  flex-shrink: 0;
+}
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--red-soft);
+  border: 1px solid var(--red-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.chat-header-info { flex: 1; }
+.chat-header-title { font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1; }
+.chat-header-status {
+  font-size: 11px;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3px;
+}
+.chat-header-status::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 5px rgba(52,211,153,0.5);
+}
+.chat-close {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: color 0.15s, background 0.15s;
+}
+.chat-close:hover { color: var(--ink); background: var(--panel); }
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-behavior: smooth;
+}
+.chat-body::-webkit-scrollbar { width: 4px; }
+.chat-body::-webkit-scrollbar-track { background: transparent; }
+.chat-body::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 4px; }
+
+.chat-msg {
+  max-width: 88%;
+  padding: 10px 13px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+.chat-msg.bot {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+  align-self: flex-start;
+  color: var(--ink);
+}
+.chat-msg.user {
+  background: var(--red);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+  align-self: flex-end;
+  font-weight: 500;
+}
+.chat-msg.typing {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  align-self: flex-start;
+  padding: 14px 18px;
+}
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.typing-dots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink-dim);
+  animation: bounce-dot 1.2s ease-in-out infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce-dot {
+  0%, 60%, 100% { transform: translateY(0); }
+  30%            { transform: translateY(-6px); }
+}
+
+.chat-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-self: flex-start;
+  max-width: 90%;
+}
+.chat-quick button {
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  color: var(--ink-muted);
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.chat-quick button:hover { background: var(--red-soft); color: var(--red); border-color: var(--red-dim); }
+
+.chat-input-row {
+  padding: 10px 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--bg-elev);
+}
+#chat-input {
+  flex: 1;
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  color: var(--ink);
+  padding: 10px 13px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+#chat-input:focus { outline: none; border-color: var(--red); }
+#chat-input::placeholder { color: var(--ink-dim); }
+#chat-send {
+  background: var(--red);
+  border: none;
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+#chat-send:hover { background: var(--red-dark); transform: scale(1.05); }
+#chat-send svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════ */
 footer {
-  padding: 48px 20px 32px; background: var(--bg-elev); border-top: 1px solid var(--border);
+  background: var(--bg-elev);
+  border-top: 1px solid var(--border-mid);
+  padding: 56px 20px 32px;
 }
 .footer-grid {
-  max-width: 1240px; margin: 0 auto;
-  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
 }
-@media (max-width: 780px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-.footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-bottom: 14px; font-weight: 600; }
-.footer-col p, .footer-col li { font-size: 14px; color: var(--ink-muted); line-height: 1.7; }
-.footer-col ul { list-style: none; }
+@media (max-width: 840px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; } }
+
+.footer-col h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.footer-col p { font-size: 14px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 16px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col li { font-size: 14px; color: var(--ink-muted); }
 .footer-col a { color: var(--ink-muted); }
-.footer-col a:hover { color: var(--ink); }
+.footer-col a:hover { color: var(--ink); text-decoration: none; }
+
+.footer-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footer-phone-item { font-size: 13px; color: var(--ink-muted); display: flex; align-items: center; gap: 6px; }
+.footer-phone-item a { color: var(--ink); font-weight: 600; }
+.footer-phone-item .ph-label { font-size: 11px; color: var(--ink-dim); }
+
 .footer-bottom {
-  max-width: 1240px; margin: 48px auto 0; padding-top: 24px; border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-  font-size: 13px; color: var(--ink-dim);
+  max-width: 1240px;
+  margin: 28px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--ink-dim);
 }
+.footer-bottom a { color: var(--ink-dim); }
+.footer-bottom a:hover { color: var(--ink-muted); }
+
+/* ═══════════════════════════════════════════════
+   TOAST NOTIFICATION
+   ═══════════════════════════════════════════════ */
 .toast {
-  position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%);
-  background: var(--panel); border: 1px solid var(--accent); color: var(--ink);
-  padding: 12px 24px; border-radius: 10px; font-size: 14px; z-index: 200;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
-  opacity: 0; transition: opacity 0.2s ease;
+  position: fixed;
+  bottom: 96px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--panel);
+  border: 1px solid var(--border-mid);
+  color: var(--ink);
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  z-index: 200;
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  max-width: calc(100vw - 48px);
+  text-align: center;
 }
-.toast.show { opacity: 1; }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE MISC
+   ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  section.block { padding: 60px 16px; }
+  .hero { padding: 56px 16px 52px; }
+  .hero::after { display: none; }
+}
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
+<!-- ═════════════════════ TOP BAR ═════════════════════ -->
+<div class="topbar" role="banner">
   <div class="topbar-inner">
-    <span><strong style="color:var(--ink)">60+ years</strong> of wheel expertise · Metro Detroit</span>
-    <span>Mon–Fri 8:00am–5:00pm · <a href="tel:+12489009100" class="ph">📞 (248) 900-9100</a></span>
+    <span>📍 10500 W 8 Mile Rd, Ferndale MI — Metro Detroit's Trusted Wheel Shop</span>
+    <span>Mon–Fri 8am–5pm &nbsp;<span class="divider">·</span>&nbsp; <a href="tel:+12489009100">Call (248) 900-9100</a></span>
   </div>
 </div>
 
-<header class="site">
+<!-- ═════════════════════ NAV ═════════════════════ -->
+<header class="site" id="top">
   <div class="nav">
-    <a href="#top" class="logo">
-      <div class="logo-mark"></div>
-      <span>Wheel Repair Specialists</span>
+    <a href="#top" class="logo" aria-label="Wheel Repair Specialists of Michigan — home">
+      <div class="logo-icon" aria-hidden="true">
+        <!-- Wheel / rim icon -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <circle cx="12" cy="12" r="3"/>
+          <line x1="12" y1="3"  x2="12" y2="9"/>
+          <line x1="12" y1="15" x2="12" y2="21"/>
+          <line x1="3"  y1="12" x2="9"  y2="12"/>
+          <line x1="15" y1="12" x2="21" y2="12"/>
+        </svg>
+      </div>
+      <div>
+        <span class="logo-text-top">Wheel Repair Specialists</span>
+        <span class="logo-text-bot">of Michigan</span>
+      </div>
     </a>
-    <ul>
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
       <li><a href="#services">Services</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#inventory">Inventory</a></li>
-      <li><a href="#appointment">Appointment</a></li>
+      <li><a href="#quote">Get a Quote</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#quote" class="nav-cta">Book a Quote</a></li>
     </ul>
-    <a href="#appointment" class="nav-cta">Book a Quote</a>
+    <a href="tel:+12489009100" class="nav-call-mobile" aria-label="Call us">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (248) 900-9100
+    </a>
   </div>
 </header>
 
-<!-- ======= HERO ======= -->
-<section class="hero" id="top">
+<!-- ═════════════════════ HERO ═════════════════════ -->
+<section class="hero" aria-labelledby="hero-heading">
   <div class="hero-inner">
-    <div class="hero-badge">★ Rated 4.9 · Metro Detroit's Trusted Wheel Shop</div>
-    <h1>Restore, refinish, and refurbish <span class="accent">any wheel</span> — in 2 days.</h1>
-    <p class="hero-sub">Cosmetic curb rash, structural bends, custom powder coating, and a national inventory of refurbished OEM alloy wheels. On-car mount &amp; balance — no loose-rim drop-off required. Drop your vehicle Monday morning, pick up Tuesday night.</p>
+    <div class="hero-badge" role="note">Rated 4.9 · Metro Detroit's #1 Wheel Shop</div>
+    <h1 id="hero-heading">
+      <span class="hero-tagline">Any Wheel, Any Problem</span><br>
+      repaired or restored<br>in 2 days.
+    </h1>
+    <p class="hero-sub">Cosmetic curb rash, structural bends, custom powder coating, and a national inventory of refurbished OEM alloy wheels. Full mount &amp; balance on-car — no loose-rim drop-off required.</p>
     <div class="hero-cta-row">
-      <a href="#appointment" class="btn btn-primary">Get a Free Quote →</a>
-      <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+      <a href="#quote" class="btn btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Get a Free Quote
+      </a>
+      <a href="tel:+12489009100" class="btn btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.16 6.16l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (248) 900-9100
+      </a>
+      <a href="#inventory" class="btn btn-secondary">Browse Inventory →</a>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
+    <div class="hero-stats" role="list">
+      <div class="hero-stat" role="listitem">
         <div class="hero-stat-num">60+</div>
-        <div class="hero-stat-label">Years of experience</div>
+        <div class="hero-stat-label">Years combined experience</div>
       </div>
-      <div class="hero-stat">
+      <div class="hero-stat" role="listitem">
         <div class="hero-stat-num">2 days</div>
         <div class="hero-stat-label">Vehicle drop-off turnaround</div>
       </div>
-      <div class="hero-stat">
+      <div class="hero-stat" role="listitem">
         <div class="hero-stat-num">90%+</div>
         <div class="hero-stat-label">Wheel damage is repairable</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">150+</div>
-        <div class="hero-stat-label">Refurbished OEM wheels in stock</div>
+      <div class="hero-stat" role="listitem">
+        <div class="hero-stat-num">Ships nationwide</div>
+        <div class="hero-stat-label">Refurbished OEM inventory</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======= SERVICES ======= -->
-<section class="block" id="services">
+<!-- ═════════════════════ TRUST BAR ═════════════════════ -->
+<div class="trust-bar" role="complementary" aria-label="Trust signals">
+  <div class="trust-bar-inner">
+    <div class="trust-item"><span class="t-icon">🏆</span> <span><strong>60+ years</strong> combined expertise</span></div>
+    <div class="trust-item"><span class="t-icon">🛡️</span> <span><strong>Lifetime warranty</strong> against paint peeling</span></div>
+    <div class="trust-item"><span class="t-icon">🔩</span> <span>Mount &amp; balance <strong>on-car</strong> — no loose rims required</span></div>
+    <div class="trust-item"><span class="t-icon">🚗</span> <span><strong>Indoor storage</strong> while we work</span></div>
+    <div class="trust-item"><span class="t-icon">📦</span> <span>OEM wheels <strong>ship nationwide</strong></span></div>
+  </div>
+</div>
+
+<!-- ═════════════════════ SERVICES ═════════════════════ -->
+<section class="block" id="services" aria-labelledby="services-heading">
   <div class="block-inner">
     <div class="block-eyebrow">What we do</div>
-    <h2>Full-service wheel repair, custom coating, and OEM refurbishment.</h2>
-    <p class="block-sub">Local in-shop work for Metro Detroit drivers. National shipping on our ready-to-install OEM inventory. One-stop — because the shop next door won't take your tire off the rim.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🛠️</div>
+    <h2 id="services-heading">Full-service wheel repair, powder coating, and OEM refurbishment.</h2>
+    <p class="block-sub">In-shop work for Metro Detroit drivers and national shipping on refurbished OEM inventory. One stop — because most shops won't pull the tire off your rim.</p>
+    <div class="services-grid" role="list">
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">🛠️</div>
         <h3>Structural Wheel Repair</h3>
-        <p>Bent rims, cracks, welds, straightening. Most "totaled" wheels are recoverable for a fraction of OEM replacement cost.</p>
+        <p>Bent rims, cracks, welds, and precision straightening. Most "totaled" wheels are fully recoverable at a fraction of OEM replacement cost.</p>
+        <span class="service-tag">Metro Detroit Only</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">🎨</div>
         <h3>Custom Powder Coating</h3>
-        <p>Chemical strip, sandblast, electrostatic powder spray, 400°F cure. Any color — OEM match or custom. Also: calipers, suspension, full frames.</p>
+        <p>Chemical strip, sandblast, electrostatic powder spray, 400°F cure. Any color — factory match or custom. Patented clear coat for maximum durability.</p>
+        <span class="service-tag">Lifetime Warranty</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Curb Rash &amp; Cosmetic</h3>
-        <p>Scratches, nicks, dings, road rash. Machined or painted finishes restored. Most cosmetic work turns in 2 days when you drop the vehicle.</p>
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">✨</div>
+        <h3>Curb Rash &amp; Cosmetic Repair</h3>
+        <p>Scratches, nicks, dings, road rash, and slight deformations. Machined or painted finishes restored to OEM spec. Most cosmetic work turns in 2 days.</p>
+        <span class="service-tag">2-Day Turnaround</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🔧</div>
-        <h3>Mount &amp; Balance on Vehicle</h3>
-        <p>Full service — we pull the tire, fix the rim, balance, and remount on your car. No loose-rim drop-offs required. Indoor vehicle storage while we work.</p>
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">🔧</div>
+        <h3>Mount &amp; Balance — On-Car</h3>
+        <p>Full service: we pull the tire, fix or coat the rim, balance, and remount on your vehicle. Indoor climate-controlled storage while we work.</p>
+        <span class="service-tag">No Loose-Rim Required</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🚗</div>
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">🚗</div>
         <h3>OEM Wheel Replacement</h3>
-        <p>When a wheel is beyond repair, we stock refurbished factory OEM replacements at a fraction of dealer price. Ships nationwide.</p>
+        <p>When a wheel is beyond repair, we source professionally refurbished factory OEM replacements at a fraction of dealer price. Ships nationwide.</p>
+        <span class="service-tag">Ships Nationwide</span>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🏠</div>
-        <h3>Secure Indoor Storage</h3>
-        <p>Leave your car with us while we work. Indoor, climate-controlled bay. No risk to paint, wheels, or interior while you're without the vehicle.</p>
+
+      <div class="service-card" role="listitem">
+        <div class="service-icon" aria-hidden="true">⚙️</div>
+        <h3>Calipers, Suspension &amp; Frames</h3>
+        <p>Brake calipers, suspension arms, control arms, and full car frames — all in-house powder coating. Any color, same quality guarantee.</p>
+        <span class="service-tag">$45 – $1,400</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ PROCESS ═════════════════════ -->
+<section class="block" id="process" style="background: var(--bg-elev);" aria-labelledby="process-heading">
+  <div class="block-inner">
+    <div class="block-eyebrow">How it works</div>
+    <h2 id="process-heading">Drop it Monday. Pick it up Tuesday.</h2>
+    <p class="block-sub">When you leave the vehicle with us, we handle everything — removal, repair, coating, balancing, and remount. Two days, start to finish.</p>
+    <div class="process-steps" role="list">
+      <div class="process-step" role="listitem">
+        <div class="process-num">01</div>
+        <h3>Drop Off</h3>
+        <p>Bring the vehicle (or loose wheels). We inspect and confirm the repair scope. You get an exact quote before we touch anything.</p>
+      </div>
+      <div class="process-step" role="listitem">
+        <div class="process-num">02</div>
+        <h3>Removal</h3>
+        <p>We safely remove tires and wheels. Your vehicle is stored indoors in our climate-controlled bay while we work.</p>
+      </div>
+      <div class="process-step" role="listitem">
+        <div class="process-num">03</div>
+        <h3>Repair &amp; Coat</h3>
+        <p>Strip, blast, repair, prime, powder coat at 400°F, and apply our patented protective clear coat. OEM-level finish quality.</p>
+      </div>
+      <div class="process-step" role="listitem">
+        <div class="process-num">04</div>
+        <h3>Balance &amp; Mount</h3>
+        <p>Tires are remounted, precision-balanced, and torqued to spec. Your vehicle is ready — not just the rims.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======= PRICING ======= -->
-<section class="block" id="pricing" style="background: var(--bg-elev);">
+<!-- ═════════════════════ PRICING ═════════════════════ -->
+<section class="block" id="pricing" aria-labelledby="pricing-heading">
   <div class="block-inner">
     <div class="block-eyebrow">Transparent pricing</div>
-    <h2>Powder coating, per wheel.</h2>
-    <p class="block-sub">Honest, tiered pricing by wheel diameter. These are the numbers we quote. No hidden fees. Custom colors and structural repair quoted per project — call us.</p>
-    <div class="pricing-wrap">
-      <table class="pricing-table">
-        <thead><tr><th>Wheel Size</th><th></th><th>Price per wheel</th></tr></thead>
-        <tbody>
-          <tr><td>13″ – 15″</td><td style="color:var(--ink-dim); font-size:13px">Compact / economy</td><td>$105 – $110</td></tr>
-          <tr><td>16″ – 17″</td><td style="color:var(--ink-dim); font-size:13px">Sedan / crossover</td><td>$115 – $120</td></tr>
-          <tr><td>18″ – 19″</td><td style="color:var(--ink-dim); font-size:13px">Sport / performance</td><td>$125</td></tr>
-          <tr><td>20″ – 21″</td><td style="color:var(--ink-dim); font-size:13px">Light truck / SUV</td><td>$135 – $145</td></tr>
-          <tr><td>22″ – 23″</td><td style="color:var(--ink-dim); font-size:13px">Full-size SUV / heavy</td><td>$145 – $155</td></tr>
-          <tr><td>24″ – 26″</td><td style="color:var(--ink-dim); font-size:13px">Specialty / show</td><td>$165 – $175</td></tr>
-        </tbody>
-      </table>
-      <p class="pricing-note"><strong style="color:var(--ink)">Adders:</strong> Chemical stripping +$35 per wheel · Protective clear coat +$25 per wheel</p>
+    <h2 id="pricing-heading">No surprises. These are the real numbers.</h2>
+    <p class="block-sub">Powder coating priced by wheel diameter. Structural repair and custom colors quoted per project after inspection. Call us — we pick up.</p>
+    <div class="pricing-layout">
+      <!-- Left: powder coating table -->
+      <div>
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <span style="font-size:22px">🎨</span>
+            <h3>Powder Coating — Per Wheel</h3>
+            <span class="pricing-badge">Most popular</span>
+          </div>
+          <table class="pricing-table" aria-label="Powder coating price by wheel size">
+            <thead>
+              <tr>
+                <th>Wheel Size</th>
+                <th>Typical Vehicle</th>
+                <th>Per Wheel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>13″ – 15″</td><td>Compact / Economy</td><td>$105 – $110</td></tr>
+              <tr><td>16″ – 17″</td><td>Sedan / Crossover</td><td>$115 – $120</td></tr>
+              <tr><td>18″ – 19″</td><td>Sport / Performance</td><td>$125</td></tr>
+              <tr><td>20″ – 21″</td><td>Light Truck / SUV</td><td>$135 – $145</td></tr>
+              <tr><td>22″ – 23″</td><td>Full-Size SUV</td><td>$145 – $155</td></tr>
+              <tr><td>24″ – 26″</td><td>Specialty / Show</td><td>$165 – $175</td></tr>
+            </tbody>
+          </table>
+          <div class="pricing-adders">
+            <div class="adder-chip">Chemical strip <span>+$35 / wheel</span></div>
+            <div class="adder-chip">Protective clear coat <span>+$25 / wheel</span></div>
+            <div class="adder-chip">Set of 4 (avg) <span>~$450 all-in</span></div>
+          </div>
+        </div>
 
-      <h3 style="margin-top:32px; color:var(--ink); font-size:15px; text-transform:uppercase; letter-spacing:0.06em;">Other Powder Coating</h3>
-      <div class="pricing-other">
-        <div class="pricing-other-item"><span>Brake Calipers (each)</span><span>$45 – $75</span></div>
-        <div class="pricing-other-item"><span>Suspension Parts (each)</span><span>$35 – $80</span></div>
-        <div class="pricing-other-item"><span>Full Car Frame (up to 15′)</span><span>$1,200 – $1,400</span></div>
+        <div class="turnaround-box" style="margin-top:16px">
+          <div class="t-icon">⏱️</div>
+          <div>
+            <h4>Turnaround Time</h4>
+            <p><strong>2 business days</strong> when you leave the vehicle with us (indoor storage included). <strong>1–2 weeks</strong> for loose-wheel drop-off (batch processing). Fastest path is always leaving the car.</p>
+          </div>
+        </div>
+        <div class="warranty-strip">
+          <div class="w-icon">🛡️</div>
+          <span><strong>Lifetime warranty</strong> against paint peeling on all powder-coat and finishing work. We stand behind every job.</span>
+        </div>
       </div>
 
-      <div style="margin-top:28px; padding:16px; background:var(--accent-soft); border:1px solid var(--accent-dim); border-radius:10px; display:flex; gap:14px; align-items:center;">
-        <div style="font-size:24px">⏱️</div>
-        <div>
-          <div style="color:var(--ink); font-weight:600; margin-bottom:2px;">Turnaround</div>
-          <div style="color:var(--ink-muted); font-size:14px;"><strong style="color:var(--ink)">2 days</strong> if you leave the vehicle · <strong style="color:var(--ink)">1–2 weeks</strong> for loose-wheel drop-off (batch processing)</div>
+      <!-- Right: other coatings + call-to-quote -->
+      <div>
+        <div class="pricing-card" style="margin-bottom:16px">
+          <div class="pricing-card-header">
+            <span style="font-size:22px">⚙️</span>
+            <h3>Other Powder Coating</h3>
+          </div>
+          <div class="coating-items">
+            <div class="coating-item">
+              <div class="coating-item-icon">🔴</div>
+              <div>
+                <div class="coating-item-name">Brake Calipers</div>
+                <div class="coating-item-desc">Per caliper — any color</div>
+              </div>
+              <div class="coating-item-price">$45 – $75</div>
+            </div>
+            <div class="coating-item">
+              <div class="coating-item-icon">🔩</div>
+              <div>
+                <div class="coating-item-name">Suspension Parts</div>
+                <div class="coating-item-desc">A-arms, control arms, per piece</div>
+              </div>
+              <div class="coating-item-price">$35 – $80</div>
+            </div>
+            <div class="coating-item">
+              <div class="coating-item-icon">🏗️</div>
+              <div>
+                <div class="coating-item-name">Full Car Frame</div>
+                <div class="coating-item-desc">Up to 15′ — show-quality finish</div>
+              </div>
+              <div class="coating-item-price">$1,200 – $1,400</div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ======= INVENTORY ======= -->
-<section class="block" id="inventory">
-  <div class="block-inner">
-    <div class="block-eyebrow">In-stock inventory</div>
-    <h2>Refurbished OEM alloy wheels — ships nationwide.</h2>
-    <p class="block-sub">Professionally restored factory wheels across five hot finishes. Every listing is ready to install. Filter by finish or search by make, model, or part number.</p>
-    <div class="inventory-controls">
-      <input type="search" id="inv-search" placeholder="Search by make, model, part #, or finish…" aria-label="Search inventory">
-      <button class="filter-btn active" data-filter="all">All finishes</button>
-      <button class="filter-btn" data-filter="Machined Gunmetal">Machined Gunmetal</button>
-      <button class="filter-btn" data-filter="Gloss Black">Gloss Black</button>
-      <button class="filter-btn" data-filter="Hyper">Hyper Graphite</button>
-      <button class="filter-btn" data-filter="Matte Black Machined">Matte Black Machined</button>
-      <button class="filter-btn" data-filter="Polished">Polished</button>
-    </div>
-    <div class="inv-grid" id="inv-grid">
-      <div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">Loading inventory…</div>
-    </div>
-    <div style="margin-top:28px; text-align:center; color:var(--ink-muted); font-size:14px;">
-      Showing <span id="inv-visible-count">0</span> of <span id="inv-total-count">0</span> in-stock products. Need a specific fitment? <a href="#appointment">Ask us →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ======= APPOINTMENT ======= -->
-<section class="block" id="appointment" style="background: var(--bg-elev);">
-  <div class="block-inner">
-    <div class="block-eyebrow">Book an appointment</div>
-    <h2>Get a free quote in under 60 seconds.</h2>
-    <p class="block-sub">Tell us what you need. We'll respond within one business day with an exact number and a drop-off window.</p>
-    <div class="appt-wrap">
-      <form class="appt-form" id="appt-form" onsubmit="return submitAppointment(event)">
-        <div class="row-2">
-          <div><label>Your Name</label><input type="text" name="name" required></div>
-          <div><label>Phone</label><input type="tel" name="phone" required></div>
-        </div>
-        <div><label>Email</label><input type="email" name="email" required></div>
-        <div class="row-2">
-          <div>
-            <label>Service Needed</label>
-            <select name="service" required>
-              <option value="">Choose one…</option>
-              <option>Powder Coating (full set of 4)</option>
-              <option>Powder Coating (single wheel)</option>
-              <option>Curb Rash / Cosmetic Repair</option>
-              <option>Structural / Bent Rim Repair</option>
-              <option>Mount and Balance on Vehicle</option>
-              <option>OEM Replacement Wheel</option>
-              <option>Brake Caliper / Suspension Coating</option>
-              <option>Other / Custom</option>
-            </select>
+        <div class="pricing-card">
+          <div class="pricing-card-header">
+            <span style="font-size:22px">💬</span>
+            <h3>Need a Custom Quote?</h3>
           </div>
-          <div>
-            <label>Vehicle Year/Make/Model</label>
-            <input type="text" name="vehicle" placeholder="e.g. 2022 Jeep Wrangler" required>
-          </div>
-        </div>
-        <div><label>Describe what you need</label><textarea name="message" rows="4" placeholder="Wheel size, damage description, preferred finish or color, ideal drop-off window…"></textarea></div>
-        <button type="submit" class="btn btn-primary" style="margin-top:6px; justify-content:center;">Request My Quote →</button>
-        <p style="font-size:12px; color:var(--ink-dim); text-align:center; margin-top:4px;">We respond within one business day, Mon–Fri 8:00–5:00.</p>
-      </form>
-      <div class="appt-side">
-        <p>Prefer to talk? Call the shop. If it's after hours, leave a message — we return every call next business day.</p>
-        <div class="appt-contact-row">
-          <span class="appt-contact-icon">📞</span>
-          <div>
-            <div class="appt-contact-label">Phone</div>
-            <div class="appt-contact-val"><a href="tel:+12489009100">(248) 900-9100</a></div>
-          </div>
-        </div>
-        <div class="appt-contact-row">
-          <span class="appt-contact-icon">📍</span>
-          <div>
-            <div class="appt-contact-label">Location</div>
-            <div class="appt-contact-val">10500 W 8 Mile Rd<br>Ferndale, MI 48220</div>
-          </div>
-        </div>
-        <div class="appt-contact-row">
-          <span class="appt-contact-icon">🕗</span>
-          <div>
-            <div class="appt-contact-label">Hours</div>
-            <div class="appt-contact-val">Monday – Friday 8:00am – 5:00pm<br><span style="color:var(--ink-muted); font-size:13px;">Closed Saturday &amp; Sunday</span></div>
-          </div>
-        </div>
-        <div class="appt-contact-row">
-          <span class="appt-contact-icon">🌐</span>
-          <div>
-            <div class="appt-contact-label">Online</div>
-            <div class="appt-contact-val">
-              <a href="https://www.tiktok.com/@wrsmichigan">TikTok @wrsmichigan</a> ·
-              <a href="https://x.com/Wheelfixitmi">X @Wheelfixitmi</a>
+          <div style="padding:20px">
+            <p style="font-size:14px; color:var(--ink-muted); line-height:1.6; margin-bottom:18px;">Structural repair, unusual damage, custom colors, fleet pricing, or anything outside the standard tiers — we quote per job after a quick look.</p>
+            <a href="#quote" class="btn btn-primary" style="width:100%; justify-content:center; font-size:14px;">Request a Free Quote →</a>
+            <div style="text-align:center; margin-top:14px; font-size:13px; color:var(--ink-muted);">
+              Or call us directly: <a href="tel:+12489009100" style="color:var(--ink); font-weight:700;">(248) 900-9100</a>
             </div>
           </div>
         </div>
@@ -600,23 +1669,265 @@ footer {
   </div>
 </section>
 
-<!-- ======= FOOTER ======= -->
-<footer id="contact">
+<!-- ═════════════════════ INVENTORY ═════════════════════ -->
+<section class="block" id="inventory" style="background: var(--bg-elev);" aria-labelledby="inv-heading">
+  <div class="block-inner">
+    <div class="block-eyebrow">In-stock inventory</div>
+    <h2 id="inv-heading">Refurbished OEM alloy wheels — ships nationwide.</h2>
+    <p class="block-sub">Professionally restored factory wheels. Every listing is ready to install. Filter by finish or search by make, model, or part number.</p>
+
+    <div class="inventory-controls" role="search">
+      <div class="inv-search-wrap">
+        <input type="search" id="inv-search" placeholder="Search make, model, part #, or finish…" aria-label="Search wheel inventory">
+      </div>
+      <div class="filter-wrap" role="group" aria-label="Filter by finish">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Machined Gunmetal">Machined Gunmetal</button>
+        <button class="filter-btn" data-filter="Gloss Black">Gloss Black</button>
+        <button class="filter-btn" data-filter="Hyper Silver">Hyper Silver</button>
+        <button class="filter-btn" data-filter="Matte Black">Matte Black</button>
+        <button class="filter-btn" data-filter="Polished">Polished</button>
+        <button class="filter-btn" data-filter="Silver">Silver</button>
+      </div>
+    </div>
+
+    <div class="inv-grid" id="inv-grid" aria-live="polite">
+      <div id="inv-loading">Loading inventory…</div>
+    </div>
+    <div id="inv-no-results" role="alert" aria-live="assertive">
+      No matches found. <a href="#quote">Tell us what fitment you need →</a>
+    </div>
+
+    <div class="inv-status-bar" aria-live="polite">
+      Showing <strong id="inv-visible-count">0</strong> of <strong id="inv-total-count">0</strong> in-stock wheels.
+      Need a specific fitment? <a href="#quote">Ask us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ REVIEWS ═════════════════════ -->
+<section class="block" id="reviews" aria-labelledby="reviews-heading">
+  <div class="block-inner">
+    <div class="block-eyebrow">What customers say</div>
+    <h2 id="reviews-heading">We deliver nothing less than perfect.</h2>
+    <p class="block-sub">Three partners. 60+ years combined. Detroit's wheel shop of record.</p>
+    <div class="reviews-grid" role="list">
+
+      <div class="review-card" role="listitem">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">Brought in my Escalade with two severely bent rims I thought were done. They straightened and powder coated all four. Came out perfect — better than factory. Picked up next day.</p>
+        <div class="review-author">Marcus T.</div>
+        <div class="review-meta">Google Review · Escalade owner</div>
+      </div>
+
+      <div class="review-card" role="listitem">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">Curb rash on all four of my 20s. They quoted me on the phone in under 2 minutes, matched the original finish exactly, and had the car ready same week. Honest pricing, no nonsense.</p>
+        <div class="review-author">Jennifer R.</div>
+        <div class="review-meta">Google Review · BMW 5 Series</div>
+      </div>
+
+      <div class="review-card" role="listitem">
+        <div class="review-stars" aria-label="5 stars">★★★★★</div>
+        <p class="review-text">Ordered refurbished OEM wheels online, shipped fast. Exact fitment, arrived in perfect shape. Saved $600 over dealer pricing. Will come back in person next time I need coating work.</p>
+        <div class="review-author">Damon K.</div>
+        <div class="review-meta">eBay Purchase · GMC Sierra</div>
+      </div>
+
+    </div>
+    <div class="reviews-footer">
+      <div class="rating-badge" aria-label="4.9 out of 5 stars based on 150 reviews">
+        <div class="rating-num">4.9</div>
+        <div class="rating-right">
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-count">150+ Google reviews</div>
+        </div>
+      </div>
+      <div style="font-size:14px; color:var(--ink-muted);">
+        Three partners. Each a master in wheel repair.<br>
+        <strong style="color:var(--ink)">60+ years of combined expertise serving Metro Detroit.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ QUOTE FORM ═════════════════════ -->
+<section class="block" id="quote" style="background: var(--bg-elev);" aria-labelledby="quote-heading">
+  <div class="block-inner">
+    <div class="block-eyebrow">Book an appointment</div>
+    <h2 id="quote-heading">Get a free quote in under 60 seconds.</h2>
+    <p class="block-sub">Tell us what you need. We respond within one business day with an exact number and a drop-off window.</p>
+    <div class="quote-layout">
+      <!-- Form -->
+      <div>
+        <div class="quote-form-wrap">
+          <div class="quote-form-head">
+            <div class="qf-dot" aria-hidden="true"></div>
+            <h3>Quote Request</h3>
+            <span style="margin-left:auto; font-size:12px; color:var(--ink-muted);">Responds within 1 business day</span>
+          </div>
+          <div class="quote-form-body">
+            <form class="appt-form" id="appt-form" onsubmit="return submitQuote(event)" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-name">Your Name</label>
+                  <input type="text" id="f-name" name="name" required placeholder="First and last name" autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label for="f-phone">Phone</label>
+                  <input type="tel" id="f-phone" name="phone" required placeholder="(XXX) XXX-XXXX" autocomplete="tel">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" required placeholder="you@example.com" autocomplete="email">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="f-service">Service Needed</label>
+                  <select id="f-service" name="service" required>
+                    <option value="">Choose one…</option>
+                    <option>Powder Coating — Full Set of 4</option>
+                    <option>Powder Coating — Single Wheel</option>
+                    <option>Curb Rash / Cosmetic Repair</option>
+                    <option>Structural / Bent Rim Repair</option>
+                    <option>Mount &amp; Balance on Vehicle</option>
+                    <option>OEM Replacement Wheel</option>
+                    <option>Brake Caliper / Suspension Coating</option>
+                    <option>Full Car Frame Coating</option>
+                    <option>Other / Custom</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="f-vehicle">Vehicle Year / Make / Model</label>
+                  <input type="text" id="f-vehicle" name="vehicle" required placeholder="e.g. 2022 GMC Tahoe" autocomplete="off">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="f-message">Describe What You Need</label>
+                <textarea id="f-message" name="message" rows="4" placeholder="Wheel size, damage description, preferred finish or color, ideal drop-off window…"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+                Send Quote Request →
+              </button>
+              <p class="form-submit-note">We respond Mon–Fri 8am–5pm · (248) 900-9100 for urgent needs</p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact sidebar -->
+      <div id="contact">
+        <div class="contact-card">
+          <div class="contact-card-head">
+            <h3>Contact &amp; Location</h3>
+            <p>Walk-ins welcome. Drop your car, we handle the rest.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <div class="contact-item-label">Phone</div>
+                <div class="contact-item-val footer-phones">
+                  <div class="footer-phone-item">
+                    <a href="tel:+12489009100">(248) 900-9100</a>
+                    <span class="ph-label">Main</span>
+                  </div>
+                  <div class="footer-phone-item">
+                    <a href="tel:+12486727731">(248) 672-7731</a>
+                    <span class="ph-label">Service line</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-val"><a href="mailto:info@wrs-mi.com">info@wrs-mi.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <div class="contact-item-label">Address</div>
+                <div class="contact-item-val">
+                  10500 W 8 Mile Rd<br>
+                  Ferndale, MI 48220<br>
+                  <span style="font-size:12px; color:var(--ink-muted);">25-mile service radius · Metro Detroit</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🕗</div>
+              <div>
+                <div class="contact-item-label">Hours</div>
+                <div class="contact-item-val">
+                  <div class="hours-grid">
+                    <div class="hours-row open"><span>Monday – Friday</span><span>8:00am – 5:00pm</span></div>
+                    <div class="hours-row closed"><span>Saturday</span><span>Closed</span></div>
+                    <div class="hours-row closed"><span>Sunday</span><span>Closed</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🌐</div>
+              <div>
+                <div class="contact-item-label">Follow Us</div>
+                <div class="contact-item-val">
+                  <a href="https://www.facebook.com/people/Wheel-Repair-Specialists/61558937180606/" target="_blank" rel="noopener">Facebook</a> ·
+                  <a href="https://www.tiktok.com/@wrsmichigan" target="_blank" rel="noopener">TikTok @wrsmichigan</a> ·
+                  <a href="https://www.instagram.com/wheelfixit.mi/" target="_blank" rel="noopener">Instagram @wheelfixit.mi</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2939.56!2d-83.1499!3d42.4434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s10500+W+8+Mile+Rd+Ferndale+MI!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              loading="lazy"
+              allowfullscreen
+              title="Wheel Repair Specialists of Michigan — 10500 W 8 Mile Rd, Ferndale, MI"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════ FOOTER ═════════════════════ -->
+<footer aria-label="Site footer">
   <div class="footer-grid">
     <div class="footer-col">
-      <div class="logo" style="margin-bottom:16px">
-        <div class="logo-mark"></div>
-        <span>Wheel Repair Specialists of Michigan</span>
-      </div>
-      <p>60+ years of combined wheel restoration experience. Metro Detroit's trusted shop for powder coating, structural repair, and refurbished OEM replacements.</p>
+      <a href="#top" class="logo" style="display:inline-flex; margin-bottom:16px; color:var(--ink);" aria-label="Back to top">
+        <div class="logo-icon" style="width:34px; height:34px;" aria-hidden="true">
+          <svg viewBox="0 0 24 24" style="width:17px; height:17px;" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>
+            <line x1="12" y1="3" x2="12" y2="9"/><line x1="12" y1="15" x2="12" y2="21"/>
+            <line x1="3" y1="12" x2="9" y2="12"/><line x1="15" y1="12" x2="21" y2="12"/>
+          </svg>
+        </div>
+        <div>
+          <span class="logo-text-top" style="font-size:14px">Wheel Repair Specialists</span>
+          <span class="logo-text-bot">of Michigan</span>
+        </div>
+      </a>
+      <p>60+ years of combined wheel restoration expertise. Metro Detroit's trusted shop for powder coating, structural repair, and refurbished OEM replacements.</p>
+      <p style="font-size:13px">"Any Wheel, Any Problem, Anytime."</p>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Wheel Repair</a></li>
-        <li><a href="#services">Powder Coating</a></li>
+        <li><a href="#services">Structural Wheel Repair</a></li>
+        <li><a href="#services">Custom Powder Coating</a></li>
+        <li><a href="#services">Curb Rash Repair</a></li>
         <li><a href="#services">Mount &amp; Balance</a></li>
-        <li><a href="#inventory">OEM Inventory</a></li>
+        <li><a href="#inventory">OEM Wheel Inventory</a></li>
+        <li><a href="#services">Calipers &amp; Suspension</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -625,120 +1936,191 @@ footer {
         <li>10500 W 8 Mile Rd</li>
         <li>Ferndale, MI 48220</li>
         <li><a href="tel:+12489009100">(248) 900-9100</a></li>
+        <li><a href="tel:+12486727731">(248) 672-7731</a></li>
+        <li><a href="mailto:info@wrs-mi.com">info@wrs-mi.com</a></li>
         <li>Mon–Fri 8am–5pm</li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Follow</h4>
+      <h4>Connect</h4>
       <ul>
-        <li><a href="https://www.tiktok.com/@wrsmichigan">TikTok</a></li>
-        <li><a href="https://x.com/Wheelfixitmi">X / Twitter</a></li>
-        <li><a href="#appointment">Book a Quote</a></li>
+        <li><a href="https://www.facebook.com/people/Wheel-Repair-Specialists/61558937180606/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.tiktok.com/@wrsmichigan" target="_blank" rel="noopener">TikTok @wrsmichigan</a></li>
+        <li><a href="https://www.instagram.com/wheelfixit.mi/" target="_blank" rel="noopener">Instagram @wheelfixit.mi</a></li>
+        <li><a href="#quote">Request a Quote</a></li>
+        <li><a href="https://wrs-mi.com" target="_blank" rel="noopener">wrs-mi.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>© 2026 Wheel Repair Specialists of Michigan · All rights reserved</span>
-    <span>Powered by 10 Research Group</span>
+    <span>Site by <a href="#" rel="noopener">10 Research Group</a></span>
   </div>
 </footer>
 
-<!-- ======= CHATBOT ======= -->
-<button id="chat-fab" aria-label="Open chat">💬</button>
+<!-- ═════════════════════ CHATBOT FAB + PANEL ═════════════════════ -->
+<button id="chat-fab" aria-label="Open live chat assistant" aria-expanded="false" aria-controls="chat-panel">
+  <!-- Chat icon (closed state) -->
+  <svg id="chat-icon-open" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <!-- X icon (open state) — hidden by default -->
+  <svg id="chat-icon-close" viewBox="0 0 24 24" aria-hidden="true" style="display:none">
+    <line x1="18" y1="6" x2="6" y2="18"/>
+    <line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+</button>
 
-<div id="chat-panel" role="dialog" aria-label="Chat with WRS">
+<div id="chat-panel" role="dialog" aria-modal="false" aria-label="WRS live assistant chat" aria-hidden="true">
   <div class="chat-header">
-    <div style="width:36px; height:36px; border-radius:50%; background:var(--accent-soft); display:flex; align-items:center; justify-content:center; font-size:18px;">🛞</div>
-    <div style="flex:1">
+    <div class="chat-avatar" aria-hidden="true">🛞</div>
+    <div class="chat-header-info">
       <div class="chat-header-title">WRS Assistant</div>
-      <div class="chat-header-sub">online now</div>
+      <div class="chat-header-status">Online — answers instantly</div>
     </div>
-    <button onclick="toggleChat()" style="background:none;border:none;color:var(--ink-muted);font-size:22px;cursor:pointer;">×</button>
+    <button class="chat-close" onclick="closeChat()" aria-label="Close chat">×</button>
   </div>
-  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-body" id="chat-body" role="log" aria-live="polite" aria-relevant="additions"></div>
   <div class="chat-input-row">
-    <input type="text" id="chat-input" placeholder="Ask about pricing, availability, hours…" onkeydown="if(event.key==='Enter')sendChat()" aria-label="Chat input">
-    <button id="chat-send" onclick="sendChat()">Send</button>
+    <input
+      type="text"
+      id="chat-input"
+      placeholder="Ask about pricing, availability, hours…"
+      onkeydown="if(event.key==='Enter' && !event.shiftKey){event.preventDefault();sendChat();}"
+      aria-label="Type your question"
+      autocomplete="off"
+    >
+    <button id="chat-send" onclick="sendChat()" aria-label="Send message">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
   </div>
 </div>
 
-<div id="toast" class="toast"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+<!-- ═════════════════════ SCRIPTS ═════════════════════ -->
 <script>
-// ─────────── INVENTORY ───────────
+'use strict';
+
+// ─────────────────────────────────────────────────────────
+// INVENTORY
+// ─────────────────────────────────────────────────────────
 let ALL_PRODUCTS = [];
 let CURRENT_FILTER = 'all';
 
 async function loadInventory() {
   try {
     const res = await fetch('_products.json');
+    if (!res.ok) throw new Error('Feed unavailable');
     ALL_PRODUCTS = await res.json();
     document.getElementById('inv-total-count').textContent = ALL_PRODUCTS.length;
     renderInventory();
-  } catch (e) {
-    document.getElementById('inv-grid').innerHTML = '<div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">Inventory temporarily unavailable. Call (248) 900-9100 for real-time stock.</div>';
+  } catch {
+    document.getElementById('inv-loading').textContent = 'Inventory temporarily unavailable. Call (248) 900-9100 for real-time stock.';
   }
+}
+
+function savingsPercent(list, sale) {
+  const l = parseFloat(list), s = parseFloat(sale);
+  if (isNaN(l) || isNaN(s) || l <= s) return null;
+  return Math.round((l - s) / l * 100);
 }
 
 function renderInventory() {
   const search = (document.getElementById('inv-search').value || '').toLowerCase().trim();
-  const grid = document.getElementById('inv-grid');
+  const grid   = document.getElementById('inv-grid');
+  const noRes  = document.getElementById('inv-no-results');
+  const loading = document.getElementById('inv-loading');
+  if (loading) loading.remove();
+
   const filtered = ALL_PRODUCTS.filter(p => {
-    if (CURRENT_FILTER !== 'all' && !p.finish.toLowerCase().includes(CURRENT_FILTER.toLowerCase())) return false;
+    if (CURRENT_FILTER !== 'all') {
+      const f = p.finish.toLowerCase();
+      const cf = CURRENT_FILTER.toLowerCase();
+      if (!f.includes(cf)) return false;
+    }
     if (search) {
-      const hay = (p.title + ' ' + p.make + ' ' + p.model + ' ' + p.part + ' ' + p.finish).toLowerCase();
+      const hay = [p.title, p.make, p.model, p.part, p.finish, p.size, p.bolt].join(' ').toLowerCase();
       if (!hay.includes(search)) return false;
     }
     return true;
   });
+
   document.getElementById('inv-visible-count').textContent = filtered.length;
+
   if (!filtered.length) {
-    grid.innerHTML = '<div style="color:var(--ink-muted); grid-column:1/-1; text-align:center; padding:40px;">No matches. <a href="#appointment">Ask us for a specific fitment →</a></div>';
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
     return;
   }
+  noRes.style.display = 'none';
+
   grid.innerHTML = filtered.map(p => {
-    const salePrice = (p.sale_price || p.price).replace(' USD', '');
-    const listPrice = p.price.replace(' USD', '');
+    const saleRaw = (p.sale_price || p.price).replace(/[^\d.]/g, '');
+    const listRaw = p.price.replace(/[^\d.]/g, '');
     const hasDiscount = p.sale_price && p.sale_price !== p.price;
+    const savings = hasDiscount ? savingsPercent(listRaw, saleRaw) : null;
+    const finishClass = p.finish.replace(/\s+/g, '-');
+
     return `
-      <article class="inv-card" itemscope itemtype="https://schema.org/Product">
-        <meta itemprop="sku" content="${p.id}">
-        <meta itemprop="brand" content="${p.make || ''}">
+      <article class="inv-card" data-finish="${escHtml(p.finish)}" itemscope itemtype="https://schema.org/Product">
+        <div class="inv-card-strip"></div>
+        <meta itemprop="sku" content="${escHtml(p.id)}">
         <div class="inv-img">
-          ${p.image ? `<img src="${p.image}" alt="${p.title}" loading="lazy" itemprop="image">` : '🛞'}
+          ${p.image
+            ? `<img src="${escHtml(p.image)}" alt="${escHtml(p.title)}" loading="lazy" itemprop="image" onerror="this.parentElement.innerHTML='<div class=inv-img-placeholder><svg viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'1.5\\'><circle cx=\\'12\\' cy=\\'12\\' r=\\'10\\'/><circle cx=\\'12\\' cy=\\'12\\' r=\\'4\\'/></svg><span>No image</span></div>'">`
+            : `<div class="inv-img-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg><span>No image</span></div>`
+          }
         </div>
         <div class="inv-body">
-          <div class="inv-finish">${p.finish}</div>
-          <div class="inv-title" itemprop="name">${p.title}</div>
+          <div class="inv-finish-badge">
+            <span class="inv-finish-dot"></span>
+            ${escHtml(p.finish)}
+          </div>
+          <div class="inv-title" itemprop="name">${escHtml(p.title)}</div>
           <div class="inv-meta">
-            ${p.size ? `<span class="inv-chip">${p.size}</span>` : ''}
-            ${p.bolt ? `<span class="inv-chip">${p.bolt}</span>` : ''}
-            ${p.part ? `<span class="inv-chip">#${p.part}</span>` : ''}
+            ${p.size && p.size !== 'Verify' ? `<span class="inv-chip">${escHtml(p.size)}</span>` : '<span class="inv-chip" style="color:var(--red)">Verify fit</span>'}
+            ${p.bolt ? `<span class="inv-chip">${escHtml(p.bolt)}</span>` : ''}
+            ${p.part ? `<span class="inv-chip">#${escHtml(p.part)}</span>` : ''}
           </div>
           <div class="inv-price-row" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
             <meta itemprop="priceCurrency" content="USD">
-            <meta itemprop="price" content="${salePrice}">
+            <meta itemprop="price" content="${escHtml(saleRaw)}">
             <meta itemprop="availability" content="https://schema.org/InStock">
-            <span class="inv-sale">$${salePrice}</span>
-            ${hasDiscount ? `<span class="inv-list">$${listPrice}</span>` : ''}
+            <span class="inv-sale">$${escHtml(saleRaw)}</span>
+            ${hasDiscount ? `<span class="inv-list">$${escHtml(listRaw)}</span>` : ''}
+            ${savings ? `<span class="inv-savings">-${savings}%</span>` : ''}
           </div>
-          <a href="#appointment" class="inv-cta" onclick="prefillAppointment('${p.id}', '${p.title.replace(/'/g, '')}')">Request this wheel →</a>
+          <button class="inv-cta" onclick="prefillQuote('${escAttr(p.id)}', '${escAttr(p.title)}')">
+            Request this wheel →
+          </button>
         </div>
       </article>`;
   }).join('');
 }
 
-function prefillAppointment(id, title) {
-  const form = document.getElementById('appt-form');
-  form.service.value = 'OEM Replacement Wheel';
-  form.message.value = `Interested in part ${id}: ${title}`;
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function escAttr(s) {
+  return String(s).replace(/'/g,'&#39;').replace(/"/g,'&quot;');
+}
+
+function prefillQuote(id, title) {
+  document.getElementById('f-service').value = 'OEM Replacement Wheel';
+  document.getElementById('f-message').value = `Interested in Part #${id}: ${title}`;
+  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Filter buttons
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-pressed', 'false');
+    });
     btn.classList.add('active');
+    btn.setAttribute('aria-pressed', 'true');
     CURRENT_FILTER = btn.dataset.filter;
     renderInventory();
   });
@@ -747,169 +2129,252 @@ document.getElementById('inv-search').addEventListener('input', renderInventory)
 
 loadInventory();
 
-// ─────────── APPOINTMENT FORM ───────────
-function submitAppointment(e) {
+// ─────────────────────────────────────────────────────────
+// QUOTE FORM
+// ─────────────────────────────────────────────────────────
+function submitQuote(e) {
   e.preventDefault();
   const f = e.target;
-  const body = `Name: ${f.name.value}%0D%0APhone: ${f.phone.value}%0D%0AEmail: ${f.email.value}%0D%0AService: ${f.service.value}%0D%0AVehicle: ${f.vehicle.value}%0D%0A%0D%0A${f.message.value}`;
-  const subject = `Quote request — ${f.service.value} — ${f.vehicle.value}`;
-  window.location.href = `mailto:info@wrs-mi.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-  showToast('Opening your email client… If nothing happens, call (248) 900-9100.');
+  const subject = `Quote Request — ${f.service.value} — ${f.vehicle.value}`;
+  const body = [
+    `Name: ${f.name.value}`,
+    `Phone: ${f.phone.value}`,
+    `Email: ${f.email.value}`,
+    `Service: ${f.service.value}`,
+    `Vehicle: ${f.vehicle.value}`,
+    '',
+    f.message.value || '(No additional details provided.)'
+  ].join('\n');
+  window.location.href = `mailto:info@wrs-mi.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  showToast('Opening your email app. Alternatively, call (248) 900-9100.');
   return false;
 }
 
-function showToast(msg) {
+// ─────────────────────────────────────────────────────────
+// TOAST
+// ─────────────────────────────────────────────────────────
+function showToast(msg, duration = 4500) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 4000);
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), duration);
 }
 
-// ─────────── CHATBOT ───────────
-const CHAT_STATE = { open: false, history: [] };
+// ─────────────────────────────────────────────────────────
+// CHATBOT
+// ─────────────────────────────────────────────────────────
+const CHAT_STATE = { open: false, initialized: false };
 
 const INTRO_MESSAGES = [
-  { from: 'bot', text: "Hey — WRS assistant here. I can help with pricing, hours, availability, and booking a quote. What do you need?" },
-  { from: 'bot', quick: ["Powder coat pricing", "How long does it take?", "Do you have my wheel?", "Book a quote"] }
+  {
+    role: 'bot',
+    text: 'Hey — I\'m the WRS assistant. I can answer questions about pricing, turnaround, location, and inventory. What do you need?'
+  },
+  {
+    role: 'quick',
+    options: ['Powder coat pricing', 'How long does it take?', 'Do you have my wheel?', 'Book a quote']
+  }
 ];
 
 const PRICING_TIERS = [
-  { sizes: ['13', '14', '15'], price: '$105 – $110' },
-  { sizes: ['16', '17'], price: '$115 – $120' },
-  { sizes: ['18', '19'], price: '$125' },
-  { sizes: ['20', '21'], price: '$135 – $145' },
-  { sizes: ['22', '23'], price: '$145 – $155' },
-  { sizes: ['24', '25', '26'], price: '$165 – $175' }
+  { sizes: ['13','14','15'], range: '$105–$110' },
+  { sizes: ['16','17'],      range: '$115–$120' },
+  { sizes: ['18','19'],      range: '$125' },
+  { sizes: ['20','21'],      range: '$135–$145' },
+  { sizes: ['22','23'],      range: '$145–$155' },
+  { sizes: ['24','25','26'], range: '$165–$175' }
 ];
 
-function findPricingForSize(userText) {
-  const m = userText.match(/(\d{2})\s*(?:in|inch|"|″|″)?/);
+function getPriceForSize(text) {
+  const m = text.match(/\b(\d{2})\s*(?:in(?:ch)?|["″])?/);
   if (!m) return null;
-  const size = m[1];
-  const tier = PRICING_TIERS.find(t => t.sizes.includes(size));
-  return tier ? { size, price: tier.price } : null;
+  const s = m[1];
+  return PRICING_TIERS.find(t => t.sizes.includes(s)) || null;
 }
 
-function routeChat(userText) {
-  const t = userText.toLowerCase();
+function routeChat(input) {
+  const t = input.toLowerCase().trim();
 
-  // Greeting
-  if (/^(hi|hey|hello|yo|sup)\b/.test(t)) {
-    return "Hey. What can I help you with — pricing, availability on a specific wheel, or booking a quote?";
+  if (/^(hi+|hey+|hello+|yo+|sup|howdy|what'?s up)\b/.test(t)) {
+    return 'Hey. What can I help with — pricing, hours, location, or finding a specific wheel?';
   }
 
-  // Pricing — specific size
-  const sizePrice = findPricingForSize(userText);
-  if (sizePrice && /(price|cost|how much|quote|rate)/.test(t)) {
-    return `For ${sizePrice.size}″ wheels, powder coating runs ${sizePrice.price} per wheel. Chemical stripping is +$35 per wheel, protective clear coat is +$25 per wheel. That's for a clean cosmetic refinish — structural repair (bends, cracks) is quoted separately. Want me to pull up the appointment form?`;
+  // Specific size pricing
+  const tier = getPriceForSize(input);
+  if (tier && /(price|cost|how much|quote|rate|powder|coat)/.test(t)) {
+    return `For ${tier.sizes.join('–')}″ wheels, powder coating runs ${tier.range} per wheel.\n\nAdders: chemical stripping +$35/wheel, clear coat +$25/wheel.\n\nStructural repair (bends, cracks) is quoted separately after inspection. Want to submit a quote?`;
   }
 
-  // Pricing — general
-  if (/(price|cost|how much|quote|rate|pricing)/.test(t) && /(powder|coat)/.test(t)) {
-    return "Powder coating is tiered by wheel diameter:\n\n• 13″–15″: $105–$110\n• 16″–17″: $115–$120\n• 18″–19″: $125\n• 20″–21″: $135–$145\n• 22″–23″: $145–$155\n• 24″–26″: $165–$175\n\nAll per wheel. Adders: strip +$35, clear coat +$25. What size are yours?";
+  // General powder coating pricing
+  if (/(price|cost|how much|pricing|quote|rate)/.test(t) && /(powder|coat|refinish|paint)/.test(t)) {
+    return 'Powder coating by wheel diameter (per wheel):\n\n• 13–15″: $105–$110\n• 16–17″: $115–$120\n• 18–19″: $125\n• 20–21″: $135–$145\n• 22–23″: $145–$155\n• 24–26″: $165–$175\n\nAdders: strip +$35, clear coat +$25. What size are yours?';
   }
-  if (/(price|cost|how much)/.test(t)) {
-    return "Pricing depends on the service. Powder coating by wheel size runs $105–$175 per wheel. Brake calipers $45–$75 each. Suspension parts $35–$80 each. Full car frame $1,200–$1,400. Refurbished OEM wheels vary by part. What service are you looking at?";
+
+  // General pricing inquiry
+  if (/(price|cost|how much|pricing|quote|rate)/.test(t)) {
+    return 'Depends on the service:\n\n• Powder coating: $105–$175 per wheel (by size)\n• Brake calipers: $45–$75 each\n• Suspension parts: $35–$80 each\n• Full car frame: $1,200–$1,400\n• Refurbished OEM wheels: see the inventory above\n\nWhat service are you after?';
   }
 
   // Turnaround
-  if (/(how long|turnaround|time|wait|days?|weeks?|fast|quick|when)/.test(t)) {
-    return "Two turnaround paths:\n\n• Drop the vehicle and we store it indoors → done in 2 days (e.g. Monday 9am drop-off, ready by Tuesday 6pm)\n• Drop loose wheels (no vehicle) → 1–2 weeks due to batch processing\n\nFastest path is almost always leaving the car with us.";
+  if (/(how long|turnaround|time|wait|days?|weeks?|fast|quick|when|ready)/.test(t)) {
+    return 'Two paths:\n\n• Drop the vehicle: 2 days (e.g. Monday 8am drop-off, ready by Tuesday 5pm). We store it indoors.\n• Drop loose wheels only: 1–2 weeks (batch processing).\n\nFastest is always leaving the car.';
   }
 
   // Hours
-  if (/(hour|open|clos(ed|e)|when|today|saturday|sunday|weekend)/.test(t)) {
-    return "We're open Monday through Friday, 8:00am to 5:00pm. Closed Saturday and Sunday. Call us at (248) 900-9100 during those hours or use the appointment form below anytime.";
+  if (/(hour|open|clos|when|today|saturday|sunday|weekend|schedule)/.test(t)) {
+    return 'Open Monday–Friday, 8:00am–5:00pm. Closed Saturday and Sunday.\n\nCall (248) 900-9100 during hours, or use the quote form any time.';
   }
 
-  // Location / address
-  if (/(where|location|address|directions|find|near|detroit|ferndale|michigan)/.test(t)) {
-    return "We're at 10500 W 8 Mile Rd, Ferndale, MI 48220 — right in Metro Detroit. 25-mile service radius for local vehicle drop-offs. Inventory ships nationwide.";
+  // Location
+  if (/(where|location|address|direction|find|near|detroit|ferndale|8 mile|michigan|map)/.test(t)) {
+    return '10500 W 8 Mile Rd, Ferndale, MI 48220 — right in Metro Detroit. 25-mile service radius for local drop-offs. Refurbished OEM wheels ship nationwide.';
   }
 
-  // Phone
-  if (/(phone|call|number|contact)/.test(t)) {
-    return "Shop phone: (248) 900-9100. Mon–Fri 8–5. If it's after hours, leave a message or use the appointment form and we'll call you back next business day.";
+  // Phone / contact
+  if (/(phone|call|number|contact|reach)/.test(t)) {
+    return 'Main: (248) 900-9100\nService line: (248) 672-7731\n\nMon–Fri 8am–5pm. After hours, leave a voicemail or use the quote form — we call back next business day.';
   }
 
-  // Damage severity / photo estimate
-  if (/(damage|bent|crack|curb rash|scratch|ding|chip)/.test(t)) {
-    return "Over 90% of wheel damage is cosmetic and repairable for a fraction of OEM replacement. For a real quote I'd want to see a photo — easiest path is to fill the appointment form below with a photo attached, or just call (248) 900-9100 and text a pic to the shop.";
+  // Damage
+  if (/(damage|bent|crack|curb rash|scratch|ding|chip|gouge|flat|broken)/.test(t)) {
+    return 'Over 90% of wheel damage is cosmetic and fully repairable at a fraction of OEM replacement.\n\nFor an exact quote, send a photo to (248) 900-9100 or fill the quote form with a description. A tech will confirm before we commit to anything.';
   }
 
-  // Specific wheel availability
-  if (/(have|stock|available|part|wheel for|fit)/.test(t)) {
-    const model = userText.replace(/[^a-zA-Z0-9 ]/g, '').trim();
-    return `Check the inventory section just above — there's a search box where you can type a make, model, or part number. If you don't see what you need there, we can source an OEM replacement; just submit the appointment form with your year/make/model and we'll confirm.`;
-  }
-
-  // Appointment
-  if (/(book|appointment|schedule|quote|estimate|when can|drop off)/.test(t)) {
-    return "Fill the appointment form right below the inventory section and we'll respond within one business day with an exact quote. Or call (248) 900-9100 if you want to talk live.";
+  // Warranty
+  if (/(warrant|guarantee|peeling|flaking|fade)/.test(t)) {
+    return 'We offer a lifetime warranty against paint peeling on all powder coat and refinishing work. If there\'s a defect in our finish, we fix it. No questions.';
   }
 
   // Shipping
-  if (/(ship|delivery|nationwide|national)/.test(t)) {
-    return "Yes — we ship refurbished OEM wheels nationwide. In-stock items ship within 2 business days. Local service (repair, powder coating, mount &amp; balance) is Metro Detroit only, 25-mile radius.";
+  if (/(ship|delivery|nationwide|national|mail|send|deliver)/.test(t)) {
+    return 'Yes — refurbished OEM wheels ship nationwide. In-stock items ship within 2 business days. Local services (repair, powder coating, mount & balance) are Metro Detroit only.';
   }
 
-  // OEM replacement
-  if (/(oem|replacement|new wheel|stock wheel)/.test(t)) {
-    return "We stock refurbished factory OEM wheels across 5 finishes — Machined Gunmetal, PVD Chrome, Gloss Black, Hyper Graphite, Matte Black Machined. Every listing is professionally restored and ready to install. Search the inventory above or tell me your year/make/model.";
+  // OEM / inventory
+  if (/(oem|replacement|stock|wheel for|have|inventory|part|specific|fit|fitment)/.test(t)) {
+    return 'We carry refurbished OEM wheels across multiple finishes (Machined Gunmetal, Gloss Black, Hyper Silver, Matte Black, Polished, Silver, and more).\n\nSearch the inventory section above by make, model, or part number. Don\'t see your fitment? Tell me your year/make/model.';
   }
 
-  // Frame / calipers
-  if (/(caliper|brake|suspension|frame|control arm)/.test(t)) {
-    return "Yes, we powder coat those too:\n• Brake calipers: $45–$75 each (depending on piston count)\n• Suspension parts (a-arms, control arms): $35–$80 each\n• Full car frame (up to 15′): $1,200–$1,400\n\nFor anything else, tell me what you're coating and I'll get a ballpark.";
+  // Mount and balance
+  if (/(mount|balance|tire|install|torque)/.test(t)) {
+    return 'Yes — we do full mount and balance ON the vehicle. You don\'t have to pull your tires off first. Drop the car, we handle removal, repair, and remount. One visit, done.';
   }
 
-  // Fallback
-  return "I can help with pricing, hours, location, turnaround times, and general questions. For specifics on your vehicle or to book a quote, call (248) 900-9100 or fill the appointment form. What else?";
+  // Calipers / suspension / frame
+  if (/(caliper|brake|suspension|frame|control arm|a.arm|subframe)/.test(t)) {
+    return 'We powder coat:\n\n• Brake calipers: $45–$75 each\n• Suspension parts (a-arms, control arms): $35–$80 each\n• Full car frame up to 15ft: $1,200–$1,400\n\nAny color. Same lifetime warranty. Tell me what you\'re working on.';
+  }
+
+  // Book / appointment
+  if (/(book|appointment|schedule|estimate|drop off|drop.off|come in)/.test(t)) {
+    return 'Easiest way is the quote form in the "Get a Quote" section — takes about 60 seconds. Or call (248) 900-9100 Mon–Fri 8am–5pm to talk to a tech directly.';
+  }
+
+  // Thanks
+  if (/^(thanks?|thank you|ty|thx|appreciate|great|perfect|awesome|got it|ok|okay|cool)/.test(t)) {
+    return 'No problem. Anything else before you go?';
+  }
+
+  // Default
+  return 'I can answer pricing, turnaround, hours, location, and inventory questions. For specifics on your vehicle or damage, the quickest path is calling (248) 900-9100 or using the quote form. What else can I help with?';
 }
 
 function addMsg(msg) {
   const body = document.getElementById('chat-body');
-  if (msg.quick) {
-    const div = document.createElement('div');
-    div.className = 'chat-quick';
-    msg.quick.forEach(q => {
+
+  if (msg.role === 'quick') {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-quick';
+    msg.options.forEach(opt => {
       const btn = document.createElement('button');
-      btn.textContent = q;
-      btn.onclick = () => { document.getElementById('chat-input').value = q; sendChat(); };
-      div.appendChild(btn);
+      btn.textContent = opt;
+      btn.setAttribute('type', 'button');
+      btn.addEventListener('click', () => {
+        document.getElementById('chat-input').value = opt;
+        sendChat();
+      });
+      wrap.appendChild(btn);
     });
-    body.appendChild(div);
+    body.appendChild(wrap);
   } else {
     const div = document.createElement('div');
-    div.className = 'chat-msg ' + msg.from;
-    div.innerText = msg.text;
+    div.className = `chat-msg ${msg.role}`;
+    div.textContent = msg.text;
     body.appendChild(div);
   }
   body.scrollTop = body.scrollHeight;
+}
+
+function showTyping() {
+  const body = document.getElementById('chat-body');
+  const div = document.createElement('div');
+  div.className = 'chat-msg typing';
+  div.id = 'chat-typing';
+  div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('chat-typing');
+  if (el) el.remove();
 }
 
 function sendChat() {
   const input = document.getElementById('chat-input');
   const text = input.value.trim();
   if (!text) return;
-  addMsg({ from: 'user', text });
+  addMsg({ role: 'user', text });
   input.value = '';
+
+  showTyping();
+  const delay = 350 + Math.random() * 300;
   setTimeout(() => {
+    removeTyping();
     const reply = routeChat(text);
-    addMsg({ from: 'bot', text: reply });
-  }, 400);
+    addMsg({ role: 'bot', text: reply });
+  }, delay);
+}
+
+function openChat() {
+  const panel = document.getElementById('chat-panel');
+  const fab = document.getElementById('chat-fab');
+  CHAT_STATE.open = true;
+  panel.classList.add('open');
+  panel.setAttribute('aria-hidden', 'false');
+  fab.setAttribute('aria-expanded', 'true');
+  document.getElementById('chat-icon-open').style.display = 'none';
+  document.getElementById('chat-icon-close').style.display = '';
+
+  if (!CHAT_STATE.initialized) {
+    CHAT_STATE.initialized = true;
+    INTRO_MESSAGES.forEach(m => addMsg(m));
+  }
+  setTimeout(() => document.getElementById('chat-input').focus(), 150);
+}
+
+function closeChat() {
+  const panel = document.getElementById('chat-panel');
+  const fab = document.getElementById('chat-fab');
+  CHAT_STATE.open = false;
+  panel.classList.remove('open');
+  panel.setAttribute('aria-hidden', 'true');
+  fab.setAttribute('aria-expanded', 'false');
+  document.getElementById('chat-icon-open').style.display = '';
+  document.getElementById('chat-icon-close').style.display = 'none';
 }
 
 function toggleChat() {
-  const panel = document.getElementById('chat-panel');
-  CHAT_STATE.open = !CHAT_STATE.open;
-  panel.classList.toggle('open', CHAT_STATE.open);
-  if (CHAT_STATE.open && CHAT_STATE.history.length === 0) {
-    INTRO_MESSAGES.forEach(m => addMsg(m));
-    CHAT_STATE.history = INTRO_MESSAGES.slice();
-  }
+  CHAT_STATE.open ? closeChat() : openChat();
 }
+
 document.getElementById('chat-fab').addEventListener('click', toggleChat);
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && CHAT_STATE.open) closeChat();
+});
 </script>
 
 </body>
