@@ -1,0 +1,17 @@
+{
+    "show_number": 2,
+    "date": "03/06/2026",
+    "city": "Albuquerque",
+    "state": "NM",
+    "venue": "",
+    "offer": 2000.0,
+    "commission": {
+        "management": 200.0,
+        "agent": 200.0
+    },
+    "artist_payout": "$1,500 ($500 paid)",
+    "deal_type": "OFFER",
+    "hgr": false,
+    "notes": "MPORT TMTYL. Zelle $500 on 2/8.",
+    "campaign_phase": ""
+}

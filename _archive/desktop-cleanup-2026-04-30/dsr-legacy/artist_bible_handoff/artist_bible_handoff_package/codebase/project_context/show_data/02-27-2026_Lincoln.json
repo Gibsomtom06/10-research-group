@@ -1,0 +1,17 @@
+{
+    "show_number": 1,
+    "date": "02/27/2026",
+    "city": "Lincoln",
+    "state": "NE",
+    "venue": "",
+    "offer": 2000.0,
+    "commission": {
+        "management": 200.0,
+        "agent": 200.0
+    },
+    "artist_payout": "$1,800 ($200 paid)",
+    "deal_type": "OFFER",
+    "hgr": true,
+    "notes": "MPORT TMTYL. Deposit 50% 30 days out. Flight booked.",
+    "campaign_phase": ""
+}

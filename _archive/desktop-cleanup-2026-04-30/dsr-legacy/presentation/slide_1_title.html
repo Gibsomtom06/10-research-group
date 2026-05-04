@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Bible - System Architecture</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px;
+            border: 1px solid #333;
+        }
+
+        /* Blueprint decorative corners */
+        .corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #00E5FF;
+        }
+        .top-left { top: 40px; left: 40px; border-right: none; border-bottom: none; }
+        .top-right { top: 40px; right: 40px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 40px; left: 40px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 80px;
+            line-height: 1.1;
+            color: #FFFFFF;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #00E5FF;
+        }
+
+        h2 {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 32px;
+            font-weight: 400;
+            color: #E2E8F0;
+            margin-bottom: 48px;
+            border-left: 4px solid #00E5FF;
+            padding-left: 24px;
+            line-height: 1.4;
+        }
+
+        .architecture-summary {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 48px;
+            color: #00E5FF;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #64748B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #64748B;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 229, 255, 0.02) 51%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="scan-line"></div>
+        
+        <!-- Decorative Corners -->
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <div class="content-wrapper">
+            <h1>Artist <span>Bible</span></h1>
+            <h2>The AI-Powered Operating System<br>for Touring Artists</h2>
+            
+            <div class="architecture-summary">
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Specialized Agents</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">Connected Platforms</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Unified Pipeline</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>Built for DirtySnatcha's "Take Me To Your Leader" National Tour 2026</div>
+            <div>CONFIDENTIAL // SYSTEM ARCHITECTURE v1.0</div>
+        </div>
+    </div>
+</body>
+</html>

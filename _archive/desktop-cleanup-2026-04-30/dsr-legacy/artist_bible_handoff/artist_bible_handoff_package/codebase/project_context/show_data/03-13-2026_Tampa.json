@@ -1,0 +1,17 @@
+{
+    "show_number": 3,
+    "date": "03/13/2026",
+    "city": "Tampa",
+    "state": "FL",
+    "venue": "",
+    "offer": 2000.0,
+    "commission": {
+        "management": 200.0,
+        "agent": 200.0
+    },
+    "artist_payout": "$1,000 remaining ($800 paid)",
+    "deal_type": "OFFER",
+    "hgr": false,
+    "notes": "Flight booked.",
+    "campaign_phase": ""
+}

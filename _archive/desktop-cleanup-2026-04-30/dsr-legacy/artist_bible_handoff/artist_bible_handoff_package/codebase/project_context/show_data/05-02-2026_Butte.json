@@ -1,0 +1,17 @@
+{
+    "show_number": 13,
+    "date": "05/02/2026",
+    "city": "Butte",
+    "state": "MT",
+    "venue": "",
+    "offer": 5000.0,
+    "commission": {
+        "management": 500.0,
+        "agent": 500.0
+    },
+    "artist_payout": "$4,500",
+    "deal_type": "CONTRACT",
+    "hgr": false,
+    "notes": "Covellite Theatre.",
+    "campaign_phase": ""
+}

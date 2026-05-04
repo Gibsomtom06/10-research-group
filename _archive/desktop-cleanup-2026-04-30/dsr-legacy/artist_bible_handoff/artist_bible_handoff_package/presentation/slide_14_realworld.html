@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-World Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: #1E1E24; color: #E2E8F0; font-family: 'Public Sans', sans-serif; overflow: hidden; }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #1E1E24;
+            background-image: radial-gradient(#64748B 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+            padding: 60px 80px 20px; /* keep top padding, reduce bottom */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 36px;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-family: 'Public Sans', sans-serif;
+            font-size: 20px;
+            color: #64748B;
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 24px; /* narrower gap between columns */
+            height: 100%;
+        }
+
+        /* Left Panel: Stats */
+        .stats-panel {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* reduced vertical gaps */
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid #333;
+            padding: 12px; /* reduced inner padding */
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #64748B;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 32px;
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .stat-sub {
+            font-size: 12px;
+            color: #00E5FF;
+            margin-top: 5px;
+        }
+
+        .priority-box {
+            margin-top: auto;
+            background: rgba(255, 75, 75, 0.1);
+            border: 1px solid #FF4B4B;
+            padding: 12px; /* reduced */
+        }
+
+        .priority-header {
+            color: #FF4B4B;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .priority-text {
+            font-size: 14px;
+            line-height: 1.2; /* slightly tighter */
+            color: #E2E8F0;
+        }
+
+        /* Right Panel: Tour Grid */
+        .grid-panel {
+            flex: 1;
+            border: 1px solid #333;
+            background: rgba(30, 30, 36, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-header-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr;
+            padding: 12px 16px; /* reduced */
+            background: rgba(0, 229, 255, 0.05);
+            border-bottom: 1px solid #333;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #00E5FF;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .grid-body {
+            overflow-y: hidden; /* Static slide */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .grid-row {
+            display: grid;
+            grid-template-columns: 1.2fr 1.5fr 2fr 1.5fr;
+            padding: 10px 16px; /* reduced */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #E2E8F0;
+            align-items: center;
+        }
+
+        .row-urgent {
+            background: rgba(255, 75, 75, 0.1);
+            border-left: 4px solid #FF4B4B;
+        }
+
+        .phase-badge {
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .phase-final {
+            background: rgba(255, 75, 75, 0.2);
+            color: #FF4B4B;
+            border: 1px solid #FF4B4B;
+        }
+
+        .phase-maint {
+            background: rgba(0, 229, 255, 0.1);
+            color: #00E5FF;
+            border: 1px solid #00E5FF;
+        }
+
+        .phase-onsale {
+            background: rgba(0, 255, 128, 0.1);
+            color: #00FF80;
+            border: 1px solid #00FF80;
+        }
+
+        .venue-text {
+            color: #94A3B8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header-section">
+            <h2>Real-World Application</h2>
+            <div class="subtitle">DirtySnatcha National Tour 2026 // 17 Confirmed Shows</div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <div class="stat-label">Total Dates</div>
+                    <div class="stat-value">17</div>
+                    <div class="stat-sub">Confirmed Shows</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Duration</div>
+                    <div class="stat-value">45</div>
+                    <div class="stat-sub">Days (Feb-Apr)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">System Status</div>
+                    <div class="stat-value" style="color: #00E5FF;">ACTIVE</div>
+                    <div class="stat-sub">Deploying Agents</div>
+                </div>
+
+                <div class="priority-box">
+                    <div class="priority-header"><i class="fas fa-exclamation-circle"></i> IMMEDIATE ACTION</div>
+                    <div class="priority-text">
+                        Lincoln, NE show is tomorrow (Feb 27).<br>
+                        <strong>Agent 1:</strong> Launch final ads.<br>
+                        <strong>Agent 3:</strong> Verify assets in folder.
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-panel">
+                <div class="grid-header-row">
+                    <div>Date</div>
+                    <div>City</div>
+                    <div>Venue</div>
+                    <div>Campaign Phase</div>
+                </div>
+
+                <div class="grid-body">
+                    <!-- Urgent Row -->
+                    <div class="grid-row row-urgent">
+                        <div>2026-02-27</div>
+                        <div>Lincoln, NE</div>
+                        <div class="venue-text">Cosmic Eye</div>
+                        <div><span class="phase-badge phase-final">FINAL PUSH</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-02-28</div>
+                        <div>Minneapolis, MN</div>
+                        <div class="venue-text">The Loft</div>
+                        <div><span class="phase-badge phase-final">FINAL PUSH</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-06</div>
+                        <div>Albuquerque, NM</div>
+                        <div class="venue-text">Effex Nightclub</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-07</div>
+                        <div>Las Vegas, NV</div>
+                        <div class="venue-text">Discopussy</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-13</div>
+                        <div>Dallas, TX</div>
+                        <div class="venue-text">Green Elephant</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-14</div>
+                        <div>Houston, TX</div>
+                        <div class="venue-text">Bauhaus</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-20</div>
+                        <div>San Antonio, TX</div>
+                        <div class="venue-text">1902 Nightclub</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-03-21</div>
+                        <div>Austin, TX</div>
+                        <div class="venue-text">Kingdom</div>
+                        <div><span class="phase-badge phase-maint">MAINTENANCE</span></div>
+                    </div>
+
+                    <div class="grid-row">
+                        <div>2026-04-11</div>
+                        <div>Rochester, NY</div>
+                        <div class="venue-text">Photo City Music Hall</div>
+                        <div><span class="phase-badge phase-onsale">ON-SALE</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
