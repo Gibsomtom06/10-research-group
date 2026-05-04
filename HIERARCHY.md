@@ -52,7 +52,9 @@ Rules:
 │   │   ├── migrations\
 │   │   ├── prompts\
 │   │   └── schema.sql
-│   ├── tenx10-platform\          ← the tenx10.co website source
+│   ├── tenx10-platform\          ← READ-ONLY MIRROR of tenx10.co source
+│   │                                Active dev clone: C:\Users\slash\Projects\tenx10\
+│   │                                See products/TENX10_PLATFORM_MIRROR_README.md
 │   └── rim-shop\                 ← Wheel Repair Specialists of MI — first non-music vertical
 │       ├── PILOT_BRIEF.md       (performance-share engagement spec)
 │       ├── SOW_v1.md            (statement of work)
@@ -115,7 +117,8 @@ Rules:
 |---|---|
 | Software TENx10 ships | `10 Research Group\products\<product>\` |
 | DBA code, agents, schema, migrations | `10 Research Group\products\digital-booking-agent\` |
-| tenx10.co site source (the PLATFORM product) | `10 Research Group\products\tenx10-platform\` |
+| tenx10.co site source — ACTIVE DEV | `C:\Users\slash\Projects\tenx10\` (off OneDrive) |
+| tenx10.co site source — read-only mirror | `10 Research Group\products\tenx10-platform\` |
 | Rim Shop (Wheel Repair Specialists MI) — chatbot, GMC feed, site, google-ads, refinishing agent | `10 Research Group\products\rim-shop\` |
 | A single artist's press kit, voice corpus, or performer contracts | `10 Research Group\MANAGEMENT-TENx10\artists\<slug>\` |
 | Leigh's own performer show contracts / booking deal memos (he's the artist here) | `10 Research Group\MANAGEMENT-TENx10\artists\dirtysnatcha\contracts\` |
@@ -133,7 +136,7 @@ Rules:
 ## Anti-patterns — things that should NEVER happen
 
 - A product folder living at the `10 Research Group\` top level instead of under `products\`.
-- A duplicate `tenx10-platform\`, `digital-booking-agent\`, or `rim-shop\` at the Cowork workspace root (`C:\Users\Slash\`) when one already exists under `products\`. If `C:\Users\Slash\Rim Shop\` or `C:\Users\Slash\Projects\tenx10\` still exist, they're stale — delete them.
+- A duplicate `tenx10-platform\`, `digital-booking-agent\`, or `rim-shop\` at the Cowork workspace root (`C:\Users\Slash\`) when one already exists under `products\`. **Exception (2026-05-04):** `C:\Users\Slash\Projects\tenx10\` is the *active dev clone* (off OneDrive — avoids OneDrive lock contention + faster file watcher). The OneDrive `products\tenx10-platform\` is a read-only mirror, synced via `scripts/sync_tenx10_mirror.ps1`. If `C:\Users\Slash\Rim Shop\` still exists, that one is stale — delete it.
 - A bare `tenx10\` folder at the umbrella root that holds platform code (or anything else) — that's confusing because TENx10 is BOTH the platform product AND the management business. The PLATFORM lives at `products\tenx10-platform\`. The MANAGEMENT BUSINESS lives at `MANAGEMENT-TENx10\`. Nothing called just `tenx10\` belongs at the umbrella root.
 - Artist assets (voice corpus, press kit, contracts) copied into a product folder — they belong under `MANAGEMENT-TENx10\artists\<slug>\`.
 - Artists or labels at the umbrella root (`10 Research Group\artists\`, `10 Research Group\labels\`) — those have moved under `MANAGEMENT-TENx10\` (2026-04-29 reorg).
@@ -151,7 +154,7 @@ Rules:
 After any reorg, these should all be true:
 
 - `10 Research Group\products\digital-booking-agent\CLAUDE.md` exists and is the DBA project memory.
-- `10 Research Group\products\tenx10-platform\` exists with the website source.
+- `10 Research Group\products\tenx10-platform\` exists as a read-only mirror; active dev clone is `C:\Users\slash\Projects\tenx10\`.
 - `10-research.code-workspace` opens cleanly with both product folders + the root.
 - `git status` inside `products\digital-booking-agent\` shows no unexpected "moved" files (unless a move is intentional and imports have been updated).
 - `python agents/outbound.py --help` (or any other agent) still runs — meaning the dual-import paths in `agents/` still resolve.

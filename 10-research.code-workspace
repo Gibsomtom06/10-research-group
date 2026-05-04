@@ -13,8 +13,8 @@
             "path": "products/digital-booking-agent"
         },
         {
-            "name": "TENx10 platform (tenx10.co)",
-            "path": "products/tenx10-platform"
+            "name": "TENx10 platform (tenx10.co) — standalone clone",
+            "path": "../../Projects/tenx10"
         }
     ],
     "settings": {
@@ -66,6 +66,12 @@
             "activityBar.background": "#0b0b0c",
             "statusBar.background": "#141416",
             "statusBar.foreground": "#8a8a8f"
+        },
+        "chat.mcp.gallery.enabled": true,
+        "chat.mcp.assisted.nuget.enabled": true,
+        "chat.mcp.discovery.enabled": {
+            "claude-desktop": true,
+            "windsurf": true
         }
     },
     "extensions": {

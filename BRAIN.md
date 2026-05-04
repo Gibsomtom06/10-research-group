@@ -25,17 +25,19 @@ Claude never cooks in the main conversation. Claude routes and directs only.
 Every project has one BRAIN.md at its root. That file is the living context for that project — decisions, current state, gaps, what's next. Subagents read it before they work. Claude updates it before leaving a topic.
 
 ```
-10 Research Group/
+10 Research Group/                  ← umbrella git repo (Gibsomtom06/10-research-group, private)
   BRAIN.md                          ← this file (top-level operating system)
   products/
-    tenx10-platform/BRAIN.md        ← TENx10 the PLATFORM (the SaaS product)
+    tenx10-platform/BRAIN.md        ← READ-ONLY MIRROR of the platform repo
+                                       active dev clone: C:\Users\slash\Projects\tenx10\
+                                       sync via scripts/sync_tenx10_mirror.ps1
     digital-booking-agent/BRAIN.md
     rim-shop/BRAIN.md               ← client work (WRS)
     system-steward/                  ← local Python utilities
     trading-shadow/BRAIN.md
-    mhp/BRAIN.md
+    mhp/BRAIN.md                    ← stub only — content moved to I:\My Drive\02-MyHydrationPack\
   MANAGEMENT-TENx10/                ← TENx10 the BUSINESS (management company). Reorg'd 2026-04-29 — was previously bare TENx10/ at the umbrella root.
-    BRAIN.md                         ← (TODO: write fresh management business BRAIN — old tenx10/BRAIN.md was a stale platform clone, archived to _archive/stale-clones/)
+    BRAIN.md                         ← written 2026-04-30 (full roster, booking team, commission structure)
     labels/
       DirtySnatcha Records/BRAIN.md
     artists/
@@ -43,6 +45,7 @@ Every project has one BRAIN.md at its root. That file is the living context for 
       whoisee/BRAIN.md
       dark-matter/BRAIN.md
       kotrax/BRAIN.md
+      hvrcrft/BRAIN.md
   ventures/
     comics-resale/BRAIN.md
 ```
@@ -198,4 +201,10 @@ Thomas's main thread is for thinking, not typing. Typing happens in subagent thr
 
 ~~`artists/` and `labels/` currently sit directly under `10 Research Group/`. They need to move under `TENx10/` to reflect the actual business structure.~~
 
-**DONE 2026-04-29:** `artists/` and `labels/` moved to `MANAGEMENT-TENx10/artists/` and `MANAGEMENT-TENx10/labels/`. The bare `tenx10/` clone at the umbrella root (was a stale platform clone, NOT a real management folder) was archived to `_archive/stale-clones/tenx10-cc65688-stale-clone/`. Lowercase duplicate `labels/dirtysnatcha-records/` merged into `DirtySnatcha Records/` and archived. The MANAGEMENT-TENx10/BRAIN.md still needs to be written from scratch — there is no real management business BRAIN yet; the old `tenx10/BRAIN.md` was just the platform's BRAIN duplicated into the wrong place.
+**DONE 2026-04-29:** `artists/` and `labels/` moved to `MANAGEMENT-TENx10/artists/` and `MANAGEMENT-TENx10/labels/`. The bare `tenx10/` clone at the umbrella root (was a stale platform clone, NOT a real management folder) was archived to `_archive/stale-clones/tenx10-cc65688-stale-clone/`. Lowercase duplicate `labels/dirtysnatcha-records/` merged into `DirtySnatcha Records/` and archived.
+
+**DONE 2026-04-30:** `MANAGEMENT-TENx10/BRAIN.md` written from scratch — covers the management business: roster (5 artists), booking team (Andrew Lehr / Colton Anderson), active tour state (TMTYL 2026 + Electric Forest + Lost Lands), commission structure (10/10/80 agent-routed, 20/80 direct).
+
+**DONE 2026-05-04:** `Projects\tenx10\` (off-OneDrive) confirmed as the active dev clone for the platform repo. `OneDrive\products\tenx10-platform\` retained as a read-only mirror to keep the umbrella's gitlink reference + browse-mode search consistent. Sync via `scripts/sync_tenx10_mirror.ps1`. Workspace `10-research.code-workspace` opens the standalone clone, not the mirror.
+
+**DONE 2026-05-04:** Umbrella backed up to GitHub for the first time (private repo `Gibsomtom06/10-research-group`). Was previously OneDrive-only. 9 chunked commits pushed: security cleanup, governance docs, reports, MGMT reorg, naming canonicalization, MHP migration, archive cleanup, trading-shadow updates, gitlink sync.
