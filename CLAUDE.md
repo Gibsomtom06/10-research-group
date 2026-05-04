@@ -4,6 +4,12 @@ These apply to every Claude session working in this repo.
 
 ---
 
+## Canonical naming — read first
+
+`10 Research Group` and `10RG` are **the same entity**. `10RG` is the abbreviation; `10 Research Group` is the full name. There is exactly one company, one umbrella, one git repo, one OneDrive folder. **Never** treat them as separate things, never create a folder/project/doc called `10rg` that lives outside the umbrella, never split context between the two names. Full rule + usage in `BRAIN.md` "Canonical naming" section.
+
+---
+
 ## Operating principle: Claude tokens are the scarce resource
 
 Thomas pays real money for Claude tokens. Gemini Code Assist (in VS Code) is free on his plan. Ollama (local) is free forever. **Claude's job is to be the orchestrator and the hardest thinker — not the typist, not the boilerplate writer, not the doc-updater.**

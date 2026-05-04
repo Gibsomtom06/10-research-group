@@ -81,6 +81,24 @@ Thomas calls these files "brain." In other contexts you may see:
 
 ---
 
+## Canonical naming — 10 Research Group ≡ 10RG
+
+**There is exactly one entity.** `10 Research Group` is the full canonical name. `10RG` is its only acceptable abbreviation. They refer to the **same** business, the same umbrella, the same git repo, the same OneDrive folder.
+
+- **Not** two separate entities.
+- **Not** a parent/child relationship.
+- **Not** different products or business units.
+- **One thing, two ways of writing it.**
+
+**Usage rule:**
+- Documents, prose, contracts, customer-facing copy → `10 Research Group`
+- File paths, code identifiers, scheduled-task names, kebab/snake-case where space is awkward → `10rg` / `10RG` / `10-research-group`
+- GitHub repo: `Gibsomtom06/10-research-group` (kebab-case full name)
+
+If you ever see a file, folder, doc, or system that treats `10rg` as something distinct from `10 Research Group`, that artifact is wrong and must be corrected. There is no `10rg/` folder, no `10rg` product, no separate company by either name. **Don't create one.**
+
+---
+
 ## Unified Observability — the agent contract
 
 To prevent **Orchestration Debt** (the risk identified in the 2026-04-28 strategic review where multiple in-flight agent systems each get their own JSONL/runner/Discord pattern), every agent in the Factory MUST report in a unified shape.
