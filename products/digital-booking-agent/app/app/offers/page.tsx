@@ -40,6 +40,11 @@ type OfferRow = {
   updated_at: string | null;
   contact?: { full_name: string | null; email: string | null } | null;
   venue?: { name: string | null; city: string | null; state: string | null } | null;
+  promoter_name?: string | null;
+  promoter_email?: string | null;
+  promoter_company?: string | null;
+  promoter_grade?: string | null;
+  artist_name?: string | null;
 };
 
 type Column = {
@@ -104,10 +109,9 @@ const COLUMNS: Column[] = [
 async function load(): Promise<OfferRow[]> {
   try {
     const sb = serverClient();
-    // `offers` is a view-over-deals (post-merger); contact join via FK name
-    // doesn't work on views. Drop the contact join — page renders without
-    // contact name (just venue + status + dates + amount). Pass 2 will
-    // wire contacts properly via the promoters→contacts bridge.
+    // `offers` is a view-over-deals (post-merger). Promoter info is
+    // denormalized into the view (promoter_name, _email, _grade, etc.)
+    // so we don't need a FK join from a view.
     const { data, error } = await sb
       .from("offers")
       .select(
@@ -115,6 +119,8 @@ async function load(): Promise<OfferRow[]> {
          proposed_date, guarantee, deposit_pct, deposit_received_at,
          signed_at_thomas, signed_at_promoter, deal_memo_pdf_url,
          created_at, updated_at,
+         promoter_name, promoter_email, promoter_company, promoter_city, promoter_grade,
+         artist_name,
          venue:venues(name, city, state)`
       )
       .order("proposed_date", { ascending: true, nullsFirst: false })
@@ -154,6 +160,11 @@ async function load(): Promise<OfferRow[]> {
         updated_at: r.updated_at,
         contact: Array.isArray(r.contact) ? r.contact[0] ?? null : r.contact,
         venue: Array.isArray(r.venue) ? r.venue[0] ?? null : r.venue,
+        promoter_name: r.promoter_name ?? null,
+        promoter_email: r.promoter_email ?? null,
+        promoter_company: r.promoter_company ?? null,
+        promoter_grade: r.promoter_grade ?? null,
+        artist_name: r.artist_name ?? null,
       };
       return row;
     });
@@ -238,6 +249,16 @@ export default async function OffersKanban() {
                       <div className="text-[10px] text-muted truncate">
                         {loc || "—"}
                       </div>
+                      {(r.promoter_name || r.promoter_company) && (
+                        <div className="text-[10px] text-muted/80 truncate">
+                          {r.promoter_name || r.promoter_company}
+                          {r.promoter_grade && (
+                            <span className="ml-1 text-blue-300/80">
+                              · {r.promoter_grade}
+                            </span>
+                          )}
+                        </div>
+                      )}
                       <div className="flex items-center justify-between mt-1 text-[10px]">
                         <span className="text-accent">
                           {fmtMoney(r.guarantee)}

@@ -175,13 +175,27 @@ async function load(id: string): Promise<OfferDetail | null> {
       artist = a ?? null;
     }
 
+    // Use denormalized promoter_* columns from the view as the "contact"
+    // (TENx10's deals.promoter_id points to promoters table, not contacts).
+    const promoterAsContact = (data as any).promoter_name
+      ? {
+          full_name: (data as any).promoter_name,
+          email: (data as any).promoter_email,
+          role: 'promoter',
+          city: (data as any).promoter_city,
+          state: null,
+          relationship_tier: (data as any).promoter_grade,
+          company: (data as any).promoter_company,
+        }
+      : null;
+
     const row: any = {
       ...data,
-      contact: null,
+      contact: promoterAsContact,
       venue: Array.isArray(data.venue) ? data.venue[0] ?? null : data.venue,
       artist,
       relayed_by: null,
-      promoter: null,
+      promoter: promoterAsContact,
     };
     return row as OfferDetail;
   } catch {
