@@ -70,8 +70,8 @@ MANAGEMENT-TENx10/
 | **DirtySnatcha** | Lee Bray (aka Leigh Bray) | Dubstep, Riddim, Bass, Trap | BMI / 01017500116 | DSR (own label) | Flagship; 136 tracks; ~8-9K MAU; PS 28; 17-show TMTYL 2026 tour |
 | **WHOiSEE** | Brett Hopkin | Bass | BMI / IPI in emails NOT in DB | DSR | NC-based; Circus Records UK EP; cross-promo opportunity |
 | **Dark Matter** | Isaac Tullos + Joseph Kalina | Bass | ASCAP / artist-level IPI unknown | **Wakaan** (NOT DSR) | Chicago/Knoxville duo; managed but signed to Wakaan label |
-| **Kotrax** | (TBD) | (TBD) | TBD | DSR | Roster artist; BRAIN.md exists but not yet detailed |
-| **HVRCRFT** | (TBD) | (TBD) | TBD | TBD | Managed; data not yet ingested |
+| **Kotrax** | (TBD — TODO) | Bass Music / Dubstep | TODO | DSR | Denver-based; Mountain West specialist; 7 DSR tracks; TMTYL support (ABQ, Tampa, Butte) |
+| **HVRCRFT** | (TBD — TODO) | Bass Music / Dubstep | TODO | Independent (mgmt only) | Las Vegas + SF; West Coast specialist; Tier 2 support; DB ID 21454e1e |
 
 DSR's label-side roster has **additional artists who are signed to DSR but NOT under TENx10 management** — they're DSR releases only. See `labels/DirtySnatcha Records/BRAIN.md` for that distinction.
 
@@ -126,7 +126,7 @@ DSR's label-side roster has **additional artists who are signed to DSR but NOT u
 
 | Item | Status | Owner |
 |---|---|---|
-| Fill Kotrax + HVRCRFT BRAIN with real artist context | Pending | Manual entry |
+| Fill Kotrax + HVRCRFT BRAIN with real artist context | **Done 2026-05-03** | All 4 artist BRAINs updated |
 | Capture WHOiSEE BMI IPI from email and add to artists table | Pending | Lookup + entry |
 | Confirm Dark Matter ASCAP IPI numbers | Pending | ASCAP Member Services lookup |
 | LAB10 Publishing MLC submission (0 of ~82 tracks registered) | Submission-ready | `DirtySnatcha_MLC_Submissions.xlsx` → `LAB10_Pub_Full` sheet |

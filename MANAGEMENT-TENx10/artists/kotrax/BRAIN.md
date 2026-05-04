@@ -1,51 +1,69 @@
-# Kotrax — Brain (project brief / context file / north star doc)
-
-Living context for Kotrax as a managed artist.
-
-**Stub created 2026-04-29.** Folder existed but was empty. Filled in from cross-references in DirtySnatcha Records BRAIN.md and the umbrella `_READ_FIRST_WHEN_YOU_WAKE_UP.md` publishing audit.
-
----
-
-## Who
-
-Kotrax — DSR roster artist. **TENx10-managed.**
-
-Status: confirmed both on the DSR label AND under TENx10 management.
-
-PRO: TBD — needs to be captured.
-IPI: TBD — needs to be captured.
+# Kotrax — BRAIN.md
+**Last Updated:** 2026-05-03
+**Manager:** Thomas Nalian (TENx10)
+**Label:** DirtySnatcha Records (DSR)
+**Management type:** Roster artist (on label + managed)
 
 ---
 
-## Catalog
+## Identity
+- **Legal name:** TODO — not yet captured
+- **Stage name:** Kotrax
+- **Base:** Denver, CO — Mountain West specialist
+- **PRO:** TODO — needs to be confirmed (BMI / ASCAP / SESAC)
+- **IPI/CAE:** TODO — pull from contracts/emails, store in artists table
+- **Genre:** Bass Music / Dubstep
 
-7 tracks on DSR (per DSR label BRAIN.md). MLC registration status TBD per-track.
+## Contact
+- **Email:** TODO
+- **Phone:** TODO
+- **Booking contact:** Thomas Nalian — thomas@dirtysnatcha.com / 248-765-1997
 
----
+## Current Status
+- **Active:** Yes
+- **Signed to:** DirtySnatcha Records (DSR)
+- **Managed by:** TENx10 (Thomas Nalian)
+- **DB artist_id:** TODO — confirm in Supabase artists table
+
+## Metrics (verify before using)
+- Monthly listeners: TODO
+- Spotify Popularity Score: TODO
+- Social following: TODO
+- **Market:** Mountain West + Midwest specialist | Strong Denver fanbase
 
 ## Booking
+- **Floor guarantee:** $500 – $1,000 depending on market
+- **Booking source:** Thomas Nalian direct (thomas@dirtysnatcha.com)
+- **Agent:** No dedicated agent — TENx10 management handles direct
+- **Tour role:** Support act on TMTYL 2026 — Albuquerque NM (Mar 6), Tampa FL (Mar 13), Butte MT (May 2)
 
-Status: TBD. Booking team unclear — may share Andrew Lehr (AB Touring) with DirtySnatcha as the primary, or may have a separate agent. Confirm with Thomas.
+## Catalog
+- 7 tracks on DSR (per DSR label records)
+- MLC registration status: TBD per-track
+- Publishing master sheet: `publishing/Kotrax_Master.xlsx`
 
----
+## Revenue State (7 Pillars)
+1. Live Performance — active as support act; no headline guarantee data yet
+2. Streaming Royalties — TODO (monthly listeners unknown)
+3. Publishing / Sync — TODO (PRO + IPI not confirmed; MLC status unknown)
+4. Merch — TODO
+5. Content Monetization — TODO
+6. Education / Services — TODO
+7. Brand Deals — TODO
+
+**Pillars active: 1/7 estimated** (live performance assumed; all others unknown)
+
+## Open Items
+- [ ] Confirm legal name
+- [ ] Confirm PRO affiliation (BMI / ASCAP / SESAC)
+- [ ] Pull IPI from contracts/emails, store in artists table
+- [ ] Confirm MLC registration status for 7 DSR tracks
+- [ ] Capture monthly listeners / followers / PS
+- [ ] Capture contact email + phone
+- [ ] Confirm DB artist_id in Supabase
+- [ ] Document any active releases or upcoming shows
 
 ## Cross-references
-
-- DSR label roster: `MANAGEMENT-TENx10/labels/DirtySnatcha Records/BRAIN.md`
-- Recent show appearances (cross-roster support): per `TENx10_Knowledge_Base/09_Tour_Status_Current.md` — Kotrax listed as recommended support for several DirtySnatcha 2026 shows (Albuquerque, etc.)
-
----
-
-## Open questions / TODOs
-
-- [ ] Confirm Kotrax's PRO affiliation (BMI / ASCAP / SESAC)
-- [ ] Pull Kotrax IPI from contracts/emails, store in artists table
-- [ ] Confirm MLC registration status for the 7 DSR tracks
-- [ ] Confirm booking arrangement — own agent or shared via DSR / TENx10 management?
-- [ ] Capture Kotrax's monthly listeners / followers / PS for reference
-- [ ] Document any active campaigns (releases, shows) under Kotrax's name
-- [ ] Confirm contact email + DB artist_id
-
----
-
-*Stub. Replace with real artist context as it gets captured.*
+- DSR label: `MANAGEMENT-TENx10/labels/DirtySnatcha Records/BRAIN.md`
+- Publishing: `publishing/Kotrax_Master.xlsx`
+- Outreach profile: `tenx10/src/lib/outreach/artist-profiles.ts` → slug `kotrax`
