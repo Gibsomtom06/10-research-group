@@ -104,6 +104,10 @@ const COLUMNS: Column[] = [
 async function load(): Promise<OfferRow[]> {
   try {
     const sb = serverClient();
+    // `offers` is a view-over-deals (post-merger); contact join via FK name
+    // doesn't work on views. Drop the contact join — page renders without
+    // contact name (just venue + status + dates + amount). Pass 2 will
+    // wire contacts properly via the promoters→contacts bridge.
     const { data, error } = await sb
       .from("offers")
       .select(
@@ -111,7 +115,6 @@ async function load(): Promise<OfferRow[]> {
          proposed_date, guarantee, deposit_pct, deposit_received_at,
          signed_at_thomas, signed_at_promoter, deal_memo_pdf_url,
          created_at, updated_at,
-         contact:contacts!offers_contact_id_fkey(full_name, email),
          venue:venues(name, city, state)`
       )
       .order("proposed_date", { ascending: true, nullsFirst: false })
