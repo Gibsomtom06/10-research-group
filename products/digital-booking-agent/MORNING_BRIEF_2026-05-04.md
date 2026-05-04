@@ -6,19 +6,23 @@
 
 ---
 
-## What works (verified at 5:30am)
+## What works (verified at 6:00am — all 11 routes return 200)
 
 | URL | Status | What it shows |
 |-----|--------|---------------|
 | http://localhost:3000/ | 200 | DBA root with full nav |
-| /dashboard | 200 | "phase 0 status" — pulls outreach_log, voice_samples, etc. |
-| /offers | 200 | **233 deals across 6 lifecycle columns** — 84 inbound, 1 evaluating, 123 signed, 18 locked. Real DirtySnatcha + others from TENx10's deals table. |
-| /offers/[id] | 200 | Detail view with status, lifecycle actions, financial breakdown. Contact info is null (pass 2 territory). |
-| /drafts | 200 | "drafts awaiting thomas" — empty (no drafts queued yet) |
-| /outreach | 200 | Outreach pipeline — empty until pitch_packs are populated |
+| /dashboard | 200 | **phase 0 status** — contacts 166/200, venues 171/50, voice samples 0/50, praise hooks 0/90, drafts queued 0 |
+| /offers | 200 | **233-deal kanban with real promoter names** — 84 inbound, 1 evaluating, 123 signed, 18 locked. Tiles show promoter name + grade + venue + amount + days-out. |
+| /offers/[id] | 200 | **Detail page with full promoter info** — name, role, city, grade. Lifecycle actions (sign, record promoter sig, record deposit, counter). |
+| /drafts | 200 | drafts awaiting thomas — empty until outbound runs |
+| /outreach | 200 | Outreach history — shows TENx10's 166 contacts with default tier |
 | /outreach/priorities | 200 | Top targets — empty until v_target_score has data |
-| /reports | 200 | Reports view — empty until daily rollups run |
-| /contacts | 200 | "contacts · crm" — TENx10's 166 contacts |
+| /reports | 200 | Reports view |
+| /contacts | 200 | contacts · crm — 166 rows |
+| /reminders | 200 | reminders view |
+| /markets | 200 | markets view |
+| /history | 200 | outreach history |
+| /dashboard/costs | 200 | model spend dashboard |
 | Worker: `npm run sender:dryrun` | clean exit | `{"considered":0,"sent":0,"skipped":0,"deferred":0,"failed":0}` |
 
 ---
@@ -94,8 +98,9 @@ If you want to actually **send your first DBA outreach**:
 ## Repo
 
 - Pushed to: https://github.com/Gibsomtom06/10-research-group
-- Latest commit: `213dae3 fix(dba): offer detail page works against view-over-deals`
 - Tonight's commits (most recent first):
+  - `86cf49f` real promoter names in offers kanban + detail (mig 0024)
+  - `c776191` morning brief documentation
   - `213dae3` offer detail page fix
   - `ae7f028` offers funnel goes live (view-over-deals, 233 deals)
   - `5bc7272` compat migrations 0019-0022 + Q2-Q4 2026 tours
