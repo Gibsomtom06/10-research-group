@@ -60,6 +60,7 @@
         "typescript.tsdk": "products/digital-booking-agent/app/node_modules/typescript/lib",
         "typescript.enablePromptUseWorkspaceTsdk": true,
         "terminal.integrated.cwd": "${workspaceFolder:DBA — Digital Booking Agent}",
+        "python.terminal.useEnvFile": true,
         "workbench.colorCustomizations": {
             "titleBar.activeBackground": "#0b0b0c",
             "titleBar.activeForeground": "#f4f4f5",
