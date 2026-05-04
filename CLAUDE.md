@@ -66,7 +66,7 @@ Full mechanics, templates, and the Ollama setup live in `docs/DELEGATION_PLAYBOO
 C:\Users\Slash\
 ├── 10 Research Group\          ← the agency (AI-agent-building company) — you are here
 │   ├── CLAUDE.md                    ← this file
-│   ├── STATUS.md                    ← rolling status of all builds
+│   ├── AUTONOMOUS_QUEUE.md         ← rolling status / parallelizable backlog (replaces STATUS.md)
 │   ├── docs\
 │   │   └── DELEGATION_PLAYBOOK.md   ← Gemini + Ollama handoff mechanics
 │   ├── products\
@@ -101,7 +101,7 @@ C:\Users\Slash\
 - When creating files, drop them in the correct product/client folder, never in a random desktop location
 - When unsure about scope, ask one crisp question rather than over-asking or guessing
 - Don't ship long postambles after a file — link and move on
-- Match existing filename casing (e.g., `STATUS.md` stays `STATUS.md`)
+- Match existing filename casing (e.g., `BRAIN.md` stays `BRAIN.md`, `AUTONOMOUS_QUEUE.md` stays `AUTONOMOUS_QUEUE.md`)
 
 ---
 

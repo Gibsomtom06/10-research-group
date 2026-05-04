@@ -147,11 +147,12 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 | Operating system / how we work | this file (`BRAIN.md`) |
 | Org-level Claude rules | `CLAUDE.md` |
 | Folder structure rules | `HIERARCHY.md` |
-| Rolling status | `STATUS.md` |
+| Business chart (entities, status, roster) | `BUSINESS_HIERARCHY.md` |
+| Rolling status / autonomous backlog | `AUTONOMOUS_QUEUE.md` (replaces former `STATUS.md` reference) |
+| Autonomous-mode dispatch contract | `AUTONOMOUS_MODE_PROTOCOL.md` |
 | Delegation playbook (Gemini, Ollama) | `docs/DELEGATION_PLAYBOOK.md` |
 | **Employee Directory (current agent roster + status)** | `EMPLOYEE_DIRECTORY.md` ← updated 2026-04-30 |
 | **Skill Directory (current skills + locations)** | `SKILL_DIRECTORY.md` ← new 2026-04-30 |
-| **Audit (current .md inventory across umbrella)** | `_AUDIT_2026-04-30.md` |
 | **Factory architecture (CURRENT)** | `docs/superpowers/specs/2026-04-27-factory-architecture-design.md` |
 | **Trading shadow A/B test spec** | `docs/superpowers/specs/2026-04-27-trading-shadow-test-design.md` |
 | **Trading shadow implementation plan** | `docs/superpowers/plans/2026-04-27-trading-shadow-implementation.md` |
@@ -173,9 +174,15 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 
 Earlier audits flagged this as "superseded" — that was wrong. Thomas actively uses it as the at-a-glance roster. As of 2026-04-30 it has been REFRESHED (not archived) to align with the current 5-layer factory architecture. Cross-references the architecture spec for design details + KB Module 24 for persona detail. **Use this file when you want to know which agents exist and what their status is.**
 
-### Superseded — kept for reference, do NOT use as source of truth
+### Superseded — moved to `_archive/superseded/` 2026-05-04
 
-- `FACTORY_BRAIN.md` — legacy 12-worker factory architecture. Superseded by the 2026-04-27 architecture spec above.
+- `FACTORY_BRAIN.md` → `_archive/superseded/FACTORY_BRAIN.md` (legacy 12-worker factory architecture; superseded by the 2026-04-27 architecture spec above)
+- `SKILL_LIBRARY.md` → `_archive/superseded/SKILL_LIBRARY.md` (duplicate of `SKILL_DIRECTORY.md`)
+- `CLAUDE_CODE_REORG_PROMPT.md` → `_archive/superseded/CLAUDE_CODE_REORG_PROMPT.md` (one-time reorg prompt; reorg complete)
+
+### Dated reports — moved to `_archive/reports-2026-04-30/` 2026-05-04
+
+- `TONIGHT_SUMMARY_2026-04-30.md`, `HOMEPAGE_CLEANUP_REPORT_2026-04-30.md`, `_AUDIT_2026-04-30.md`, `_INVENTORY_DESKTOP_AND_HOME_2026-04-30.md`, `_MOVE_LOG_LEGAL_2026-04-30.md`, `_READ_FIRST_WHEN_YOU_WAKE_UP.md`
 
 When new specs/plans get written, **add them to the table above** before leaving the topic. If it isn't indexed here, it doesn't exist.
 
