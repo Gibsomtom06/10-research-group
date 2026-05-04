@@ -1,5 +1,7 @@
 # DBA — Digital Booking Agent
 
+> **2026-05-04 — DBA SUPABASE MERGER (READ FIRST):** DBA shares the TENx10 Supabase project (`ocscxqaythiuidkwjuvg`). The old standalone DBA project (`erwlfjlgrrfuqnjzitor`) is dead. Migration `0018_dba_into_tenx10.sql` added DBA-only tables alongside TENx10's existing schema. The `offers` table is currently a STUB VIEW returning zero rows — pass 2 will replace it with a real view over `deals`. TENx10's `contacts` has compat columns `full_name` (generated from `name`) + `timezone` so DBA's worker queries resolve. See `HANDOFF.md` for full context + DirtySnatcha 14 booked 2026 shows.
+
 Autonomous booking system for **TENx10** (10 Research Group, Thomas Nalian's artist management company — https://tenx10.co · platform source at `../tenx10-platform/`). Full roster to eventually serve: **DirtySnatcha** (Thomas, legal name Leigh Bray), **WHOiSEE** (Brett, NC, Circus Records UK), **Dark Matter** (Chicago/Knoxville, Wakaan), **Kotrax** (7 DSR tracks). First tenant is DSR; multi-artist scope is task #34. Automates the full booking workflow end-to-end: inbound offer triage, outbound prospecting, deal-memo generation, signature tracking, deposit tracking.
 
 **Important for contracts**: the Licensor on any DSR deal memo must be **"Leigh Bray aka DirtySnatcha · Licensor"** — that's Thomas's actual legal signing identity (fixed in `app/lib/deal-memo.ts` on 2026-04-22, was previously the double-wrong "Thomas Clay · DirtySnatcha Records").
