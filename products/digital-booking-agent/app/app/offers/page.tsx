@@ -207,6 +207,37 @@ function fmtDate(d: string | null): string {
   });
 }
 
+// Sheet-style date: M/D/YYYY. Matches the format Thomas + Leigh use in the
+// production booking spreadsheet so the eye recognizes shows on sight.
+function fmtSheetDate(d: string | null): string {
+  if (!d) return "—";
+  const dt = new Date(d);
+  if (Number.isNaN(dt.getTime())) return d;
+  return `${dt.getMonth() + 1}/${dt.getDate()}/${dt.getFullYear()}`;
+}
+
+// Headline a card the way the production sheet does: "M/D/YYYY CITY, ST".
+// Falls back gracefully — never "unknown venue". If no city/state, use
+// venue name. If no venue, use promoter. If nothing, just the date.
+function cardHeadline(r: OfferRow): { primary: string; secondary: string | null } {
+  const date = fmtSheetDate(r.proposed_date);
+  const city = r.venue?.city?.trim();
+  const state = r.venue?.state?.trim();
+  const cityState = [city, state].filter(Boolean).join(", ").toUpperCase();
+
+  if (cityState) {
+    return { primary: `${date}  ${cityState}`, secondary: r.venue?.name ?? null };
+  }
+  if (r.venue?.name) {
+    return { primary: `${date}  ${r.venue.name}`, secondary: null };
+  }
+  const promoter = r.promoter_company || r.promoter_name;
+  if (promoter) {
+    return { primary: `${date}  ${promoter}`, secondary: null };
+  }
+  return { primary: date, secondary: null };
+}
+
 function daysOutBadge(d: number | null): { label: string; cls: string } | null {
   if (d == null) return null;
   if (d < 0) return { label: `${-d}d ago`, cls: "text-muted/60" };
@@ -344,9 +375,7 @@ export default async function OffersKanban() {
                   <div className="text-[10px] text-muted/40 italic">empty</div>
                 )}
                 {rows.map((r) => {
-                  const loc = [r.venue?.city, r.venue?.state]
-                    .filter(Boolean)
-                    .join(", ");
+                  const head = cardHeadline(r);
                   const dob = daysOutBadge(r.days_until_show);
                   const stale = isStale(r.updated_at, col.rotDays);
                   const staleDays = stale
@@ -365,42 +394,22 @@ export default async function OffersKanban() {
                           : undefined
                       }
                     >
-                      <div className="text-xs truncate">
-                        {r.venue?.name ?? "unknown venue"}
+                      {/* Headline — sheet style: M/D/YYYY CITY, ST */}
+                      <div className="text-xs font-medium truncate">
+                        {head.primary}
                       </div>
-                      <div className="text-[10px] text-muted truncate">
-                        {loc || "—"}
-                      </div>
-                      {(r.promoter_name || r.promoter_company) && (
-                        <div className="text-[10px] text-muted/80 truncate">
-                          {r.promoter_name || r.promoter_company}
-                          {r.promoter_grade && (
-                            <span className="ml-1 text-blue-300/80">
-                              · {r.promoter_grade}
-                            </span>
-                          )}
+                      {head.secondary && (
+                        <div className="text-[10px] text-muted truncate">
+                          {head.secondary}
                         </div>
                       )}
-                      <div className="flex items-center justify-between mt-1 text-[10px]">
-                        <span className="text-accent">
-                          {fmtMoney(r.guarantee)}
-                          {r.net_to_artist != null &&
-                            r.net_to_artist !== r.guarantee && (
-                              <span className="text-muted/70 ml-1">
-                                (net {fmtMoney(r.net_to_artist)})
-                              </span>
-                            )}
+                      {/* Artist + source on one line */}
+                      <div className="flex items-center justify-between text-[10px] mt-0.5 gap-1">
+                        <span className="text-muted/80 truncate">
+                          {r.artist_slug ?? "—"}
                         </span>
-                        <span className="text-muted">
-                          {fmtDate(r.proposed_date)}
-                        </span>
-                      </div>
-                      <div className="flex items-center justify-between text-[10px] mt-0.5">
-                        {r.artist_slug && (
-                          <span className="text-muted/80">{r.artist_slug}</span>
-                        )}
                         {r.source && r.source !== "direct_promoter" && (
-                          <span className="text-blue-300/80">
+                          <span className="text-blue-300/80 shrink-0">
                             {r.source === "agent_ab"
                               ? "AB"
                               : r.source === "agent_prysm"
@@ -413,11 +422,34 @@ export default async function OffersKanban() {
                           </span>
                         )}
                       </div>
-                      {dob && (
-                        <div className={`text-[10px] mt-0.5 ${dob.cls}`}>
-                          {dob.label}
-                        </div>
-                      )}
+                      {/* Promoter (smaller, secondary). Only if we have it AND we
+                          haven't already used it in the headline (no city/state). */}
+                      {(r.promoter_name || r.promoter_company) &&
+                        (r.venue?.city || r.venue?.name) && (
+                          <div className="text-[10px] text-muted/60 truncate mt-0.5">
+                            {r.promoter_name || r.promoter_company}
+                            {r.promoter_grade && (
+                              <span className="ml-1 text-blue-300/80">
+                                · {r.promoter_grade}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      {/* Money line */}
+                      <div className="flex items-center justify-between mt-1 text-[10px]">
+                        <span className="text-accent">
+                          {fmtMoney(r.guarantee)}
+                          {r.net_to_artist != null &&
+                            r.net_to_artist !== r.guarantee && (
+                              <span className="text-muted/70 ml-1">
+                                (net {fmtMoney(r.net_to_artist)})
+                              </span>
+                            )}
+                        </span>
+                        {dob && (
+                          <span className={dob.cls}>{dob.label}</span>
+                        )}
+                      </div>
                     </Link>
                   );
                 })}
