@@ -356,8 +356,8 @@ export default async function OffersKanban() {
                     <Link
                       key={r.id}
                       href={`/offers/${r.id}`}
-                      className={`block bg-white/[0.03] hover:bg-white/[0.06] rounded px-2 py-2 transition-colors border-l-2 ${
-                        stale ? "border-red-400/60" : "border-transparent"
+                      className={`block bg-white/[0.03] hover:bg-white/[0.06] rounded px-2 py-2 transition-colors border-l-4 ${
+                        stale ? "border-red-500" : "border-transparent"
                       }`}
                       title={
                         stale
