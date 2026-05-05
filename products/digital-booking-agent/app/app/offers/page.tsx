@@ -53,8 +53,14 @@ type Column = {
   description: string;
   filter: (r: OfferRow) => boolean;
   accent: string;
+  /** Probability this offer actually closes (becomes deposit_received). */
+  stageProb: number;
+  /** Days of inactivity before a card in this column is "stale." null = never. */
+  rotDays: number | null;
 };
 
+// Stage probabilities are v1 defensible defaults; tune from history later.
+// Rot thresholds calibrated for booking velocity (Thomas's gut + Pipedrive convention).
 const COLUMNS: Column[] = [
   {
     key: "new",
@@ -62,6 +68,8 @@ const COLUMNS: Column[] = [
     description: "inbound, not yet triaged",
     filter: (r) => r.status === "inbound",
     accent: "text-accent",
+    stageProb: 0.10,
+    rotDays: 3,
   },
   {
     key: "negotiating",
@@ -69,6 +77,8 @@ const COLUMNS: Column[] = [
     description: "countered or evaluating",
     filter: (r) => r.status === "evaluating" || r.status === "countered",
     accent: "text-yellow-300",
+    stageProb: 0.30,
+    rotDays: 7,
   },
   {
     key: "needs_me",
@@ -78,6 +88,8 @@ const COLUMNS: Column[] = [
       r.status === "memo_sent" ||
       (!!r.deal_memo_pdf_url && !r.signed_at_thomas),
     accent: "text-orange-300",
+    stageProb: 0.60,
+    rotDays: 2,
   },
   {
     key: "needs_them",
@@ -87,6 +99,8 @@ const COLUMNS: Column[] = [
       r.status === "signed_by_thomas" ||
       (!!r.signed_at_thomas && !r.signed_at_promoter),
     accent: "text-blue-300",
+    stageProb: 0.80,
+    rotDays: 5,
   },
   {
     key: "awaiting_deposit",
@@ -96,6 +110,8 @@ const COLUMNS: Column[] = [
       r.status === "fully_executed" ||
       (!!r.signed_at_thomas && !!r.signed_at_promoter && !r.deposit_received_at),
     accent: "text-purple-300",
+    stageProb: 0.95,
+    rotDays: 7,
   },
   {
     key: "locked",
@@ -103,6 +119,8 @@ const COLUMNS: Column[] = [
     description: "deposit received — it's on",
     filter: (r) => r.status === "deposit_received" || !!r.deposit_received_at,
     accent: "text-accent",
+    stageProb: 1.00,
+    rotDays: null,
   },
 ];
 
@@ -198,6 +216,45 @@ function daysOutBadge(d: number | null): { label: string; cls: string } | null {
   return { label: `${d}d out`, cls: "text-muted" };
 }
 
+function daysSince(iso: string | null): number | null {
+  if (!iso) return null;
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return null;
+  return (Date.now() - t) / (24 * 60 * 60 * 1000);
+}
+
+function isStale(updatedAt: string | null, rotDays: number | null): boolean {
+  if (rotDays == null) return false;
+  const d = daysSince(updatedAt);
+  return d != null && d > rotDays;
+}
+
+type ColumnTotals = {
+  count: number;
+  gross: number;
+  net: number;
+  weightedNet: number;
+  staleCount: number;
+};
+
+function aggregateColumn(rows: OfferRow[], col: Column): ColumnTotals {
+  let gross = 0;
+  let net = 0;
+  let staleCount = 0;
+  for (const r of rows) {
+    gross += r.guarantee ?? 0;
+    net += r.net_to_artist ?? r.guarantee ?? 0;
+    if (isStale(r.updated_at, col.rotDays)) staleCount += 1;
+  }
+  return {
+    count: rows.length,
+    gross,
+    net,
+    weightedNet: net * col.stageProb,
+    staleCount,
+  };
+}
+
 export default async function OffersKanban() {
   const all = await load();
 
@@ -213,19 +270,45 @@ export default async function OffersKanban() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
         {COLUMNS.map((col) => {
           const rows = all.filter(col.filter);
+          const totals = aggregateColumn(rows, col);
           return (
             <div
               key={col.key}
               className="bg-white/[0.02] rounded p-3 min-h-[100px]"
             >
-              <div className="flex items-baseline justify-between mb-3">
-                <div>
+              <div className="mb-3">
+                <div className="flex items-baseline justify-between">
                   <div className={`text-sm ${col.accent}`}>{col.title}</div>
-                  <div className="text-[10px] text-muted/70 mt-0.5 leading-tight">
-                    {col.description}
-                  </div>
+                  <div className="text-xs text-muted">{totals.count}</div>
                 </div>
-                <div className="text-xs text-muted">{rows.length}</div>
+                <div className="text-[10px] text-muted/70 mt-0.5 leading-tight">
+                  {col.description}
+                </div>
+                {totals.net > 0 && (
+                  <div className="flex items-baseline justify-between mt-1.5 gap-2">
+                    <div className="text-[10px] text-muted truncate">
+                      {col.key === "locked" ? (
+                        <span className="text-accent">
+                          {fmtMoney(totals.net)} booked
+                        </span>
+                      ) : (
+                        <>
+                          {fmtMoney(totals.net)}{" "}
+                          <span className="text-muted/60">→</span>{" "}
+                          <span className={col.accent}>
+                            {fmtMoney(totals.weightedNet)}
+                          </span>{" "}
+                          <span className="text-muted/60">weighted</span>
+                        </>
+                      )}
+                    </div>
+                    {totals.staleCount > 0 && (
+                      <div className="text-[10px] text-red-400 shrink-0">
+                        {totals.staleCount} stale
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="space-y-2">
@@ -237,11 +320,22 @@ export default async function OffersKanban() {
                     .filter(Boolean)
                     .join(", ");
                   const dob = daysOutBadge(r.days_until_show);
+                  const stale = isStale(r.updated_at, col.rotDays);
+                  const staleDays = stale
+                    ? Math.round(daysSince(r.updated_at) ?? 0)
+                    : null;
                   return (
                     <Link
                       key={r.id}
                       href={`/offers/${r.id}`}
-                      className="block bg-white/[0.03] hover:bg-white/[0.06] rounded px-2 py-2 transition-colors"
+                      className={`block bg-white/[0.03] hover:bg-white/[0.06] rounded px-2 py-2 transition-colors border-l-2 ${
+                        stale ? "border-red-400/60" : "border-transparent"
+                      }`}
+                      title={
+                        stale
+                          ? `stale: no activity in ${staleDays}d (rot threshold ${col.rotDays}d)`
+                          : undefined
+                      }
                     >
                       <div className="text-xs truncate">
                         {r.venue?.name ?? "unknown venue"}
