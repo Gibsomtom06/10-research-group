@@ -258,19 +258,47 @@ function aggregateColumn(rows: OfferRow[], col: Column): ColumnTotals {
 export default async function OffersKanban() {
   const all = await load();
 
+  // Page-level summary: aggregate across every column once so the header line
+  // can show pipeline-wide weighted $, booked $, and stale count.
+  const colTotals = COLUMNS.map((col) => ({
+    col,
+    totals: aggregateColumn(all.filter(col.filter), col),
+  }));
+  const pipelineWeighted = colTotals.reduce(
+    (acc, { col, totals }) =>
+      col.key === "locked" ? acc : acc + totals.weightedNet,
+    0
+  );
+  const booked = colTotals.find((c) => c.col.key === "locked")?.totals.net ?? 0;
+  const totalStale = colTotals.reduce((acc, { totals }) => acc + totals.staleCount, 0);
+
   return (
     <div className="space-y-6">
-      <div className="flex items-end justify-between">
+      <div className="flex items-end justify-between flex-wrap gap-2">
         <h1 className="text-2xl">offers</h1>
-        <div className="text-xs text-muted">
-          {all.length} total · offers are contracts
+        <div className="flex items-baseline gap-3 text-xs text-muted">
+          <span>{all.length} total</span>
+          <span className="text-muted/50">·</span>
+          <span>
+            <span className="text-accent">{fmtMoney(booked)}</span> booked
+          </span>
+          <span className="text-muted/50">·</span>
+          <span>
+            <span className="text-yellow-300">{fmtMoney(pipelineWeighted)}</span>{" "}
+            in flight (weighted)
+          </span>
+          {totalStale > 0 && (
+            <>
+              <span className="text-muted/50">·</span>
+              <span className="text-red-400">{totalStale} stale</span>
+            </>
+          )}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
-        {COLUMNS.map((col) => {
+        {colTotals.map(({ col, totals }) => {
           const rows = all.filter(col.filter);
-          const totals = aggregateColumn(rows, col);
           return (
             <div
               key={col.key}
