@@ -115,11 +115,11 @@ Everything in `C:\Users\slash\OneDrive\10 Research Group\` that isn't in `.gitig
 
 ## Notes
 
-- OneDrive sync propagates changes to your secondary PC, but OneDrive is NOT version control
-- GitHub is version control — it has full history, diff, rollback
-- Both are needed: OneDrive for cross-PC sync speed, GitHub for history and recovery
-- The two are independent — a GitHub push does not affect OneDrive and vice versa
+- **GitHub is the cross-PC sync layer.** Pull/push between machines, not OneDrive.
+- ~~OneDrive for cross-PC sync speed~~ — this guidance was wrong. OneDrive racing with git on `.git/index.lock` causes commit failures and stale-clone artifacts (see `_archive/stale-clones/tenx10-cc65688-stale-clone/` for the receipt). Don't put a git working tree inside OneDrive.
+- Working clones belong outside OneDrive (e.g., `C:\Users\slash\Projects\10-research-group\`), mirroring the tenx10 platform fix at `C:\Users\slash\Projects\tenx10\`.
+- OneDrive's job is non-git assets only — audio, photos, contracts, design files, anything that isn't a text/code repo.
 
 ---
 
-*Created 2026-05-03. One-time setup; update if remote URL changes.*
+*Created 2026-05-03. Updated 2026-05-04: removed misleading "OneDrive for cross-PC sync" guidance after it caused git lock failures + stale clones across machines.*
