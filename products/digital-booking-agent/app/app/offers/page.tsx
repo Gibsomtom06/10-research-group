@@ -14,6 +14,17 @@ export const dynamic = "force-dynamic";
  * Reads v_offer_contract_status so the lifecycle flags come pre-derived.
  */
 
+type DealPoints = {
+  city?: string | null;
+  state?: string | null;
+  venue?: string | null;
+  tour?: string | null;
+  notes?: string | null;
+  capacity?: number | null;
+  promoterName?: string | null;
+  gigwellId?: string | null;
+} | null;
+
 type OfferRow = {
   id: string;
   contact_id: string | null;
@@ -45,6 +56,10 @@ type OfferRow = {
   promoter_company?: string | null;
   promoter_grade?: string | null;
   artist_name?: string | null;
+  // From deals row (offers is a view over deals; title + deal_points
+  // hold the city/state/venue/tour/notes that the importer wrote).
+  title?: string | null;
+  deal_points?: DealPoints;
 };
 
 type Column = {
@@ -128,25 +143,35 @@ async function load(): Promise<OfferRow[]> {
   try {
     const sb = serverClient();
     // `offers` is a view-over-deals (post-merger). Promoter info is
-    // denormalized into the view (promoter_name, _email, _grade, etc.)
-    // so we don't need a FK join from a view.
-    const { data, error } = await sb
-      .from("offers")
-      .select(
-        `id, contact_id, venue_id, artist_slug, status, source, net_to_artist,
-         proposed_date, guarantee, deposit_pct, deposit_received_at,
-         signed_at_thomas, signed_at_promoter, deal_memo_pdf_url,
-         created_at, updated_at,
-         promoter_name, promoter_email, promoter_company, promoter_city, promoter_grade,
-         artist_name,
-         venue:venues(name, city, state)`
-      )
-      .order("proposed_date", { ascending: true, nullsFirst: false })
-      .limit(300);
+    // denormalized into the view; but title + deal_points (jsonb with
+    // city/state/venue/tour/notes) only live on the underlying `deals`
+    // table — fetch in parallel and merge by id.
+    const [offersRes, dealsRes] = await Promise.all([
+      sb
+        .from("offers")
+        .select(
+          `id, contact_id, venue_id, artist_slug, status, source, net_to_artist,
+           proposed_date, guarantee, deposit_pct, deposit_received_at,
+           signed_at_thomas, signed_at_promoter, deal_memo_pdf_url,
+           created_at, updated_at,
+           promoter_name, promoter_email, promoter_company, promoter_city, promoter_grade,
+           artist_name,
+           venue:venues(name, city, state)`
+        )
+        .order("proposed_date", { ascending: true, nullsFirst: false })
+        .limit(300),
+      sb.from("deals").select("id, title, deal_points").limit(500),
+    ]);
 
-    if (error) throw error;
+    if (offersRes.error) throw offersRes.error;
 
-    return (data ?? []).map((r: any): OfferRow => {
+    const dealMap = new Map<string, { title: string | null; deal_points: DealPoints }>();
+    for (const d of dealsRes.data ?? []) {
+      dealMap.set(d.id, { title: d.title ?? null, deal_points: (d.deal_points ?? null) as DealPoints });
+    }
+
+    return (offersRes.data ?? []).map((r: any): OfferRow => {
+      const dealExtra = dealMap.get(r.id);
       const row: OfferRow = {
         id: r.id,
         contact_id: r.contact_id,
@@ -183,6 +208,8 @@ async function load(): Promise<OfferRow[]> {
         promoter_company: r.promoter_company ?? null,
         promoter_grade: r.promoter_grade ?? null,
         artist_name: r.artist_name ?? null,
+        title: dealExtra?.title ?? null,
+        deal_points: dealExtra?.deal_points ?? null,
       };
       return row;
     });
@@ -219,23 +246,60 @@ function fmtSheetDate(d: string | null): string {
 // Headline a card the way the production sheet does: "M/D/YYYY CITY, ST".
 // Falls back gracefully — never "unknown venue". If no city/state, use
 // venue name. If no venue, use promoter. If nothing, just the date.
-function cardHeadline(r: OfferRow): { primary: string; secondary: string | null } {
-  const date = fmtSheetDate(r.proposed_date);
-  const city = r.venue?.city?.trim();
-  const state = r.venue?.state?.trim();
-  const cityState = [city, state].filter(Boolean).join(", ").toUpperCase();
+function truncate(s: string, n: number): string {
+  if (s.length <= n) return s;
+  return s.slice(0, n - 1).trimEnd() + "…";
+}
 
-  if (cityState) {
-    return { primary: `${date}  ${cityState}`, secondary: r.venue?.name ?? null };
+// Headline a card the way the production sheet does: "M/D/YYYY CITY, ST".
+// Importer wrote real data into deals.title (e.g., "Hartford, CT — TMTYL")
+// and deals.deal_points jsonb (city/state/venue/tour/notes). Prefer those —
+// the venues-FK path was mostly null and gave us the dreaded "unknown venue".
+function cardHeadline(r: OfferRow): {
+  primary: string;
+  venueLine: string | null;
+  tour: string | null;
+  notesExcerpt: string | null;
+} {
+  const date = fmtSheetDate(r.proposed_date);
+  const dp = r.deal_points;
+
+  // 1) Title from the importer ("Hartford, CT — TMTYL", "Pontiac, MI — Pike Room").
+  if (r.title && r.title.trim()) {
+    return {
+      primary: `${date}  ${r.title.trim().toUpperCase()}`,
+      venueLine: dp?.venue ?? r.venue?.name ?? null,
+      tour: dp?.tour ?? null,
+      notesExcerpt: dp?.notes ? truncate(dp.notes, 80) : null,
+    };
+  }
+
+  // 2) deal_points jsonb has city/state where the importer didn't fill title.
+  const dpLoc = [dp?.city?.trim(), dp?.state?.trim()].filter(Boolean).join(", ").toUpperCase();
+  if (dpLoc) {
+    return {
+      primary: `${date}  ${dpLoc}`,
+      venueLine: dp?.venue ?? r.venue?.name ?? null,
+      tour: dp?.tour ?? null,
+      notesExcerpt: dp?.notes ? truncate(dp.notes, 80) : null,
+    };
+  }
+
+  // 3) Legacy venues-table FK fallback.
+  const vLoc = [r.venue?.city?.trim(), r.venue?.state?.trim()].filter(Boolean).join(", ").toUpperCase();
+  if (vLoc) {
+    return { primary: `${date}  ${vLoc}`, venueLine: r.venue?.name ?? null, tour: null, notesExcerpt: null };
   }
   if (r.venue?.name) {
-    return { primary: `${date}  ${r.venue.name}`, secondary: null };
+    return { primary: `${date}  ${r.venue.name}`, venueLine: null, tour: null, notesExcerpt: null };
   }
+
+  // 4) Promoter or just the date.
   const promoter = r.promoter_company || r.promoter_name;
   if (promoter) {
-    return { primary: `${date}  ${promoter}`, secondary: null };
+    return { primary: `${date}  ${promoter}`, venueLine: null, tour: null, notesExcerpt: null };
   }
-  return { primary: date, secondary: null };
+  return { primary: date, venueLine: null, tour: null, notesExcerpt: null };
 }
 
 function daysOutBadge(d: number | null): { label: string; cls: string } | null {
@@ -398,12 +462,20 @@ export default async function OffersKanban() {
                       <div className="text-xs font-medium truncate">
                         {head.primary}
                       </div>
-                      {head.secondary && (
-                        <div className="text-[10px] text-muted truncate">
-                          {head.secondary}
+                      {/* Venue + tour tag on the same line */}
+                      {(head.venueLine || head.tour) && (
+                        <div className="flex items-baseline justify-between gap-1 text-[10px] mt-0.5">
+                          <span className="text-muted truncate">
+                            {head.venueLine ?? ""}
+                          </span>
+                          {head.tour && (
+                            <span className="text-yellow-300/80 shrink-0 uppercase tracking-wide">
+                              {head.tour}
+                            </span>
+                          )}
                         </div>
                       )}
-                      {/* Artist + source on one line */}
+                      {/* Artist + source */}
                       <div className="flex items-center justify-between text-[10px] mt-0.5 gap-1">
                         <span className="text-muted/80 truncate">
                           {r.artist_slug ?? "—"}
@@ -422,10 +494,12 @@ export default async function OffersKanban() {
                           </span>
                         )}
                       </div>
-                      {/* Promoter (smaller, secondary). Only if we have it AND we
-                          haven't already used it in the headline (no city/state). */}
+                      {/* Promoter (smaller). Only when we have it and haven't
+                          already used it as the headline. */}
                       {(r.promoter_name || r.promoter_company) &&
-                        (r.venue?.city || r.venue?.name) && (
+                        (head.venueLine ||
+                          r.deal_points?.city ||
+                          r.title) && (
                           <div className="text-[10px] text-muted/60 truncate mt-0.5">
                             {r.promoter_name || r.promoter_company}
                             {r.promoter_grade && (
@@ -435,6 +509,14 @@ export default async function OffersKanban() {
                             )}
                           </div>
                         )}
+                      {/* Notes excerpt (deal_points.notes). Italicized, faint,
+                          one line. Surfaces things like "Support for Shlump",
+                          "Deposit POP confirmed Apr 16", agent negotiation tags. */}
+                      {head.notesExcerpt && (
+                        <div className="text-[10px] text-muted/70 truncate mt-0.5 italic">
+                          {head.notesExcerpt}
+                        </div>
+                      )}
                       {/* Money line */}
                       <div className="flex items-center justify-between mt-1 text-[10px]">
                         <span className="text-accent">
