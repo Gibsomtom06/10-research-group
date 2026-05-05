@@ -66,5 +66,9 @@ desktop.ini
 # Per-trading-shadow gitignore handles its own data/ rules (uses negation
 # for content_ideas.jsonl + ideas_brainstorm.jsonl). Let it do that.
 
+# Archived parallel clone from the 2026-05-04 migration attempt that was
+# reverted on 2026-05-05. Contains a nested .git/ — not part of umbrella history.
+_archive/projects-10rg-2026-05-05/
+
 # Model router runtime decisions log
 **/model_router/decisions.jsonl
