@@ -153,9 +153,13 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 | Delegation playbook (Gemini, Ollama) | `docs/DELEGATION_PLAYBOOK.md` |
 | **Employee Directory (current agent roster + status)** | `EMPLOYEE_DIRECTORY.md` ← updated 2026-04-30 |
 | **Skill Directory (current skills + locations)** | `SKILL_DIRECTORY.md` ← new 2026-04-30 |
+| **Build-cycle skill (Alignment → Translation → Partitioning)** | `.claude/skills/build-cycle/SKILL.md` ← new 2026-05-05 |
 | **Factory architecture (CURRENT)** | `docs/superpowers/specs/2026-04-27-factory-architecture-design.md` |
 | **Trading shadow A/B test spec** | `docs/superpowers/specs/2026-04-27-trading-shadow-test-design.md` |
 | **Trading shadow implementation plan** | `docs/superpowers/plans/2026-04-27-trading-shadow-implementation.md` |
+| **TENx10.co full rebuild — partition + execution plan (2026-05-05)** | `docs/superpowers/plans/2026-05-05-tenx10-rebuild-partition.md` |
+| **Content / meme generation framework (3-folder system)** | `docs/superpowers/specs/2026-05-05-content-meme-generation-framework.md` |
+| **AI Studio prototype extraction (early TENx10 prototype)** | `docs/superpowers/specs/2026-05-05-aistudio-prototype-extraction.md` |
 | **Strategic review + gaps audit (2026-04-28)** | `docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md` |
 | **Rollback Handler spec (Trader Sub)** | `products/trading-shadow/ROLLBACK_HANDLER_SPEC.md` |
 | **Cutover Runbook (graduation-gated)** | `products/trading-shadow/CUTOVER_RUNBOOK.md` |

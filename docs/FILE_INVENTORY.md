@@ -33,8 +33,9 @@ Total in-scope as of 2026-05-05: **~140-145 files** (down from 163 pre-consolida
 
 | File | Role | Lines | Status |
 |---|---|---|---|
-| `BRAIN.md` | Top-level operating system, factory architecture, Capitulate-and-Cultivate principle, observability contract, Single Sources of Truth index | 217 | live |
-| `CLAUDE.md` | Session operating rules — partition rules, reading discipline, verification, information mode, delegation tree | 132 | live (post-2026-05-05 retrofit + reading-discipline addition) |
+| `BRAIN.md` | Top-level operating system, factory architecture, Capitulate-and-Cultivate principle, observability contract, Single Sources of Truth index | 220 | live (2026-05-05 SSoT entries added for build-cycle skill, TENx10 rebuild partition, content-meme spec, AI Studio extraction spec) |
+| `CLAUDE.md` | Session operating rules — partition rules, reading discipline, information mode, delegation tree, beads, session completion | 79 | live (2026-05-05 prune: -41% from 134 — folded Verification into Read-before-writing; trimmed cost-sensitive defaults dup; removed contradictory BEADS auto-block; collapsed 14-step session-completion to 1 line) |
+| `.claude/skills/build-cycle/SKILL.md` | 3-phase build skill (Alignment → Translation → Partitioning) with 6-point methodology baked in (verification loops, parallel partitioning, inner-loop systematization, information mode, currency check, cost-aware delegation) | ~140 | live (created 2026-05-05) |
 | `HIERARCHY.md` | Folder structure rules | 142 | live |
 | `BUSINESS_HIERARCHY.md` | Org chart (entities, products, status, roster) | 98 | live |
 | `AUTONOMOUS_QUEUE.md` | Rolling backlog of parallelizable work | 124 | live |
@@ -47,7 +48,7 @@ Total in-scope as of 2026-05-05: **~140-145 files** (down from 163 pre-consolida
 | `.beads/README.md` | Beads quick-start | 55 | live |
 | `mcp-tools/README.md` | Active MCP integrations summary | 31 | live |
 | `scripts/setup_github_remote.md` | GitHub remote setup | 93 | live |
-| `.claude/CLAUDE.md` | Org-level personal Claude rules | 31 | live |
+| `.claude/CLAUDE.md` | Org-level personal Claude rules — canonical storage + domain distinction (ownership) | 19 | live (2026-05-05 prune: -42% from 33 — removed Portfolio dup of BRAIN.md + Voice & Standards placeholder) |
 
 **Removed 2026-05-05:**
 - `commit.bat` — broken old helper, references nonexistent path. Deleted.
@@ -111,6 +112,14 @@ Index lives in umbrella `BRAIN.md` "Single Sources of Truth" table. Notable:
 | File | Role | Status |
 |---|---|---|
 | `2026-04-27-trading-shadow-implementation.md` | Detailed trading-shadow build plan | live |
+| `2026-05-05-tenx10-rebuild-partition.md` | TENx10.co full rebuild — 37 tasks across F1/F2 + W1-W5 + P1/P2 + R1-R26, parallel-execution rounds, hard exclusivity rules, 20-step smoke test | live (created 2026-05-05) |
+
+### docs/superpowers/specs/ — added 2026-05-05
+
+| File | Role | Status |
+|---|---|---|
+| `2026-05-05-content-meme-generation-framework.md` | Hormozi 3-folder system (`business_context/`, `data/`, `prompts/`) per brand voice | live |
+| `2026-05-05-aistudio-prototype-extraction.md` | Early TENx10 AI Studio prototype extraction — what to keep vs leave | live |
 
 ### data/
 

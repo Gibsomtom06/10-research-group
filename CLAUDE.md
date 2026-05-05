@@ -1,66 +1,55 @@
 # 10 Research Group — Claude operating rules
 
-These apply to every Claude session working in this repo. Operating instructions only — portfolio context lives in `BRAIN.md`, current work in `AUTONOMOUS_QUEUE.md`, structure in `HIERARCHY.md`.
+Operating rules only. Portfolio context lives in `BRAIN.md`, current work in `AUTONOMOUS_QUEUE.md`, structure in `HIERARCHY.md`.
 
 ---
 
-## Canonical naming — read first
+## Canonical naming
 
-`10 Research Group` and `10RG` are **the same entity**. `10RG` is the abbreviation. One company, one umbrella, one git repo, one folder. Never split context between the two names; never create a `10rg` folder outside the umbrella. Full rule in `BRAIN.md`.
+`10 Research Group` and `10RG` are **the same entity** — `10RG` is the abbreviation. One company, one umbrella, one git repo, one folder. Never split context between the two names; never create a `10rg` folder outside the umbrella. Detail in `BRAIN.md`.
 
 ---
 
-## Operating principle: Claude tokens are the scarce resource
+## Operating principle: Claude is the orchestrator
 
-Thomas pays for Claude tokens; Gemini Code Assist (VS Code) is free on his plan; Ollama (local) is free. **Claude orchestrates and does the hardest thinking — not the typist, not the doc-updater.**
+Thomas pays for Claude tokens; Gemini Code Assist (VS Code) and Ollama (local) are free. **Claude does the hardest thinking and routes — not the typist.** Before doing any work yourself: *can this be delegated without losing quality?*
 
-Before doing any work yourself: *can this be delegated without losing quality?*
+- **Gemini:** bounded tasks with clear DoD — installs, scaffolding, syntax work, applying a spec, running commands.
+- **Ollama:** repetitive high-volume work — categorize 500 rows, 50 variant test cases, bulk doc cleanup.
+- **Claude direct:** cross-file architecture, brand-voice content, subtle debugging, security / financials / live sending, orchestrating sub-agent output.
+- **Never delegate:** live customer email/send, prod-Supabase migrations, live-offer financial calc, DBA's `safety_gates`.
 
-### Delegation decision tree
-
-**Gemini (VS Code Code Assist):** bounded tasks with clear DoD — installs, scaffolding, file-structure checks, syntax work, running commands, applying a spec. No cross-file reasoning, no brand voice, no live customer content, no security decisions.
-
-**Ollama (local):** repetitive high-volume work (categorize 500 rows, 50 variant test cases, bulk doc cleanup). Moderate quality tolerance, no sensitive data.
-
-**Claude direct:** cross-file architecture, brand-voice-sensitive content, subtle debugging, anything touching security / financials / live sending, orchestrating Gemini / Ollama output.
-
-**Workflow:** Claude writes a scoped handoff file (`GEMINI_HANDOFF.md` / `OLLAMA_BATCH.md`) in the right project folder with context + step-by-step tasks + do/don't list + exact return format. Hands Thomas a one-line paste-in prompt. Sub-agent reports back in the defined format. Full mechanics in `docs/DELEGATION_PLAYBOOK.md`.
-
-**Never delegate:** live customer email/send, production-Supabase migration scripts, live-offer financial calc, DBA's `safety_gates` (supervisor / outbound / sender).
+Mechanics: `docs/DELEGATION_PLAYBOOK.md`.
 
 ---
 
 ## Partition rules for parallel sessions
 
-- **One Claude session = one product cwd.** Each product has its own `CLAUDE.md` + `BRAIN.md` — read those when in that cwd. Never cross product roots in a single session. If you need to touch DBA and TENx10, open two sessions.
-- **Within a product, partition by subsystem** when safe: e.g., DBA `agents/*` (Python) and DBA `app/*` (Next.js) can run as separate sessions because they don't share files.
-- **Umbrella OS files** (`BRAIN.md`, `AUTONOMOUS_QUEUE.md`, `HIERARCHY.md`, this `CLAUDE.md`, `docs/STATUS.md`): only ONE session edits these at a time. If unsure who else is in here, ask.
-- **When stuck:** open a fresh context window rather than fighting in the current one. Don't grind for an hour against a confused session.
+- **One Claude session = one product cwd.** Each product has its own `CLAUDE.md` + `BRAIN.md`. Don't cross product roots in one session — open two.
+- **Within a product, partition by subsystem** when files don't overlap (e.g., DBA `agents/*` and `app/*`).
+- **Umbrella OS files** (`BRAIN.md`, `AUTONOMOUS_QUEUE.md`, `HIERARCHY.md`, this file, `docs/STATUS.md`): only ONE session edits these at a time.
+- **When stuck:** open a fresh context window. Don't grind against a confused session.
 
 ---
 
-## Read before writing — discipline for consolidation / retrofit work
+## Read before writing — discipline for consolidation work
 
-When the task is "consolidate," "retrofit," "clean up the files," "make a single source of truth," "audit," or "slim this CLAUDE.md / BRAIN.md" — this discipline activates BEFORE any edit:
+Activates BEFORE any edit when the task is "consolidate," "retrofit," "audit," "make a single source of truth," or "slim CLAUDE.md / BRAIN.md":
 
-1. Glob every `.md` (or other relevant file) in scope — full tree-wide, not just files referenced by the file being edited.
-2. Per file, classify: read first-hand THIS session vs. inferred from filename, sibling reference, system-reminder excerpt, or another agent's summary.
-3. Read everything in column 2 first-hand before proposing changes. Filename heuristics are not evidence of content.
-4. Verify "duplicate" and "superseded" claims with byte-level diff (`diff -w --strip-trailing-cr`) before deleting anything.
-5. Capture per-file: purpose, current state, mtime, what it references, what references it.
+1. Glob every `.md` in scope, full tree-wide.
+2. Classify each: read first-hand THIS session vs. inferred from filename / sibling reference / agent summary.
+3. Read column-2 files first-hand. Filename heuristics are not evidence.
+4. Verify "duplicate" / "superseded" claims with byte-level diff before deleting.
+5. State the verification approach BEFORE non-trivial changes; run it before reporting done.
 6. After changes: re-read what was edited; confirm nothing load-bearing was lost.
 
-Codified after the 2026-05-05 incident where assumed-equivalence between TENx10 KB modules and MANAGEMENT-TENx10/labels/.../KA_v2_*.md missed a ~2000-line duplication for two sessions.
-
-## Verification
-
-State your verification approach BEFORE making a non-trivial change, not after. Run the verification before reporting done. Per-product verification recipes live in each product's `CLAUDE.md`.
+Codified after the 2026-05-05 incident where assumed-equivalence between TENx10 KB modules and `MANAGEMENT-TENx10/labels/.../KA_v2_*.md` missed a ~2000-line duplication for two sessions.
 
 ---
 
 ## Information mode — invest in context, not prompt micro-tweaks
 
-Don't bet against the model. The most leveraged work is improving the data, structure, and current-state files Claude reads — not tuning prompt wording. When choosing between "tweak the agent prompt" and "tighten the BRAIN.md it reads," tighten BRAIN.md.
+Don't bet against the model. The most leveraged work is improving the data, structure, and current-state files Claude reads — not tuning prompt wording. Choose "tighten BRAIN.md" over "tweak the agent prompt."
 
 ---
 
@@ -70,64 +59,21 @@ Don't bet against the model. The most leveraged work is improving the data, stru
 - No emojis unless Thomas uses them first
 - New files go in the right product/client folder, never random desktop locations
 - One crisp question over guessing when scope is unclear
-- No long postambles after a file — link and move on
-- Match existing filename casing (`BRAIN.md` stays `BRAIN.md`, `AUTONOMOUS_QUEUE.md` stays `AUTONOMOUS_QUEUE.md`)
+- No long postambles — link and move on
+- Match existing filename casing
+- Prefer Edit over Write — smaller diff sent
+- Don't re-read a file already in this session's context unless something changed
+- Batch independent tool calls in a single turn
+- Prefer skills over ad-hoc work — skills are pre-optimized
 
 ---
 
-## Cost-sensitive defaults
+## Beads (cross-session issue tracking)
 
-- Prefer Edit over Write — smaller diff sent
-- Don't re-read a file already in context this session unless something changed
-- For long autonomous work, use subagents (Task tool) to isolate context
-- High-volume repetitive content → delegate to Ollama, review the sample
-- Batch independent tool calls in a single turn
-- Prefer skills over ad-hoc work — skills are already optimized
+`bd` is available for work that spans multiple sessions. Run `bd prime` for full reference. Use it when issues survive past the current conversation; in-conversation step tracking is fine via TodoWrite. Persistent knowledge can live in `bd remember` or the auto-memory system at `~/.claude/projects/.../memory/`.
 
+---
 
-<!-- BEGIN BEADS INTEGRATION v:1 profile:minimal hash:ca08a54f -->
-## Beads Issue Tracker
+## Session completion
 
-This project uses **bd (beads)** for issue tracking. Run `bd prime` to see full workflow context and commands.
-
-### Quick Reference
-
-```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --claim  # Claim work
-bd close <id>         # Complete work
-```
-
-### Rules
-
-- Use `bd` for ALL task tracking — do NOT use TodoWrite, TaskCreate, or markdown TODO lists
-- Run `bd prime` for detailed command reference and session close protocol
-- Use `bd remember` for persistent knowledge — do NOT use MEMORY.md files
-
-## Session Completion
-
-**When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
-
-**MANDATORY WORKFLOW:**
-
-1. **File issues for remaining work** - Create issues for anything that needs follow-up
-2. **Run quality gates** (if code changed) - Tests, linters, builds
-3. **Update issue status** - Close finished work, update in-progress items
-4. **PUSH TO REMOTE** - This is MANDATORY:
-   ```bash
-   git pull --rebase
-   bd dolt push
-   git push
-   git status  # MUST show "up to date with origin"
-   ```
-5. **Clean up** - Clear stashes, prune remote branches
-6. **Verify** - All changes committed AND pushed
-7. **Hand off** - Provide context for next session
-
-**CRITICAL RULES:**
-- Work is NOT complete until `git push` succeeds
-- NEVER stop before pushing - that leaves work stranded locally
-- NEVER say "ready to push when you are" - YOU must push
-- If push fails, resolve and retry until it succeeds
-<!-- END BEADS INTEGRATION -->
+Work is not done until `git push` succeeds. `git pull --rebase`, push, verify `git status` shows up-to-date with origin. If push fails, resolve the cause and retry.
