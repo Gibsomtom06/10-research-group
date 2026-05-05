@@ -18,6 +18,16 @@ Format: `[ ]` open, `[x]` done, `[~]` in progress, `[!]` blocked. Task number is
 - [ ] **#62** Backfill `venues.is_festival` manually — 0011 heuristic is conservative (only matches name patterns).
 - [~] **#63** Add `latitude`/`longitude` to `venues` and replace same-city radius approximation with real 75-mi distance check. **← migration 0013 written, venues still need coord backfill (Google Places pass) to unlock the haversine path**
 - [ ] **#64** Audit tier-diversity defaults (insider=20, warm=30, cold=50, total=250) once seeder runs on real inventory.
+- [ ] **#70** **Auto-rider workflow per booking.** When a show is confirmed (status moves into the "locked" lifecycle column or upon countersign), DBA should:
+  1. Generate a per-booking rider from `MANAGEMENT-TENx10/labels/DirtySnatcha Records/operations/contract-templates/DirtySnatcha_Rider_TEMPLATE.docx` with show-specific fields filled in (date, city, venue, support acts, hospitality, tech).
+  2. Save it to a per-show folder following `show_folder_structure.md` (`[MM.DD.YYYY] [City, State] - [Venue Name]/02_ADVANCE_&_LOGISTICS/` or wherever the rider lives in that structure).
+  3. Generate the advance email from `DirtySnatcha_Advance_Email_Template.md` with the same fields.
+  4. Attach the rider + the assets (DSR logo, EPK link, stage plot, technical spec) to the advance email draft.
+  5. Surface the bundled draft in `/drafts` for Thomas to review/send.
+
+   Today the riders are filed flat at the label root (`DirtySnatcha_Rider_<CITY>_<MMDDYYYY>.docx`). This task moves them under per-show folders AND automates generation.
+
+   Per Thomas 2026-05-05: "riders are made for each booking. Those riders are for dirtysnatcha. I want this to be part of the booking or DBA workflow that autocreates the rider and saves it in the folder for the booking, then sends the advance with the rider and assets."
 
 ## Platform / infra
 
