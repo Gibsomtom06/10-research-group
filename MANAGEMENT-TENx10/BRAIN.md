@@ -8,7 +8,17 @@ The TENx10 management business — Thomas Nalian's artist management company. **
 
 ## What this is
 
-TENx10 the **company** is Thomas's full-service artist management firm. It manages a roster of bass-music artists end-to-end (bookings, releases, royalty admin, content, contracts, financials) AND operates DirtySnatcha Records (DSR) — one of the labels under the umbrella.
+TENx10 the **company** is Thomas's full-service artist management firm. It manages a roster of bass-music artists end-to-end (bookings, releases, royalty admin, content, contracts, financials).
+
+**Relationship to DSR (DirtySnatcha Records):** **DSR is a client of TENx10**, not a subsidiary. DSR is a co-owned label (Leigh Bray 70% + Thomas Nalian 30%) that hires TENx10 for **partial management services** AND uses the **TENx10 platform** (the SaaS) to run the business. TENx10 doesn't own DSR; DSR pays/uses TENx10 like any other label client would. See `labels/DirtySnatcha Records/BRAIN.md` § Ownership for the full structure.
+
+The DSR-as-client relationship has TWO surfaces:
+1. **Management services** — TENx10 provides partial mgmt to DSR (not full — DSR runs its own A&R, label-level decisions; TENx10 layers on top for booking, releases, royalty admin where useful)
+2. **Platform usage** — DSR uses `products/tenx10-platform/` SaaS to operate the catalog + roster + financials
+
+This makes DSR the **dogfood** for the platform (since Thomas is a stakeholder in DSR + operator of TENx10), but the legal/financial relationship is still customer ↔ vendor, not parent ↔ subsidiary.
+
+**Thomas's three hats:** (1) co-owner of DSR (30% equity, no current draw), (2) manager of DirtySnatcha-the-artist (10% gross commission on artist income), (3) operator of TENx10 the management firm (which serves DSR plus a broader roster: DirtySnatcha + WHOiSEE + Dark Matter + Kotrax + HVRCRFT). Keep these income streams + roles clearly separated in any financial discussion.
 
 The TENx10 **platform** (separate folder, separate codebase at `products/tenx10-platform/`) is the SaaS tool the business runs on. The mutually reinforcing loop:
 

@@ -1,3 +1,7 @@
+> ⚠ **CONTENT DRIFT — fold-in pending.** This file has unique content not in the canonical KB equivalent at `products/tenx10-platform/TENx10_Knowledge_Base/06_KA_Part5_Templates_Networks_Rules.md`. Specifically: a **Big Vision Productions (BVP) / Tyler-at-Hiatus-Events promoter entry** (added 2026-04-28) that documents BVP's referral path through Tyler at Hiatus Events, NOVA PDX venue, and a grading note (treat as C pending research, NOT D/F). The KB version does not yet have this. Fold the BVP section into the KB Part 5 "Industry Networks" module, then this file can be replaced with a stub. Drift flagged 2026-05-05.
+
+---
+
 # DSR PLATFORM — AI AGENT KNOWLEDGE ARCHITECTURE v2.0
 # PART 5: TEMPLATES, NETWORKS & AGENT RULES
 # Modules 18, 19, 20

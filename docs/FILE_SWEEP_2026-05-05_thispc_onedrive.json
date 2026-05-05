@@ -1,0 +1,943 @@
+{
+  "machine": "THE-BRAIN",
+  "totals": {
+    "C:\\Users\\slash\\OneDrive": 12,
+    "C:\\Users\\slash\\OneDrive\\Desktop": 92,
+    "C:\\Users\\slash\\OneDrive\\Pictures": 1
+  },
+  "results": [
+    {
+      "path": "C:/Users/slash/OneDrive/architect markdown.docx",
+      "ext": ".docx",
+      "size_bytes": 39862,
+      "mtime": "2026-04-07",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/binance chain wallet seed phrase.docx",
+      "ext": ".docx",
+      "size_bytes": 12010,
+      "mtime": "2021-05-06",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Book 1.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 18076,
+      "mtime": "2025-08-08",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Book.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 24477,
+      "mtime": "2025-08-08",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/DESKTOP_INVENTORY_2026-04-30.md",
+      "ext": ".md",
+      "size_bytes": 12136,
+      "mtime": "2026-04-30",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/DirtySnatcha Music .xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 10646,
+      "mtime": "2024-04-05",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/HANDOFF.md",
+      "ext": ".md",
+      "size_bytes": 9127,
+      "mtime": "2026-04-30",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/marketing questions for release.docx",
+      "ext": ".docx",
+      "size_bytes": 19865,
+      "mtime": "2025-03-18",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Morrison Arrest warrent charges.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 12025,
+      "mtime": "2021-02-26",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/New contract.docx",
+      "ext": ".docx",
+      "size_bytes": 22230,
+      "mtime": "2024-03-13",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/t bogner test results.docx",
+      "ext": ".docx",
+      "size_bytes": 137797,
+      "mtime": "2021-09-24",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/t nalian test results.docx",
+      "ext": ".docx",
+      "size_bytes": 137554,
+      "mtime": "2021-09-24",
+      "root": "C:\\Users\\slash\\OneDrive",
+      "level": "top"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/2026 dirtysnatcha w9a.pdf.docx",
+      "ext": ".docx",
+      "size_bytes": 45476,
+      "mtime": "2026-02-03",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/2026.04.30 Photo City Music Hall Rochester NY  DirtySnatcha Performance Agreement.pdf",
+      "ext": ".pdf",
+      "size_bytes": 9069,
+      "mtime": "2026-04-30",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/Audit Report dirtysnatcha prysm.pdf",
+      "ext": ".pdf",
+      "size_bytes": 56568,
+      "mtime": "2026-01-14",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/dba-launch-readiness.pdf",
+      "ext": ".pdf",
+      "size_bytes": 112637,
+      "mtime": "2026-04-30",
+      "matched_kw": "dba",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DirtySnatcha 2024 hoodies.pdf",
+      "ext": ".pdf",
+      "size_bytes": 10112285,
+      "mtime": "2024-07-24",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DirtySnatcha Records Publishing CMRRA-Affiliation.pdf",
+      "ext": ".pdf",
+      "size_bytes": 586622,
+      "mtime": "2024-11-13",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DirtySnatcha x PRYSM Mutual Release.pdf",
+      "ext": ".pdf",
+      "size_bytes": 9930,
+      "mtime": "2026-01-06",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DirtySnatcha_AutoScoring_Agent_Tour_Checklist.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 19744,
+      "mtime": "2026-01-05",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR Exclusive Licensing Agreement-DSRecords.docx",
+      "ext": ".docx",
+      "size_bytes": 37200,
+      "mtime": "2024-11-26",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/dsr hoodie v1.pdf",
+      "ext": ".pdf",
+      "size_bytes": 24293454,
+      "mtime": "2025-04-26",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR hoodie.pdf",
+      "ext": ".pdf",
+      "size_bytes": 33172597,
+      "mtime": "2024-12-31",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/dsr merch invoice.pdf",
+      "ext": ".pdf",
+      "size_bytes": 264990,
+      "mtime": "2025-11-15",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/Electric Forest 2026 Artist Offer - dirtysnatcha.pdf",
+      "ext": ".pdf",
+      "size_bytes": 349459,
+      "mtime": "2026-04-13",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/file-cleanup-handoff.md",
+      "ext": ".md",
+      "size_bytes": 14539,
+      "mtime": "2026-04-30",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/GPT  Workflow Automation DSR.txt",
+      "ext": ".txt",
+      "size_bytes": 591,
+      "mtime": "2025-12-05",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/MFR0043 - Dimension [DirtySnatcha].pdf",
+      "ext": ".pdf",
+      "size_bytes": 228691,
+      "mtime": "2026-04-17",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/Contracts/2025.09.09 DirtySnatcha feat Raddix - Everybody [Backstreet Boys Cover] DSR Exclusive License Agreement.pdf",
+      "ext": ".pdf",
+      "size_bytes": 239820,
+      "mtime": "2025-09-11",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/2024-09-09-DSR CONTRACT LBxTN.pdf",
+      "ext": ".pdf",
+      "size_bytes": 1200079,
+      "mtime": "2024-09-09",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/BBX x GEEKU - SASORI.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 1235,
+      "mtime": "2024-10-27",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Brakkit & Dassim - Bad Vibes.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 1943,
+      "mtime": "2024-10-27",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Cabuizee & Raddix - As I Am.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 1418,
+      "mtime": "2024-10-27",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Champagne Poppers - Red Sky.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 1048,
+      "mtime": "2024-10-30",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Contakt - Hyper Drive.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 489,
+      "mtime": "2024-10-30",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Devious x Kirby Bright - WOAH.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 619,
+      "mtime": "2024-10-30",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/DirtySnatcha - Keep Moving (Audigy Remix).wav.txt",
+      "ext": ".txt",
+      "size_bytes": 834,
+      "mtime": "2024-10-30",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/DirtySnatcha Records Logo.pdf",
+      "ext": ".pdf",
+      "size_bytes": 44332,
+      "mtime": "2025-04-11",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/dsr w9.pdf",
+      "ext": ".pdf",
+      "size_bytes": 240657,
+      "mtime": "2025-06-13",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/LAB10 CMRRA-Affiliation.pdf",
+      "ext": ".pdf",
+      "size_bytes": 586587,
+      "mtime": "2024-11-13",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Scafetta & Raddix - Demons .wav.txt",
+      "ext": ".txt",
+      "size_bytes": 2237,
+      "mtime": "2024-10-27",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Scafetta - Bringing The Bass Ft. Chase The Dream.wav.txt",
+      "ext": ".txt",
+      "size_bytes": 1148,
+      "mtime": "2024-10-30",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/SHOCKZ - PTSD.mp3.txt",
+      "ext": ".txt",
+      "size_bytes": 464,
+      "mtime": "2024-11-02",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Sloth x Chackk - Game - DSR CONTRACT 2023-12-21.docx",
+      "ext": ".docx",
+      "size_bytes": 116699,
+      "mtime": "2023-12-21",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Bandido X TMBRWLF - Killas/Bandido X TMBRWLF - Killas.pdf",
+      "ext": ".pdf",
+      "size_bytes": 240852,
+      "mtime": "2023-11-07",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/DSR Files/2024-04-23 BMI Catalog.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 17944,
+      "mtime": "2024-04-24",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/DSR Files/LARA - Corporations Division, payment confirmation.pdf",
+      "ext": ".pdf",
+      "size_bytes": 133166,
+      "mtime": "2024-07-30",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Gomperz - Flatline/GOMPERZ - FLATLINE.pdf",
+      "ext": ".pdf",
+      "size_bytes": 366441,
+      "mtime": "2023-11-07",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/In Orbit Dubz - Hypnotize/In Orbit Dubz - Hypnotize.pdf",
+      "ext": ".pdf",
+      "size_bytes": 200741,
+      "mtime": "2023-11-09",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/Sloth x Chackk - Game/Sloth x Chackk - Game - DSR CONTRACT 2023-12-21.docx",
+      "ext": ".docx",
+      "size_bytes": 116637,
+      "mtime": "2023-12-21",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/DSR/ZURGLIN - WATAGWAN EP/zurglin watagwan ep lyrics.txt",
+      "ext": ".txt",
+      "size_bytes": 489,
+      "mtime": "2025-06-07",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/PDF/dsr emblem.pdf",
+      "ext": ".pdf",
+      "size_bytes": 71579,
+      "mtime": "2026-04-15",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/PDF/dsr logo.pdf",
+      "ext": ".pdf",
+      "size_bytes": 65291,
+      "mtime": "2025-12-09",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/MyHydrationpack ~ Orders ~ #1155 ~ Shopify.pdf",
+      "ext": ".pdf",
+      "size_bytes": 100720,
+      "mtime": "2022-07-11",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/2024-05-04-Nothing X Hurts - RIddimption DSR Contract.docx",
+      "ext": ".docx",
+      "size_bytes": 35924,
+      "mtime": "2024-05-04",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/2024-11-DirtySnatcha x Priyanx DSR Exclusive License Agreement.docx",
+      "ext": ".docx",
+      "size_bytes": 552432,
+      "mtime": "2024-12-02",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/CRiiOZ- Tartarus EP- DSR CONTRACT 2024-02-01.docx",
+      "ext": ".docx",
+      "size_bytes": 117468,
+      "mtime": "2024-02-01",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/DirtySnatcha Records Exisiting Splits  (2).xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 474546,
+      "mtime": "2024-05-01",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/DSR Release Info.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 475187,
+      "mtime": "2024-04-21",
+      "matched_kw": "dsr",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/MHP - Imagine2020.pdf",
+      "ext": ".pdf",
+      "size_bytes": 847119,
+      "mtime": "2020-01-30",
+      "matched_kw": "mhp",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/MyHydrationPack Advisory Board Meeting Agenda (1).docx",
+      "ext": ".docx",
+      "size_bytes": 20575,
+      "mtime": "2019-08-12",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/MyHydrationPack-Responses (1).xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 21041,
+      "mtime": "2019-12-19",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/myhydrationpack.TXT",
+      "ext": ".txt",
+      "size_bytes": 476,
+      "mtime": "2019-03-29",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Sachs edits_MHP Exec Summary 8-12-19-2.docx",
+      "ext": ".docx",
+      "size_bytes": 81777,
+      "mtime": "2020-03-12",
+      "matched_kw": "mhp",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/10 Research Group/10 Research Group Study template.docx",
+      "ext": ".docx",
+      "size_bytes": 16679,
+      "mtime": "2017-01-13",
+      "matched_kw": "10 research",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/handoff_context.md",
+      "ext": ".md",
+      "size_bytes": 5422,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/implementation_guide.md",
+      "ext": ".md",
+      "size_bytes": 4779,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/PASTE_THIS_INTO_CLAUDE.md",
+      "ext": ".md",
+      "size_bytes": 3697,
+      "mtime": "2026-03-01",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/README.md",
+      "ext": ".md",
+      "size_bytes": 4492,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/roadmap_update_1.md",
+      "ext": ".md",
+      "size_bytes": 2812,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/system_guide.md",
+      "ext": ".md",
+      "size_bytes": 5682,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/project_context/artist_profile/dirtysnatcha.json",
+      "ext": ".json",
+      "size_bytes": 247,
+      "mtime": "2026-03-01",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/SKILL.md",
+      "ext": ".md",
+      "size_bytes": 7578,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/ad_auctions.md",
+      "ext": ".md",
+      "size_bytes": 1011,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/ad_relevance_diagnostics.md",
+      "ext": ".md",
+      "size_bytes": 1439,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/auction_overlap.md",
+      "ext": ".md",
+      "size_bytes": 904,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/bid_strategies.md",
+      "ext": ".md",
+      "size_bytes": 874,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/breakdown_effect.md",
+      "ext": ".md",
+      "size_bytes": 1636,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/core_concepts.md",
+      "ext": ".md",
+      "size_bytes": 2045,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/learning_phase.md",
+      "ext": ".md",
+      "size_bytes": 1135,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/pacing.md",
+      "ext": ".md",
+      "size_bytes": 987,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references/performance_fluctuations.md",
+      "ext": ".md",
+      "size_bytes": 1337,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/data/example_analysis_complete.md",
+      "ext": ".md",
+      "size_bytes": 5944,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/data/parsed_tour_data.md",
+      "ext": ".md",
+      "size_bytes": 4583,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/presentation/slide_content.md",
+      "ext": ".md",
+      "size_bytes": 22522,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/SKILL.md",
+      "ext": ".md",
+      "size_bytes": 7578,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/ad_auctions.md",
+      "ext": ".md",
+      "size_bytes": 1011,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/ad_relevance_diagnostics.md",
+      "ext": ".md",
+      "size_bytes": 1439,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/auction_overlap.md",
+      "ext": ".md",
+      "size_bytes": 904,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/bid_strategies.md",
+      "ext": ".md",
+      "size_bytes": 874,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/breakdown_effect.md",
+      "ext": ".md",
+      "size_bytes": 1636,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/core_concepts.md",
+      "ext": ".md",
+      "size_bytes": 2045,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/learning_phase.md",
+      "ext": ".md",
+      "size_bytes": 1135,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/pacing.md",
+      "ext": ".md",
+      "size_bytes": 987,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references/performance_fluctuations.md",
+      "ext": ".md",
+      "size_bytes": 1337,
+      "mtime": "2026-03-01",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/download 723/Mutual NDA - Blue Note MS and MyHydrationPack (1).docx",
+      "ext": ".docx",
+      "size_bytes": 22588,
+      "mtime": "2021-04-23",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/download 723/Mutual NDA - Blue Note MS and MyHydrationPack.docx",
+      "ext": ".docx",
+      "size_bytes": 22588,
+      "mtime": "2021-04-23",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/download 723/MyHydrationPack_NDA.pdf",
+      "ext": ".pdf",
+      "size_bytes": 157361,
+      "mtime": "2021-04-23",
+      "matched_kw": "myhydrationpack",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/VEA-WIN-HMCU8M8O3PL/10 Research Group Documents/fastlane approval.pdf",
+      "ext": ".pdf",
+      "size_bytes": 497907,
+      "mtime": "2017-01-16",
+      "matched_kw": "10 research",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/VEA-WIN-HMCU8M8O3PL/10 Research Group Documents/FEIN.pdf",
+      "ext": ".pdf",
+      "size_bytes": 48596,
+      "mtime": "2016-12-22",
+      "matched_kw": "10 research",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/VEA-WIN-HMCU8M8O3PL/10 Research Group Documents/LLC Articles of Organization filed.pdf",
+      "ext": ".pdf",
+      "size_bytes": 1626957,
+      "mtime": "2016-12-22",
+      "matched_kw": "10 research",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/VEA-WIN-HMCU8M8O3PL/10 Research Group Documents/SBC Registration.pdf",
+      "ext": ".pdf",
+      "size_bytes": 17483,
+      "mtime": "2017-01-15",
+      "matched_kw": "10 research",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Xfer/Serum Presets/System/FormulaFactoryMultis.txt",
+      "ext": ".txt",
+      "size_bytes": 1996,
+      "mtime": "2014-08-14",
+      "matched_kw": "factory",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Xfer/Serum Presets/System/FormulaFactorySingles.txt",
+      "ext": ".txt",
+      "size_bytes": 676,
+      "mtime": "2014-08-30",
+      "matched_kw": "factory",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Desktop"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Pictures/DirtySnatcha Records EIN LLC.pdf",
+      "ext": ".pdf",
+      "size_bytes": 15453,
+      "mtime": "2024-04-01",
+      "matched_kw": "dirtysnatcha",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\OneDrive\\Pictures"
+    }
+  ]
+}

@@ -1,0 +1,653 @@
+{
+  "machine": "THE-BRAIN",
+  "results": [
+    {
+      "path": "D://Downloads/RISE EP.zip",
+      "size_bytes": 138189535,
+      "size_mb": 131.8,
+      "mtime": "2026-05-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/TIK TOK Playlist clips.zip",
+      "size_bytes": 1769269101,
+      "size_mb": 1687.3,
+      "mtime": "2025-04-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Black_Ops_One.zip",
+      "size_bytes": 35297,
+      "size_mb": 0.0,
+      "mtime": "2025-04-22",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Music/Eminem bootleg/Eminem SFTLP3.rar",
+      "size_bytes": 122130963,
+      "size_mb": 116.5,
+      "mtime": "2025-01-13",
+      "ext": ".rar",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/SUBFILTRONIK PRESS.zip",
+      "size_bytes": 2040252916,
+      "size_mb": 1945.7,
+      "mtime": "2024-11-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/ableton_live_suite_11.3.20_64.zip",
+      "size_bytes": 3125012883,
+      "size_mb": 2980.2,
+      "mtime": "2024-10-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/chromedriver-win64.zip",
+      "size_bytes": 8918463,
+      "size_mb": 8.5,
+      "mtime": "2024-10-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/ffmpeg-7.1.tar.xz",
+      "size_bytes": 11011364,
+      "size_mb": 10.5,
+      "mtime": "2024-10-24",
+      "ext": ".xz",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Press Photos-20241008T043305Z-001.zip",
+      "size_bytes": 24677053,
+      "size_mb": 23.5,
+      "mtime": "2024-10-08",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/reelevatorpitches.zip",
+      "size_bytes": 24466383,
+      "size_mb": 23.3,
+      "mtime": "2024-10-07",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_205835-66f5cafb116ba-png (1).zip",
+      "size_bytes": 5686313,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_205835-66f5cafb116ba-png (1)_fromC.zip",
+      "size_bytes": 5686313,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_205835-66f5cafb116ba-png.zip",
+      "size_bytes": 5686313,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_205835-66f5cafb116ba-png_fromC.zip",
+      "size_bytes": 5686313,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_212940-66f5d244f046e-png.zip",
+      "size_bytes": 5692800,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/mockups-athletic-hoodie-2024-09-26_212940-66f5d244f046e-png_fromC.zip",
+      "size_bytes": 5692800,
+      "size_mb": 5.4,
+      "mtime": "2024-09-26",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/sports_jersey.zip",
+      "size_bytes": 8485,
+      "size_mb": 0.0,
+      "mtime": "2024-09-25",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/sports_jersey_fromC.zip",
+      "size_bytes": 8485,
+      "size_mb": 0.0,
+      "mtime": "2024-09-25",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/24 SQUARBASS JERSEY SHOOT -20240916T104257Z-001.zip",
+      "size_bytes": 271253287,
+      "size_mb": 258.7,
+      "mtime": "2024-09-16",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_pink-slime-dripping-liquid-goo-or-mucus-texture_13699213_61.zip",
+      "size_bytes": 2661680,
+      "size_mb": 2.5,
+      "mtime": "2024-06-30",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/hoodiefiles2024.zip",
+      "size_bytes": 392770876,
+      "size_mb": 374.6,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/jersey_m54.zip",
+      "size_bytes": 41730,
+      "size_mb": 0.0,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_beautiful-comic-halftone-background_246225.zip",
+      "size_bytes": 2181651,
+      "size_mb": 2.1,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_elements-for-magic-and-exoteric_7783338_659.zip",
+      "size_bytes": 460446,
+      "size_mb": 0.4,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_green-wireframe-wormhole-on-black-3d-funnel_22277101_596.zip",
+      "size_bytes": 2293605,
+      "size_mb": 2.2,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_optical-illusion-cube-pattern-stock-illustration_22347951_42.zip",
+      "size_bytes": 1011916,
+      "size_mb": 1.0,
+      "mtime": "2024-06-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/designfile (1).zip",
+      "size_bytes": 3146605,
+      "size_mb": 3.0,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/designfile (1)_fromC.zip",
+      "size_bytes": 3146605,
+      "size_mb": 3.0,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/designfile (2).zip",
+      "size_bytes": 3146605,
+      "size_mb": 3.0,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/designfile (2)_fromC.zip",
+      "size_bytes": 3146605,
+      "size_mb": 3.0,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/designfile.zip",
+      "size_bytes": 3146605,
+      "size_mb": 3.0,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Dirtysnatcha_2024PAsh.zip",
+      "size_bytes": 115418968,
+      "size_mb": 110.1,
+      "mtime": "2024-06-28",
+      "ext": ".zip",
+      "matched_kw": "dirtysnatcha"
+    },
+    {
+      "path": "D://Barooka Media Assets.zip",
+      "size_bytes": 1422335361,
+      "size_mb": 1356.4,
+      "mtime": "2024-02-09",
+      "ext": ".zip",
+      "matched_kw": "barooka"
+    },
+    {
+      "path": "D://Press Pics.zip",
+      "size_bytes": 56387598,
+      "size_mb": 53.8,
+      "mtime": "2024-02-09",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP (2).zip",
+      "size_bytes": 148773408,
+      "size_mb": 141.9,
+      "mtime": "2024-01-17",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP (2)_fromC.zip",
+      "size_bytes": 148773408,
+      "size_mb": 141.9,
+      "mtime": "2024-01-17",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/rugrats.zip",
+      "size_bytes": 8962,
+      "size_mb": 0.0,
+      "mtime": "2024-01-11",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/rugrats_fromC.zip",
+      "size_bytes": 8962,
+      "size_mb": 0.0,
+      "mtime": "2024-01-11",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP (1).zip",
+      "size_bytes": 254757730,
+      "size_mb": 243.0,
+      "mtime": "2024-01-10",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP (1)_fromC.zip",
+      "size_bytes": 254757730,
+      "size_mb": 243.0,
+      "mtime": "2024-01-10",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP.zip",
+      "size_bytes": 254757730,
+      "size_mb": 243.0,
+      "mtime": "2023-12-21",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/The Tundra EP_fromC.zip",
+      "size_bytes": 254757730,
+      "size_mb": 243.0,
+      "mtime": "2023-12-21",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/DRINKURWATER - Movement.zip",
+      "size_bytes": 87882598,
+      "size_mb": 83.8,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/DRINKURWATER - Movement_fromC.zip",
+      "size_bytes": 87882598,
+      "size_mb": 83.8,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Hairitage - Art Of War EP.zip",
+      "size_bytes": 68900939,
+      "size_mb": 65.7,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Hairitage - Art Of War EP_fromC.zip",
+      "size_bytes": 68900939,
+      "size_mb": 65.7,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Hydraulix - Glitter EP.zip",
+      "size_bytes": 122714194,
+      "size_mb": 117.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Hydraulix - Glitter EP_fromC.zip",
+      "size_bytes": 122714194,
+      "size_mb": 117.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Install_rekordbox_x64_6_8_0.zip",
+      "size_bytes": 620793921,
+      "size_mb": 592.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Install_rekordbox_x64_6_8_0_fromC.zip",
+      "size_bytes": 620793921,
+      "size_mb": 592.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Ravenscoon - Collide EP.zip",
+      "size_bytes": 138164698,
+      "size_mb": 131.8,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Ravenscoon - Collide EP_fromC.zip",
+      "size_bytes": 138164698,
+      "size_mb": 131.8,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Redrum - Butterfly Effect EP.zip",
+      "size_bytes": 177553099,
+      "size_mb": 169.3,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/Redrum - Butterfly Effect EP_fromC.zip",
+      "size_bytes": 177553099,
+      "size_mb": 169.3,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/ZEKE BEATS - Self Sabotage.zip",
+      "size_bytes": 137347242,
+      "size_mb": 131.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/ZEKE BEATS - Self Sabotage_fromC.zip",
+      "size_bytes": 137347242,
+      "size_mb": 131.0,
+      "mtime": "2023-12-06",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/lemon_milk.zip",
+      "size_bytes": 893834,
+      "size_mb": 0.9,
+      "mtime": "2023-11-24",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/lemon_milk_fromC.zip",
+      "size_bytes": 893834,
+      "size_mb": 0.9,
+      "mtime": "2023-11-24",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/FW_RT_N600RU_300438252488.zip",
+      "size_bytes": 12275296,
+      "size_mb": 11.7,
+      "mtime": "2023-07-01",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/nightmare_story.zip",
+      "size_bytes": 1420667,
+      "size_mb": 1.4,
+      "mtime": "2023-06-30",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/nightmare_story_fromC.zip",
+      "size_bytes": 1420667,
+      "size_mb": 1.4,
+      "mtime": "2023-06-30",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_peace-sign-vector_226332.zip",
+      "size_bytes": 4310596,
+      "size_mb": 4.1,
+      "mtime": "2023-06-30",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "D://Downloads/vecteezy_peace-sign-vector_226332_fromC.zip",
+      "size_bytes": 4310596,
+      "size_mb": 4.1,
+      "mtime": "2023-06-30",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/IVAN/Dropfest/Stage Sponsor Logos-20220719T235241Z-001.zip",
+      "size_bytes": 11958900,
+      "size_mb": 11.4,
+      "mtime": "2022-07-19",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/IVAN/Dropfest/canwemakethisintoabanner.zip",
+      "size_bytes": 6184762,
+      "size_mb": 5.9,
+      "mtime": "2022-07-07",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/IVAN/Carl/acraze/Design Files/SF Compact Rounded Font.zip",
+      "size_bytes": 4802411,
+      "size_mb": 4.6,
+      "mtime": "2022-05-09",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/download 723/Customization (1).rar",
+      "size_bytes": 253565,
+      "size_mb": 0.2,
+      "mtime": "2021-05-14",
+      "ext": ".rar",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/download 723/Customization.rar",
+      "size_bytes": 253565,
+      "size_mb": 0.2,
+      "mtime": "2021-05-14",
+      "ext": ".rar",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Install_M-Audio_MobilePre_1.1.8.zip",
+      "size_bytes": 15084215,
+      "size_mb": 14.4,
+      "mtime": "2021-04-29",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/led_bus.zip",
+      "size_bytes": 5790,
+      "size_mb": 0.0,
+      "mtime": "2021-04-15",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/H4nPro_v1.10E.zip",
+      "size_bytes": 678567,
+      "size_mb": 0.6,
+      "mtime": "2021-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/H_and_F-Series_ASIO_v4.0.0_E_2_3_0.zip",
+      "size_bytes": 6722546,
+      "size_mb": 6.4,
+      "mtime": "2021-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/net-framework-setup-cleanup-utility.zip",
+      "size_bytes": 256222,
+      "size_mb": 0.2,
+      "mtime": "2021-03-25",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/Abletunes iZotope Ozone Mastering Presets.zip",
+      "size_bytes": 103708,
+      "size_mb": 0.1,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/Abletunes_-_EDM_Kicks.zip",
+      "size_bytes": 11739975,
+      "size_mb": 11.2,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/CymaticsMothershipDubstepSamplePack-V1-b7h.zip",
+      "size_bytes": 22174951,
+      "size_mb": 21.1,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/CymaticsTheMasteringBlueprint.zip",
+      "size_bytes": 19454384,
+      "size_mb": 18.6,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/CymaticsTheMixingBlueprint.zip",
+      "size_bytes": 22385260,
+      "size_mb": 21.3,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/CymaticsUltimateGuideToCompression.zip",
+      "size_bytes": 7190103,
+      "size_mb": 6.9,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/CymaticsVocalEQCheatSheet.zip",
+      "size_bytes": 2127506,
+      "size_mb": 2.0,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Production packs/TMKD_PRESETS-pAraNoiD-Kit.zip",
+      "size_bytes": 6097562,
+      "size_mb": 5.8,
+      "mtime": "2020-04-04",
+      "ext": ".zip",
+      "matched_kw": null
+    }
+  ]
+}

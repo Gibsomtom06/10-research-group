@@ -1,0 +1,131 @@
+{
+  "suspicious_dirs": [
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.claude",
+      "matched": "claude"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/src/app/api/artist/chat",
+      "matched": "chat"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/src/app/artist/chat",
+      "matched": "chat"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/src/lib/anthropic",
+      "matched": "anthropic"
+    },
+    {
+      "path": "C:/Users/slash/.claude",
+      "matched": "claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/session-env",
+      "matched": "session"
+    },
+    {
+      "path": "C:/Users/slash/.claude/sessions",
+      "matched": "session"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Adobe/Adobe Media Encoder/22.0/Export Templates",
+      "matched": "export"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Adobe/Audition/12.0/Untitled Session 1",
+      "matched": "session"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Adobe/Premiere Pro/26.0/Profile-Slash/Settings/Export Destinations",
+      "matched": "export"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package",
+      "matched": "handoff"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package",
+      "matched": "handoff"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/Claude",
+      "matched": "claude"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/DCIM/Snapchat",
+      "matched": "chat"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/Pictures/Adobe Acrobat Exports",
+      "matched": "export"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/Snapchat",
+      "matched": "chat"
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/tencent/MicroMsg/WeChat",
+      "matched": "chat"
+    }
+  ],
+  "doubly_nested": [
+    "C:/Users/slash/OneDrive/Desktop/ds MERCH/alien jersey/4x/4x",
+    "C:/Users/slash/OneDrive/Desktop/DSR/DSR Files/Merch Assets/New folder/4x/4x",
+    "C:/Users/slash/OneDrive/Desktop/DSR/DSR Files/Merch Assets/New folder/4x/4x/4x",
+    "C:/Users/slash/OneDrive/Desktop/PDF/PDF",
+    "C:/Users/slash/OneDrive/Desktop/shit/dad/Riddim Rock Band Stems/Riddim Rock Band Stems",
+    "C:/Users/slash/OneDrive/Desktop/shit/demise/Demise",
+    "C:/Users/slash/OneDrive/Desktop/shit/Documents/Adobe/Premiere Pro/13.0/Adobe Premiere Pro Auto-Save/Adobe Premiere Pro Auto-Save",
+    "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package",
+    "C:/Users/slash/OneDrive/Desktop/shit/Documents/Pro Tools/Plug-In Settings/UAD Oxford Envln/UAD Oxford Envln",
+    "C:/Users/slash/OneDrive/Desktop/shit/unity projects/Rollerball/Rollerball",
+    "C:/Users/slash/OneDrive/Desktop/shit/unity projects/Rollerball/Rollerball/Library/PackageCache/com.unity.mathematics@1.2.1/Tests/Tests",
+    "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/Download/Rochester & Auburn Hills/Rochester & Auburn Hills",
+    "C:/Users/slash/OneDrive/Pictures/Samsung Gallery/Download/water backpack picture/water backpack picture",
+    "D://Downloads/SUBFILTRONIK PRESS/SUBFILTRONIK PRESS"
+  ],
+  "md_heavy": [
+    {
+      "path": "C:/Users/slash/Projects/tenx10",
+      "md_count": 13
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base",
+      "md_count": 31
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive",
+      "md_count": 15
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory",
+      "md_count": 6
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory",
+      "md_count": 5
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory",
+      "md_count": 42
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references",
+      "md_count": 5
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package",
+      "md_count": 6
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/codebase/tour_marketing_agent/skills/meta-ads-analyzer/references",
+      "md_count": 9
+    },
+    {
+      "path": "C:/Users/slash/OneDrive/Desktop/shit/Documents/artist_bible_handoff_package/artist_bible_handoff_package/skills/meta-ads-analyzer/references",
+      "md_count": 9
+    }
+  ],
+  "chat_jsons": []
+}

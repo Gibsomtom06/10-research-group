@@ -1,3 +1,7 @@
+> ⚠ **CONTENT DRIFT — fold-in pending.** This file is the **v2.0 master index** (March 2026) with the v1.0→v2.0 changelog history. The canonical KB INDEX at `products/tenx10-platform/TENx10_Knowledge_Base/01_KA_INDEX.md` is **v2.1** (April 2026) with the PS-integration patch + Artist Profiles section but does NOT contain the v1→v2 history. Also: this file has a **stale phone number for Lee Bray (586-277-2537)** — the correct number is **586-208-6886** per the live TENx10 CLAUDE.md. Either fold this file's v1→v2 changelog into the KB INDEX (preserving history) or move this file to `_archive/superseded/`. Drift flagged 2026-05-05.
+
+---
+
 # DSR PLATFORM — AI AGENT KNOWLEDGE ARCHITECTURE v2.0
 # MASTER INDEX
 # Generated: March 2, 2026

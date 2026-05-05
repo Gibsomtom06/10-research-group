@@ -1,0 +1,2288 @@
+{
+  "machine": "THE-BRAIN",
+  "totals": {
+    "C:\\Users\\slash\\Downloads": 0,
+    "C:\\Users\\slash\\Documents": 0,
+    "C:\\Users\\slash\\Projects": 85,
+    "C:\\Users\\slash\\.claude": 168
+  },
+  "results": [
+    {
+      "path": "C:/Users/slash/Projects/aistudio/README.md",
+      "ext": ".md",
+      "size_bytes": 570,
+      "mtime": "2026-04-29",
+      "matched_kw": null,
+      "inventory_only": true,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.fallowrc.json",
+      "ext": ".json",
+      "size_bytes": 562,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.mcp.json",
+      "ext": ".json",
+      "size_bytes": 1047,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/AGENTS.md",
+      "ext": ".md",
+      "size_bytes": 987,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/AGENTS_AND_SKILLS_INVENTORY.md",
+      "ext": ".md",
+      "size_bytes": 15508,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/BRAIN.md",
+      "ext": ".md",
+      "size_bytes": 5517,
+      "mtime": "2026-05-04",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/BUILDPLAN.md",
+      "ext": ".md",
+      "size_bytes": 5913,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/BUILDPLAN_DAD.md",
+      "ext": ".md",
+      "size_bytes": 20169,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/BUILD_EVOLUTION.md",
+      "ext": ".md",
+      "size_bytes": 106749,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/CLAUDE.md",
+      "ext": ".md",
+      "size_bytes": 17822,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/components.json",
+      "ext": ".json",
+      "size_bytes": 545,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/C\uf03aUsersslashfallow-output.json",
+      "ext": ".json",
+      "size_bytes": 29516,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/DEALS_HANDOFF.md",
+      "ext": ".md",
+      "size_bytes": 5641,
+      "mtime": "2026-05-04",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/OVERNIGHT_NOTES.md",
+      "ext": ".md",
+      "size_bytes": 4619,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/package-lock.json",
+      "ext": ".json",
+      "size_bytes": 385279,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/package.json",
+      "ext": ".json",
+      "size_bytes": 1042,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/README.md",
+      "ext": ".md",
+      "size_bytes": 1486,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/SESSIONS.md",
+      "ext": ".md",
+      "size_bytes": 1127,
+      "mtime": "2026-05-04",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/SESSION_START.md",
+      "ext": ".md",
+      "size_bytes": 1269,
+      "mtime": "2026-05-04",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TASKS.md",
+      "ext": ".md",
+      "size_bytes": 13359,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/tsconfig.json",
+      "ext": ".json",
+      "size_bytes": 704,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/vercel.json",
+      "ext": ".json",
+      "size_bytes": 1067,
+      "mtime": "2026-05-03",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.claude/settings.json",
+      "ext": ".json",
+      "size_bytes": 323,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.claude/settings.local.json",
+      "ext": ".json",
+      "size_bytes": 397,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.claude/skills/close.md",
+      "ext": ".md",
+      "size_bytes": 1159,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/rider_b64.txt",
+      "ext": ".txt",
+      "size_bytes": 4512,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/vmg-dsr-apr2026.xlsx",
+      "ext": ".xlsx",
+      "size_bytes": 1344253,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/contracts/PHOTO_CITY_MUSIC_HALL_Performance_Agreement_v3.pdf",
+      "ext": ".pdf",
+      "size_bytes": 9069,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/oracle-setup/cloud-init.yaml",
+      "ext": ".yaml",
+      "size_bytes": 1697,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/oracle-setup/metadata.json",
+      "ext": ".json",
+      "size_bytes": 2414,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/oracle-setup/network-summary.json",
+      "ext": ".json",
+      "size_bytes": 455,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/oracle-setup/README.md",
+      "ext": ".md",
+      "size_bytes": 3596,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.tmp/oracle-setup/shape-config.json",
+      "ext": ".json",
+      "size_bytes": 28,
+      "mtime": "2026-05-02",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.vercel/project.json",
+      "ext": ".json",
+      "size_bytes": 111,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.vercel/README.txt",
+      "ext": ".txt",
+      "size_bytes": 520,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/.vscode/settings.json",
+      "ext": ".json",
+      "size_bytes": 2,
+      "mtime": "2026-05-04",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/merch-store/SETUP.md",
+      "ext": ".md",
+      "size_bytes": 1269,
+      "mtime": "2026-05-03",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/supabase/.temp/linked-project.json",
+      "ext": ".json",
+      "size_bytes": 145,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/00_START_HERE.md",
+      "ext": ".md",
+      "size_bytes": 48339,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/01_KA_INDEX.md",
+      "ext": ".md",
+      "size_bytes": 6659,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/02_KA_Part1_Foundation.md",
+      "ext": ".md",
+      "size_bytes": 13572,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/03_KA_Part2_Booking_Money.md",
+      "ext": ".md",
+      "size_bytes": 15192,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/04_KA_Part3_DSP_Content_Voice.md",
+      "ext": ".md",
+      "size_bytes": 20339,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/05_KA_Part4_Releases_Alerts_Integrations.md",
+      "ext": ".md",
+      "size_bytes": 15050,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/06_KA_Part5_Templates_Networks_Rules.md",
+      "ext": ".md",
+      "size_bytes": 15709,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/07_Artist_Bible.md",
+      "ext": ".md",
+      "size_bytes": 42259,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/08_Tour_Book_2026.md",
+      "ext": ".md",
+      "size_bytes": 15566,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/09_Tour_Status_Current.md",
+      "ext": ".md",
+      "size_bytes": 10542,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/10_Tour_Marketing_Playbook.md",
+      "ext": ".md",
+      "size_bytes": 10937,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/11_Content_Calendar_4Week.md",
+      "ext": ".md",
+      "size_bytes": 10068,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/12_Promoter_Emails.md",
+      "ext": ".md",
+      "size_bytes": 12509,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/13_DSP_Hack_Checklist.md",
+      "ext": ".md",
+      "size_bytes": 3701,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/14_Spotify_Popularity_Score.md",
+      "ext": ".md",
+      "size_bytes": 12256,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/15_Release_Cadence.md",
+      "ext": ".md",
+      "size_bytes": 6698,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/16_Spotify_Ad_Specs.md",
+      "ext": ".md",
+      "size_bytes": 6472,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/17_Market_Push_Content.md",
+      "ext": ".md",
+      "size_bytes": 7173,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/18_Advance_Rider_Templates.md",
+      "ext": ".md",
+      "size_bytes": 8063,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/19_Platform_Spec.md",
+      "ext": ".md",
+      "size_bytes": 20498,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/20_Catalog_Management.md",
+      "ext": ".md",
+      "size_bytes": 5287,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/21_Meta_Ads_System.md",
+      "ext": ".md",
+      "size_bytes": 15527,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/22_Gmail_Email_System.md",
+      "ext": ".md",
+      "size_bytes": 13352,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/23_Promoter_Brief_Templates.md",
+      "ext": ".md",
+      "size_bytes": 10749,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/24_Agent_Team_Architecture.md",
+      "ext": ".md",
+      "size_bytes": 36964,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/25_Catalog_Evaluation_Engine.md",
+      "ext": ".md",
+      "size_bytes": 15617,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/26_WHOiSEE_Profile.md",
+      "ext": ".md",
+      "size_bytes": 8513,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/27_Agent_Handoff_Context.md",
+      "ext": ".md",
+      "size_bytes": 3745,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/28_Shazam_Spike_Campaign_Spec.md",
+      "ext": ".md",
+      "size_bytes": 6964,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/29_Booking_Evaluator_Skill.md",
+      "ext": ".md",
+      "size_bytes": 15972,
+      "mtime": "2026-04-30",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/TENx10_Knowledge_Base/30_Spotify_Popularity_Score_Automation.md",
+      "ext": ".md",
+      "size_bytes": 13993,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/apollo-contacts-import.csv",
+      "ext": ".csv",
+      "size_bytes": 11915,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/MORNING_HANDOFF.md",
+      "ext": ".md",
+      "size_bytes": 5161,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/OLD_VS_CURRENT_DEEP_DIFF.md",
+      "ext": ".md",
+      "size_bytes": 51385,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/OVERNIGHT_STATUS.md",
+      "ext": ".md",
+      "size_bytes": 7750,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_ABQ_Final_Push_Social_Content.md",
+      "ext": ".md",
+      "size_bytes": 5272,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_ABQ_Shazam_Spike_Ad_Specs.md",
+      "ext": ".md",
+      "size_bytes": 5383,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_agent-system-prompt.md",
+      "ext": ".md",
+      "size_bytes": 5760,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_DSP_Hack_Checklist.md",
+      "ext": ".md",
+      "size_bytes": 3646,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_dsr-booking-evaluator-SKILL.md",
+      "ext": ".md",
+      "size_bytes": 15080,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_DSR_4Week_Content_Calendar.md",
+      "ext": ".md",
+      "size_bytes": 10387,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_Gemini_Gem_Instructions.md",
+      "ext": ".md",
+      "size_bytes": 7145,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_Gemini_Gem_Instructions_1.md",
+      "ext": ".md",
+      "size_bytes": 6701,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_Gemini_Gem_Instructions_2.md",
+      "ext": ".md",
+      "size_bytes": 6701,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_Gemini_Gem_Instructions_3.md",
+      "ext": ".md",
+      "size_bytes": 7145,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_KA_v2_Patch_PSIntegration.md",
+      "ext": ".md",
+      "size_bytes": 13792,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/Projects/tenx10/_archive/_old_Tour_Marketing_Playbook_Full.md",
+      "ext": ".md",
+      "size_bytes": 0,
+      "mtime": "2026-04-29",
+      "matched_kw": "tenx10",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\Projects"
+    },
+    {
+      "path": "C:/Users/slash/.claude/.credentials.json",
+      "ext": ".json",
+      "size_bytes": 528,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/CLAUDE.md",
+      "ext": ".md",
+      "size_bytes": 6021,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/keybindings.json",
+      "ext": ".json",
+      "size_bytes": 261,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/mcp-needs-auth-cache.json",
+      "ext": ".json",
+      "size_bytes": 179,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/policy-limits.json",
+      "ext": ".json",
+      "size_bytes": 219,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/settings.json",
+      "ext": ".json",
+      "size_bytes": 3606,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/commands/deep-draft.md",
+      "ext": ".md",
+      "size_bytes": 2548,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/commands/reauth-notebooklm.md",
+      "ext": ".md",
+      "size_bytes": 109,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/plans/async-swimming-falcon.md",
+      "ext": ".md",
+      "size_bytes": 35928,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/plans/replicated-stargazing-squid.md",
+      "ext": ".md",
+      "size_bytes": 8623,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/plugins/install-counts-cache.json",
+      "ext": ".json",
+      "size_bytes": 34819,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/feedback_workflow.md",
+      "ext": ".md",
+      "size_bytes": 1443,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/MEMORY.md",
+      "ext": ".md",
+      "size_bytes": 622,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/project_tenx10.md",
+      "ext": ".md",
+      "size_bytes": 1924,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/reference_github.md",
+      "ext": ".md",
+      "size_bytes": 939,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/reference_paths.md",
+      "ext": ".md",
+      "size_bytes": 980,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/C--/memory/user_thomas.md",
+      "ext": ".md",
+      "size_bytes": 1187,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-a16c5534dffabba67.meta.json",
+      "ext": ".json",
+      "size_bytes": 97,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-aa95307224991412c.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-ad3957124d4565d13.meta.json",
+      "ext": ".json",
+      "size_bytes": 64,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-ad8e1c65d84d8a439.meta.json",
+      "ext": ".json",
+      "size_bytes": 73,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-adb5379be626cc0db.meta.json",
+      "ext": ".json",
+      "size_bytes": 96,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/47323347-643c-4297-a0e8-e59f4246d099/subagents/agent-aee648441b988c4e7.meta.json",
+      "ext": ".json",
+      "size_bytes": 63,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/8eb92d53-3b28-431d-b63e-1acf2130e584/subagents/agent-a4aad69c70526acd1.meta.json",
+      "ext": ".json",
+      "size_bytes": 69,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/8eb92d53-3b28-431d-b63e-1acf2130e584/tool-results/b31m3s1uh.txt",
+      "ext": ".txt",
+      "size_bytes": 42018,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/8eb92d53-3b28-431d-b63e-1acf2130e584/tool-results/b4oqtqe1n.txt",
+      "ext": ".txt",
+      "size_bytes": 102028,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/e15a446b-985f-4507-9891-50129e138748/subagents/agent-aa55893d6dc744964.meta.json",
+      "ext": ".json",
+      "size_bytes": 88,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory/MEMORY.md",
+      "ext": ".md",
+      "size_bytes": 928,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory/project_filesystem_chaos_2026_05_04.md",
+      "ext": ".md",
+      "size_bytes": 3382,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory/project_multi_computer_dev.md",
+      "ext": ".md",
+      "size_bytes": 2964,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory/project_oracle_canonical_vm.md",
+      "ext": ".md",
+      "size_bytes": 3974,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-OneDrive-10-Research-Group/memory/reference_canonical_naming.md",
+      "ext": ".md",
+      "size_bytes": 1358,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/14bf3727-9dda-47c0-a734-a6af8ddadf1b/subagents/agent-a190f2aa517b9a1ab.meta.json",
+      "ext": ".json",
+      "size_bytes": 80,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/14bf3727-9dda-47c0-a734-a6af8ddadf1b/tool-results/mcp-claude_ai_Meta_Ads-get_insights-1777872705770.txt",
+      "ext": ".txt",
+      "size_bytes": 102354,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/14bf3727-9dda-47c0-a734-a6af8ddadf1b/tool-results/mcp-claude_ai_Meta_Ads-get_insights-1777872710858.txt",
+      "ext": ".txt",
+      "size_bytes": 88501,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/14bf3727-9dda-47c0-a734-a6af8ddadf1b/tool-results/mcp-claude_ai_Meta_Ads-get_insights-1777872751637.txt",
+      "ext": ".txt",
+      "size_bytes": 341934,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/29ba4ea1-83ad-4f49-a7a6-9bde58dea65e/subagents/agent-a60ef989cb7188d12.meta.json",
+      "ext": ".json",
+      "size_bytes": 90,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a0d54be5747377611.meta.json",
+      "ext": ".json",
+      "size_bytes": 85,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a2eca7fabde4b109a.meta.json",
+      "ext": ".json",
+      "size_bytes": 93,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a3652ea276cd7ee55.meta.json",
+      "ext": ".json",
+      "size_bytes": 84,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a395bcc7f1dea06fc.meta.json",
+      "ext": ".json",
+      "size_bytes": 68,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a3cf96274056371df.meta.json",
+      "ext": ".json",
+      "size_bytes": 74,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a3fb748e8cb9fde0a.meta.json",
+      "ext": ".json",
+      "size_bytes": 99,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a4c273579132cf91c.meta.json",
+      "ext": ".json",
+      "size_bytes": 76,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a4f43669ffce5b0a0.meta.json",
+      "ext": ".json",
+      "size_bytes": 90,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a6185672a4b72c1ae.meta.json",
+      "ext": ".json",
+      "size_bytes": 82,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a78b903c850a35884.meta.json",
+      "ext": ".json",
+      "size_bytes": 76,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a8333d9357807cbe9.meta.json",
+      "ext": ".json",
+      "size_bytes": 95,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a882be410db7598ac.meta.json",
+      "ext": ".json",
+      "size_bytes": 84,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a94bcb221a3f2d67d.meta.json",
+      "ext": ".json",
+      "size_bytes": 77,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a95107d0e9d841697.meta.json",
+      "ext": ".json",
+      "size_bytes": 92,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a952f424f4955f4a1.meta.json",
+      "ext": ".json",
+      "size_bytes": 88,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-a9d703b3a744dd229.meta.json",
+      "ext": ".json",
+      "size_bytes": 88,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-ab503ca0acbfc05ea.meta.json",
+      "ext": ".json",
+      "size_bytes": 73,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-ab73b76f20f5a64de.meta.json",
+      "ext": ".json",
+      "size_bytes": 78,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-abac0b420d538c306.meta.json",
+      "ext": ".json",
+      "size_bytes": 105,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-ac7445bd0066dd972.meta.json",
+      "ext": ".json",
+      "size_bytes": 72,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-acab7cc2b1a5fe1e0.meta.json",
+      "ext": ".json",
+      "size_bytes": 79,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-acdeaacbec7f17fe4.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-acf554eb89524ad77.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-adca04d5f1f913867.meta.json",
+      "ext": ".json",
+      "size_bytes": 99,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-af0f6169b8ef5256f.meta.json",
+      "ext": ".json",
+      "size_bytes": 86,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-af935658484e63046.meta.json",
+      "ext": ".json",
+      "size_bytes": 62,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-afa82af76c3cd8b9c.meta.json",
+      "ext": ".json",
+      "size_bytes": 82,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/subagents/agent-afc10a8c080b5e9e7.meta.json",
+      "ext": ".json",
+      "size_bytes": 82,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/tool-results/bmn86gipj.txt",
+      "ext": ".txt",
+      "size_bytes": 34870,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/3aff8ac8-c798-464c-b4cf-2220eeab0480/tool-results/mcp-claude_ai_Google_Drive-read_file_content-1777544828848.txt",
+      "ext": ".txt",
+      "size_bytes": 225472,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/6c915ce1-9a0e-48dc-af11-93143f1b8974/subagents/agent-a3a5d670459f6ca2a.meta.json",
+      "ext": ".json",
+      "size_bytes": 76,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/6c915ce1-9a0e-48dc-af11-93143f1b8974/tool-results/mcp-claude_ai_Google_Drive-download_file_content-1777717383919.txt",
+      "ext": ".txt",
+      "size_bytes": 1792516,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/6c915ce1-9a0e-48dc-af11-93143f1b8974/tool-results/mcp-claude_ai_Google_Drive-read_file_content-1777648166409.txt",
+      "ext": ".txt",
+      "size_bytes": 225472,
+      "mtime": "2026-05-01",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/6c915ce1-9a0e-48dc-af11-93143f1b8974/tool-results/mcp-claude_ai_Google_Drive-read_file_content-1777716817726.txt",
+      "ext": ".txt",
+      "size_bytes": 124574,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/7ce4ee0c-5df6-4068-abb3-ede68112ebeb/subagents/agent-afc90eb95f63b0aea.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/8615643c-00aa-46ba-b956-34360d7c7988/subagents/agent-a489bb0272aa79c4c.meta.json",
+      "ext": ".json",
+      "size_bytes": 96,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/8615643c-00aa-46ba-b956-34360d7c7988/subagents/agent-a52af6a0d9228435e.meta.json",
+      "ext": ".json",
+      "size_bytes": 97,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/8615643c-00aa-46ba-b956-34360d7c7988/subagents/agent-a55013f0e3ada8869.meta.json",
+      "ext": ".json",
+      "size_bytes": 84,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/8615643c-00aa-46ba-b956-34360d7c7988/subagents/agent-a97c35abdd45250c8.meta.json",
+      "ext": ".json",
+      "size_bytes": 90,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a0bc86a7656639246.meta.json",
+      "ext": ".json",
+      "size_bytes": 76,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a1520e67d3fc165c2.meta.json",
+      "ext": ".json",
+      "size_bytes": 99,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a189087a686975025.meta.json",
+      "ext": ".json",
+      "size_bytes": 89,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a271208c4b53cb3f6.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a3b6c217296abff2b.meta.json",
+      "ext": ".json",
+      "size_bytes": 91,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a51d2d3290fa205ad.meta.json",
+      "ext": ".json",
+      "size_bytes": 82,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a570d19dfc6b3eb33.meta.json",
+      "ext": ".json",
+      "size_bytes": 93,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a5be8450435e44bee.meta.json",
+      "ext": ".json",
+      "size_bytes": 84,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a63dd81ca9406dba0.meta.json",
+      "ext": ".json",
+      "size_bytes": 80,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a746ed57ffed761fd.meta.json",
+      "ext": ".json",
+      "size_bytes": 87,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a82d309ecd2c3a217.meta.json",
+      "ext": ".json",
+      "size_bytes": 81,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a8c196dfc69e6461e.meta.json",
+      "ext": ".json",
+      "size_bytes": 92,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-a8f1377bce3ede659.meta.json",
+      "ext": ".json",
+      "size_bytes": 89,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-ab562e3afdafd4786.meta.json",
+      "ext": ".json",
+      "size_bytes": 89,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-abfaa27cf7e008bcc.meta.json",
+      "ext": ".json",
+      "size_bytes": 94,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-abffe171ad8926509.meta.json",
+      "ext": ".json",
+      "size_bytes": 108,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-adededb83a25020f0.meta.json",
+      "ext": ".json",
+      "size_bytes": 85,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-ae4a184a82a5ec121.meta.json",
+      "ext": ".json",
+      "size_bytes": 82,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/subagents/agent-aec6b21d67318668f.meta.json",
+      "ext": ".json",
+      "size_bytes": 68,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/b0qhr8ke8.txt",
+      "ext": ".txt",
+      "size_bytes": 155665,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/barngudsn.txt",
+      "ext": ".txt",
+      "size_bytes": 133747,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/br33tnkco.txt",
+      "ext": ".txt",
+      "size_bytes": 169089,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/mcp-claude_ai_Google_Drive-search_files-1777872311897.txt",
+      "ext": ".txt",
+      "size_bytes": 84991,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/toolu_01F268ge4WC3Wpf5Q4khhve9.txt",
+      "ext": ".txt",
+      "size_bytes": 29471,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/862ccb69-76d2-455b-a53c-1abc425d7982/tool-results/toolu_01SiuzAwUZApizoS994LZd25.txt",
+      "ext": ".txt",
+      "size_bytes": 22597,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-a0026a6fe94388a2b.meta.json",
+      "ext": ".json",
+      "size_bytes": 104,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-a3c381309d36b1d32.meta.json",
+      "ext": ".json",
+      "size_bytes": 79,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-a46c806d6e4dc3887.meta.json",
+      "ext": ".json",
+      "size_bytes": 97,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-a7f97d8000441e2d4.meta.json",
+      "ext": ".json",
+      "size_bytes": 77,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-ac51d0605129e270a.meta.json",
+      "ext": ".json",
+      "size_bytes": 80,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-ae3c88bef25e758fd.meta.json",
+      "ext": ".json",
+      "size_bytes": 83,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/subagents/agent-af9d696009a9a2035.meta.json",
+      "ext": ".json",
+      "size_bytes": 87,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/tool-results/b2o1slg67.txt",
+      "ext": ".txt",
+      "size_bytes": 163325,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/tool-results/bf8yl002m.txt",
+      "ext": ".txt",
+      "size_bytes": 164164,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a1035bf6-5532-4347-9fa2-f7a0b0908201/tool-results/boq5m1282.txt",
+      "ext": ".txt",
+      "size_bytes": 296273,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/a9b5e384-5ce2-4cda-a9a5-db3fe5f42b9a/tool-results/brorzx6f0.txt",
+      "ext": ".txt",
+      "size_bytes": 154130,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/d35ebb9a-3697-4ec6-a9ae-d81a14279b18/tool-results/bx40dnk25.txt",
+      "ext": ".txt",
+      "size_bytes": 726127,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/ed58cd4a-176e-418a-a1f2-be3da3a2cb13/subagents/agent-a19a400542c7a665e.meta.json",
+      "ext": ".json",
+      "size_bytes": 74,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/ed58cd4a-176e-418a-a1f2-be3da3a2cb13/subagents/agent-ab470a9c1097c687d.meta.json",
+      "ext": ".json",
+      "size_bytes": 77,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_abc_means_build_all.md",
+      "ext": ".md",
+      "size_bytes": 1599,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_autonomous_parallel_dispatch.md",
+      "ext": ".md",
+      "size_bytes": 2336,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_check_data_before_hardcoding.md",
+      "ext": ".md",
+      "size_bytes": 1299,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_contract_doctrine.md",
+      "ext": ".md",
+      "size_bytes": 1931,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_contract_terms_artist_side.md",
+      "ext": ".md",
+      "size_bytes": 1819,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_dont_archive_by_date.md",
+      "ext": ".md",
+      "size_bytes": 1461,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_dont_make_him_repeat.md",
+      "ext": ".md",
+      "size_bytes": 1131,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_dont_push_sleep.md",
+      "ext": ".md",
+      "size_bytes": 1257,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_dsr_email_brevity.md",
+      "ext": ".md",
+      "size_bytes": 1653,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_dsr_vs_dirtysnatcha.md",
+      "ext": ".md",
+      "size_bytes": 548,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_extend_dont_restart.md",
+      "ext": ".md",
+      "size_bytes": 2902,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_just_execute.md",
+      "ext": ".md",
+      "size_bytes": 1969,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_no_abbreviations.md",
+      "ext": ".md",
+      "size_bytes": 1927,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_older_might_be_working.md",
+      "ext": ".md",
+      "size_bytes": 2925,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_time_with_usage.md",
+      "ext": ".md",
+      "size_bytes": 1641,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/feedback_voice_no_hyphens.md",
+      "ext": ".md",
+      "size_bytes": 2163,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/MEMORY.md",
+      "ext": ".md",
+      "size_bytes": 8946,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_10_research_group.md",
+      "ext": ".md",
+      "size_bytes": 3469,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_booking_funnel_contracts_gap.md",
+      "ext": ".md",
+      "size_bytes": 1607,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_catalog_artist_rule.md",
+      "ext": ".md",
+      "size_bytes": 3847,
+      "mtime": "2026-05-01",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_dad_dogfood_use_cases.md",
+      "ext": ".md",
+      "size_bytes": 6953,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_dad_persona_chat_ui.md",
+      "ext": ".md",
+      "size_bytes": 10362,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_identity_split.md",
+      "ext": ".md",
+      "size_bytes": 1744,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_mhp_business_model.md",
+      "ext": ".md",
+      "size_bytes": 3014,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_portfolio_status_apr29.md",
+      "ext": ".md",
+      "size_bytes": 11236,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_publishing_registry_coverage.md",
+      "ext": ".md",
+      "size_bytes": 5866,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_show_detail_intel_vision.md",
+      "ext": ".md",
+      "size_bytes": 4829,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_tenx10_show_state_truth.md",
+      "ext": ".md",
+      "size_bytes": 2707,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_tenx10_value_prop_preemptive.md",
+      "ext": ".md",
+      "size_bytes": 2978,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_tour_advance_playbook_apr30.md",
+      "ext": ".md",
+      "size_bytes": 2395,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_unified_inbox_drives.md",
+      "ext": ".md",
+      "size_bytes": 4500,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/project_wrs_agency_model.md",
+      "ext": ".md",
+      "size_bytes": 1682,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_accounts.md",
+      "ext": ".md",
+      "size_bytes": 2888,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_andrew_lehr_contact.md",
+      "ext": ".md",
+      "size_bytes": 1784,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_canonical_hierarchy.md",
+      "ext": ".md",
+      "size_bytes": 9179,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_dsr_roster_distinction.md",
+      "ext": ".md",
+      "size_bytes": 1379,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_dsr_zelle.md",
+      "ext": ".md",
+      "size_bytes": 735,
+      "mtime": "2026-04-30",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_lee_bray_contact.md",
+      "ext": ".md",
+      "size_bytes": 744,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_oracle_cloud.md",
+      "ext": ".md",
+      "size_bytes": 4008,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/reference_publishing_structure.md",
+      "ext": ".md",
+      "size_bytes": 2274,
+      "mtime": "2026-05-03",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/user_location.md",
+      "ext": ".md",
+      "size_bytes": 908,
+      "mtime": "2026-05-02",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/projects/c--Users-slash-Projects-tenx10/memory/user_role.md",
+      "ext": ".md",
+      "size_bytes": 1083,
+      "mtime": "2026-04-29",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/sessions/46952.json",
+      "ext": ".json",
+      "size_bytes": 264,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/sessions/8636.json",
+      "ext": ".json",
+      "size_bytes": 263,
+      "mtime": "2026-05-05",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/.skillfish.json",
+      "ext": ".json",
+      "size_bytes": 225,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/SKILL.md",
+      "ext": ".md",
+      "size_bytes": 12527,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references/authentication.md",
+      "ext": ".md",
+      "size_bytes": 4443,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references/proxy-support.md",
+      "ext": ".md",
+      "size_bytes": 4265,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references/session-management.md",
+      "ext": ".md",
+      "size_bytes": 3894,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references/snapshot-refs.md",
+      "ext": ".md",
+      "size_bytes": 4108,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/agent-browser/references/video-recording.md",
+      "ext": ".md",
+      "size_bytes": 3246,
+      "mtime": "2026-03-19",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/gog/.skillfish.json",
+      "ext": ".json",
+      "size_bytes": 199,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    },
+    {
+      "path": "C:/Users/slash/.claude/skills/gog/SKILL.md",
+      "ext": ".md",
+      "size_bytes": 4572,
+      "mtime": "2026-05-04",
+      "matched_kw": "claude",
+      "inventory_only": false,
+      "root": "C:\\Users\\slash\\.claude"
+    }
+  ]
+}

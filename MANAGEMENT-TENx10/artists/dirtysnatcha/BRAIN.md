@@ -6,15 +6,20 @@ Living context for DirtySnatcha as a managed artist.
 
 ## Who
 
-Thomas Nalian performing as DirtySnatcha. Legal name: **Leigh Bray**. All booking contracts signed "Leigh Bray" as Licensor.
+**DirtySnatcha = Leigh Bray** (legal name; sometimes spelled "Lee" informally). All booking contracts signed **"Leigh Bray aka DirtySnatcha"** as Licensor.
+
+**Ownership of the artist project:** Leigh Bray owns **100% of DirtySnatcha** (the artist).
+
+**Management:** **Thomas Nalian** manages DirtySnatcha. Thomas receives **10% of total gross income** for management. Thomas Nalian and Leigh Bray are two different people — never conflate them. The artist signs contracts; the manager runs ops.
 
 Genre: Dubstep, Riddim, Bass Music, Trap.
-Label: DirtySnatcha Records (DSR).
+Label home: DirtySnatcha Records (DSR) — a co-owned label (Leigh Bray 70% / Thomas Nalian 30%). See `MANAGEMENT-TENx10/labels/DirtySnatcha Records/BRAIN.md` for label ownership detail.
 Distributor: VMG (Virgin Music Group).
 PRO: BMI. IPI: 01017500116.
 Publisher: LAB10 Publishing (BMI).
 
-Contact: contact@dirtysnatcha.com · 586-208-6886
+Artist contact: contact@dirtysnatcha.com · 586-208-6886
+Manager contact: thomas@dirtysnatcha.com (Thomas Nalian)
 
 ---
 

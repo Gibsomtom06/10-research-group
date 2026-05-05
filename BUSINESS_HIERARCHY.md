@@ -112,6 +112,8 @@ flowchart TD
    - **Managed roster** — TENx10 manages end-to-end (booking, releases, royalty admin, content)
    - **Label-only roster** — signed to DSR for releases only, not under TENx10 management
 
+6. **DSR is a CLIENT of TENx10, not a subsidiary.** DSR is co-owned by **Leigh Bray (70%)** and **Thomas Nalian (30%)** as a separate entity. TENx10 the management firm doesn't own DSR; DSR uses TENx10 for **partial management services** and uses the **TENx10 platform** (the SaaS) to run label ops. The chart's "TENX --> DSR" arrow is a service-relationship line (TENx10 serves DSR as a client), not a parent-subsidiary line. **DirtySnatcha (the artist) is Leigh Bray** (NOT Thomas — they're two different people); Thomas manages DirtySnatcha for 10% of artist gross income, separate from his DSR equity stake. No DSR distributions to either owner yet — earnings accumulate in the label entity. Full ownership detail: `MANAGEMENT-TENx10/labels/DirtySnatcha Records/BRAIN.md` § Ownership.
+
 ---
 
 ## Cross-references (canonical sources)

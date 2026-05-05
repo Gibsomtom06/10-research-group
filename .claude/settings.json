@@ -22,5 +22,22 @@
         "matcher": ""
       }
     ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "mcp__claude_ai_Google_Drive__search_files",
+      "mcp__claude_ai_Google_Drive__read_file_content",
+      "mcp__notebooklm__notebook_list",
+      "mcp__notebooklm__notebook_describe",
+      "mcp__notebooklm__notebook_query",
+      "mcp__notebooklm__notebook_get",
+      "mcp__claude_ai_Supabase__list_projects",
+      "mcp__claude_ai_Supabase__list_migrations",
+      "mcp__claude_ai_Vercel__list_deployments",
+      "mcp__claude_ai_Vercel__get_runtime_logs",
+      "mcp__claude_ai_Gmail__search_threads",
+      "mcp__claude_ai_Meta_Ads__get_insights"
+    ]
   }
 }

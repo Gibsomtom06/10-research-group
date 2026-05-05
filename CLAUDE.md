@@ -39,6 +39,19 @@ Before doing any work yourself: *can this be delegated without losing quality?*
 
 ---
 
+## Read before writing — discipline for consolidation / retrofit work
+
+When the task is "consolidate," "retrofit," "clean up the files," "make a single source of truth," "audit," or "slim this CLAUDE.md / BRAIN.md" — this discipline activates BEFORE any edit:
+
+1. Glob every `.md` (or other relevant file) in scope — full tree-wide, not just files referenced by the file being edited.
+2. Per file, classify: read first-hand THIS session vs. inferred from filename, sibling reference, system-reminder excerpt, or another agent's summary.
+3. Read everything in column 2 first-hand before proposing changes. Filename heuristics are not evidence of content.
+4. Verify "duplicate" and "superseded" claims with byte-level diff (`diff -w --strip-trailing-cr`) before deleting anything.
+5. Capture per-file: purpose, current state, mtime, what it references, what references it.
+6. After changes: re-read what was edited; confirm nothing load-bearing was lost.
+
+Codified after the 2026-05-05 incident where assumed-equivalence between TENx10 KB modules and MANAGEMENT-TENx10/labels/.../KA_v2_*.md missed a ~2000-line duplication for two sessions.
+
 ## Verification
 
 State your verification approach BEFORE making a non-trivial change, not after. Run the verification before reporting done. Per-product verification recipes live in each product's `CLAUDE.md`.
