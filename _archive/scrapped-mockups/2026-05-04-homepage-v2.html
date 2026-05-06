@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TENx10 — artist management, operating like infrastructure</title>
+  <meta name="description" content="TENx10 is a modern artist management firm. We represent a hand-picked roster and operate the platform that runs underneath them." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0a0a',
+            paper: '#f5f1ea',
+            bone: '#e8e4dc',
+            mute: '#9a958c',
+            line: '#1f1d1a',
+            ember: '#ff5b27',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Space Grotesk', 'ui-sans-serif', 'system-ui'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    html, body { background: #0a0a0a; color: #f5f1ea; }
+    body { font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    .display { font-family: 'Fraunces', serif; font-feature-settings: "ss01","ss02"; letter-spacing: -0.02em; }
+    .display-italic { font-family: 'Fraunces', serif; font-style: italic; letter-spacing: -0.02em; }
+    .hairline { border-color: #1f1d1a; }
+    .grain {
+      background-image:
+        radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 3px 3px, 7px 7px;
+      background-position: 0 0, 1px 2px;
+    }
+    .roster-tile {
+      background:
+        linear-gradient(180deg, rgba(10,10,10,0) 35%, rgba(10,10,10,0.85) 100%),
+        linear-gradient(135deg, #2a2520 0%, #161311 60%, #0a0a0a 100%);
+    }
+    .placeholder-portrait {
+      background:
+        radial-gradient(ellipse at 50% 35%, rgba(255,91,39,0.18) 0%, transparent 55%),
+        linear-gradient(160deg, #1a1714 0%, #0d0c0b 100%);
+    }
+    .placeholder-collage {
+      background:
+        radial-gradient(circle at 18% 28%, rgba(255,91,39,0.18) 0%, transparent 32%),
+        radial-gradient(circle at 78% 65%, rgba(255,91,39,0.10) 0%, transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(245,241,234,0.06) 0%, transparent 40%),
+        linear-gradient(135deg, #14110f 0%, #0a0a0a 80%);
+    }
+    .label-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #9a958c;
+    }
+    .underline-fade {
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 1px;
+      transition: background-size 0.35s ease;
+    }
+    .underline-fade:hover { background-size: 0% 1px; }
+    .ember-rule { background: linear-gradient(90deg, #ff5b27 0%, transparent 100%); }
+    .num-display { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.04em; }
+    /* marquee strip for credibility row */
+    @keyframes drift {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .drift-track { animation: drift 60s linear infinite; }
+  </style>
+</head>
+<body class="bg-ink text-paper antialiased">
+
+  <!-- ========================================================== -->
+  <!-- 1. NAV                                                      -->
+  <!-- ========================================================== -->
+  <header class="sticky top-0 z-50 bg-ink/85 backdrop-blur-md border-b hairline">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-baseline gap-2">
+        <span class="display text-2xl font-medium tracking-tight">TENx10</span>
+        <span class="label-eyebrow hidden sm:inline">artist management</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#roster" class="underline-fade hover:text-bone">roster</a>
+        <a href="#artists" class="underline-fade hover:text-bone">artists</a>
+        <a href="#platform" class="underline-fade hover:text-bone">platform</a>
+        <a href="#contact" class="underline-fade hover:text-bone">contact</a>
+      </nav>
+      <a href="#contact" class="text-sm border hairline px-4 py-2 hover:bg-paper hover:text-ink transition-colors">
+        get in touch
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================== -->
+  <!-- 2. HERO                                                     -->
+  <!-- ========================================================== -->
+  <section class="relative min-h-[92vh] flex items-end overflow-hidden border-b hairline">
+    <!-- full-bleed roster collage placeholder -->
+    <div class="absolute inset-0 placeholder-collage">
+      <!-- IMG: full-bleed roster collage 1920x1080 — black & white press shots of DirtySnatcha, WHOiSEE, Dark Matter, Kotrax cropped tight, layered, slight grain -->
+    </div>
+    <div class="absolute inset-0 grain opacity-40 pointer-events-none"></div>
+    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink to-transparent pointer-events-none"></div>
+
+    <div class="relative max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-32 md:pt-40 w-full">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="block w-10 h-px bg-ember"></span>
+        <span class="label-eyebrow text-ember">est. 2024 · 10 research group</span>
+      </div>
+
+      <h1 class="display text-[44px] sm:text-6xl md:text-7xl lg:text-[88px] leading-[0.95] max-w-5xl">
+        modern artist management,<br />
+        <span class="display-italic text-bone">operated like infrastructure.</span>
+      </h1>
+
+      <p class="mt-8 max-w-2xl text-lg md:text-xl text-bone/80 leading-relaxed">
+        TENx10 is a four-artist management firm. We negotiate the deals, run the catalog,
+        and own the software underneath — so nothing gets dropped between the email and the contract.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href="#contact" class="group inline-flex items-center justify-between gap-6 bg-ember text-ink px-6 py-4 hover:bg-paper transition-colors">
+          <span class="font-medium">represent your career</span>
+          <span class="display text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+        <a href="#platform" class="group inline-flex items-center justify-between gap-6 border hairline px-6 py-4 hover:bg-paper hover:text-ink transition-colors">
+          <span>license the platform</span>
+          <span class="display text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+      </div>
+
+      <!-- foot of hero: small roster tag -->
+      <div class="mt-16 md:mt-24 flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm text-mute">
+        <span class="label-eyebrow">currently representing</span>
+        <span class="text-paper">DirtySnatcha</span>
+        <span>·</span>
+        <span class="text-paper">WHOiSEE</span>
+        <span>·</span>
+        <span class="text-paper">Dark Matter</span>
+        <span>·</span>
+        <span class="text-paper">Kotrax</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 3. ROSTER STRIP                                             -->
+  <!-- ========================================================== -->
+  <section id="roster" class="border-b hairline">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-28">
+
+      <div class="flex items-end justify-between mb-12 md:mb-16">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="block w-6 h-px bg-ember"></span>
+            <span class="label-eyebrow">the roster</span>
+          </div>
+          <h2 class="display text-4xl md:text-6xl leading-[0.95] max-w-3xl">
+            four artists. <span class="display-italic text-mute">on purpose.</span>
+          </h2>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-2 text-sm underline-fade">
+          full roster <span class="display">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- DirtySnatcha -->
+        <a href="#" class="group block">
+          <div class="aspect-[3/4] roster-tile border hairline relative overflow-hidden">
+            <div class="absolute inset-0 placeholder-portrait">
+              <!-- IMG: artist portrait — DirtySnatcha — 900x1200 — black & white, half-shadow -->
+            </div>
+            <div class="absolute top-4 left-4 label-eyebrow text-bone/70">01 / dsr</div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-baseline justify-between">
+                <h3 class="display text-2xl">DirtySnatcha</h3>
+                <span class="text-xs text-mute">BMI</span>
+              </div>
+              <p class="mt-2 text-sm text-bone/80 leading-snug">
+                136 tracks. 14M catalog streams. Founder, DSR.
+              </p>
+              <span class="mt-3 inline-flex items-center gap-2 text-xs underline-fade">
+                view profile <span class="display">&rarr;</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- WHOiSEE -->
+        <a href="#" class="group block">
+          <div class="aspect-[3/4] roster-tile border hairline relative overflow-hidden">
+            <div class="absolute inset-0 placeholder-portrait">
+              <!-- IMG: artist portrait — WHOiSEE (Brett) — 900x1200 -->
+            </div>
+            <div class="absolute top-4 left-4 label-eyebrow text-bone/70">02 / nc</div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-baseline justify-between">
+                <h3 class="display text-2xl">WHOiSEE</h3>
+                <span class="text-xs text-mute">BMI</span>
+              </div>
+              <p class="mt-2 text-sm text-bone/80 leading-snug">
+                Circus Records UK signee. EP out [year].
+              </p>
+              <span class="mt-3 inline-flex items-center gap-2 text-xs underline-fade">
+                view profile <span class="display">&rarr;</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Dark Matter -->
+        <a href="#" class="group block">
+          <div class="aspect-[3/4] roster-tile border hairline relative overflow-hidden">
+            <div class="absolute inset-0 placeholder-portrait">
+              <!-- IMG: artist portrait — Dark Matter — 900x1200 -->
+            </div>
+            <div class="absolute top-4 left-4 label-eyebrow text-bone/70">03 / chi · knx</div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-baseline justify-between">
+                <h3 class="display text-2xl">Dark Matter</h3>
+                <span class="text-xs text-mute">ASCAP</span>
+              </div>
+              <p class="mt-2 text-sm text-bone/80 leading-snug">
+                Wakaan-affiliated. Bass-forward, festival-routed.
+              </p>
+              <span class="mt-3 inline-flex items-center gap-2 text-xs underline-fade">
+                view profile <span class="display">&rarr;</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Kotrax -->
+        <a href="#" class="group block">
+          <div class="aspect-[3/4] roster-tile border hairline relative overflow-hidden">
+            <div class="absolute inset-0 placeholder-portrait">
+              <!-- IMG: artist portrait — Kotrax — 900x1200 -->
+            </div>
+            <div class="absolute top-4 left-4 label-eyebrow text-bone/70">04 / dsr</div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="flex items-baseline justify-between">
+                <h3 class="display text-2xl">Kotrax</h3>
+                <span class="text-xs text-mute">DSR</span>
+              </div>
+              <p class="mt-2 text-sm text-bone/80 leading-snug">
+                7 releases on DSR. Building catalog with intent.
+              </p>
+              <span class="mt-3 inline-flex items-center gap-2 text-xs underline-fade">
+                view profile <span class="display">&rarr;</span>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 4. RECEIPTS BAND                                            -->
+  <!-- ========================================================== -->
+  <section class="border-b hairline bg-ink">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-24">
+      <div class="flex items-center gap-3 mb-12">
+        <span class="block w-6 h-px bg-ember"></span>
+        <span class="label-eyebrow">the receipts</span>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-6">
+        <div>
+          <div class="num-display text-5xl md:text-7xl text-paper">168</div>
+          <div class="mt-2 text-sm text-mute">venues in our network</div>
+        </div>
+        <div>
+          <div class="num-display text-5xl md:text-7xl text-paper">217</div>
+          <div class="mt-2 text-sm text-mute">deals tracked end-to-end</div>
+        </div>
+        <div>
+          <div class="num-display text-5xl md:text-7xl text-paper">14M+</div>
+          <div class="mt-2 text-sm text-mute">catalog streams across roster</div>
+        </div>
+        <div>
+          <div class="num-display text-5xl md:text-7xl text-ember">$38K</div>
+          <div class="mt-2 text-sm text-mute">booked across the current run</div>
+        </div>
+        <div>
+          <div class="num-display text-5xl md:text-7xl text-paper">4</div>
+          <div class="mt-2 text-sm text-mute">artists we manage. on purpose.</div>
+        </div>
+      </div>
+
+      <p class="mt-12 max-w-2xl text-sm text-mute leading-relaxed">
+        Numbers update from the platform we run our own roster on. What the firm tracks
+        is what the firm tells you.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 5. THE MOAT — HOW WE OPERATE                                -->
+  <!-- ========================================================== -->
+  <section id="platform" class="border-b hairline">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-20 md:py-32">
+
+      <div class="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20">
+        <div class="lg:col-span-5">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="block w-6 h-px bg-ember"></span>
+            <span class="label-eyebrow">the moat</span>
+          </div>
+          <h2 class="display text-4xl md:text-6xl leading-[0.95]">
+            most managers <span class="display-italic text-mute">are an inbox.</span>
+            <br />we are an operating system.
+          </h2>
+        </div>
+        <div class="lg:col-span-6 lg:col-start-7 self-end">
+          <p class="text-lg md:text-xl text-bone/80 leading-relaxed">
+            TENx10 is a small firm with a large surface area. Three short stories from the last
+            twelve months — none of them would have caught with email and a Google sheet.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-line">
+
+        <article class="bg-ink p-8 md:p-10 flex flex-col">
+          <div class="num-display text-7xl text-ember mb-6">01</div>
+          <h3 class="display text-2xl md:text-3xl leading-tight mb-4">
+            Caught a radius clause that would&rsquo;ve blocked a $5.5K Philly counter.
+          </h3>
+          <p class="text-bone/75 leading-relaxed text-[15px]">
+            Inbound offer looked clean. The platform flagged a 75-mile / 30-day exclusivity
+            on a routed support hold from three months prior. We renegotiated the radius
+            instead of losing the counter.
+          </p>
+          <div class="mt-auto pt-8 flex items-center gap-3">
+            <span class="block w-8 h-px bg-ember"></span>
+            <span class="label-eyebrow">booking agent</span>
+          </div>
+        </article>
+
+        <article class="bg-ink p-8 md:p-10 flex flex-col">
+          <div class="num-display text-7xl text-ember mb-6">02</div>
+          <h3 class="display text-2xl md:text-3xl leading-tight mb-4">
+            Spotted DSR&rsquo;s catalog leaking $40K/yr in unregistered MLC mechanicals.
+          </h3>
+          <p class="text-bone/75 leading-relaxed text-[15px]">
+            82 Leigh Bray tracks were earning streams without a publisher claim on the
+            mechanical side. Built the registration file the same week. The next quarter
+            won&rsquo;t look like the last one.
+          </p>
+          <div class="mt-auto pt-8 flex items-center gap-3">
+            <span class="block w-8 h-px bg-ember"></span>
+            <span class="label-eyebrow">royalty auditor</span>
+          </div>
+        </article>
+
+        <article class="bg-ink p-8 md:p-10 flex flex-col">
+          <div class="num-display text-7xl text-ember mb-6">03</div>
+          <h3 class="display text-2xl md:text-3xl leading-tight mb-4">
+            Track 18&rsquo;s popularity score crossed the Discover Weekly window. We pushed that week.
+          </h3>
+          <p class="text-bone/75 leading-relaxed text-[15px]">
+            Daily briefing surfaced the score climb before any human scan would have.
+            We routed a save campaign in 48 hours. Track hit 22 within the cycle, with
+            playlist pickup confirmed mid-week.
+          </p>
+          <div class="mt-auto pt-8 flex items-center gap-3">
+            <span class="block w-8 h-px bg-ember"></span>
+            <span class="label-eyebrow">release agent</span>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <p class="text-sm text-mute max-w-xl">
+          Same software runs every roster decision: offer triage, royalty audit, release timing,
+          venue history, contract storage. We license it to other managers and labels.
+        </p>
+        <a href="#contact" class="inline-flex items-center gap-2 text-sm underline-fade text-ember">
+          how the platform works <span class="display">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 6. PRESS / CREDIBILITY ROW                                  -->
+  <!-- ========================================================== -->
+  <section class="border-b hairline overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-16 pb-6">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="block w-6 h-px bg-ember"></span>
+        <span class="label-eyebrow">labels · societies · stages</span>
+      </div>
+    </div>
+
+    <!-- two rows: the first is "currently working with", the second is "what's coming" — -->
+    <!-- no fake claims, just structural transparency                                       -->
+
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pb-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-line">
+        <div class="bg-ink h-24 flex items-center justify-center text-mute hover:text-paper transition-colors">
+          <span class="display italic text-lg">Circus Records</span>
+        </div>
+        <div class="bg-ink h-24 flex items-center justify-center text-mute hover:text-paper transition-colors">
+          <span class="display italic text-lg">Wakaan</span>
+        </div>
+        <div class="bg-ink h-24 flex items-center justify-center text-mute hover:text-paper transition-colors">
+          <span class="display tracking-[0.2em] text-lg">BMI</span>
+        </div>
+        <div class="bg-ink h-24 flex items-center justify-center text-mute hover:text-paper transition-colors">
+          <span class="display tracking-[0.2em] text-lg">ASCAP</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pb-16">
+      <div class="text-xs text-mute mb-4 label-eyebrow">on the calendar &mdash; what&rsquo;s coming</div>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-line">
+        <div class="bg-ink h-20 flex items-center justify-center text-mute/70 text-sm">
+          <span>Lost Lands</span>
+        </div>
+        <div class="bg-ink h-20 flex items-center justify-center text-mute/70 text-sm">
+          <span>Bass Canyon</span>
+        </div>
+        <div class="bg-ink h-20 flex items-center justify-center text-mute/70 text-sm">
+          <span>Electric Forest</span>
+        </div>
+        <div class="bg-ink h-20 flex items-center justify-center text-mute/70 text-sm">
+          <span>Wakaan Music Festival</span>
+        </div>
+        <div class="bg-ink h-20 flex items-center justify-center text-mute/70 text-sm">
+          <span>Spotify Editorial</span>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-mute/80 max-w-xl">
+        [X festivals played] across the roster — full list on the roster pages. Editorial
+        and society logos shown represent active relationships and pending placements.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 7. TWO-PANE CTA                                             -->
+  <!-- ========================================================== -->
+  <section id="contact" class="border-b hairline">
+    <div class="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-px bg-line">
+
+      <!-- artist pane -->
+      <div class="bg-ink relative p-8 md:p-16 lg:p-20 min-h-[480px] flex flex-col">
+        <div class="placeholder-portrait absolute inset-0 opacity-50">
+          <!-- IMG: textural background — black artist press shot, very dark, faded — 1200x1600 -->
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40 pointer-events-none"></div>
+
+        <div class="relative flex-1 flex flex-col">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="block w-6 h-px bg-ember"></span>
+            <span class="label-eyebrow">are you an artist?</span>
+          </div>
+          <h2 class="display text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-6">
+            represent your career.
+          </h2>
+          <p class="text-bone/80 text-lg leading-relaxed max-w-md">
+            We take on artists we believe in, run their catalog like an operator, and hold
+            the boring lines no one else watches. Four-artist cap. Honest yes-or-no.
+          </p>
+
+          <a href="mailto:thomas@tenx10.co" class="mt-auto pt-10 inline-flex items-center justify-between gap-6 bg-ember text-ink px-6 py-4 hover:bg-paper transition-colors group w-full md:w-auto md:max-w-sm">
+            <span class="font-medium">tell us about your project</span>
+            <span class="display text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- label / manager pane -->
+      <div id="artists" class="bg-paper text-ink relative p-8 md:p-16 lg:p-20 min-h-[480px] flex flex-col">
+
+        <div class="flex items-center gap-3 mb-6">
+          <span class="block w-6 h-px bg-ember"></span>
+          <span class="label-eyebrow text-ember">are you a label or manager?</span>
+        </div>
+        <h2 class="display text-4xl md:text-5xl lg:text-6xl leading-[0.95] mb-6">
+          license the platform.
+        </h2>
+        <p class="text-ink/75 text-lg leading-relaxed max-w-md">
+          The same operating system we run TENx10 on, available to other firms.
+          Booking triage, royalty audits, release intel, contract storage. Built by people
+          who use it on their own roster every day.
+        </p>
+
+        <ul class="mt-8 grid grid-cols-2 gap-x-6 gap-y-2 text-sm max-w-md">
+          <li class="flex items-center gap-2 border-t border-ink/15 pt-2"><span class="text-ember">·</span> booking agent</li>
+          <li class="flex items-center gap-2 border-t border-ink/15 pt-2"><span class="text-ember">·</span> royalty auditor</li>
+          <li class="flex items-center gap-2 border-t border-ink/15 pt-2"><span class="text-ember">·</span> release agent</li>
+          <li class="flex items-center gap-2 border-t border-ink/15 pt-2"><span class="text-ember">·</span> daily briefing</li>
+        </ul>
+
+        <a href="#" class="mt-auto pt-10 inline-flex items-center justify-between gap-6 bg-ink text-paper px-6 py-4 hover:bg-ember hover:text-ink transition-colors group w-full md:w-auto md:max-w-sm">
+          <span class="font-medium">log in to the platform</span>
+          <span class="display text-lg group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================== -->
+  <!-- 8. FOOTER                                                   -->
+  <!-- ========================================================== -->
+  <footer class="bg-ink">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 py-16 md:py-20">
+
+      <div class="grid md:grid-cols-12 gap-10">
+
+        <div class="md:col-span-5">
+          <div class="display text-5xl md:text-6xl tracking-tight">TENx10</div>
+          <p class="mt-4 text-mute text-sm max-w-sm leading-relaxed">
+            10 Research Group LLC, dba TENx10. An artist management firm and the platform
+            it operates on. Detroit · Chicago · everywhere a tour stops.
+          </p>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="label-eyebrow mb-5">contact</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="mailto:thomas@tenx10.co" class="underline-fade">thomas@tenx10.co</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">press &amp; sync</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">demo submissions</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="label-eyebrow mb-5">platform</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">log in</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">request access</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="label-eyebrow mb-5">elsewhere</div>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">instagram</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">spotify</a></li>
+            <li><a href="#" class="underline-fade text-mute hover:text-paper">x / twitter</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-16 pt-8 border-t hairline flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-mute">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span>&copy; 2026 10 Research Group LLC.</span>
+          <span class="hidden md:inline">·</span>
+          <a href="#" class="underline-fade hover:text-paper">terms</a>
+          <a href="#" class="underline-fade hover:text-paper">privacy</a>
+          <a href="/dad" class="underline-fade hover:text-paper">dad &mdash; digital asset declutterer</a>
+        </div>
+        <div class="text-mute/70">all artists managed under exclusive agreement.</div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

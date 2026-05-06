@@ -238,6 +238,21 @@ Each task block: `cwd · files · migrations · deps · parallel-with · verific
 
 `products/tenx10-platform/` · NEW: `src/components/dashboard/{RevenueRollup,EmailTriage,ShowsFeed,AudienceConvergenceWidget}.tsx`, `src/lib/supabase/queries/revenue-rollup.ts` · EDIT: `src/app/page.tsx` (rewrite — role-conditioned) · MIGRATIONS: `044` · DEPS: F1, F2 · PARALLEL: same · VERIFY: per-role correct content (artist sees own; manager sees roster; label_manager sees all).
 
+**Design brief (locked 2026-05-05) — public/logged-out variant of `/`:**
+- **Easy to read** — clear hierarchy, generous whitespace, no clever typography that fights legibility
+- **Sells** — this is a sales page, not a portfolio. Reader leaves either signed up or with one specific reason they didn't.
+- **Doesn't look AI** — no generic gradient hero, no "trusted by" stock-logo bar, no three-column "why us" with feather icons, no Inter-everywhere, no marketing-voice copy. Tells of AI slop are a hard fail.
+
+**Precondition before W3 alignment phase runs:** Thomas collects 3-5 reference URLs (any industry — Stripe, Apple, agency sites, Substack, label sites, anything that "feels right"). References are the alpha; W3 alignment uses them as input. Don't start W3 without them.
+
+**Workflow when W3 launches:**
+1. Alignment phase runs the 4 build-cycle questions specifically for the homepage, with refs as input
+2. v0.dev generates 2-3 directions in real React + Tailwind (not standalone HTML)
+3. Iterate in the actual Next.js codebase — no static-HTML mockups
+4. Voice/copy comes from the DBA outbound composer's locked rules + actual content corpus, not generic AI marketing voice (per `2026-05-05-content-meme-generation-framework.md`)
+
+**Scrapped reference (don't anchor on this):** `_archive/scrapped-mockups/2026-05-04-homepage-v2.html` — earlier mockup; user reaction *"ugly, not right, looks AI."* Kept as a data point of what to avoid.
+
 ### W4 — Artist consent settings UI
 
 `products/tenx10-platform/` · NEW: `src/app/artist/settings/consent/page.tsx`, `src/app/artist/settings/consent/server-actions.ts`, `src/components/consent/{ScopeToggle,AuditLog}.tsx` · MIGRATIONS: none (uses F2) · DEPS: F2, F1 · PARALLEL: same · VERIFY: toggle scope → manager view changes accordingly; audit log captures all grants/revocations.
