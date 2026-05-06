@@ -227,6 +227,8 @@ def apply_safety_gates(sb: Client, dispatch: dict, contact_id: str | None) -> tu
     Returns (possibly-modified dispatch, list of applied gate reasons).
     Never sends if daily cap hit or per-contact cap hit.
     """
+    from agents.notifier import notify_safe
+
     applied: list[str] = []
     if dispatch.get("route_to") == "outbound" and contact_id:
         # daily cap
@@ -234,11 +236,23 @@ def apply_safety_gates(sb: Client, dispatch: dict, contact_id: str | None) -> tu
             applied.append(f"daily_cap_reached={DAILY_CAP}")
             dispatch = {**dispatch, "route_to": "hold", "intent": "hold_daily_cap",
                         "reason": f"daily cap {DAILY_CAP} reached; holding for tomorrow"}
+            notify_safe(
+                type="alert",
+                title="safety gate: daily cap",
+                message=f"daily send cap of {DAILY_CAP} reached; held for tomorrow.",
+                fields=[("contact_id", contact_id), ("cap", str(DAILY_CAP))],
+            )
         # per-contact 7d
         elif count_sends_to_contact_7d(sb, contact_id) >= PER_CONTACT_7D:
             applied.append(f"per_contact_7d={PER_CONTACT_7D}")
             dispatch = {**dispatch, "route_to": "hold", "intent": "hold_per_contact_cap",
                         "reason": "per-contact 7d cap reached"}
+            notify_safe(
+                type="alert",
+                title="safety gate: per-contact cap",
+                message=f"per-contact 7-day cap of {PER_CONTACT_7D} hit; held.",
+                fields=[("contact_id", contact_id), ("cap_7d", str(PER_CONTACT_7D))],
+            )
     return dispatch, applied
 
 
@@ -265,6 +279,8 @@ def dispatch_specialist(
 
     if route == "supervisor_escalate":
         # surface via decisions audit; /drafts + /reminders pick it up
+        from agents.notifier import notify_safe
+
         if not dry_run:
             sb.table("decisions").insert({
                 "actor": "supervisor",
@@ -275,6 +291,16 @@ def dispatch_specialist(
                 "input_snapshot": {"dispatch": dispatch},
                 "output_snapshot": {"needs_review": True},
             }).execute()
+        notify_safe(
+            type="approval",
+            title="supervisor escalated to Thomas",
+            message=dispatch.get("reason") or "needs review",
+            fields=[
+                ("contact_id", contact_id or "n/a"),
+                ("intent", intent),
+                ("source_log", source_log_id or "n/a"),
+            ],
+        )
         return {"dispatched": True, "target": "thomas", "intent": intent}
 
     if route == "analyst" and contact_id:

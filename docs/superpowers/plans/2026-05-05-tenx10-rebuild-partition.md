@@ -200,6 +200,8 @@ Numbers `067+` reserved for emergent migrations during builds.
 
 ## Per-task partition matrix (shorthand — full detail in plan execution)
 
+> **Reality-check 2026-05-05 (post-audit):** This partition was drafted greenfield. A source-code audit (see `docs/superpowers/specs/2026-05-05-booking-agent-current-state.md`) found ~70% of W1's intended behavior is **already shipped** under existing route names: `/artist/booking` (BookingAgentClient w/ SSE streaming), `/dashboard/deals` (full Mission Control / Timeline / Map Kanban), `/dashboard/gmail` (OfferAnalyzerClient — 6-step decision engine), `/dashboard/outreach` (MarketEstimator). DBA-side, outbound + inbound + supervisor + sender are all LIVE with safety gates. The platform's latest applied migration is **`045`**; promoter grading shipped via dated migration `20260428_promoter_grading.sql`. Rebase migration numbering accordingly: `043 → 046`, `044 → 047`, `045 → 048`, etc. before running F2. Treat W1 as **consolidate + extend** (unify the four scattered surfaces, add multi-axis grading + email-engagement events table), not full rebuild.
+
 Each task block: `cwd · files · migrations · deps · parallel-with · verification`.
 
 ### F1 — Persistent Xai shell + primitives

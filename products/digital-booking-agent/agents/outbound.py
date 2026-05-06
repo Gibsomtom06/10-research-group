@@ -510,6 +510,26 @@ def main() -> int:
         return 0
 
     draft_id = persist_draft(sb, pack, draft, args.email_type, args.thread_id, args.offer_id, flags)
+
+    try:
+        from agents.notifier import notify_safe
+
+        confidence = float(draft.get("confidence") or 0.0)
+        notify_safe(
+            type="approval" if confidence < 0.95 else "done",
+            title=f"outbound draft: {args.email_type}",
+            message=(draft.get("subject") or "(no subject)")[:300],
+            fields=[
+                ("confidence", f"{confidence:.2f}"),
+                ("retrieval_mode", retrieval_mode or "n/a"),
+                ("flags", ",".join(flags) if flags else "none"),
+                ("outreach_log_id", str(draft_id)),
+            ],
+        )
+    except Exception:
+        # never block draft persistence on a notifier failure
+        pass
+
     print(json.dumps({
         "outreach_log_id": draft_id,
         "subject": draft.get("subject"),
