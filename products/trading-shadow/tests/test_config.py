@@ -27,6 +27,7 @@ def test_config_constants():
     assert Config.HARD_FLOOR_PCT == 0.50
     assert Config.hard_floor_usd() == 25.0  # $50 × 50%
     assert Config.MAX_POSITION_SIZE_PCT == 0.10
+    assert Config.MIN_CONFIDENCE == 0.75
     assert not hasattr(Config, "PER_TRADE_MAX_USD")
     assert not hasattr(Config, "HARD_FLOOR_USD")
     assert Config.GRADUATION_ACCURACY == 0.90

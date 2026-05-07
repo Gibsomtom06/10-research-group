@@ -56,14 +56,46 @@ class Config:
     # paper sessions sized to what the playbooks actually teach.
     MAX_POSITION_SIZE_PCT: float = 0.10
 
+    # MIN_CONFIDENCE: minimum P(profit) the trader must report on a
+    # decision before the runner submits the order. Below this we log
+    # a "low_confidence_skip" hold instead.
+    #
+    # 0.75 is the data-gathering sweet spot:
+    #   - At MIN=0.90 most days produce no trades — agent HOLDs
+    #     everything because honestly-calibrated 90% setups are rare.
+    #     No data to learn from.
+    #   - At MIN=0.60 EV barely positive (+1.2%/trade); drawdown
+    #     volatility eats compounding before win-rate edge accumulates.
+    #   - At MIN=0.75 EV is +2.25%/trade equity (+6.75% leveraged),
+    #     trade volume is healthy, calibration data accumulates fast.
+    # Once empirical win-rate data shows whether the agent's 0.75
+    # confidence calls actually win ~75% of the time, ratchet up to
+    # 0.80 or 0.85.
+    #
+    # The agent's `confidence` field is its own subjective P(profit-
+    # within-the-TP/SL-window). With TAKE_PROFIT_PCT=4% and
+    # STOP_LOSS_PCT=3% the implicit window is roughly 5-10 trading
+    # days on standard equities (faster on leveraged ETFs because the
+    # 3x exposure hits ±3-4% sooner).
+    MIN_CONFIDENCE: float = 0.75
+
     # ============================================================
-    # MECHANICAL EXIT RULES — from "I Gave Claude Full Access to
-    # TradingView" notebook: EMA crossover strategy validated with
-    # 3% stop-loss / 4% take-profit. Applied to ALL open positions
-    # regardless of LLM decision, so exits are never "forgotten."
+    # MECHANICAL EXIT RULES — applied to ALL open positions regardless
+    # of LLM decision so exits are never "forgotten."
+    #
+    # Bumped to 2:1 reward:risk (6% TP / 3% SL) on 2026-05-07. Prior
+    # 4%/3% gave 1.33:1 — operator note: "if we are risking that much,
+    # the profit needs to be worth the risk." Combined with the 0.75
+    # confidence gate, expected value per trade is now:
+    #   EV = 0.75 × 6% - 0.25 × 3% = 3.75% per trade (equity)
+    #   EV ≈ 11% per trade on leveraged ETFs (3x exposure)
+    # Doubling at 3.75%/trade equity = ~19 trades; on leveraged ≈ 7.
     # ============================================================
-    TAKE_PROFIT_PCT: float = 0.04
+    TAKE_PROFIT_PCT: float = 0.06
     STOP_LOSS_PCT: float = 0.03
+    # Sanity guardrail against future config drift. If TP/SL ratio
+    # ever drops below this, the runner refuses to start.
+    MIN_REWARD_RISK_RATIO: float = 2.0
 
     GRADUATION_ACCURACY: float = 0.90
     GRADUATION_MIN_TRADES: int = 50

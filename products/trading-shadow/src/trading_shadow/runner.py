@@ -50,6 +50,15 @@ LOG_PATH = Path("data/decisions.jsonl")
 
 def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
     cfg = Config.from_env()
+    # Guard against TP/SL config drift — refuse to run if the
+    # mechanical exit ratio falls below the operator's R:R floor.
+    actual_rr = Config.TAKE_PROFIT_PCT / Config.STOP_LOSS_PCT
+    if actual_rr < Config.MIN_REWARD_RISK_RATIO:
+        raise RuntimeError(
+            f"Reward:risk ratio {actual_rr:.2f}:1 below required "
+            f"{Config.MIN_REWARD_RISK_RATIO:.1f}:1 (TAKE_PROFIT_PCT="
+            f"{Config.TAKE_PROFIT_PCT}, STOP_LOSS_PCT={Config.STOP_LOSS_PCT})."
+        )
     log = DecisionLog(LOG_PATH, mode="live" if live else "paper")
     discord = DiscordReporter(cfg.discord_webhook)
     anthropic = Anthropic(api_key=cfg.anthropic_key)
@@ -142,6 +151,12 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
                 )
         return
 
+    # Pull current open positions once for the RSI-peak exit check
+    try:
+        open_positions = broker.positions()
+    except Exception:
+        open_positions = {}
+
     for ticker in TICKERS:
         end = datetime.now(timezone.utc).date().isoformat()
         start = (datetime.now(timezone.utc).date() - timedelta(days=45)).isoformat()
@@ -152,6 +167,31 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
         rsi = _rsi(df["Close"])
         sig = compute_signal(df, current_rsi=rsi)
         ts = datetime.now(timezone.utc).isoformat()
+
+        # RSI momentum-peak exit: if we hold a long position in this
+        # ticker and RSI is in overbought-rolling-over territory
+        # (>= 75), exit immediately. Catches the "ride is over" signal
+        # the mechanical TP/SL misses when momentum tops before
+        # hitting the 6% target. Bypasses the LLM call for this ticker.
+        pos = open_positions.get(ticker) if open_positions else None
+        if pos is not None and pos.qty > 0 and rsi >= 75.0:
+            try:
+                broker.close_position(ticker)
+                pnl_pct = (pos.current_price - pos.avg_entry_price) / pos.avg_entry_price if pos.avg_entry_price > 0 else 0.0
+                discord.send(
+                    f"Track {track} {'LIVE' if live else 'PAPER'} EXIT: "
+                    f"RSI_PEAK {ticker} RSI={rsi:.1f} pnl {pnl_pct:+.2%} "
+                    f"(entry ${pos.avg_entry_price:.2f} -> ${pos.current_price:.2f})"
+                )
+                log.append(Decision(
+                    timestamp=ts, track=track, agent="claude", ticker=ticker,
+                    action="sell", size_usd=pos.market_value,
+                    reasoning=f"[rsi_peak_exit] RSI={rsi:.1f} >= 75 with open position",
+                    market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 1.0},
+                ))
+            except Exception as e:
+                discord.send(f"Track {track}: {ticker} rsi_peak_exit FAILED: {e}")
+            continue  # skip LLM call for this ticker this pass
 
         c_dec = None
         try:
@@ -247,6 +287,16 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
         if c_dec is not None and c_dec.action in ("buy", "sell") and c_dec.size_usd > 0:
             # Skip new buys if session loss limit is reached
             if c_dec.action == "buy" and session_losses >= Config.MAX_CONSECUTIVE_LOSSES:
+                continue
+            # Confidence gate: only submit when the agent reports
+            # P(profit) >= MIN_CONFIDENCE. Compounding $100 -> $200
+            # depends on stacking high-probability wins; medium-
+            # conviction trades dilute the win rate.
+            if c_dec.confidence < Config.MIN_CONFIDENCE:
+                discord.send(
+                    f"Track {track}: {ticker} {c_dec.action.upper()} skipped — "
+                    f"confidence {c_dec.confidence:.2f} < {Config.MIN_CONFIDENCE:.2f}"
+                )
                 continue
             asset_class = "leveraged_etf" if ticker in LEVERAGED_ETFS else "equities"
             check = check_trade(

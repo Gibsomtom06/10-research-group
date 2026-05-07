@@ -33,7 +33,9 @@ Respond with valid JSON only:
 }
 ```
 
-If unsure, hold. Never override your hard constraints."""
+If unsure, hold. Never override your hard constraints.
+
+The runner will SKIP any buy/sell with confidence < 0.90 (logs as low_confidence_skip). To trade, your honest P(profit) within the 3%/4% SL/TP window must be ≥ 0.90. Below that, return HOLD."""
 
 
 SHADOW_SYSTEM = """You are a shadow trading agent learning from a Claude trader. Given the same market state, predict what the Claude trader will decide.
