@@ -10,7 +10,7 @@ class GuardrailCheck:
     reason: Optional[str]
 
 
-AssetClass = Literal["equities", "etf", "crypto", "options", "forex"]
+AssetClass = Literal["equities", "etf", "leveraged_etf", "crypto", "options", "forex"]
 
 
 def check_trade(

@@ -27,7 +27,19 @@ TICKERS = [
     # AI buildout demands copper). Treated as sleep-well-at-night
     # accumulation plays per the v2 system prompt.
     "FCX", "SCCO", "TECK", "COPX",
+    # Leveraged ETFs (PAPER-ONLY — guardrails block in live mode). 3x
+    # daily exposure to amplify conviction trades on small capital.
+    # 2026-05-07: added so the $100 real-money plan can produce
+    # leveraged-equivalent results without switching to options/futures.
+    "TQQQ",  # 3x bull QQQ (tech)
+    "SOXL",  # 3x bull SOXX (semis — AI compute thesis, parallel to copper)
+    "SQQQ",  # 3x bear QQQ (hedge / short-bias)
 ]
+
+# Set of tickers classified as leveraged_etf for guardrails.check_trade.
+# These pass through as equities at the broker but are blocked in live
+# mode by the asset-class guardrail.
+LEVERAGED_ETFS = {"TQQQ", "SOXL", "SQQQ", "SPXU", "UPRO", "TECL", "TNA", "SDS"}
 # CRYPTO TODO (Apr 30 2026): "I Gave Claude Full Access to TradingView"
 # notebook recommends 4hr EMA crossover on BTCUSDT (3% SL / 4% TP).
 # Adding requires (a) yfinance↔Alpaca symbol mapping (BTC-USD vs BTC/USD)
@@ -236,9 +248,10 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
             # Skip new buys if session loss limit is reached
             if c_dec.action == "buy" and session_losses >= Config.MAX_CONSECUTIVE_LOSSES:
                 continue
+            asset_class = "leveraged_etf" if ticker in LEVERAGED_ETFS else "equities"
             check = check_trade(
                 ticker=ticker, notional_usd=c_dec.size_usd, side=c_dec.action,
-                account=state, asset_class="equities", live=live,
+                account=state, asset_class=asset_class, live=live,
             )
             if check.allowed:
                 try:
