@@ -151,12 +151,35 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
             )
             log.append(Decision(timestamp=ts, track=track, agent="claude", ticker=ticker, action=c_dec.action, size_usd=c_dec.size_usd, reasoning=c_dec.reasoning, market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": c_dec.confidence}))
         except Exception as e:
-            # Paper-mode fail-soft: if Claude errors (e.g. credits exhausted),
-            # log a hold for visibility and let the shadow still run.
+            err_str = str(e)
+            # Circuit breaker for the Anthropic credit-reservation error.
+            # When the account balance drops below the reservation
+            # threshold for the current request size, every subsequent
+            # call in this pass will fail the same way — continuing
+            # just spams the log with 50 identical hold rows. Halt the
+            # runner instead, surface a single Discord alert, and let
+            # the next scheduled pass retry (or stay halted until the
+            # operator tops up).
+            if "credit balance is too low" in err_str.lower() or "credit balance too low" in err_str.lower():
+                discord.send(
+                    f":warning: Anthropic credits below reservation threshold "
+                    f"(track {track}, ticker {ticker}). Runner halted for this pass. "
+                    f"Top up at https://console.anthropic.com/settings/billing"
+                )
+                log.append(Decision(
+                    timestamp=ts, track=track, agent="claude", ticker=ticker,
+                    action="hold", size_usd=0.0,
+                    reasoning=f"claude_credit_halt: {err_str[:200]}",
+                    market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 0.0},
+                ))
+                return
+            # Paper-mode fail-soft: if Claude errors on something
+            # transient (timeout, RateLimitError, etc.), log a hold for
+            # visibility and let the shadow still run.
             # In live mode we re-raise — no silent fallthrough on real money.
             if live:
                 raise
-            log.append(Decision(timestamp=ts, track=track, agent="claude", ticker=ticker, action="hold", size_usd=0.0, reasoning=f"claude_error: {type(e).__name__}: {str(e)[:200]}", market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 0.0}))
+            log.append(Decision(timestamp=ts, track=track, agent="claude", ticker=ticker, action="hold", size_usd=0.0, reasoning=f"claude_error: {type(e).__name__}: {err_str[:200]}", market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 0.0}))
 
         s_dec = None
         try:

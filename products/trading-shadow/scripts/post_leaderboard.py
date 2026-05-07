@@ -29,10 +29,16 @@ else:
     load_dotenv(override=False)
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
-START = 100_000.00
-# 5% of agent's wallet equity — typical-conviction tier. Pre-2026-05-06
-# this was a fixed $5; after the cap-lift, fixed dollars distort
-# leaderboard comparability when claude sizes off conviction tiers.
+# Live-capital plan is $100 (Thomas's real money). Override via
+# LEADERBOARD_START env to model another capital level. Defaults to $100
+# so the dashboard shows what the strategy actually does at the size
+# we're going to deploy. See scripts/dollars.py for the rationale.
+START = float(os.environ.get("LEADERBOARD_START", "100"))
+# Every historical size_usd was sized against the Alpaca paper account's
+# implicit $100K wallet. We convert to a percentage of that wallet, then
+# apply to whatever START the simulator runs at.
+DECISION_TIME_WALLET = 100_000.00
+# Fallback when shadow returns size_usd=0 — 5% of agent's current wallet.
 DEFAULT_TRADE_PCT = 0.05
 
 
@@ -63,11 +69,16 @@ def simulate(rows: list[dict]) -> dict:
         if isinstance(reasoning, str) and reasoning.startswith("claude_error:"):
             errors[agent] += 1
             continue
+        position_value = sum(q * last_price.get(t, 0.0) for t, q in shares[agent].items())
+        equity = cash[agent] + position_value
         if size > 0:
-            spend = size
+            # Translate the logged dollar amount to a % of decision-time
+            # wallet, then apply to current simulator wallet — same trade
+            # produces proportional dollar moves at any START level.
+            pct = size / DECISION_TIME_WALLET
+            spend = equity * pct
         else:
-            position_value = sum(q * last_price.get(t, 0.0) for t, q in shares[agent].items())
-            spend = (cash[agent] + position_value) * DEFAULT_TRADE_PCT
+            spend = equity * DEFAULT_TRADE_PCT
         if action == "buy" and cash[agent] >= spend:
             shares[agent][ticker] += spend / price
             cash[agent] -= spend

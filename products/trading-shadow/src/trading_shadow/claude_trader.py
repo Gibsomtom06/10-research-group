@@ -53,7 +53,7 @@ RSI: {rsi:.1f}"""
     return base
 
 
-def decide(*, client: Anthropic, signal_summary: str, sma20: float, current_price: float, rsi: float, account: AccountState, track: str, live: bool, ticker: str = "", agent: str = "claude", model: str = "claude-sonnet-4-6") -> TraderDecision:
+def decide(*, client: Anthropic, signal_summary: str, sma20: float, current_price: float, rsi: float, account: AccountState, track: str, live: bool, ticker: str = "", agent: str = "claude", model: str = "claude-haiku-4-5-20251001") -> TraderDecision:
     user = _build_user_prompt(signal_summary, sma20, current_price, rsi, account, track, live, ticker=ticker, agent=agent)
     # Prompt caching: the system prompt is identical for every call across
     # tickers, tracks, and passes. Cache it so calls 2..N within the 5-min

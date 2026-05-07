@@ -1,25 +1,44 @@
-"""Dollar P&L per trader (claude vs shadow), simulated from $100k starting.
+"""Dollar P&L per trader, simulated apples-to-apples at the live capital
+level (Thomas's real-money plan = $100).
 
-Walks every decision in chronological order and applies it to a separate
-$100k paper wallet per agent. For BUY: spends min(size_usd or
-DEFAULT_TRADE_PCT × wallet equity, cash) at the logged price. For SELL:
-liquidates the entire position in that ticker at the logged price. Final
-equity = cash + sum(qty * last_price) where last_price is the most recent
-logged price for each ticker.
+Walks every decision in chronological order and applies it to a $100
+paper wallet per agent so the P&L numbers reflect what the strategy
+would actually do at the capital level we're going to deploy. For BUY:
+spends min(percent-of-equity, cash) at the logged price. For SELL:
+liquidates the entire position in that ticker at the logged price.
+Final equity = cash + sum(qty * last_price).
 
-Why a %-of-equity fallback for shadow: Ollama's shadow returns size_usd=0
-even on BUY decisions (it predicts action only, not size). Pre-2026-05-06
-this fell back to a fixed $5, which was fine when claude was also capped
-at $5. After the cap-lift, claude sizes by 2/5/8/10% conviction tiers, so
-a $5 shadow fallback created a 2000x asymmetry on a $100K wallet. The
-typical-conviction tier (5% of equity) is the right baseline.
+Why translate historical size_usd by percentage instead of literal
+dollars: every existing row in data/decisions.jsonl was sized against
+the Alpaca paper account's implicit $100K wallet. Pre-2026-05-06
+trades were $5 absolute (= 0.005% of $100K); post-cap-lift trades are
+% × $100K (= 2-10% of $100K). Apples-to-apples at $100 = take the
+percentage that decision represented and apply it to the new $100
+wallet. A 5% conviction trade is $5K on $100K paper, $5 on $100 real;
+a $5 absolute trade is $0.005 at $100 (tiny but proportional).
+
+Override START via LEADERBOARD_START env var (e.g. =1000 to model what
+$1K would look like, =100000 for the legacy $100K view).
 """
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 
-START = 100_000.00
-DEFAULT_TRADE_PCT = 0.05  # 5% of agent's wallet equity, matches typical-conviction tier
+# Live-capital plan = $100. Set LEADERBOARD_START=100000 to recover the
+# pre-2026-05-07 view at Alpaca paper-account scale.
+START = float(os.environ.get("LEADERBOARD_START", "100"))
+
+# What every historical size_usd was sized against. Used to convert a
+# logged dollar amount into the percentage of equity it represented at
+# decision time, which we then apply to whatever START the simulator
+# is running at.
+DECISION_TIME_WALLET = 100_000.00
+
+# Fallback when an agent (Ollama shadow) returns size_usd=0 — 5% of
+# the agent's current simulator wallet. Matches the typical-conviction
+# tier in prompts_v2.
+DEFAULT_TRADE_PCT = 0.05
 
 
 def main() -> None:
@@ -62,14 +81,17 @@ def main() -> None:
             skipped_due_to_error[agent] += 1
             continue
 
-        # Apply trade. Fallback uses 5% of agent's wallet equity (cash
-        # + position value at last seen price) so shadow scales with the
-        # wallet instead of being pinned at a tiny fixed dollar amount.
-        if size <= 0:
-            position_value = sum(qty * last_price.get(t, 0.0) for t, qty in shares[agent].items())
-            spend = (cash[agent] + position_value) * DEFAULT_TRADE_PCT
+        # Apply trade. Translate the logged size_usd to a percentage of
+        # the agent's current simulator wallet so the same decision
+        # produces proportional dollar moves regardless of the START
+        # capital the simulator is running at.
+        position_value = sum(qty * last_price.get(t, 0.0) for t, qty in shares[agent].items())
+        equity = cash[agent] + position_value
+        if size > 0:
+            pct = size / DECISION_TIME_WALLET  # what fraction of the implicit $100K wallet this trade was
+            spend = equity * pct
         else:
-            spend = size
+            spend = equity * DEFAULT_TRADE_PCT
         if action == "buy" and cash[agent] >= spend:
             qty = spend / price
             shares[agent][ticker] += qty
@@ -85,7 +107,8 @@ def main() -> None:
             trade_count[agent] += 1
 
     # Mark to market
-    print(f"{'TRADER':<14}{'EQUITY':>14}{'CASH':>14}{'POSITIONS':>14}{'P/L vs $100k':>16}{'TRADES':>9}{'ERRORS':>8}")
+    pl_label = f"P/L vs ${int(START):,}" if START >= 1 else f"P/L vs ${START:.2f}"
+    print(f"{'TRADER':<14}{'EQUITY':>14}{'CASH':>14}{'POSITIONS':>14}{pl_label:>16}{'TRADES':>9}{'ERRORS':>8}")
     print("-" * 89)
     for agent in AGENTS:
         position_value = sum(qty * last_price.get(t, 0.0) for t, qty in shares[agent].items())
