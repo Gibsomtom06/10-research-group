@@ -16,35 +16,30 @@ class Config:
     ollama_model: str
 
     # ============================================================
-    # FLOOR SETTINGS — derived from NotebookLM "investor research"
-    # patterns extracted 2026-04-30. Source citations in
-    # data/top_trader_patterns.json.
+    # SIZING — capital-agnostic % rules (2026-05-06 cap-lift, 2026-05-07
+    # rebased to real-money scale).
+    # Prior $5/trade absolute cap removed: it contradicted the notebook
+    # playbooks that recommend $20-$50 per trade at 10x leverage with
+    # $100 universal risk (Coleman, Percoco). Sizing is now driven by
+    # MAX_POSITION_SIZE_PCT (% of equity) and the floor by HARD_FLOOR_PCT
+    # (% of starting capital). Same math at $100 and at $100K — divide
+    # paper P&L by (paper_equity / 100) to read the equivalent at $100.
+    # LIVE mode also gated by LIVE_TRADING_ENABLED.
     # ============================================================
 
-    # HARD_FLOOR_USD: equity level below which the loop alerts (and
-    # auto-rollbacks once AUTO_ROLLBACK_ON_HARD_FLOOR is flipped on).
-    #
-    # Was $100. That number was inherited from "$100 starter account"
-    # tutorials but our LIVE capital is $40 ($20/track) — a $100 floor
-    # would trip the moment live mode goes hot. New value $25 = the
-    # equity level after ~3 consecutive max-loss trades (3 × $5 = $15
-    # off $40 start), matching Craig Percoco's "hard stop after 3
-    # consecutive losses" rule from the notebook playbook.
-    HARD_FLOOR_USD: float = 25.0
-
-    # PER_TRADE_MAX_USD: maximum dollars at risk on any single trade.
-    # Notebook (Craig Percoco): "Risk $25-$50 per trade in a $100
-    # account" → 25-50% per trade. At our $40 capital the equivalent
-    # would be $10-$20, but we're keeping $5 (12.5%) — more conservative
-    # than the playbook because Phase 0 is about decision quality, not
-    # P&L magnitude. The shadow-graduation metric only needs small
-    # decisions to evaluate accuracy.
-    PER_TRADE_MAX_USD: float = 5.0
-
     # LIVE_CAPITAL_PER_TRACK: starting capital allocated to each track
-    # (A and B run independently). $20 × 2 tracks = $40 total live
-    # exposure across the entire system.
-    LIVE_CAPITAL_PER_TRACK: float = 20.0
+    # (A and B run independently). Real-money plan is $100 total → $50
+    # per track. The Alpaca paper account starts at $100K regardless of
+    # this value; this number is the reference for the hard-floor
+    # calculation and for live-mode budgeting.
+    LIVE_CAPITAL_PER_TRACK: float = 50.0
+
+    # HARD_FLOOR_PCT: equity below this fraction of starting per-track
+    # capital triggers the alert / auto-rollback path (when enabled).
+    # 50% drawdown from start = the strategy is broken, not just a
+    # losing streak. At $50/track this floor is $25; at $100K paper it's
+    # $50K — same proportional rule.
+    HARD_FLOOR_PCT: float = 0.50
 
     # MAX_CONSECUTIVE_LOSSES: explicit count from notebook (Craig
     # Percoco LIVE): "Make sure I don't hit three consecutive losses
@@ -54,11 +49,11 @@ class Config:
     # runner.py TODO post-cutover.
     MAX_CONSECUTIVE_LOSSES: int = 3
 
-    # MAX_POSITION_SIZE_PCT: hardest cap on any single ticker as a
-    # share of equity. Notebook (Craig Percoco): "stays exactly $100
-    # regardless of account size" — universal sizing. We enforce as a
-    # percentage so it scales naturally as equity grows. 10% matches
-    # the existing system-prompt hard constraint in prompts_v2.py.
+    # MAX_POSITION_SIZE_PCT: the primary sizing cap, replacing the old
+    # $5 absolute cap. Notebook playbook (Percoco): "risk stays exactly
+    # $100 regardless of account size" — universal sizing via leverage.
+    # We enforce as a % of equity so it scales naturally and keeps
+    # paper sessions sized to what the playbooks actually teach.
     MAX_POSITION_SIZE_PCT: float = 0.10
 
     # ============================================================
@@ -82,6 +77,16 @@ class Config:
     ROLLBACK_BUDGET_PER_DAY: int = 3
 
     @classmethod
+    def hard_floor_usd(cls) -> float:
+        """Hard floor in dollars = HARD_FLOOR_PCT × LIVE_CAPITAL_PER_TRACK.
+
+        Computed rather than stored so changing capital level (e.g.
+        scaling from $50 real to $50K paper validation) only requires
+        editing one constant.
+        """
+        return cls.LIVE_CAPITAL_PER_TRACK * cls.HARD_FLOOR_PCT
+
+    @classmethod
     def from_env(cls) -> "Config":
         mode = os.environ.get("MODE", "paper")
         env_file = Path(f".env.{mode}")
@@ -91,6 +96,17 @@ class Config:
             load_dotenv(override=False)
 
         if mode == "live":
+            # Hard gate after the 2026-05-06 cap-lift. Lifting the $5
+            # per-trade cap means a paper-account-sized 10%-equity rule
+            # is now in force, but the strategy hasn't been validated
+            # at the new sizing. Setting MODE=live alone is no longer
+            # enough — the operator must also set LIVE_TRADING_ENABLED=1
+            # explicitly, after deciding paper results justify it.
+            if os.environ.get("LIVE_TRADING_ENABLED", "0") != "1":
+                raise RuntimeError(
+                    "MODE=live requires LIVE_TRADING_ENABLED=1 to be set explicitly. "
+                    "Live trading is gated until paper results validate the new sizing rules."
+                )
             return cls(
                 anthropic_key=os.environ["ANTHROPIC_API_KEY"],
                 alpaca_paper_key=os.environ.get("ALPACA_PAPER_API_KEY", ""),

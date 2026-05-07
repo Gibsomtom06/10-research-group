@@ -30,7 +30,10 @@ else:
 
 DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
 START = 100_000.00
-DEFAULT_TRADE = 5.00
+# 5% of agent's wallet equity — typical-conviction tier. Pre-2026-05-06
+# this was a fixed $5; after the cap-lift, fixed dollars distort
+# leaderboard comparability when claude sizes off conviction tiers.
+DEFAULT_TRADE_PCT = 0.05
 
 
 AGENTS = ("claude", "shadow", "social_media_trader")
@@ -60,7 +63,11 @@ def simulate(rows: list[dict]) -> dict:
         if isinstance(reasoning, str) and reasoning.startswith("claude_error:"):
             errors[agent] += 1
             continue
-        spend = size if size > 0 else DEFAULT_TRADE
+        if size > 0:
+            spend = size
+        else:
+            position_value = sum(q * last_price.get(t, 0.0) for t, q in shares[agent].items())
+            spend = (cash[agent] + position_value) * DEFAULT_TRADE_PCT
         if action == "buy" and cash[agent] >= spend:
             shares[agent][ticker] += spend / price
             cash[agent] -= spend

@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 import pandas as pd
 
+from trading_shadow.config import Config
 from trading_shadow.strategy import compute_signal, SignalType
 from trading_shadow.decision_log import Decision
 
@@ -44,7 +45,8 @@ def run_backtest(df: pd.DataFrame, ticker: str, start_capital: float = 100.0) ->
         ts = datetime.now(timezone.utc).isoformat()
 
         if sig.signal == SignalType.BUY and cash >= 1.0:
-            spend = min(5.0, cash)
+            equity = cash + qty * price
+            spend = min(equity * Config.MAX_POSITION_SIZE_PCT, cash)
             qty += spend / price
             cash -= spend
             trades += 1

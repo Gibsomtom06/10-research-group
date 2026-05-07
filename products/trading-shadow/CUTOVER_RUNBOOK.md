@@ -217,7 +217,7 @@ Watch Discord. The first message should be either a `Track A LIVE: HOLD <ticker>
 
 ### Step 4.2 — Hard-floor watch
 
-`AUTO_ROLLBACK_ON_HARD_FLOOR=False` by default. If equity drops below $100, you'll get a Discord ALERT and the loop halts. To recover:
+`AUTO_ROLLBACK_ON_HARD_FLOOR=False` by default. The floor is computed as `LIVE_CAPITAL_PER_TRACK × HARD_FLOOR_PCT` (defaults: $50 × 50% = $25). If equity drops below the floor, you'll get a Discord ALERT and the loop halts. To recover:
 
 1. Decide which decision_id to roll back to (read `data/decisions.jsonl`)
 2. Run:

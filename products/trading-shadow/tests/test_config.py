@@ -19,8 +19,15 @@ def test_config_loads_env_vars(monkeypatch):
 
 
 def test_config_constants():
-    assert Config.HARD_FLOOR_USD == 100.0
-    assert Config.PER_TRADE_MAX_USD == 5.0
-    assert Config.LIVE_CAPITAL_PER_TRACK == 20.0
+    # Updated 2026-05-06 cap-lift + 2026-05-07 real-money rebase:
+    # PER_TRADE_MAX_USD removed, sizing driven by MAX_POSITION_SIZE_PCT.
+    # LIVE_CAPITAL_PER_TRACK rebased to $50 (Thomas's $100 / 2 tracks).
+    # Hard floor stored as %; computed via Config.hard_floor_usd().
+    assert Config.LIVE_CAPITAL_PER_TRACK == 50.0
+    assert Config.HARD_FLOOR_PCT == 0.50
+    assert Config.hard_floor_usd() == 25.0  # $50 × 50%
+    assert Config.MAX_POSITION_SIZE_PCT == 0.10
+    assert not hasattr(Config, "PER_TRADE_MAX_USD")
+    assert not hasattr(Config, "HARD_FLOOR_USD")
     assert Config.GRADUATION_ACCURACY == 0.90
     assert Config.GRADUATION_MIN_TRADES == 50

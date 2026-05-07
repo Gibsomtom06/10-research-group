@@ -22,20 +22,22 @@ def check_trade(
     asset_class: AssetClass,
     live: bool,
 ) -> GuardrailCheck:
-    # Specific rules fire before the catch-all hard-floor rule so error
-    # messages identify the actual constraint violated.
-    if notional_usd > Config.PER_TRADE_MAX_USD:
-        return GuardrailCheck(False, f"Per-trade max exceeded: ${notional_usd:.2f} > ${Config.PER_TRADE_MAX_USD}")
+    # Position cap (% of equity) applies in BOTH paper and live after the
+    # 2026-05-06 cap-lift — the absolute $5 cap was the bug, not paper
+    # mode itself. Specific rules fire before the catch-all hard-floor
+    # rule so error messages identify the actual constraint violated.
+    pos_pct = notional_usd / max(account.equity, 0.01)
+    if pos_pct > Config.MAX_POSITION_SIZE_PCT:
+        return GuardrailCheck(
+            False,
+            f"Position cap: {pos_pct:.1%} > {Config.MAX_POSITION_SIZE_PCT:.0%} of equity (notional ${notional_usd:.2f}, equity ${account.equity:.2f})",
+        )
 
     if live and asset_class != "equities":
         return GuardrailCheck(False, f"Live trading restricted to equities; got {asset_class}")
 
-    if live:
-        pos_pct = notional_usd / max(account.equity, 0.01)
-        if pos_pct > 0.10:
-            return GuardrailCheck(False, f"Position cap: {pos_pct:.1%} > 10% of equity")
-
-        if account.equity < Config.HARD_FLOOR_USD:
-            return GuardrailCheck(False, f"Hard floor breached: equity ${account.equity:.2f} < ${Config.HARD_FLOOR_USD}")
+    floor = Config.hard_floor_usd()
+    if account.equity < floor:
+        return GuardrailCheck(False, f"Hard floor breached: equity ${account.equity:.2f} < ${floor:.2f}")
 
     return GuardrailCheck(True, None)

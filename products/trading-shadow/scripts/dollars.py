@@ -1,22 +1,25 @@
 """Dollar P&L per trader (claude vs shadow), simulated from $100k starting.
 
 Walks every decision in chronological order and applies it to a separate
-$100k paper wallet per agent. For BUY: spends min(size_usd or $5, cash)
-at the logged price. For SELL: liquidates the entire position in that
-ticker at the logged price. Final equity = cash + sum(qty * last_price)
-where last_price is the most recent logged price for each ticker.
+$100k paper wallet per agent. For BUY: spends min(size_usd or
+DEFAULT_TRADE_PCT × wallet equity, cash) at the logged price. For SELL:
+liquidates the entire position in that ticker at the logged price. Final
+equity = cash + sum(qty * last_price) where last_price is the most recent
+logged price for each ticker.
 
-Why $5 fallback for shadow: Ollama's shadow returns size_usd=0 even on
-BUY decisions (it predicts action only, not size). To make claude vs
-shadow comparable in dollars we apply the per-trade max ($5) to any
-BUY/SELL with size_usd <= 0.
+Why a %-of-equity fallback for shadow: Ollama's shadow returns size_usd=0
+even on BUY decisions (it predicts action only, not size). Pre-2026-05-06
+this fell back to a fixed $5, which was fine when claude was also capped
+at $5. After the cap-lift, claude sizes by 2/5/8/10% conviction tiers, so
+a $5 shadow fallback created a 2000x asymmetry on a $100K wallet. The
+typical-conviction tier (5% of equity) is the right baseline.
 """
 import json
 from collections import defaultdict
 from pathlib import Path
 
 START = 100_000.00
-DEFAULT_TRADE_SIZE = 5.00  # falls back here when agent returns size_usd=0
+DEFAULT_TRADE_PCT = 0.05  # 5% of agent's wallet equity, matches typical-conviction tier
 
 
 def main() -> None:
@@ -59,8 +62,14 @@ def main() -> None:
             skipped_due_to_error[agent] += 1
             continue
 
-        # Apply trade
-        spend = size if size > 0 else DEFAULT_TRADE_SIZE
+        # Apply trade. Fallback uses 5% of agent's wallet equity (cash
+        # + position value at last seen price) so shadow scales with the
+        # wallet instead of being pinned at a tiny fixed dollar amount.
+        if size <= 0:
+            position_value = sum(qty * last_price.get(t, 0.0) for t, qty in shares[agent].items())
+            spend = (cash[agent] + position_value) * DEFAULT_TRADE_PCT
+        else:
+            spend = size
         if action == "buy" and cash[agent] >= spend:
             qty = spend / price
             shares[agent][ticker] += qty

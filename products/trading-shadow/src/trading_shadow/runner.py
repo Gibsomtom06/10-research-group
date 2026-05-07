@@ -102,7 +102,7 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
     if (
         Config.AUTO_ROLLBACK_ON_HARD_FLOOR
         and live
-        and state.equity < Config.HARD_FLOOR_USD
+        and state.equity < Config.hard_floor_usd()
     ):
         # Auto-rollback path is wired but gated. Find the most recent
         # safe state (any decision predating today's trades) and revert.
@@ -158,13 +158,21 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
                 raise
             log.append(Decision(timestamp=ts, track=track, agent="claude", ticker=ticker, action="hold", size_usd=0.0, reasoning=f"claude_error: {type(e).__name__}: {str(e)[:200]}", market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 0.0}))
 
-        s_dec = shadow_predict(
-            model=cfg.ollama_model,
-            signal_summary=f"{sig.signal.value.upper()}: {sig.rationale}",
-            sma20=sig.sma20, current_price=sig.current_price, rsi=rsi,
-            account=state, track=track, live=live, ticker=ticker,
-        )
-        log.append(Decision(timestamp=ts, track=track, agent="shadow", ticker=ticker, action=s_dec.action, size_usd=s_dec.size_usd, reasoning=s_dec.reasoning, market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": s_dec.confidence}))
+        s_dec = None
+        try:
+            s_dec = shadow_predict(
+                model=cfg.ollama_model,
+                signal_summary=f"{sig.signal.value.upper()}: {sig.rationale}",
+                sma20=sig.sma20, current_price=sig.current_price, rsi=rsi,
+                account=state, track=track, live=live, ticker=ticker,
+            )
+            log.append(Decision(timestamp=ts, track=track, agent="shadow", ticker=ticker, action=s_dec.action, size_usd=s_dec.size_usd, reasoning=s_dec.reasoning, market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": s_dec.confidence}))
+        except Exception as e:
+            # Shadow never submits orders (only Claude does), so an Ollama
+            # outage must not abort the pass and starve social_media_trader
+            # + sync_pnl downstream. Fail-soft in both modes; log a hold so
+            # the leaderboard still shows shadow's column.
+            log.append(Decision(timestamp=ts, track=track, agent="shadow", ticker=ticker, action="hold", size_usd=0.0, reasoning=f"shadow_error: {type(e).__name__}: {str(e)[:200]}", market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "equities", "confidence": 0.0}))
 
         # Third agent: social_media_trader follows aggregated social
         # sentiment from data/social/sentiment.jsonl (currently Reddit only;

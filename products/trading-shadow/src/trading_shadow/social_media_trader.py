@@ -29,7 +29,6 @@ from typing import Optional
 
 from trading_shadow.alpaca_client import AccountState
 from trading_shadow.claude_trader import TraderDecision
-from trading_shadow.config import Config
 
 SENTIMENT_PATH = Path("data/social/sentiment.jsonl")
 INSTITUTIONAL_DIFF_PATH = Path("data/research/13f/diff_latest.jsonl")
@@ -37,7 +36,11 @@ INSTITUTIONAL_DIFF_PATH = Path("data/research/13f/diff_latest.jsonl")
 # Trade thresholds — tunable as we learn what works
 SENTIMENT_THRESHOLD = 0.3   # |blended score| above this fires a directional trade
 MIN_MENTIONS = 3            # Reddit-side mention floor
-DEFAULT_SIZE_USD = 5.0      # matches PER_TRADE_MAX_USD
+# Sizing: this trader is a single-tier rules engine (no conviction
+# tiers like the LLM trader). Size at the typical-conviction tier
+# (5% of equity) when a signal fires; the guardrail enforces the
+# 10% absolute cap.
+DEFAULT_SIZE_PCT = 0.05
 
 # Signal weights when blending institutional + retail
 INST_WEIGHT = 3.0
@@ -157,7 +160,7 @@ def social_media_trader_predict(
         f"inst[{inst_summary}] · retail[{retail_summary}]"
     )
 
-    size = min(DEFAULT_SIZE_USD, Config.PER_TRADE_MAX_USD)
+    size = account.equity * DEFAULT_SIZE_PCT
 
     if blended >= SENTIMENT_THRESHOLD:
         return TraderDecision(
