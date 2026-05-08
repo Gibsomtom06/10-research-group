@@ -18,6 +18,13 @@ from trading_shadow.decision_log import Decision, DecisionLog
 from trading_shadow.discord_reporter import DiscordReporter
 from trading_shadow.rollback import RollbackHandler
 from trading_shadow.exit_checker import check_exits
+from trading_shadow.options import (
+    options_enabled,
+    OPTIONS_ELIGIBLE_TICKERS,
+    MIN_OPTION_CONFIDENCE,
+    pick_atm_contract,
+    submit_option_market_order,
+)
 
 TICKERS = [
     # Original cohort: large-cap tech + broad ETFs (high liquidity, tight spreads)
@@ -298,6 +305,50 @@ def run_one_pass(track: Literal["A", "B"], live: bool) -> None:
                     f"confidence {c_dec.confidence:.2f} < {Config.MIN_CONFIDENCE:.2f}"
                 )
                 continue
+            # OPTIONS ROUTING — paper-only, behind OPTIONS_ENABLED env
+            # flag. Routes BUY/SELL on options-eligible tickers (SPY/QQQ)
+            # at high conviction (>= MIN_OPTION_CONFIDENCE) into a single
+            # ATM-ish contract instead of an equity trade. SELL on a
+            # ticker we don't already hold becomes a PUT purchase — that's
+            # the "play the loss side" path.
+            position_held = ticker in (open_positions or {}) and (open_positions[ticker].qty if ticker in open_positions else 0) > 0
+            should_route_to_options = (
+                not live
+                and options_enabled()
+                and ticker in OPTIONS_ELIGIBLE_TICKERS
+                and c_dec.confidence >= MIN_OPTION_CONFIDENCE
+                and (
+                    c_dec.action == "buy"  # high-conviction long → CALL
+                    or (c_dec.action == "sell" and not position_held)  # downside bet → PUT
+                )
+            )
+            if should_route_to_options:
+                direction = "call" if c_dec.action == "buy" else "put"
+                try:
+                    contract = pick_atm_contract(
+                        broker.client, ticker, direction, sig.current_price,
+                    )
+                    if contract is None:
+                        discord.send(f"Track {track}: {ticker} option skipped — no eligible contract in DTE window")
+                    else:
+                        order_id = submit_option_market_order(
+                            broker.client, contract.symbol, qty=1, side="buy",
+                        )
+                        discord.send(
+                            f"Track {track} PAPER: {direction.upper()} option {contract.symbol} "
+                            f"(strike ${contract.strike:.2f}, exp {contract.expiration.isoformat()}) "
+                            f"on {ticker} @ ${sig.current_price:.2f} — order {order_id}"
+                        )
+                        log.append(Decision(
+                            timestamp=ts, track=track, agent="claude", ticker=contract.symbol,
+                            action="buy", size_usd=c_dec.size_usd,
+                            reasoning=f"[option_{direction}] underlying={ticker} strike=${contract.strike:.2f} exp={contract.expiration.isoformat()} • {c_dec.reasoning[:150]}",
+                            market_state={"price": sig.current_price, "rsi": rsi, "asset_class": "options", "confidence": c_dec.confidence},
+                        ))
+                except Exception as e:
+                    discord.send(f"Track {track}: {ticker} option_order_failed: {type(e).__name__}: {str(e)[:120]}")
+                continue  # don't fall through to equity submission
+
             asset_class = "leveraged_etf" if ticker in LEVERAGED_ETFS else "equities"
             check = check_trade(
                 ticker=ticker, notional_usd=c_dec.size_usd, side=c_dec.action,
