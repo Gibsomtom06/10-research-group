@@ -1,0 +1,115 @@
+# Profanity list for explicit-content flagging.
+# Source: FCC "seven dirty words" + standard hip-hop / pop profanity used by RIAA / DSP explicit tagging.
+# One word per line, lowercase, no punctuation. Lines starting with # are ignored.
+# Extend freely — anything in here triggers the "explicit" flag.
+
+# FCC seven dirty words
+shit
+piss
+fuck
+cunt
+cocksucker
+motherfucker
+tits
+
+# variants / common forms
+fucker
+fuckers
+fucking
+fucked
+fuckin
+fucks
+shitty
+shitting
+shits
+pisses
+pissed
+pissing
+mofo
+
+# sexual / anatomical
+ass
+asshole
+asses
+bitch
+bitches
+bitching
+bastard
+bastards
+dick
+dicks
+dickhead
+prick
+pussy
+pussies
+cock
+cocks
+balls
+ballsack
+boobs
+boob
+tit
+tittie
+titties
+slut
+sluts
+slutty
+whore
+whores
+whoring
+hoe
+hoes
+ho
+skank
+skanks
+twat
+clit
+jizz
+cum
+cums
+nutsack
+
+# slurs (always flagged)
+nigga
+niggas
+nigger
+niggers
+faggot
+faggots
+fag
+fags
+retard
+retarded
+tranny
+chink
+spic
+kike
+gook
+wetback
+beaner
+camel-jockey
+sandnigger
+dyke
+queer
+homo
+
+# violence / drug references commonly tagged
+murk
+glock
+opps
+opp
+pop-a-pill
+dope
+crack
+heroin
+
+# religious profanity (flag depending on territory; included by default)
+goddamn
+goddamnit
+goddamned
+godamn
+hell
+
+# milder — uncomment if you want them flagged
+# damn
+# crap

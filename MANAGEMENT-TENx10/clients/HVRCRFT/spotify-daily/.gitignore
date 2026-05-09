@@ -1,0 +1,8 @@
+.env
+.venv/
+spotify_daily.log
+snapshots/
+spotify_daily.csv
+
+# Spotify-for-Artists session cookies (puppeteer login state) — never commit
+s4a-auth.json
