@@ -8,13 +8,13 @@
 - I update this file with status as agents land + new items emerge
 - Thomas can reorder priorities by editing this file directly
 
-**Last updated:** 2026-05-03
+**Last updated:** 2026-05-09
 
 ---
 
 ## HOT — running right now
 
-*(nothing — all agents from 2026-05-03 run completed)*
+*(nothing)*
 
 ---
 
@@ -22,32 +22,37 @@
 
 | Pri | Task | Why it matters | Model | Est duration | Blast radius |
 |---|---|---|---|---|---|
-| **P0** | **Verify DSR publishing entity registered** at ASCAP (IPI 1238282844), MLC (publisher P330RE), CMRRA (02274554/02274555), SoundExchange | Royalties don't collect if entity unregistered | manual at portals | 1-2 hrs | n/a |
+| **P0** | **Booking Agent v2 — B1 routing-gap-first view** (per-artist gap days + corridor cities) | The abstraction a real booking agent works in. Gates B2/B3. | sonnet | 2–4 hrs | low (tenx10 platform) |
+| **P0** | **Booking Agent v2 — B2 external promoter research action** (19hz / EDMtrain / Bandsintown / Songkick / venue calendars) | Today's outbound is pure DB self-reference; this is the live-data layer | sonnet + agentic research | 4–6 hrs | low |
+| **P0** | **Booking Agent v2 — B3 cross-roster stacking detection** | Highest-leverage routing-fill type — carries existing booker relationship | sonnet | 2–3 hrs | low |
+| **P0** | **DSR Run The Game — collect 5 signatures via Dropbox Sign** | Contract sent 2026-05-09; track signers Isaac / Joseph / Mike / Michael / DSR | manual (poll Dropbox Sign) | per-signer | n/a |
+| **P0** | **Verify DSR publishing entity registered** at ASCAP (IPI 1238282844), MLC (publisher P330RE), CMRRA (02274554/02274555), SoundExchange | Royalties don't collect if entity unregistered | manual at portals | 1–2 hrs | n/a |
 | **P0** | **BMI Live registration — DirtySnatcha** for 17 TMTYL 2026 shows + Electric Forest + Lost Lands | Live perf royalties uncollected. IPI=01017500116 | sonnet + manual portal | 30 min/show | low |
 | **P0** | **ASCAP OnStage registration — Dark Matter** Isaac (IPI 1262457258) + Joseph (IPI 1262457454) | Live perf royalties uncollected | sonnet + manual | per-show | low |
-| **P0** | **WHOiSEE BMI Live registration** — IPI now confirmed (00779461097) | IPI unblocked; register all WHOiSEE shows at BMI Live | sonnet + manual | per-show | low |
+| **P0** | **WHOiSEE BMI Live registration** — IPI confirmed (00779461097) | Register all WHOiSEE shows at BMI Live | sonnet + manual | per-show | low |
 | P0 | **Kotrax basic data capture** — real name, PRO, IPI | Blocks all registrations | manual (Tom-input) | 5 min | n/a |
 | P0 | **HVRCRFT basic data capture** — real name, PRO, IPI | Blocks all registrations | manual (Tom-input) | 5 min | n/a |
-| P1 | **Backfill PRO/IPI for 27 submission-tracker artists** (Aalioura, Adam Annella, etc.) in dsr_artists with NULL PRO/IPI | Writer royalties stranded | manual / API lookup | per-artist 5-15 min | zero |
+| P1 | **Oracle A1 ARM 24GB capacity poll** | A1 ARM Always Free is the canonical living dev environment per `project_oracle_canonical_vm.md`; current `tenx10-dev-amd` is the AMD E2.1.Micro placeholder | `scripts/oracle/launch-a1-when-available.sh` | passive | n/a |
+| P1 | **Backfill PRO/IPI for 27 submission-tracker artists** (Aalioura, Adam Annella, etc.) in dsr_artists with NULL PRO/IPI | Writer royalties stranded | manual / API lookup | per-artist 5–15 min | zero |
 | P1 | **MLC submission — LAB10 82 tracks** via portal | Uncollected royalties start collecting | manual at MLC portal | n/a | n/a |
-| P1 | **ISRC reconciliation — manual source review** of DSR_CLEAN_DATABASE.xlsx to map 241 placeholder ISRCs (BMI_TITLE_xxx) to real ISRCs | DB joins broken on synthetic keys; auto-match failed (zero title overlap between tables) | sonnet + manual | 1-2 hrs | low |
-| P2 | **Google Drive sweep** — inventory + classify scattered Sheets/Docs | Tom flagged | haiku | 15-20 min | zero (read-only) — **BLOCKED: needs Google Drive OAuth** |
-| P2 | **Desktop routing — 200 file moves** per `DESKTOP_INVENTORY_2026-04-30.md` | Cleanup follow-through | sonnet | 30-45 min | medium |
+| P1 | **ISRC reconciliation — manual source review** of DSR_CLEAN_DATABASE.xlsx to map 241 placeholder ISRCs (BMI_TITLE_xxx) to real ISRCs | DB joins broken on synthetic keys; auto-match failed (zero title overlap between tables) | sonnet + manual | 1–2 hrs | low |
+| P2 | **Desktop routing — 200 file moves** per `DESKTOP_INVENTORY_2026-04-30.md` | Cleanup follow-through | sonnet | 30–45 min | medium |
 
 ---
 
 ## BACKLOG (known but lower priority)
 
-- TENx10 platform homepage — strip hardcoded DSR content (Priority 1 from CLAUDE.md TASKS)
+- ~~TENx10 platform homepage — strip hardcoded DSR content~~ — DONE
 - TENx10 platform site UX revision — management-first restructure (per BUSINESS_HIERARCHY.md)
 - 10researchgroup.com umbrella site — Phase 1 hierarchy index (per positioning spec)
 - DSP API integrations to populate Spotify/Apple/etc. IDs in DSR_CLEAN_DATABASE
-- ~~WHOiSEE BMI IPI lookup~~ — DONE 2026-05-03 (IPI 00779461097)
-- Dark Matter ASCAP IPI confirmation (lookup at ascap.com)
 - DBA Phase 1 Supabase migration unblock
 - DAD v1 logic recovery (search laptop OR ask Thomas for filename)
 - Music organization workflow file recovery (laptop)
-- ~~HVRCRFT spelling audit~~ — DONE 2026-05-03, fixed CLAUDE.md line 303 (HVVRCRFT → HVRCRFT)
+- Tenx10 platform: artist-tier `/artist/chat` UI separated from manager `/api/agent`
+- Tenx10 platform: Discord two-way bot (beyond one-way webhook)
+- Tenx10 platform: global royalty map on publishing page (`react-simple-maps` installed)
+- Tenx10 platform: post-VMG upload checklist per track
 
 ---
 
@@ -58,9 +63,10 @@
 | Identify 10 unknown-label tracks (Escape, Sum Dirty, Dimension, etc.) | Thomas needs to confirm labels |
 | CMRRA accounts 02274554 / 02274555 activation | Thomas activates at portal |
 | Umbrella git lock fix | Decision: move repo out of OneDrive OR pause-OneDrive-then-commit pattern |
-| ~~WHOiSEE legal full name confirmation~~ | DONE — Brett Hopkin (from DSR contract) |
-| Google Drive sweep | Needs Google Drive OAuth — run google-drive-auth or equivalent |
+| Dark Matter ASCAP IPI confirmation | Lookup at ascap.com — Isaac/Joseph IPIs known (1262457258 / 1262457454) but artist-side IPI unknown |
 | ISRC reconciliation final pass | Needs manual review: dsr_track_registrations references different track catalog than dsr_tracks; Thomas to clarify if these are archived/unreleased tracks |
+| ~~WHOiSEE legal full name confirmation~~ | DONE 2026-05-03 — Brett Hopkin (from DSR contract) |
+| ~~Google Drive sweep~~ | DONE — Drive OAuth resolved via DBA project's Desktop client; token at `~/.config/10rg/drive_shortcut_token.json` (per `reference_drive_oauth_clients.md`) |
 
 ---
 
@@ -101,6 +107,21 @@
 - 2026-05-03: Deep Draft portfolio audit — NotebookLM + Opus 4-step pipeline complete; final polished doc ready
 - 2026-05-03: 10 Research Group naming fix — 3 memory files corrected (MEMORY.md, reference_canonical_hierarchy.md, project_portfolio_status_apr29.md); CLAUDE.md HVRCRFT spelling fixed; duplicate NotebookLM notebook deleted
 - 2026-05-03: Label roster model — migrations 040 + 041 applied; tenx10_id bridge column, v_dsr_label_roster + v_artist_label_relationships views; on_dsr_label derived from dsr_artist_labels data
+- 2026-05-05: CLAUDE.md prune across umbrella + tenx10 + .claude (-52% / -62%); build-cycle skill; tenx10 rebuild partition plan
+- 2026-05-05: Phase-0c MGMT consolidation — scattered DSR artifacts filed into `MANAGEMENT-TENx10/`
+- 2026-05-06: Oracle Cloud VM live (`tenx10-dev-amd`, AMD E2.1.Micro Always Free, Ashburn AD-1, `ssh tenx10-dev`); A1 ARM 24-GB launcher polling for capacity
+- 2026-05-06: Tenx10 dashboard bird's-eye redesign + `/dashboard/deals` consolidation (Today/Map/Calendar) + ArtistSwitcher across 5 pages + roster aggregation
+- 2026-05-06: Tenx10 booking-agent inbound — PDF-aware ingest + 11-step decision engine (KB Module 29)
+- 2026-05-06: Migrations 047 release-as-project + 048 festivals applied to prod
+- 2026-05-07: Tenx10 booking-agent outbound (PR #4–#11) — proactive moves cron, manual run trigger, warm/cold pitch fallbacks, two-step roster lookup, persist-moves silent-drop fix, RLS recursion fix
+- 2026-05-07: Migrations 049 outbound_moves + 050 artist_members admin recursion applied
+- 2026-05-07: Trading-shadow Lane 3 lifted off the $5/trade cap; cheaper model + credit circuit breaker; leveraged ETFs (TQQQ/SOXL/SQQQ) at 3x; 75% confidence gate + 2:1 R:R + smart sells; options on Alpaca (paper-only ATM calls + puts)
+- 2026-05-08: DSR Run The Game (Dark Matter & Barooka) contract finalized — real legal parties (Mike Silva, Michael Zachary Thomas), aligned signature blocks, regenerated PDF
+- 2026-05-09: Dropbox Sign send pipeline (`_send_contract.cjs` + `_wrap_html.cjs`) — 5-signer order, gitignored .env in contracts dir
+- 2026-05-09: RELEASE_CHECKLIST_TEMPLATE per release; `scripts/release/` (confirm_release + drive_shortcut helpers); spec at `docs/superpowers/specs/2026-05-06-dsr-release-organizer.md`
+- 2026-05-09: `scripts/lyric-flagger/` explicit/language pipeline (Spotify API + LRCLIB / yt-dlp + faster-whisper, per-artist vocab files)
+- 2026-05-09: `MANAGEMENT-TENx10/clients/` per-artist working folders (DSR offers, HVRCRFT spotify-daily + s4a-export, WHOiSEE rider); `s4a-auth.json` gitignored locally
+- 2026-05-09: Tenx10 Gmail OAuth fix — refreshed-token write goes via service-role client (cookie context dead by `tokens` event); refresh_token preserved on re-consent
 
 ---
 

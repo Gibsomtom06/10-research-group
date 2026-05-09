@@ -160,6 +160,7 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 | **TENx10.co full rebuild — partition + execution plan (2026-05-05)** | `docs/superpowers/plans/2026-05-05-tenx10-rebuild-partition.md` |
 | **Content / meme generation framework (3-folder system)** | `docs/superpowers/specs/2026-05-05-content-meme-generation-framework.md` |
 | **AI Studio prototype extraction (early TENx10 prototype)** | `docs/superpowers/specs/2026-05-05-aistudio-prototype-extraction.md` |
+| **DSR release organizer (per-release Drive workflow)** | `docs/superpowers/specs/2026-05-06-dsr-release-organizer.md` |
 | **Strategic review + gaps audit (2026-04-28)** | `docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md` |
 | **Rollback Handler spec (Trader Sub)** | `products/trading-shadow/ROLLBACK_HANDLER_SPEC.md` |
 | **Cutover Runbook (graduation-gated)** | `products/trading-shadow/CUTOVER_RUNBOOK.md` |
@@ -219,3 +220,17 @@ Thomas's main thread is for thinking, not typing. Typing happens in subagent thr
 **DONE 2026-05-04:** `Projects\tenx10\` (off-OneDrive) confirmed as the active dev clone for the platform repo. `OneDrive\products\tenx10-platform\` retained as a read-only mirror to keep the umbrella's gitlink reference + browse-mode search consistent. Sync via `scripts/sync_tenx10_mirror.ps1`. Workspace `10-research.code-workspace` opens the standalone clone, not the mirror.
 
 **DONE 2026-05-04:** Umbrella backed up to GitHub for the first time (private repo `Gibsomtom06/10-research-group`). Was previously OneDrive-only. 9 chunked commits pushed: security cleanup, governance docs, reports, MGMT reorg, naming canonicalization, MHP migration, archive cleanup, trading-shadow updates, gitlink sync.
+
+**DONE 2026-05-05 → 2026-05-09 (umbrella + tenx10 platform shipments):**
+- 2026-05-05: CLAUDE.md prune across umbrella + tenx10 + .claude (-52% / -62%). Build-cycle skill added. Tenx10 rebuild partition plan written.
+- 2026-05-05: Phase-0c MGMT consolidation — scattered DSR artifacts filed into `MANAGEMENT-TENx10/`.
+- 2026-05-06: Oracle Cloud VM live (`tenx10-dev-amd`, AMD E2.1.Micro Always Free, Ashburn AD-1, `ssh tenx10-dev`). Polling launcher in `scripts/oracle/launch-a1-when-available.sh` for the 4-OCPU/24-GB A1 ARM until capacity opens.
+- 2026-05-06: Tenx10 dashboard bird's-eye redesign + `/dashboard/deals` consolidation + ArtistSwitcher across 5 pages + roster aggregation everywhere.
+- 2026-05-06: Tenx10 booking-agent inbound — PDF-aware ingest + 11-step decision engine (KB Module 29).
+- 2026-05-06: Migration 047 release-as-project + 048 festivals.
+- 2026-05-07: Tenx10 booking-agent outbound (PR #4–#11) — proactive moves cron, manual run trigger, warm/cold pitch, two-step roster lookup, persist-moves fix, RLS recursion fix. Migration 049 outbound_moves + 050 artist_members admin recursion.
+- 2026-05-07: Trading-shadow Lane 3 lifted off the $5/trade cap → real-money scale; cheaper model + credit circuit breaker; leveraged ETFs (TQQQ/SOXL/SQQQ) at 3x amplification; 75% confidence gate + 2:1 R:R + smart sell signals; options on Alpaca (paper-only ATM calls + puts).
+- 2026-05-08–09: DSR Run The Game contract finalized + Dropbox Sign send pipeline (`_send_contract.cjs` / `_wrap_html.cjs`). RELEASE_CHECKLIST_TEMPLATE per release. `scripts/release/` (confirm_release + drive_shortcut helpers). Spec at `docs/superpowers/specs/2026-05-06-dsr-release-organizer.md`.
+- 2026-05-09: `scripts/lyric-flagger/` explicit/language detection pipeline (Spotify API + LRCLIB / yt-dlp + faster-whisper). Per-artist vocab files address Whisper's plausible-but-wrong failure mode.
+- 2026-05-09: `MANAGEMENT-TENx10/clients/` per-artist working folders (DSR offers, HVRCRFT spotify-daily + s4a-export, WHOiSEE rider). `s4a-auth.json` gitignored locally.
+- 2026-05-09: Tenx10 Gmail OAuth persistence fix (service-role client for refreshed tokens; refresh_token preserved on re-consent).
