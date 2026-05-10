@@ -80,7 +80,7 @@ MANAGEMENT-TENx10/
 | **DirtySnatcha** | Lee Bray (aka Leigh Bray) | Dubstep, Riddim, Bass, Trap | BMI / 01017500116 | **Multi-label** — self-release + DSR (own label) + Dim Mak + Circus + Wakaan + Subsidia | Flagship; 136 tracks; ~8-9K MAU; PS 28; 17-show TMTYL 2026 tour (correction 2026-05-10: prior BRAIN entry only said "DSR (own label)") |
 | **WHOiSEE** | Brett Hopkin | Bass | BMI / 00779461097 (confirmed 2026-05-03, in DB) | **Multi-label** — releases on DSR + Circus + Subcarbon; Monstercat release upcoming | NC-based; cross-label artist (correction 2026-05-10: prior BRAIN entry said "DSR" only) |
 | **Dark Matter** | Isaac Tullos + Joseph Kalina | Bass | ASCAP / artist-level IPI unknown | **Multi-label** — releases on DSR + Wakaan + Circus | Chicago/Knoxville duo; managed; cross-label artist (correction 2026-05-10: prior BRAIN entry incorrectly said "Wakaan (NOT DSR)" — they release on all three) |
-| **Kotrax** | (TBD — TODO) | Bass Music / Dubstep | TODO | DSR | Denver-based; Mountain West specialist; 7 DSR tracks; TMTYL support (ABQ, Tampa, Butte) |
+| **Kotrax** | (TBD — TODO) | Bass Music / Dubstep | TODO | **Multi-label** — releases on DSR + self-release | Denver-based; Mountain West specialist; 7 DSR tracks; TMTYL support (ABQ, Tampa, Butte) (correction 2026-05-10: prior BRAIN entry only said "DSR") |
 | **HVRCRFT** | (TBD — TODO) | Bass Music / Dubstep | TODO | Independent (mgmt only) | Las Vegas + SF; West Coast specialist; Tier 2 support; DB ID 21454e1e |
 
 DSR's label-side roster has **additional artists who are signed to DSR but NOT under TENx10 management** — they're DSR releases only. See `labels/DirtySnatcha Records/BRAIN.md` for that distinction.

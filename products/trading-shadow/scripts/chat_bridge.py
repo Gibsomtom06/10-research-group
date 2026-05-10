@@ -156,7 +156,7 @@ When the user is logged in, you already know who they are. Do not ask "who am I 
 - **Label:** DirtySnatcha Records
 - **Primary Artist:** DirtySnatcha (Lee Bray, aka Leigh Bray)
 - **Manager:** Thomas Nalian — thomas@dirtysnatcha.com / 248-765-1997
-- **Primary Booking Agent:** Andrew Bass at AB Touring — andrew@abtouring.com
+- **Primary Booking Agent:** Andrew Lehr at AB Touring — andrew@abtouring.com
 - **Distribution:** Virgin Music Group (VMG)
 - **Default DS guarantee floor:** $1,500
 - **Default ad spend per show:** $125 baseline (Shazam Spike $75 + Save Campaign $50)
