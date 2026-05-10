@@ -24,7 +24,7 @@ Six columns mirror the lifecycle: **new**, **negotiating**, **awaiting my sig**,
 
 Offers don't always come direct from a promoter. Thomas has agents who relay:
 
-- **Andrew Bass / AB Touring** → `source = 'agent_ab'` (active primary, `andrew@abtouring.com`)
+- **Andrew Lehr / AB Touring** → `source = 'agent_ab'` (active primary, `andrew@abtouring.com`)
 - **Colton Anderson @ PRYSM Talent Agency** → `source = 'agent_prysm'` (`@prysmtalentagency.com` — 0010 used wrong `@prysmagency.com`; 0012 backfilled). **LEGACY** — being transitioned out via Adobe Sign "DirtySnatcha_Prysm_Mutual_Transition_and_Release".
 - **Other agents** → `source = 'agent_other'`
 - **Direct from promoter** → `source = 'direct_promoter'`

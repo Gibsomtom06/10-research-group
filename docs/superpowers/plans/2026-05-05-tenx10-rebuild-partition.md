@@ -57,7 +57,7 @@ BRIAN (capabilities: booking_agent for WHOiSEE's agency)
 LEIGH BRAY (capabilities: artist)
   /artist                         → artist
 
-ANDREW BASS (capabilities: booking_agent)
+ANDREW LEHR (capabilities: booking_agent)
   /booking                        → booking_agent
 ```
 

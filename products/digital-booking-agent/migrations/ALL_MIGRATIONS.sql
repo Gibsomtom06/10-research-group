@@ -1366,7 +1366,7 @@ select 'dsr_standard_deal_terms:' as info, * from dsr_standard_deal_terms;
 --
 -- Offers don't always come from promoters directly. Thomas's agents
 -- forward them too:
---   - Andrew Bass (AB Talent)
+--   - Andrew Lehr (AB Touring)
 --   - Colton @ PRYSM Talent Agency
 --   - potentially others
 --
@@ -1393,7 +1393,7 @@ begin
     if not exists (select 1 from pg_type where typname = 'offer_source') then
         create type offer_source as enum (
             'direct_promoter',        -- promoter emailed us directly
-            'agent_ab',               -- Andrew Bass / AB Talent relayed
+            'agent_ab',               -- Andrew Lehr / AB Touring relayed
             'agent_prysm',            -- PRYSM (Colton et al) relayed
             'agent_other',            -- some other agent (roster grows)
             'manual',                 -- Thomas entered it by hand
@@ -1440,8 +1440,8 @@ where o.contact_id = c.id
   and o.source is null
   and c.email ilike '%@prysmagency.com';
 
--- 2. Offers relayed by Andrew Bass (best-effort: name match on
---    contacts.full_name ilike 'andrew bass%' OR role='agent' with
+-- 2. Offers relayed by Andrew Lehr (best-effort: name match on
+--    contacts.full_name ilike 'andrew lehr%' OR role='agent' with
 --    that name). Tag as agent_ab.
 update offers o
 set source = 'agent_ab',
@@ -1451,8 +1451,8 @@ from contacts c
 where o.contact_id = c.id
   and o.source is null
   and (
-      c.full_name ilike 'andrew bass%'
-      or (c.role = 'agent' and c.full_name ilike '%bass%')
+      c.full_name ilike 'andrew lehr%'
+      or (c.role = 'agent' and c.full_name ilike '%lehr%')
   );
 
 -- 3. Offers imported from Gigwell (source_tag like 'gigwell_scrape:%')

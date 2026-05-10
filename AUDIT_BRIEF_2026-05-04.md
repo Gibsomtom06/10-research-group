@@ -121,7 +121,7 @@ This is the load-bearing principle. If you're auditing strategy, this is what to
 - Has the strongest "tell me your story" pitch hook in the portfolio: "I run 4 businesses out of one drive. Built DAD to fix it. Watch."
 
 ### MANAGEMENT-TENx10 (the management business)
-Thomas's actual artist roster + booking team. 5 artists (DirtySnatcha [Leigh Bray, Thomas's primary act], WHOiSEE, Dark Matter, Kotrax, HVRCRFT). Booking team includes Andrew Bass (AB Touring) and Colton Anderson (PRYSM Talent Agency, being phased out).
+Thomas's actual artist roster + booking team. 5 artists (DirtySnatcha [Leigh Bray, Thomas's primary act], WHOiSEE, Dark Matter, Kotrax, HVRCRFT). Booking team includes Andrew Lehr (AB Touring) and Colton Anderson (PRYSM Talent Agency, being phased out).
 
 DirtySnatcha 2026: 14 booked shows, ~$24,500 gross. Includes Electric Forest, Lost Lands, Rappin' the Rivers MT.
 

@@ -47,7 +47,7 @@ With the intelligence layer done, the critical path is now actually getting mail
    - New FK columns: `relayed_by_contact_id`, `promoter_contact_id`, `reply_to_contact_id`
    - `agent_commission_pct`, `agent_commission_paid_at`
    - Generated column: `net_to_artist = guarantee * (1 - commission/100)`
-   - Backfill from @prysmagency.com, Andrew Bass, gigwell source_tag
+   - Backfill from @prysmagency.com, Andrew Lehr, gigwell source_tag
    - Refreshed `v_offer_contract_status` with `source`, `net_to_artist`, `is_relayed`
    - `fn_offer_reply_to(offer_id)` RPC
 

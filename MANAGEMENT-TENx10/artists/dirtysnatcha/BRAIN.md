@@ -35,7 +35,7 @@ Manager contact: thomas@dirtysnatcha.com (Thomas Nalian)
 
 ## Booking
 
-- Primary agent: Andrew Bass (AB Touring) — andrew@abtouring.com
+- Primary agent: Andrew Lehr (AB Touring) — andrew@abtouring.com
 - Legacy agent: Colton Anderson (PRYSM) — colton@prysmtalentagency.com · 734-904-0224 — being transitioned out
 - Floor guarantee: $1,500
 - Commission: agent-routed 10/10/80, direct 20/80
