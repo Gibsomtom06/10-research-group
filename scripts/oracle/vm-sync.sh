@@ -28,10 +28,15 @@ CHANGED=$(git diff --name-only "$BEFORE" "$AFTER" 2>/dev/null || echo "")
 git reset --hard origin/master --quiet
 
 # Restart chat bridge if its code (env file is gitignored, so won't appear here)
-# changed.
+# changed. systemctl on a system-level unit needs root; ubuntu has NOPASSWD ALL
+# on this VM, so sudo -n is safe and won't prompt. Logs success or failure so
+# the next sync cycle is observable.
 if echo "$CHANGED" | grep -qE '^products/trading-shadow/scripts/chat_bridge\.py$'; then
-  /usr/bin/systemctl restart chat-bridge.service \
-    && echo "$(date -Iseconds) restarted chat-bridge after sync" >> "$HOME/dev/logs/vm-sync.log"
+  if sudo -n /usr/bin/systemctl restart chat-bridge.service; then
+    echo "$(date -Iseconds) restarted chat-bridge after sync" >> "$HOME/dev/logs/vm-sync.log"
+  else
+    echo "$(date -Iseconds) FAILED to restart chat-bridge (rc=$?)" >> "$HOME/dev/logs/vm-sync.log"
+  fi
 fi
 
 echo "$(date -Iseconds) synced $BEFORE -> $AFTER ($(echo "$CHANGED" | wc -l) files)" >> "$HOME/dev/logs/vm-sync.log"
