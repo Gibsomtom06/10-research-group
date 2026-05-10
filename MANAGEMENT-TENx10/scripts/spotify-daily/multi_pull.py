@@ -51,8 +51,11 @@ REGISTRY = {
     "WHOiSEE":      "7pA2OyYV0LxwdOvzJJe7CH",
     "Dark Matter":  "71c783dJDlJ3pqD7cFIOQq",
     "Kotrax":       "2uqBhmfMSA63cRR61btTdp",
-    # HVRCRFT skipped here — uses its own dedicated spotify_daily.py at
-    # clients/HVRCRFT/spotify-daily/. Fold in after 2026-05-13 event.
+    "HVRCRFT":      "7F5MkQ9b2m12d1mujO8fpw",
+    # HVRCRFT's standalone Windows scheduled task still runs (handles the
+    # daily NotebookLM push that this runner doesn't do). Both write idempotently
+    # to Supabase — extra Spotify API call is the only redundancy. Retire the
+    # Windows task once NotebookLM push is folded into this runner.
 }
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
