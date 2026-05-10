@@ -161,6 +161,7 @@ This section was added per Brain Gap #4 from the 2026-04-28 strategic review.
 | **Content / meme generation framework (3-folder system)** | `docs/superpowers/specs/2026-05-05-content-meme-generation-framework.md` |
 | **AI Studio prototype extraction (early TENx10 prototype)** | `docs/superpowers/specs/2026-05-05-aistudio-prototype-extraction.md` |
 | **DSR release organizer (per-release Drive workflow)** | `docs/superpowers/specs/2026-05-06-dsr-release-organizer.md` |
+| **TENx10 action-surface audit (per-page row-action gap, 2026-05-09)** | `docs/superpowers/specs/2026-05-09-tenx10-action-surface-audit.md` |
 | **Strategic review + gaps audit (2026-04-28)** | `docs/superpowers/specs/2026-04-28-strategic-review-and-gaps.md` |
 | **Rollback Handler spec (Trader Sub)** | `products/trading-shadow/ROLLBACK_HANDLER_SPEC.md` |
 | **Cutover Runbook (graduation-gated)** | `products/trading-shadow/CUTOVER_RUNBOOK.md` |
@@ -221,7 +222,7 @@ Thomas's main thread is for thinking, not typing. Typing happens in subagent thr
 
 **DONE 2026-05-04:** Umbrella backed up to GitHub for the first time (private repo `Gibsomtom06/10-research-group`). Was previously OneDrive-only. 9 chunked commits pushed: security cleanup, governance docs, reports, MGMT reorg, naming canonicalization, MHP migration, archive cleanup, trading-shadow updates, gitlink sync.
 
-**DONE 2026-05-05 → 2026-05-09 (umbrella + tenx10 platform shipments):**
+**DONE 2026-05-05 → 2026-05-10 (umbrella + tenx10 platform shipments):**
 - 2026-05-05: CLAUDE.md prune across umbrella + tenx10 + .claude (-52% / -62%). Build-cycle skill added. Tenx10 rebuild partition plan written.
 - 2026-05-05: Phase-0c MGMT consolidation — scattered DSR artifacts filed into `MANAGEMENT-TENx10/`.
 - 2026-05-06: Oracle Cloud VM live (`tenx10-dev-amd`, AMD E2.1.Micro Always Free, Ashburn AD-1, `ssh tenx10-dev`). Polling launcher in `scripts/oracle/launch-a1-when-available.sh` for the 4-OCPU/24-GB A1 ARM until capacity opens.
@@ -234,3 +235,5 @@ Thomas's main thread is for thinking, not typing. Typing happens in subagent thr
 - 2026-05-09: `scripts/lyric-flagger/` explicit/language detection pipeline (Spotify API + LRCLIB / yt-dlp + faster-whisper). Per-artist vocab files address Whisper's plausible-but-wrong failure mode.
 - 2026-05-09: `MANAGEMENT-TENx10/clients/` per-artist working folders (DSR offers, HVRCRFT spotify-daily + s4a-export, WHOiSEE rider). `s4a-auth.json` gitignored locally.
 - 2026-05-09: Tenx10 Gmail OAuth persistence fix (service-role client for refreshed tokens; refresh_token preserved on re-consent).
+- 2026-05-09: TENx10 action-surface audit — per-page row-action gap spec written (`docs/superpowers/specs/2026-05-09-tenx10-action-surface-audit.md`). Diagnosis: TENx10 is a viewer not an action surface; rule is "every visible row needs a button that does the thing." Spec covers per-page audit, schema gaps, agent tool registry, P0/P1/P2 phasing.
+- 2026-05-10: TENx10 action-surface Phase 1 shipped (commits `1dd2f63` / `5deb2d4` / `575b356`, push `0df778d..575b356` → Vercel). Outbound moves row actions + PATCH endpoint; shared `<DealRowActions/>` on home Inbox + briefing + deals/Today; briefing inline Mark done + Draft response; outreach +Add & pitch on Promoter Research + Weekday Finder + pitch_status dropdown on PitchCard; artists row Spotify daily drawer + per-artist filter shortcuts. Phase 2 (Spotify→Supabase mirror, tasks.snoozed_until, BMI Live / ASCAP OnStage row actions, Add to Calendar) queued in `AUTONOMOUS_QUEUE.md`.

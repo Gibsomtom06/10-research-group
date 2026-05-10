@@ -8,7 +8,7 @@
 - I update this file with status as agents land + new items emerge
 - Thomas can reorder priorities by editing this file directly
 
-**Last updated:** 2026-05-09
+**Last updated:** 2026-05-10
 
 ---
 
@@ -22,6 +22,7 @@
 
 | Pri | Task | Why it matters | Model | Est duration | Blast radius |
 |---|---|---|---|---|---|
+| **P0** | **TENx10 action-surface audit — Phase 2** (Spotify-daily mirror to Supabase + tasks.snoozed_until + migration ledger reconciliation + BMI Live / ASCAP OnStage portal-deeplink + Add to Calendar) | Phase 1 shipped 2026-05-10 (commits `1dd2f63` / `5deb2d4` / `575b356`). Phase 2 unblocks: (a) Spotify daily drawer on Vercel (umbrella file path is not mounted on Vercel — needs Supabase mirror per spec migration 057); (b) Snooze action on briefing tasks (column doesn't exist); (c) reconcile migration ledger (023/036/038/040/041 referenced in BRAIN.md but not in `supabase/migrations/` — applied directly to prod or labeled differently); (d) live-perf registration row actions per show (BMI Live / ASCAP OnStage are external portals — pattern is deep-link prefilled form + manual mark-registered against `live_perf_registrations`); (e) Add to Calendar via Google Calendar tool. Spec: `docs/superpowers/specs/2026-05-09-tenx10-action-surface-audit.md` § Phase 2. | sonnet | 1–2 days | low (tenx10 platform) |
 | **P0** | **Discord Xai — Supabase live context (Phase 1 of "everything connected")** | Today Xai-via-Discord is prompt-only. User wants roster/shows/offers/tasks/release_projects injected on first turn so #briefing answers "live data" questions like the platform does. Architecture chosen 2026-05-09: Option A (context injection) first, Option B (Anthropic tool-use loop for Gmail/Drive/Calendar/Meta) layered on. Sub-tasks: 1) transfer SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY from products/tenx10-platform/.env.local to .env.paper (local + VM); 2) `pip install supabase` in `~/dev/10-research-group/.venv-bot/` on VM; 3) modify products/trading-shadow/scripts/chat_bridge.py: add `_build_xai_live_context_sync()` mirroring src/app/api/agent/route.ts:138 buildManagerContext, cache 5 min per channel, prepend to XAI_SYSTEM_PROMPT, drop the "no live data" paragraph from XAI_SYSTEM_PROMPT lines 145-146; 4) commit + push (vm-sync deploys; manual restart needed because .env edits don't trigger auto-restart). | sonnet | 1 hr | low (read-only Supabase) |
 | **P0** | **Booking Agent v2 — B1 routing-gap-first view** (per-artist gap days + corridor cities) | The abstraction a real booking agent works in. Gates B2/B3. | sonnet | 2–4 hrs | low (tenx10 platform) |
 | **P0** | **Booking Agent v2 — B2 external promoter research action** (19hz / EDMtrain / Bandsintown / Songkick / venue calendars) | Today's outbound is pure DB self-reference; this is the live-data layer | sonnet + agentic research | 4–6 hrs | low |
@@ -123,6 +124,7 @@
 - 2026-05-09: `scripts/lyric-flagger/` explicit/language pipeline (Spotify API + LRCLIB / yt-dlp + faster-whisper, per-artist vocab files)
 - 2026-05-09: `MANAGEMENT-TENx10/clients/` per-artist working folders (DSR offers, HVRCRFT spotify-daily + s4a-export, WHOiSEE rider); `s4a-auth.json` gitignored locally
 - 2026-05-09: Tenx10 Gmail OAuth fix — refreshed-token write goes via service-role client (cookie context dead by `tokens` event); refresh_token preserved on re-consent
+- 2026-05-10: TENx10 action-surface audit Phase 1 shipped (commits `1dd2f63` / `5deb2d4` / `575b356`, push `0df778d..575b356` → Vercel) — outbound moves row actions (Draft pitch / Pitched / Dismiss / Convert + PATCH `/api/booking-agent/outbound/[moveId]`); shared `<DealRowActions/>` reused on home Inbox + briefing + deals/Today (action items + pipeline columns + confirmed-30d); briefing inline Mark done via `/api/tasks/toggle` + Draft response via DealRowActions; outreach +Add & pitch on Promoter Research + Weekday Finder + pitch_status dropdown on PitchCard; artists row Spotify daily drawer (`/api/artists/[id]/spotify-daily`) + per-artist filter shortcuts to deals/releases. Build clean (117 pages, 17s tsc). 5 files added + 8 modified. Spec: `docs/superpowers/specs/2026-05-09-tenx10-action-surface-audit.md`.
 
 ---
 
