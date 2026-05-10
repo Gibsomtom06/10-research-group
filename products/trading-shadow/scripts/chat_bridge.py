@@ -45,6 +45,8 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import time
+import traceback
 from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
@@ -53,6 +55,12 @@ from typing import Optional
 import discord
 from anthropic import Anthropic
 from dotenv import load_dotenv
+
+try:
+    from supabase import create_client as _supabase_create_client, Client as _SupabaseClient
+except ImportError:  # pragma: no cover — bot will fall back to no-live-context mode
+    _supabase_create_client = None
+    _SupabaseClient = None
 
 
 # Load .env.{MODE} like config.py does. Default paper because it has the
@@ -70,6 +78,17 @@ ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 IDEAS_INBOX_CHANNEL_ID = os.environ.get("IDEAS_INBOX_CHANNEL_ID")
 XAI_CHAT_CHANNEL_ID = os.environ.get("XAI_CHAT_CHANNEL_ID")
 CLAUDE_CHAT_CHANNEL_ID = os.environ.get("CLAUDE_CHAT_CHANNEL_ID")
+
+# Supabase (read-only, service-role) — used to inject live manager context into
+# the Xai system prompt on every #briefing turn. NEXT_PUBLIC_SUPABASE_URL is
+# accepted as an alias because tenx10's .env.local uses that name.
+SUPABASE_URL = os.environ.get("SUPABASE_URL") or os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+# Manager identity for the live-context block. The platform's /api/agent route
+# resolves this from the authenticated user; here we hard-code Thomas's manager
+# row since Discord doesn't have an auth concept.
+MANAGER_USER_ID = os.environ.get("MANAGER_USER_ID")  # uuid in auth.users / artists.manager_id
+MANAGER_EMAIL = os.environ.get("MANAGER_EMAIL", "thomas@dirtysnatcha.com")
 
 XAI_MODEL = os.environ.get("XAI_MODEL", "claude-sonnet-4-6")
 CLAUDE_MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-4-7")
@@ -143,7 +162,7 @@ When the user is logged in, you already know who they are. Do not ask "who am I 
 - **Default ad spend per show:** $125 baseline (Shazam Spike $75 + Save Campaign $50)
 
 ## DISCORD-SPECIFIC NOTE
-You are speaking through a Discord bot in Thomas's private server. You do NOT have live access to Supabase data here (no roster snapshot, no deals, no metrics). When asked something that needs live data ("show me today's bookings"), say so and tell Thomas to check the platform directly. For strategy, voice, framework, and decision-tree questions, you have everything you need — answer fully.
+You are speaking through a Discord bot in Thomas's private server. A live Supabase manager-context block (roster, upcoming confirmed shows, pipeline negotiations, open tasks, 90-day revenue) is prepended to this prompt on every turn — refresh window is 5 minutes per channel. Use the data first; don't tell Thomas to "check the platform directly" for things you can already see.
 
 Keep responses under 1800 characters when possible (Discord splits messages awkwardly above 2000). For long answers, split into 2 messages with "(1/2)" "(2/2)" markers."""
 
@@ -231,6 +250,239 @@ He has ADHD and information-spews ideas. The pattern that has cost him weeks is:
 - Thomas's voice: casual, direct, lowercase, no marketing buzzwords
 
 Keep responses under 1800 characters when possible. For long answers, split into 2 messages with "(1/2)" "(2/2)" markers."""
+
+
+# ---------------------------------------------------------------------------
+# Live Supabase manager context (Phase 1 of "everything connected").
+#
+# Mirrors src/app/api/agent/route.ts:138 buildManagerContext from the tenx10
+# platform: pull the manager's roster, upcoming confirmed shows, active
+# pipeline deals, open tasks, and 90-day confirmed revenue. Cache per Discord
+# channel for 5 minutes — long enough to avoid hammering Supabase on rapid-
+# fire turns, short enough that #briefing answers reflect today's reality.
+#
+# Failure mode: if Supabase is unreachable (no key, network error, schema
+# drift), log to stdout and fall through to the original prompt minus the
+# live-context block. The bot must keep responding even when live data is
+# down.
+# ---------------------------------------------------------------------------
+LIVE_CONTEXT_TTL_SECONDS = 5 * 60
+_live_context_cache: dict[int, tuple[float, str]] = {}
+_supabase_singleton = None  # lazy init; keep optional supabase import safe
+
+
+def _supabase_client():
+    global _supabase_singleton
+    if _supabase_singleton is not None:
+        return _supabase_singleton
+    if _supabase_create_client is None:
+        return None
+    if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+        return None
+    try:
+        _supabase_singleton = _supabase_create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+        return _supabase_singleton
+    except Exception as e:  # pragma: no cover
+        print(f"[live-context] supabase client init failed: {type(e).__name__}: {e}")
+        return None
+
+
+def _build_xai_live_context_sync() -> Optional[str]:
+    """Mirror of buildManagerContext() in tenx10's src/app/api/agent/route.ts.
+
+    Pulls Thomas's roster + deals + tasks + 90d revenue using the service-role
+    key (Discord has no auth concept). Returns a formatted string ready to
+    prepend to the Xai system prompt, or None on any failure (so the caller
+    can fall back to prompt-only mode).
+    """
+    sb = _supabase_client()
+    if sb is None:
+        return None
+    if not MANAGER_USER_ID:
+        return None
+
+    today = datetime.now(timezone.utc).date().isoformat()
+    ninety_days_ago = (datetime.now(timezone.utc).date()).isoformat()
+    # 90-day window: today minus 90 days
+    from datetime import timedelta
+    ninety_days_ago = (datetime.now(timezone.utc).date() - timedelta(days=90)).isoformat()
+
+    try:
+        artists_resp = (
+            sb.table("artists")
+            .select("id, name, stage_name, genre, spotify_artist_id, is_managed")
+            .eq("manager_id", MANAGER_USER_ID)
+            .order("name")
+            .execute()
+        )
+        artists = artists_resp.data or []
+    except Exception as e:
+        print(f"[live-context] artists query failed: {type(e).__name__}: {e}")
+        return None
+
+    if not artists:
+        return (
+            f"MANAGER CONTEXT — THOMAS NALIAN / TENx10\n"
+            f"Today: {today}\n"
+            f"Manager: {MANAGER_EMAIL}\n"
+            f"No artists on roster yet."
+        )
+
+    artist_ids = [a["id"] for a in artists]
+    artist_map = {a["id"]: (a.get("stage_name") or a.get("name") or "Unknown") for a in artists}
+
+    upcoming_deals: list = []
+    pending_deals: list = []
+    open_tasks: list = []
+    recent_deals: list = []
+
+    try:
+        upcoming_deals = (
+            sb.table("deals")
+            .select("id, title, show_date, offer_amount, status, artist_id, deal_points")
+            .in_("artist_id", artist_ids)
+            .eq("status", "confirmed")
+            .gte("show_date", today)
+            .order("show_date", desc=False)
+            .limit(15)
+            .execute()
+        ).data or []
+    except Exception as e:
+        print(f"[live-context] upcoming_deals failed: {type(e).__name__}: {e}")
+
+    try:
+        pending_deals = (
+            sb.table("deals")
+            .select("id, title, show_date, offer_amount, status, artist_id, deal_points")
+            .in_("artist_id", artist_ids)
+            .in_("status", ["inquiry", "offer", "negotiating"])
+            .order("show_date", desc=False)
+            .limit(10)
+            .execute()
+        ).data or []
+    except Exception as e:
+        print(f"[live-context] pending_deals failed: {type(e).__name__}: {e}")
+
+    try:
+        open_tasks = (
+            sb.table("tasks")
+            .select("id, title, due_date, status, artist_id")
+            .in_("artist_id", artist_ids)
+            .neq("status", "done")
+            .order("due_date", desc=False)
+            .limit(10)
+            .execute()
+        ).data or []
+    except Exception as e:
+        print(f"[live-context] open_tasks failed: {type(e).__name__}: {e}")
+
+    try:
+        recent_deals = (
+            sb.table("deals")
+            .select("offer_amount, status, artist_id, show_date")
+            .in_("artist_id", artist_ids)
+            .in_("status", ["confirmed", "completed"])
+            .gte("show_date", ninety_days_ago)
+            .execute()
+        ).data or []
+    except Exception as e:
+        print(f"[live-context] recent_deals failed: {type(e).__name__}: {e}")
+
+    # Roster lines
+    roster_lines = []
+    for a in artists:
+        name = a.get("stage_name") or a.get("name") or "Unknown"
+        role = "label act" if a.get("is_managed") is False else "managed"
+        suffix = ""
+        if a.get("genre"):
+            suffix += f" · {a['genre']}"
+        if a.get("spotify_artist_id"):
+            suffix += " · Spotify linked"
+        roster_lines.append(f"- {name} ({role}){suffix}")
+    roster_block = "\n".join(roster_lines)
+
+    # Confirmed upcoming shows
+    confirmed_lines = []
+    for d in upcoming_deals:
+        pts = d.get("deal_points") or {}
+        if not isinstance(pts, dict):
+            pts = {}
+        city = pts.get("city") or d.get("title") or "?"
+        state = f", {pts.get('state')}" if pts.get("state") else ""
+        artist = artist_map.get(d.get("artist_id"), "Unknown")
+        amt = d.get("offer_amount")
+        amt_str = f" · ${int(amt):,}" if amt not in (None, "") else ""
+        confirmed_lines.append(f"- {d.get('show_date')}: {city}{state} · {artist}{amt_str}")
+    confirmed_block = "\n".join(confirmed_lines) or "None confirmed."
+
+    # Pipeline (negotiating / offer / inquiry)
+    pipeline_lines = []
+    for d in pending_deals:
+        pts = d.get("deal_points") or {}
+        if not isinstance(pts, dict):
+            pts = {}
+        city = pts.get("city") or d.get("title") or "?"
+        artist = artist_map.get(d.get("artist_id"), "Unknown")
+        amt = d.get("offer_amount")
+        amt_str = f" · ${int(amt):,}" if amt not in (None, "") else ""
+        status_str = (d.get("status") or "?").upper()
+        pipeline_lines.append(f"- [{status_str}] {city} · {artist}{amt_str}")
+    pipeline_block = "\n".join(pipeline_lines) or "Pipeline clear."
+
+    # Open tasks (no priority column on tasks today; route.ts handles missing
+    # priority with a NORMAL fallback — match that behavior)
+    task_lines = []
+    for t in open_tasks:
+        due = f" · due {t.get('due_date')}" if t.get("due_date") else ""
+        whose = artist_map.get(t.get("artist_id"), "General")
+        task_lines.append(f"- [NORMAL] {t.get('title')}{due} · {whose}")
+    task_block = "\n".join(task_lines) or "No open tasks."
+
+    # 90-day confirmed revenue
+    total_90d = 0
+    for d in recent_deals:
+        try:
+            total_90d += int(float(d.get("offer_amount") or 0))
+        except (TypeError, ValueError):
+            pass
+
+    return (
+        f"MANAGER CONTEXT — THOMAS NALIAN / TENx10\n"
+        f"Today: {today}\n\n"
+        f"ROSTER ({len(artists)} artists):\n{roster_block}\n\n"
+        f"UPCOMING CONFIRMED SHOWS:\n{confirmed_block}\n\n"
+        f"PIPELINE ({len(pending_deals)} active negotiations):\n{pipeline_block}\n\n"
+        f"OPEN TASKS:\n{task_block}\n\n"
+        f"90-DAY CONFIRMED REVENUE: ${total_90d:,}"
+    )
+
+
+def _get_cached_live_context(channel_id: int) -> Optional[str]:
+    """Return cached live-context for this channel if fresh, else rebuild.
+
+    Cache is keyed per channel so each Discord room sees its own refresh
+    window. Returns None on any failure path; caller treats None as
+    "skip the live block, use the bare system prompt."
+    """
+    now = time.time()
+    cached = _live_context_cache.get(channel_id)
+    if cached and (now - cached[0]) < LIVE_CONTEXT_TTL_SECONDS:
+        return cached[1]
+    try:
+        block = _build_xai_live_context_sync()
+    except Exception as e:
+        print(f"[live-context] unhandled error: {type(e).__name__}: {e}")
+        traceback.print_exc()
+        block = None
+    if block:
+        _live_context_cache[channel_id] = (now, block)
+    return block
+
+
+async def get_live_context_for_channel(channel_id: int) -> Optional[str]:
+    """Async wrapper — supabase-py is sync, so push to executor like Anthropic."""
+    loop = asyncio.get_running_loop()
+    return await loop.run_in_executor(None, _get_cached_live_context, channel_id)
 
 
 # ---------------------------------------------------------------------------
@@ -395,7 +647,8 @@ async def on_ready():
     if IDEAS_INBOX_ID:
         routes.append(f"  ideas-inbox: channel {IDEAS_INBOX_ID}")
     if XAI_CHAT_ID:
-        routes.append(f"  xai-chat:    channel {XAI_CHAT_ID} (model={XAI_MODEL})")
+        live = "live-supabase" if (_supabase_client() is not None and MANAGER_USER_ID) else "prompt-only"
+        routes.append(f"  xai-chat:    channel {XAI_CHAT_ID} (model={XAI_MODEL}, {live})")
     if CLAUDE_CHAT_ID:
         routes.append(f"  claude-chat: channel {CLAUDE_CHAT_ID} (model={CLAUDE_MODEL})")
     if not routes:
@@ -407,9 +660,16 @@ async def on_ready():
             print(r)
 
 
-async def _handle_chat(message: discord.Message, *, system_prompt: str, model: str, label: str) -> None:
+async def _handle_chat(message: discord.Message, *, system_prompt: str, model: str, label: str,
+                        inject_live_context: bool = False) -> None:
     """Common path for xai-chat and claude-chat: send typing, call Claude,
-    persist memory, post reply (split if needed)."""
+    persist memory, post reply (split if needed).
+
+    When inject_live_context=True (Xai channel), prepend a fresh-or-cached
+    Supabase manager-context block to the system prompt. 5-min TTL per
+    channel. If Supabase is unreachable, fall through to the bare prompt
+    so the bot keeps responding.
+    """
     user_text = (message.content or "").strip()
     if not user_text:
         return
@@ -417,8 +677,13 @@ async def _handle_chat(message: discord.Message, *, system_prompt: str, model: s
     async with message.channel.typing():
         try:
             channel_id = message.channel.id
+            effective_system_prompt = system_prompt
+            if inject_live_context:
+                live_block = await get_live_context_for_channel(channel_id)
+                if live_block:
+                    effective_system_prompt = f"{live_block}\n\n---\n\n{system_prompt}"
             messages = _build_messages_for_anthropic(channel_id, user_text)
-            reply = await call_claude(model, system_prompt, messages)
+            reply = await call_claude(model, effective_system_prompt, messages)
             _append_history(channel_id, "user", user_text)
             _append_history(channel_id, "assistant", reply)
         except Exception as e:
@@ -467,9 +732,16 @@ async def on_message(message: discord.Message):
             await message.channel.send(chunk)
         return
 
-    # ROUTE 2: Xai chat
+    # ROUTE 2: Xai chat — gets live Supabase manager context prepended on every
+    # turn (Phase 1 of "everything connected", 2026-05-09). Cached 5 min/channel.
     if XAI_CHAT_ID and cid == XAI_CHAT_ID:
-        await _handle_chat(message, system_prompt=XAI_SYSTEM_PROMPT, model=XAI_MODEL, label="Xai")
+        await _handle_chat(
+            message,
+            system_prompt=XAI_SYSTEM_PROMPT,
+            model=XAI_MODEL,
+            label="Xai",
+            inject_live_context=True,
+        )
         return
 
     # ROUTE 3: Claude chat
