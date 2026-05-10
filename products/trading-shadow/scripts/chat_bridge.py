@@ -312,6 +312,7 @@ def _build_xai_live_context_sync() -> Optional[str]:
             sb.table("artists")
             .select("id, name, stage_name, genre, spotify_artist_id, is_managed")
             .eq("manager_id", MANAGER_USER_ID)
+            .eq("is_managed", True)
             .order("name")
             .execute()
         )

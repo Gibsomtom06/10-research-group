@@ -2,7 +2,7 @@
 
 The TENx10 management business — Thomas Nalian's artist management company. **Distinct from the platform product** (`/products/tenx10-platform/`). The business uses the platform; the business is the canonical proof of concept.
 
-**Last updated:** 2026-04-30
+**Last updated:** 2026-05-10
 
 ---
 
@@ -77,9 +77,9 @@ MANAGEMENT-TENx10/
 
 | Artist | Real name | Genre | PRO / IPI | Label home | Status |
 |---|---|---|---|---|---|
-| **DirtySnatcha** | Lee Bray (aka Leigh Bray) | Dubstep, Riddim, Bass, Trap | BMI / 01017500116 | DSR (own label) | Flagship; 136 tracks; ~8-9K MAU; PS 28; 17-show TMTYL 2026 tour |
-| **WHOiSEE** | Brett Hopkin | Bass | BMI / IPI in emails NOT in DB | DSR | NC-based; Circus Records UK EP; cross-promo opportunity |
-| **Dark Matter** | Isaac Tullos + Joseph Kalina | Bass | ASCAP / artist-level IPI unknown | **Wakaan** (NOT DSR) | Chicago/Knoxville duo; managed but signed to Wakaan label |
+| **DirtySnatcha** | Lee Bray (aka Leigh Bray) | Dubstep, Riddim, Bass, Trap | BMI / 01017500116 | **Multi-label** — self-release + DSR (own label) + Dim Mak + Circus + Wakaan + Subsidia | Flagship; 136 tracks; ~8-9K MAU; PS 28; 17-show TMTYL 2026 tour (correction 2026-05-10: prior BRAIN entry only said "DSR (own label)") |
+| **WHOiSEE** | Brett Hopkin | Bass | BMI / 00779461097 (confirmed 2026-05-03, in DB) | **Multi-label** — releases on DSR + Circus + Subcarbon; Monstercat release upcoming | NC-based; cross-label artist (correction 2026-05-10: prior BRAIN entry said "DSR" only) |
+| **Dark Matter** | Isaac Tullos + Joseph Kalina | Bass | ASCAP / artist-level IPI unknown | **Multi-label** — releases on DSR + Wakaan + Circus | Chicago/Knoxville duo; managed; cross-label artist (correction 2026-05-10: prior BRAIN entry incorrectly said "Wakaan (NOT DSR)" — they release on all three) |
 | **Kotrax** | (TBD — TODO) | Bass Music / Dubstep | TODO | DSR | Denver-based; Mountain West specialist; 7 DSR tracks; TMTYL support (ABQ, Tampa, Butte) |
 | **HVRCRFT** | (TBD — TODO) | Bass Music / Dubstep | TODO | Independent (mgmt only) | Las Vegas + SF; West Coast specialist; Tier 2 support; DB ID 21454e1e |
 
@@ -137,8 +137,8 @@ DSR's label-side roster has **additional artists who are signed to DSR but NOT u
 | Item | Status | Owner |
 |---|---|---|
 | Fill Kotrax + HVRCRFT BRAIN with real artist context | **Done 2026-05-03** | All 4 artist BRAINs updated |
-| Capture WHOiSEE BMI IPI from email and add to artists table | Pending | Lookup + entry |
-| Confirm Dark Matter ASCAP IPI numbers | Pending | ASCAP Member Services lookup |
+| Capture WHOiSEE BMI IPI from email and add to artists table | **Done 2026-05-03** | 00779461097 in DB |
+| Confirm Dark Matter ASCAP IPI numbers | Pending — needs ASCAP Member Services call | Isaac/Joseph writer IPIs known (1262457258 / 1262457454); the act-level "Dark Matter" IPI (if one exists) requires a phone lookup. ACE Repertoire web search is SPA-blocked + "Dark Matter" returns too many false positives to be useful. |
 | LAB10 Publishing MLC submission (0 of ~82 tracks registered) | Submission-ready | `DirtySnatcha_MLC_Submissions.xlsx` → `LAB10_Pub_Full` sheet |
 | SoundExchange registration (DSR rights owner + Lee Bray performer) | Submission-ready | `SoundExchange_DSR_RightsOwner_Prep.csv` |
 | CMRRA accounts 02274554 / 02274555 activation | Pending | Activate before submitting |
@@ -225,13 +225,13 @@ DSR's label-side roster has **additional artists who are signed to DSR but NOT u
 
 | Decision | Answer-by | Context |
 |---|---|---|
-| **Management vs. SaaS as primary** | 2026-05-10 | Determines whether Stripe/billing is P0 or internal-only tooling. Currently both at half-strength. |
-| **DBA: standalone or absorb into TENx10** | 2026-05-10 | Territorial overlap with TENx10 booking features. DBA fully built, blocked on Supabase provisioning since Apr 22. |
+| ~~Management vs. SaaS as primary~~ | ~~2026-05-10~~ | **Resolved 2026-05-10 — MANAGEMENT PRIMARY.** The platform exists to run TENx10's management work. Stripe / multi-tenant / signup are NOT P0. Public sign-up demoted to a footer link on tenx10.co (preserves optionality without making SaaS the surface). Forcing function: Thomas leaves Wednesday 2026-05-13 for a major networking event and the platform needs to read as "the operating system I built to manage my roster and run DSR" by then. Build cadence shifts to **21-day cycles** (Cycle 1: 2026-05-10 → 2026-05-31; cycles align to the 21-day cadence going forward instead of 90-day horizons). |
+| ~~DBA: standalone or absorb into TENx10~~ | ~~2026-05-10~~ | **Resolved 2026-05-10 — ABSORB.** DBA's logic moves into TENx10's booking-agent module. DBA repo becomes snapshot/archive. No second SaaS product. The Booking Agent v2 B1/B2/B3 work already in flight is the consolidation path. Removes territorial overlap; one codebase to maintain. |
 | **Revenue-funds-trading** | Before live Alpaca cutover | Does umbrella revenue capitalize the live account, or does trading raise its own capital? $0 in live account currently. |
 | **ReAgent vs. Orchestral AI evaluation** | Before next agent ships | Which orchestration substrate does Factory Boss sit on? |
-| **WHOiSEE BMI IPI** | 2026-05-10 | In emails/contracts somewhere. Look up, add to DB. 15-min task. |
-| **Dark Matter ASCAP artist IPI** | 2026-05-10 | Call ASCAP Member Services or search ASCAP Repertoire. |
+| ~~WHOiSEE BMI IPI~~ | ~~2026-05-10~~ | **Resolved 2026-05-03** — 00779461097, in DB |
+| **Dark Matter ASCAP artist IPI** | 2026-05-10 (still pending) | ASCAP Member Services phone call required — ACE Repertoire is a SPA so web lookup is blocked; "Dark Matter" name search returns too many false positives. Writer IPIs known: Isaac Tullos 1262457258, Joseph Kalina 1262457454. Open question: does the act "Dark Matter" have its own act-level IPI distinct from the writers, or is the writer IPI sufficient for ASCAP OnStage filings? Either resolves the gap. |
 
 ---
 
-*BRAIN v2 — 2026-05-03. Added: revenue state per artist, pilots section, operating cadence, open decisions with answer-by dates. Next update due: 2026-05-10 (weekly Monday review).*
+*BRAIN v3 — 2026-05-10 weekly review. WHOiSEE BMI IPI resolved (00779461097, in DB since 2026-05-03 — was already done but not reflected here). Dark Matter ASCAP IPI lookup deferred to phone call (ACE Repertoire blocked). Two strategic decisions still pending Thomas's call: Management vs SaaS as primary; DBA standalone vs absorb into TENx10. Next update due: 2026-05-17.*
