@@ -8,7 +8,7 @@
 - I update this file with status as agents land + new items emerge
 - Thomas can reorder priorities by editing this file directly
 
-**Last updated:** 2026-05-10
+**Last updated:** 2026-05-10 (PM — GTM decided: Management primary; 21-day cycles; Wed 2026-05-13 networking event = forcing function for management-firm positioning on tenx10.co)
 
 ---
 
@@ -48,7 +48,7 @@
 - TENx10 platform site UX revision — management-first restructure (per BUSINESS_HIERARCHY.md)
 - 10researchgroup.com umbrella site — Phase 1 hierarchy index (per positioning spec)
 - DSP API integrations to populate Spotify/Apple/etc. IDs in DSR_CLEAN_DATABASE
-- DBA Phase 1 Supabase migration unblock
+- ~~DBA Phase 1 Supabase migration unblock~~ — **REPLACED 2026-05-10:** Absorb DBA into TENx10 booking-agent module (decision in MANAGEMENT-TENx10/BRAIN.md open decisions table). Booking Agent v2 B1/B2/B3 already in P0 is the consolidation path. Open work: archive `products/digital-booking-agent/` to `_archive/superseded/`, port any DBA-specific logic that isn't already in tenx10's booking-agent
 - DAD v1 logic recovery (search laptop OR ask Thomas for filename)
 - Music organization workflow file recovery (laptop)
 - Tenx10 platform: artist-tier `/artist/chat` UI separated from manager `/api/agent`
