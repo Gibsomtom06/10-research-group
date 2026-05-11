@@ -72,3 +72,11 @@ _archive/projects-10rg-2026-05-05/
 
 # Model router runtime decisions log
 **/model_router/decisions.jsonl
+
+# Symphonic distributor raw CSVs — sensitive royalty data, lives in
+# Supabase symphonic_royalty_lines table. Local cache only.
+MANAGEMENT-TENx10/labels/*/distribution/symphonic/statements/
+MANAGEMENT-TENx10/scripts/symphonic/*.log
+
+# Spotify multi-label backfill run logs
+MANAGEMENT-TENx10/scripts/spotify-daily/*.log
