@@ -1,113 +1,54 @@
 #!/usr/bin/env python3
 """Shared Spotify daily autopull — runs for every managed artist.
 
-Writes per-artist CSV + markdown snapshot into
-    MANAGEMENT-TENx10/clients/<stage_name>/spotify-daily/
-matching the file shape produced by HVRCRFT/spotify_daily.py so the
-Tenx10 backfill (scripts/backfill/057_spotify_daily.ts) picks them up
-without modification.
+Per artist:
+1. Fetches artist endpoint (popularity, followers, genres) + top-tracks (US)
+2. Appends one row to clients/<stage_name>/spotify-daily/spotify_daily.csv
+3. Writes clients/<stage_name>/spotify-daily/snapshots/snapshot_<YYYY-MM-DD>.md
+4. Upserts the artist-level snapshot into spotify_daily_snapshots
+5. Looks up all of that artist's catalog rows with spotify_track_id and
+   batch-fetches /v1/tracks for current per-track popularity, upserting
+   into catalog_track_snapshots and refreshing catalog.popularity.
 
-ALSO upserts directly into Supabase spotify_daily_snapshots when
-NEXT_PUBLIC_SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY are present and
-the supabase-py library is installed. This is the canonical path —
-the file writes are now the local audit trail / cache, not the
-critical path for the dashboard drawer.
-
-HVRCRFT keeps its own dedicated script + scheduled task for now (working,
-proven). This runner handles the other 4 managed artists. Post-Wed event
-we can fold HVRCRFT in too and retire the old script.
-
-Reads creds from:
-  - SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET     (required)
-  - NEXT_PUBLIC_SUPABASE_URL                       (optional — fallback SUPABASE_URL)
-  - SUPABASE_SERVICE_ROLE_KEY                      (optional)
+The daily VM systemd timer (spotify-daily.timer, 9am America/New_York)
+runs this script with no args. Re-running mid-day is idempotent — CSV
+skip-on-date, file snapshot regenerates, Supabase UPSERT on
+(artist_id, snapshot_date) and (catalog_track_id, snapshot_date).
 
 Usage:
-  python multi_pull.py                # all artists, file + supabase write
+  python multi_pull.py                # all artists in REGISTRY
   python multi_pull.py DirtySnatcha   # one artist
-  python multi_pull.py --no-supabase  # skip supabase, file write only
+  python multi_pull.py --no-supabase  # file writes only, skip DB
+  python multi_pull.py --no-tracks    # skip the per-track snapshot step
 """
 
 import csv
 import datetime
-import os
 import sys
 from pathlib import Path
 
 import requests
-from dotenv import load_dotenv
 
-try:
-    from supabase import create_client as _create_supabase_client
-    _HAS_SUPABASE = True
-except ImportError:
-    _HAS_SUPABASE = False
+from _spotify_common import (
+    REGISTRY,
+    SCRIPT_DIR,
+    CLIENTS_DIR,
+    make_logger,
+    get_access_token,
+    api_get,
+    get_supabase,
+    lookup_artist_uuid,
+    load_env_or_exit,
+)
 
-# Each managed artist + their Spotify artist ID. Folder name MUST match
-# artists.stage_name (case-insensitive) for the Tenx10 backfill to find
-# the right artist_id row.
-REGISTRY = {
-    "DirtySnatcha": "13dsmcZVkb1XlhT6RQYh1n",
-    "WHOiSEE":      "7pA2OyYV0LxwdOvzJJe7CH",
-    "Dark Matter":  "71c783dJDlJ3pqD7cFIOQq",
-    "Kotrax":       "2uqBhmfMSA63cRR61btTdp",
-    "HVRCRFT":      "7F5MkQ9b2m12d1mujO8fpw",
-    # HVRCRFT's standalone Windows scheduled task still runs (handles the
-    # daily NotebookLM push that this runner doesn't do). Both write idempotently
-    # to Supabase — extra Spotify API call is the only redundancy. Retire the
-    # Windows task once NotebookLM push is folded into this runner.
-}
 
-SCRIPT_DIR = Path(__file__).parent.resolve()
-UMBRELLA_ROOT = SCRIPT_DIR.parent.parent.parent  # .../10 Research Group
-CLIENTS_DIR = UMBRELLA_ROOT / "MANAGEMENT-TENx10" / "clients"
 LOG_PATH = SCRIPT_DIR / "multi_pull.log"
-
-
-def find_env():
-    candidates = [
-        SCRIPT_DIR / ".env",
-        UMBRELLA_ROOT / ".env",
-        Path.home() / ".config" / "10rg" / ".env",
-    ]
-    for p in candidates:
-        if p.exists():
-            return p
-    return None
-
-
-def log(msg):
-    ts = datetime.datetime.now().isoformat(timespec="seconds")
-    line = f"[{ts}] {msg}"
-    print(line)
-    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(LOG_PATH, "a", encoding="utf-8") as f:
-        f.write(line + "\n")
-
-
-def get_access_token(client_id, client_secret):
-    r = requests.post(
-        "https://accounts.spotify.com/api/token",
-        data={"grant_type": "client_credentials"},
-        auth=(client_id, client_secret),
-        timeout=15,
-    )
-    r.raise_for_status()
-    return r.json()["access_token"]
-
-
-def api_get(url, token):
-    r = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=30)
-    r.raise_for_status()
-    return r.json()
+log = make_logger(LOG_PATH)
 
 
 def fetch_artist_data(token, artist_id):
-    artist = api_get(f"https://api.spotify.com/v1/artists/{artist_id}", token)
-    top_tracks = api_get(
-        f"https://api.spotify.com/v1/artists/{artist_id}/top-tracks?market=US",
-        token,
-    )["tracks"]
+    artist = api_get(f"/v1/artists/{artist_id}", token)
+    top_tracks = api_get(f"/v1/artists/{artist_id}/top-tracks?market=US", token)["tracks"]
     return artist, top_tracks
 
 
@@ -180,38 +121,14 @@ def write_snapshot(snapshot_dir, date_str, stage_name, artist_id, artist, top_tr
     return md_path
 
 
-_supabase = None
-
-
-def get_supabase():
-    """Lazy singleton supabase client. Returns None if creds missing or
-    library not installed."""
-    global _supabase
-    if _supabase is not None:
-        return _supabase
-    if not _HAS_SUPABASE:
-        return None
-    url = os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or os.environ.get("SUPABASE_URL")
-    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-    if not url or not key:
-        return None
-    _supabase = _create_supabase_client(url, key)
-    return _supabase
-
-
-def upsert_to_supabase(stage_name, spotify_artist_id, date_str, artist, top_tracks):
-    """Upsert one snapshot row into spotify_daily_snapshots. Idempotent on
-    (artist_id, snapshot_date). Matches artists.stage_name to find the
-    artist_id UUID. Returns True on success, False otherwise."""
+def upsert_artist_snapshot(stage_name, spotify_artist_id, date_str, artist, top_tracks):
+    """Upsert one row into spotify_daily_snapshots."""
     sb = get_supabase()
     if sb is None:
         return False
-    res = sb.table("artists").select("id, stage_name").ilike("stage_name", stage_name).execute()
-    rows = res.data or []
-    if not rows:
-        log(f"[{stage_name}] supabase: no artists row matched stage_name; skipping upsert")
+    artist_uuid = lookup_artist_uuid(stage_name, log)
+    if not artist_uuid:
         return False
-    artist_uuid = rows[0]["id"]
 
     top_tracks_payload = [
         {
@@ -239,11 +156,88 @@ def upsert_to_supabase(stage_name, spotify_artist_id, date_str, artist, top_trac
         },
     }
     sb.table("spotify_daily_snapshots").upsert(record, on_conflict="artist_id,snapshot_date").execute()
-    log(f"[{stage_name}] supabase upsert ok (artist_id={artist_uuid[:8]}, pop={artist['popularity']}, followers={artist['followers']['total']:,})")
+    log(f"[{stage_name}] artist snapshot upserted (artist_id={artist_uuid[:8]}, pop={artist['popularity']}, followers={artist['followers']['total']:,})")
     return True
 
 
-def run_one(token, stage_name, artist_id, date_str, write_supabase=True):
+def snapshot_track_popularities(stage_name, date_str, token):
+    """Batch-fetch current popularity for every catalog row with a
+    spotify_track_id for this artist; upsert into catalog_track_snapshots
+    and refresh catalog.popularity to the latest value."""
+    sb = get_supabase()
+    if sb is None:
+        log(f"[{stage_name}] tracks: supabase unavailable, skipping")
+        return 0
+
+    artist_uuid = lookup_artist_uuid(stage_name, log)
+    if not artist_uuid:
+        return 0
+
+    try:
+        rows_res = (
+            sb.table("catalog")
+            .select("id, spotify_track_id")
+            .eq("artist_id", artist_uuid)
+            .not_.is_("spotify_track_id", "null")
+            .execute()
+        )
+    except Exception as e:
+        log(f"[{stage_name}] tracks: catalog query failed: {type(e).__name__}: {e}")
+        return 0
+
+    rows = rows_res.data or []
+    if not rows:
+        log(f"[{stage_name}] tracks: no catalog rows with spotify_track_id (run multi_label_catalog_pull.py first)")
+        return 0
+
+    total = 0
+    for i in range(0, len(rows), 50):
+        chunk = rows[i:i + 50]
+        ids = ",".join(r["spotify_track_id"] for r in chunk)
+        try:
+            data = api_get(f"/v1/tracks?ids={ids}&market=US", token)
+        except requests.exceptions.HTTPError as e:
+            log(f"[{stage_name}] tracks: chunk fetch failed: {e}")
+            continue
+        tracks = data.get("tracks") or []
+
+        snapshot_rows = []
+        for r, t in zip(chunk, tracks):
+            if t is None:
+                continue
+            pop = t.get("popularity")
+            snapshot_rows.append({
+                "catalog_track_id": r["id"],
+                "snapshot_date": date_str,
+                "spotify_popularity": pop,
+                "raw": {
+                    "source": {
+                        "runner": "multi_pull.py",
+                        "ingested_at": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
+                    },
+                },
+            })
+            # Refresh catalog.popularity to the freshest value too — saves a
+            # join when the UI shows the per-track badge.
+            try:
+                sb.table("catalog").update({"popularity": pop}).eq("id", r["id"]).execute()
+            except Exception:
+                pass
+
+        if snapshot_rows:
+            try:
+                sb.table("catalog_track_snapshots").upsert(
+                    snapshot_rows, on_conflict="catalog_track_id,snapshot_date"
+                ).execute()
+                total += len(snapshot_rows)
+            except Exception as e:
+                log(f"[{stage_name}] tracks: upsert failed: {type(e).__name__}: {e}")
+
+    log(f"[{stage_name}] tracks: {total} track snapshots upserted (of {len(rows)} catalog rows)")
+    return total
+
+
+def run_one(token, stage_name, artist_id, date_str, write_supabase=True, do_tracks=True):
     out_dir = CLIENTS_DIR / stage_name / "spotify-daily"
     csv_path = out_dir / "spotify_daily.csv"
     snapshot_dir = out_dir / "snapshots"
@@ -265,40 +259,37 @@ def run_one(token, stage_name, artist_id, date_str, write_supabase=True):
 
     if write_supabase:
         try:
-            ok = upsert_to_supabase(stage_name, artist_id, date_str, artist, top_tracks)
+            ok = upsert_artist_snapshot(stage_name, artist_id, date_str, artist, top_tracks)
             if not ok:
-                log(f"[{stage_name}] supabase upsert skipped (creds missing, library missing, or no artist match)")
+                log(f"[{stage_name}] artist snapshot upsert skipped (creds missing or no artist match)")
         except Exception as e:
-            log(f"[{stage_name}] supabase upsert FAILED (non-fatal): {type(e).__name__}: {e}")
+            log(f"[{stage_name}] artist snapshot upsert FAILED (non-fatal): {type(e).__name__}: {e}")
+
+        if do_tracks:
+            try:
+                snapshot_track_popularities(stage_name, date_str, token)
+            except Exception as e:
+                log(f"[{stage_name}] track snapshot FAILED (non-fatal): {type(e).__name__}: {e}")
+
     return True
 
 
 def main():
-    env_path = find_env()
-    if env_path:
-        load_dotenv(env_path)
-        log(f"Loaded env from {env_path}")
-
-    cid = os.environ.get("SPOTIFY_CLIENT_ID")
-    csec = os.environ.get("SPOTIFY_CLIENT_SECRET")
-    if not cid or not csec:
-        log("ERROR: SPOTIFY_CLIENT_ID / SPOTIFY_CLIENT_SECRET missing from .env")
-        sys.exit(1)
-
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     flags = [a for a in sys.argv[1:] if a.startswith("-")]
     write_supabase = "--no-supabase" not in flags
+    do_tracks = "--no-tracks" not in flags
     target = args[0] if args else None
     if target and target not in REGISTRY:
         log(f"ERROR: artist '{target}' not in REGISTRY ({', '.join(REGISTRY.keys())})")
         sys.exit(2)
 
+    cid, csec = load_env_or_exit(log)
+
     if write_supabase:
         sb = get_supabase()
         if sb is None:
             log("WARN: supabase client unavailable (creds missing or supabase-py not installed) — file writes only")
-    else:
-        log("Flag --no-supabase set — skipping Supabase upserts")
 
     date_str = datetime.date.today().isoformat()
     log(f"=== multi_pull run start for {date_str} ===")
@@ -310,7 +301,7 @@ def main():
     for stage_name, artist_id in REGISTRY.items():
         if target and stage_name != target:
             continue
-        if run_one(token, stage_name, artist_id, date_str, write_supabase=write_supabase):
+        if run_one(token, stage_name, artist_id, date_str, write_supabase=write_supabase, do_tracks=do_tracks):
             ok += 1
         else:
             fail += 1
