@@ -1,0 +1,455 @@
+<title>UR10FAKIND &mdash; custom jerseys for artists &amp; rave fam</title>
+<style>
+  :root{
+    --ink:#0B0B0C;
+    --ink-2:#141417;
+    --ink-3:#1D1D21;
+    --line:#2A2A30;
+    --chalk:#6E7076;
+    --bone:#F2F0EA;
+    --lime:#C8FF2E;
+    --lime-dim:#8FB520;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,sans-serif;
+    --cond:"Haettenschweiler","Arial Narrow Bold","Arial Narrow",Impact,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ink);color:var(--bone);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  /* the lace-up rule &mdash; the jersey's collar, used as a divider */
+  .lace{height:22px;margin:60px 0;position:relative;opacity:.55}
+  .lace::before{
+    content:"";position:absolute;inset:50% 0 auto;height:1px;background:var(--line);
+  }
+  .lace::after{
+    content:"";position:absolute;inset:0;left:50%;transform:translateX(-50%);
+    width:min(300px,54%);
+    background-image:
+      linear-gradient(118deg,transparent 44%,var(--chalk) 44%,var(--chalk) 56%,transparent 56%),
+      linear-gradient(62deg,transparent 44%,var(--chalk) 44%,var(--chalk) 56%,transparent 56%);
+    background-size:15px 22px;
+    opacity:.8;
+  }
+
+  /* -- masthead --------------------------------------- */
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb,var(--ink) 88%,transparent);backdrop-filter:blur(8px)}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+  .mark{font-family:var(--cond);font-size:26px;letter-spacing:.02em;text-transform:uppercase;
+    display:flex;align-items:baseline;gap:2px;line-height:1}
+  .mark .z{color:var(--lime)}
+  .mark small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.24em;
+    color:var(--chalk);text-transform:uppercase;margin-top:5px}
+  nav{display:flex;gap:22px;font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase}
+  nav a{color:var(--chalk);text-decoration:none}
+  nav a:hover,nav a:focus-visible{color:var(--lime)}
+
+  /* -- hero ------------------------------------------- */
+  .hero{padding:74px 0 10px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--lime);margin-bottom:18px}
+  h1{font-family:var(--cond);text-transform:uppercase;letter-spacing:-.005em;
+    font-size:clamp(52px,8.4vw,104px);line-height:.87}
+  h1 em{font-style:normal;color:var(--lime);display:block}
+  .lede{color:var(--chalk);max-width:46ch;margin-top:24px;font-size:17px}
+  .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 26px;font-family:var(--mono);font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1px solid var(--lime);
+    background:var(--lime);color:var(--ink);font-weight:700}
+  .btn:hover{background:transparent;color:var(--lime)}
+  .btn.ghost{background:transparent;color:var(--bone);border-color:var(--line)}
+  .btn.ghost:hover{border-color:var(--bone)}
+
+  /* the jersey-number plate */
+  .plate{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:
+    repeating-linear-gradient(90deg,var(--ink-2) 0 2px,transparent 2px 9px);
+    display:grid;place-items:center;overflow:hidden}
+  .plate .stripe{position:absolute;left:0;right:0;height:16px;background:var(--lime)}
+  .plate .stripe.a{top:22%}
+  .plate .stripe.b{top:calc(22% + 26px);height:7px;opacity:.5}
+  .plate .digits{font-family:var(--cond);font-size:min(31vw,290px);line-height:.8;
+    color:var(--bone);text-shadow:6px 6px 0 var(--lime-dim);letter-spacing:-.03em}
+  .plate figcaption{position:absolute;bottom:14px;left:0;right:0;text-align:center;
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--chalk)}
+
+  /* -- strip of facts --------------------------------- */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);margin-top:56px}
+  .fact{padding:22px;border-right:1px solid var(--line)}
+  .fact:last-child{border-right:none}
+  .fact b{display:block;font-family:var(--cond);font-size:38px;line-height:1;color:var(--lime)}
+  .fact span{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--chalk);display:block;margin-top:9px}
+
+  h2{font-family:var(--cond);text-transform:uppercase;font-size:clamp(32px,4.6vw,54px);
+    line-height:.95;letter-spacing:0}
+  .sec-kick{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--chalk);margin-bottom:14px}
+  .sec-lede{color:var(--chalk);max-width:62ch;margin-top:18px}
+
+  /* -- build spec ------------------------------------- */
+  .spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:34px}
+  .spec div{background:var(--ink);padding:22px}
+  .spec h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--lime);margin-bottom:8px}
+  .spec p{margin:0;color:var(--chalk);font-size:14px}
+
+  /* -- pricing ---------------------------------------- */
+  .tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:34px}
+  .tier{background:var(--ink);padding:26px 22px;display:flex;flex-direction:column;gap:6px}
+  .tier.hi{background:var(--ink-2);outline:1px solid var(--lime);outline-offset:-1px}
+  .tier .name{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--chalk)}
+  .tier .price{font-family:var(--cond);font-size:52px;line-height:1;color:var(--bone)}
+  .tier.hi .price{color:var(--lime)}
+  .tier .price sup{font-family:var(--sans);font-size:15px;font-weight:600;vertical-align:top;top:12px;position:relative}
+  .tier .who{color:var(--chalk);font-size:13.5px;margin-top:4px}
+
+  /* -- calculator ------------------------------------- */
+  .calc{border:1px solid var(--line);margin-top:38px;display:grid;grid-template-columns:1fr 1fr}
+  .calc-in{padding:30px;border-right:1px solid var(--line)}
+  .calc-out{padding:30px;background:var(--ink-2)}
+  label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--chalk);display:block;margin-bottom:12px}
+  input[type=range]{width:100%;accent-color:var(--lime)}
+  select{width:100%;background:var(--ink-3);color:var(--bone);border:1px solid var(--line);
+    padding:12px;font-family:var(--mono);font-size:13px}
+  select:focus-visible,input:focus-visible,a:focus-visible,button:focus-visible{
+    outline:2px solid var(--lime);outline-offset:2px}
+  .qty{font-family:var(--cond);font-size:74px;line-height:.9;color:var(--lime)}
+  .row{display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .row:last-child{border-bottom:none}
+  .row span:first-child{color:var(--chalk)}
+  .row b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+  .total b{color:var(--lime);font-size:23px}
+  .warn{margin-top:16px;padding:13px 15px;border-left:2px solid var(--lime);background:var(--ink-3);
+    font-size:13px;color:var(--chalk)}
+  .warn strong{color:var(--bone)}
+
+  /* -- process ---------------------------------------- */
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}
+  .step{background:var(--ink);padding:24px 22px;counter-increment:s}
+  .step::before{content:"0" counter(s);font-family:var(--cond);font-size:32px;color:var(--lime);
+    display:block;line-height:1;margin-bottom:12px}
+  .step h3{font-size:16px;margin-bottom:6px}
+  .step p{margin:0;color:var(--chalk);font-size:13.5px}
+
+  /* -- collabs ---------------------------------------- */
+  .collabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:34px}
+  .collab{border:1px solid var(--line);padding:20px;background:var(--ink-2)}
+  .collab .n{font-family:var(--cond);font-size:22px;text-transform:uppercase}
+  .collab .s{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--chalk);margin-top:6px}
+  .sold{color:var(--lime)}
+
+  footer{border-top:1px solid var(--line);margin-top:70px;padding:32px 0 60px;
+    display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk)}
+
+  .sandbox{background:var(--lime);color:var(--ink);text-align:center;padding:9px 14px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+
+  /* -- the gate: square outline, three lines, click to enter -------- */
+  #gate{
+    position:fixed;inset:0;z-index:100;background:var(--ink);
+    display:grid;place-items:center;cursor:pointer;
+    transition:opacity .55s ease, visibility .55s;
+  }
+  #gate.open{opacity:0;visibility:hidden;pointer-events:none}
+  body.entered{overflow:auto}
+  body.locked{overflow:hidden}
+
+  .gate-box{
+    width:min(78vw,min(78vh,480px));aspect-ratio:1;
+    border:2px solid var(--bone);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:.02em;position:relative;
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  #gate:hover .gate-box,#gate:focus-visible .gate-box{border-color:var(--lime);transform:scale(1.012)}
+  #gate:focus-visible{outline:none}
+
+  .gate-box span{
+    font-family:var(--cond);text-transform:uppercase;
+    font-size:min(15vw,min(15vh,92px));line-height:.94;letter-spacing:.01em;
+    color:var(--bone);display:block;
+  }
+  .gate-box .one{color:var(--lime)}
+
+  .gate-hint{
+    position:absolute;bottom:-46px;left:0;right:0;text-align:center;
+    font-family:var(--mono);font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--chalk);
+  }
+  #gate:hover .gate-hint{color:var(--lime)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important}
+    #gate:hover .gate-box{transform:none}
+  }
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;gap:34px;padding-top:48px}
+    .plate{max-width:330px}
+    .facts{grid-template-columns:1fr 1fr}
+    .fact:nth-child(2){border-right:none}
+    .fact:nth-child(1),.fact:nth-child(2){border-bottom:1px solid var(--line)}
+    .calc{grid-template-columns:1fr}
+    .calc-in{border-right:none;border-bottom:1px solid var(--line)}
+    nav{display:none}
+  }
+</style>
+
+<div id="gate" role="button" tabindex="0" aria-label="Enter the site">
+  <div class="gate-box">
+    <span>UR <b class="one">1</b></span>
+    <span>OF A</span>
+    <span>KIND</span>
+    <div class="gate-hint">Enter</div>
+  </div>
+</div>
+
+<div class="sandbox">Sandbox build &mdash; not a live store. Pricing and windows are proposals, not commitments.</div>
+
+<header>
+  <div class="wrap bar">
+    <div class="mark">
+      <div>UR<span class="z">1</span>0FAKIND
+        <small>you're one of a kind</small>
+      </div>
+    </div>
+    <nav>
+      <a href="#build">The Build</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
+      <a href="#collabs">Collabs</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <div class="kicker">Custom jerseys &middot; artists &amp; rave fam</div>
+      <h1>No one else<em>wears yours.</em></h1>
+      <p class="lede">Stitched, not printed. Applique patches, embroidered name plate and numbers,
+        laced neck, authentication tag. Built for your crew, your artist project, your festival
+        run &mdash; ten pieces minimum, because that's where the math starts working.</p>
+      <div class="cta">
+        <a class="btn" href="#pricing">Start a custom run</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+    </div>
+    <figure class="plate">
+      <div class="stripe a"></div>
+      <div class="stripe b"></div>
+      <div class="digits">10</div>
+      <figcaption>Minimum run &middot; one design</figcaption>
+    </figure>
+  </section>
+
+  <div class="facts">
+    <div class="fact"><b>10</b><span>Piece minimum</span></div>
+    <div class="fact"><b>4</b><span>Week build time</span></div>
+    <div class="fact"><b>1st</b><span>Monthly order close</span></div>
+    <div class="fact"><b>100%</b><span>Paid before build</span></div>
+  </div>
+
+  <div class="lace"></div>
+
+  <section id="build">
+    <div class="sec-kick">The build</div>
+    <h2>Every layer stitched<br>together.</h2>
+    <p class="sec-lede">This is the same construction behind the Squarebass and CRiiOZ jerseys &mdash;
+      not a sublimated print with a logo slapped on it.</p>
+    <div class="spec">
+      <div><h3>Applique patches</h3><p>Twill panels cut and sewn layer over layer. Raised, not printed.</p></div>
+      <div><h3>Embroidered</h3><p>Name plate, numbers, name and detail work &mdash; all stitched thread.</p></div>
+      <div><h3>Laced neck</h3><p>Authentic hockey collar with a lace-up tie, the way it should be.</p></div>
+      <div><h3>Authentication tag</h3><p>Every jersey tagged. Limited runs stay limited.</p></div>
+    </div>
+  </section>
+
+  <div class="lace"></div>
+
+  <section id="pricing">
+    <div class="sec-kick">Pricing</div>
+    <h2>Ten pieces.<br>Then it gets cheaper.</h2>
+    <p class="sec-lede">Each production run carries a fixed setup, freight and duty cost. Spread across
+      ten jerseys it disappears. Spread across three, it eats the jersey. That's why the minimum exists &mdash;
+      it isn't a sales tactic, it's arithmetic.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="name">Stock &amp; collab drop</div>
+        <div class="price"><sup>$</sup>165</div>
+        <div class="who">Our designs and licensed artist collabs. Sold by the piece.</div>
+      </div>
+      <div class="tier hi">
+        <div class="name">Custom &middot; 10&ndash;24</div>
+        <div class="price"><sup>$</sup>175</div>
+        <div class="who">Your design, your crew. The rave-fam run.</div>
+      </div>
+      <div class="tier">
+        <div class="name">Custom &middot; 25+</div>
+        <div class="price"><sup>$</sup>155</div>
+        <div class="who">Volume break. Same build, lower per piece.</div>
+      </div>
+      <div class="tier">
+        <div class="name">Full-custom one-off</div>
+        <div class="price"><sup>$</sup>185</div>
+        <div class="who">Ground-up design. Includes art direction and setup.</div>
+      </div>
+    </div>
+
+    <div class="calc">
+      <div class="calc-in">
+        <label for="qty">Run size &mdash; drag it</label>
+        <div class="qty num" id="qtyOut">10</div>
+        <input id="qty" type="range" min="1" max="60" value="10" step="1"
+               aria-describedby="qtyNote" />
+        <p id="qtyNote" style="color:var(--chalk);font-size:12.5px;margin:10px 0 26px">
+          Slide below 10 to see why the minimum exists.
+        </p>
+
+        <label for="prod">Product</label>
+        <select id="prod">
+          <option value="hockey" data-stock="165">Hockey jersey &mdash; embroidered</option>
+          <option value="fbe" data-stock="110">Football jersey &mdash; sublimated + embroidery</option>
+          <option value="fb" data-stock="100">Football jersey &mdash; sublimated</option>
+          <option value="soce" data-stock="75">Soccer shirt &mdash; embroidered front</option>
+          <option value="soc" data-stock="65">Soccer shirt &mdash; plain</option>
+        </select>
+      </div>
+
+      <div class="calc-out">
+        <label>Your run</label>
+        <div class="row"><span>Tier applied</span><b id="tier">Custom &middot; 10&ndash;24</b></div>
+        <div class="row"><span>Price per jersey</span><b id="unit">$175</b></div>
+        <div class="row"><span>Jerseys</span><b id="qty2">10</b></div>
+        <div class="row total"><span>Total, paid up front</span><b id="total">$1,750</b></div>
+        <div class="warn" id="warn">
+          <strong>Ready to build.</strong> Orders close on the 1st. Yours ships roughly four weeks after that.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lace"></div>
+
+  <section id="how">
+    <div class="sec-kick">How it works</div>
+    <h2>One run a month.</h2>
+    <p class="sec-lede">Every custom order in a given month is built in a single production run. That's
+      what keeps a ten-piece crew order priced like a hundred-piece one. Miss the 1st, you're in the
+      next run.</p>
+    <div class="steps">
+      <div class="step"><h3>Send the idea</h3><p>Sketch, reference, or a napkin. We draw it up and quote it.</p></div>
+      <div class="step"><h3>Approve &amp; pay</h3><p>Sizes, names and numbers collected. Paid in full &mdash; nothing is built on credit.</p></div>
+      <div class="step"><h3>Orders close</h3><p>The 1st of the month. Everything that month is built together.</p></div>
+      <div class="step"><h3>Four weeks</h3><p>Cut, stitched, embroidered, tagged, laced. Then it ships to you.</p></div>
+    </div>
+  </section>
+
+  <div class="lace"></div>
+
+  <section id="collabs">
+    <div class="sec-kick">Collabs</div>
+    <h2>We build for artists.</h2>
+    <p class="sec-lede">Licensed artist merch: we partner with the artist and pay them on every sale of
+      their branded piece. Your name, your art, your cut &mdash; our build and our fulfilment.</p>
+    <div class="collabs">
+      <div class="collab"><div class="n">CRiiOZ</div><div class="s sold">Hockey &middot; sold out</div></div>
+      <div class="collab"><div class="n">Squarebass V2</div><div class="s">Hockey &middot; limited</div></div>
+      <div class="collab"><div class="n">Megahurtz</div><div class="s">Riddim Gang &middot; licensed</div></div>
+      <div class="collab"><div class="n">Brain Eaters</div><div class="s">Flint Underground &middot; LE 25</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <div>UR10FAKIND &mdash; a 10 Research Group company</div>
+  <div>Sandbox &middot; 2026-07-09</div>
+</footer>
+
+<script>
+  // -- gate ---------------------------------------------------------
+  // Lock scroll behind the splash so the page underneath cannot be
+  // wheeled into view before it has been entered.
+  var gate = document.getElementById('gate');
+  document.body.classList.add('locked');
+
+  function enter(){
+    if (gate.classList.contains('open')) return;
+    gate.classList.add('open');
+    document.body.classList.remove('locked');
+    document.body.classList.add('entered');
+    gate.setAttribute('aria-hidden','true');
+  }
+  gate.addEventListener('click', enter);
+  gate.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); enter(); }
+  });
+
+  var qty   = document.getElementById('qty');
+  var qtyOut= document.getElementById('qtyOut');
+  var qty2  = document.getElementById('qty2');
+  var prod  = document.getElementById('prod');
+  var tierEl= document.getElementById('tier');
+  var unitEl= document.getElementById('unit');
+  var totEl = document.getElementById('total');
+  var warn  = document.getElementById('warn');
+
+  var money = function(n){
+    return '$' + n.toLocaleString('en-US', {maximumFractionDigits:0});
+  };
+
+  // Tiering is expressed as a multiplier off each product's stock price, so the
+  // ladder holds across the whole line instead of being hardcoded to hockey.
+  function priceFor(stock, n){
+    // NB: this is set via textContent, which does NOT decode HTML entities.
+    // Use unicode escapes here, not HTML entities: this string is assigned
+    if (n >= 25) return {label:'Custom / 25+',      unit: Math.round(stock * (155/165))};
+    if (n >= 10) return {label:'Custom / 10-24', unit: Math.round(stock * (175/165))};
+    return         {label:'Below minimum',    unit: null};
+  }
+
+  function render(){
+    var n = parseInt(qty.value, 10);
+    var stock = parseInt(prod.selectedOptions[0].dataset.stock, 10);
+    var p = priceFor(stock, n);
+
+    qtyOut.textContent = n;
+    qty2.textContent = n;
+    tierEl.textContent = p.label;
+
+    if (p.unit === null){
+      unitEl.textContent = '-';
+      totEl.textContent  = '-';
+      warn.innerHTML = '<strong>Under the ten-piece minimum.</strong> A run this small carries the same '
+        + 'setup, freight and duty as a full one, so the fixed cost per jersey is roughly '
+        + money(Math.round(550 / n)) + ' on its own. We would be paying you to take it. Add '
+        + (10 - n) + ' more and it works.';
+    } else {
+      unitEl.textContent = money(p.unit);
+      totEl.textContent  = money(p.unit * n);
+      warn.innerHTML = '<strong>Ready to build.</strong> Orders close on the 1st. Yours ships roughly '
+        + 'four weeks after that.'
+        + (n >= 25 ? ' Volume break applied.' : '');
+    }
+  }
+
+  qty.addEventListener('input', render);
+  prod.addEventListener('change', render);
+  render();
+</script>
