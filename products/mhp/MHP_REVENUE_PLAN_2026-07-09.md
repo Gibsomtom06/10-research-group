@@ -192,12 +192,28 @@ Raising the price is worth ~$9,000 of contribution *and* removes 194 jerseys of 
 Reads "**YOU'RE ONE OF A KIND**" (UR 1 0F A KIND, the 0 doing double duty). The `10` also rhymes
 with TENx10 / 10 Research Group, which is a genuine asset, not a coincidence.
 
-**Status: `ur10fakind.com` is REGISTERED, not available.** It resolves (HTTP 200) to an IONOS IP
-(74.208.236.130) serving an empty placeholder — the signature of a domain bought and never built.
-Thomas thinks he may own it. Confirm via the IONOS account or an IONOS receipt in one of the nine
-inboxes (not present in thomas@dirtysnatcharecords.com).
+### ⚠ THE DOMAIN EXPIRES 2026-07-14 — FIVE DAYS FROM WRITING
 
-If he does not own it, available as of 2026-07-09:
+RDAP lookup against Verisign (public, authoritative), 2026-07-09:
+
+| field | value |
+|---|---|
+| registrar | **IONOS SE** — Thomas's registrar |
+| registered | 2020-07-14 |
+| last changed | 2025-07-15 |
+| **expiration** | **2026-07-14** |
+| nameservers | NS1044.UI-DNS.DE + 3 more (IONOS defaults) |
+| status | client transfer prohibited |
+
+It resolves (HTTP 200) to an IONOS IP (74.208.236.130) serving an empty placeholder — a domain
+bought and never built. Registrar + nameservers + Thomas's own statement that IONOS is where he
+registers ⇒ **he almost certainly owns it, and it lapses in five days.**
+
+**ACTION: log into IONOS and renew, or enable auto-renew, before 2026-07-14.** ~$15. If it drops,
+a clean six-year-old domain goes straight to the drop-catchers and the rebrand target is gone.
+Claude cannot do this — it will not enter credentials into a login form.
+
+If it turns out he does *not* own it, available as of 2026-07-09:
 
 | domain | $/yr | reads as |
 |---|---:|---|
