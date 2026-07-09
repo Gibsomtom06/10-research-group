@@ -91,6 +91,126 @@ decision in this plan.
 Honest read: 4–6 drops is the realistic base case (~$50k–75k gross). Eight is the stretch. The
 number is now within reach, which it was not an hour ago.
 
+---
+
+## 0c. THE MARKET, corrected — and the $550 that defines the whole model
+
+**2026-07-09, from Thomas.** Two facts that supersede §1, §2, §3, §5 and §7 below:
+
+1. **The buyers are not sports teams or beer leagues.** They are **musicians, artists, and
+   friend-groups buying custom jerseys for their rave fam.** Beer leagues are a possible
+   side-channel, not the market. Everything in this doc about league commissioners and tournament
+   directors is off-target — read it as one optional channel, not the plan.
+2. **There is a $550 minimum per production order** (shipping + overhead), on top of per-unit FOB.
+3. **Lead time is ~4 weeks** from order submission *with payment*.
+
+### $550 is a fixed cost per ORDER, so it is a per-unit tax that shrinks with volume
+
+Hockey jersey, FOB $28, tariff assumed 32%, payment fee 2.9% + $0.30:
+
+| units | $550/unit | landed/unit | CM @$125 | CM @$150 | CM @$175 |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 550.00 | 586.96 | −465.89 | −441.61 | −417.34 |
+| 5 | 110.00 | 146.96 | **−25.89** | −1.61 | 22.66 |
+| 10 | 55.00 | 91.96 | 29.11 | 53.39 | 77.66 |
+| 15 | 36.67 | 73.63 | 47.45 | 71.72 | 96.00 |
+| 20 | 27.50 | 64.46 | 56.61 | 80.89 | 105.16 |
+| 25 | 22.00 | 58.96 | 62.11 | 86.39 | 110.66 |
+| 50 | 11.00 | 47.96 | 73.11 | 97.39 | 121.66 |
+| 100 | 5.50 | 42.46 | 78.61 | 102.89 | 127.16 |
+
+**A 5-jersey rave-fam order at the current $125 price LOSES $25.89 per unit.** Break-even retail
+at 5 units is $151.66. This single fact forces two rules:
+
+- **Hard MOQ of 10 units per design.** Below that the arithmetic never works at a sane price.
+- **The current $125 is too low.** See pricing below.
+
+### The batching unlock — the most valuable operational idea in this document
+
+Six separate rave-fam orders of 10 units are six production orders: **$3,300** of fixed cost. Close
+them in one monthly window and submit as a single 60-unit run: **$550**.
+
+| approach | fixed | fixed/unit | CM @$150 | total CM |
+|---|---:|---:|---:|---:|
+| 6 separate orders of 10 | $3,300 | $55.00 | $53.39 | $3,203 |
+| **1 batched order of 60** | **$550** | **$9.17** | **$99.22** | **$5,953** |
+
+Same product, same customers, **+86% contribution.** The 4-week lead time makes this easy: custom
+orders close on the 1st of each month, production runs, everything ships ~5 weeks out. **Monthly
+drop cadence is the operating rhythm of this business.**
+
+### Market comps — price against artist merch, not sports uniforms
+
+Embroidered EDM/rave hockey jerseys (the actual competitive set):
+
+| source | price |
+|---|---|
+| Zingara EDM hockey jersey (eBay) | $135, category range $75–189 |
+| Excision embroidered hockey jersey | premium artist tier |
+| Scummy Bears / Drip Drop Labs / Rave Bonfire | embroidered, artist-designed |
+| RaveJersey custom baseball | from $75.95 |
+| *Commodity sublimated sports (Alkali, Dynasty)* | *$35–70 — different product, ignore* |
+
+MHP sells an embroidered, applique, laced-neck, auth-tagged jersey at **$125 — below Zingara's
+plain $135.** Underpriced.
+
+### Recommended price list
+
+| tier | price | applies to |
+|---|---:|---|
+| Stock / collab drop | **$165** | MHP designs, artist collabs |
+| Custom group, 10–24 units | **$175** | rave fam, customer's design |
+| Custom group, 25+ units | **$155** | volume break |
+| Full-custom one-off design | **$185** | includes art + setup |
+| **Minimum order** | **10 units per design** | non-negotiable |
+
+At $165 inside a batched 60-unit run: landed **$46.13**, contribution **$113.79/unit**, **69% margin**.
+
+### $100k, re-answered at $165
+
+| retail | units to $100k | per week | contribution |
+|---:|---:|---:|---:|
+| $125 (current) | 800 | 32.0 | $59,959 |
+| **$165 (recommended)** | **606** | **24.2** | **$68,963** |
+
+Raising the price is worth ~$9,000 of contribution *and* removes 194 jerseys of selling work.
+
+### Full line at recommended pricing (batched run of 60, 32% tariff)
+
+| product | FOB | retail | landed | CM | margin |
+|---|---:|---:|---:|---:|---:|
+| Hockey jersey (embroidered) | 28.00 | 165.00 | 46.13 | 113.79 | 69% |
+| Football jersey (subl+emb) | 23.00 | 110.00 | 39.53 | 66.98 | 61% |
+| Football jersey (sublimated) | 22.00 | 100.00 | 38.21 | 58.59 | 59% |
+| Soccer shirt (embroidered) | 13.00 | 75.00 | 26.33 | 46.20 | 62% |
+| Soccer shirt (plain) | 11.00 | 65.00 | 23.69 | 39.13 | 60% |
+
+---
+
+## 0d. Rebrand — ur10fakind.com
+
+Reads "**YOU'RE ONE OF A KIND**" (UR 1 0F A KIND, the 0 doing double duty). The `10` also rhymes
+with TENx10 / 10 Research Group, which is a genuine asset, not a coincidence.
+
+**Status: `ur10fakind.com` is REGISTERED, not available.** It resolves (HTTP 200) to an IONOS IP
+(74.208.236.130) serving an empty placeholder — the signature of a domain bought and never built.
+Thomas thinks he may own it. Confirm via the IONOS account or an IONOS receipt in one of the nine
+inboxes (not present in thomas@dirtysnatcharecords.com).
+
+If he does not own it, available as of 2026-07-09:
+
+| domain | $/yr | reads as |
+|---|---:|---|
+| **ur1ofakind.com** | 11.25 | cleanest; "UR 1 OF A KIND" |
+| ur10fakind.co | 29.99 | keeps the exact spelling |
+| ur10fakind.shop | 2.99 | keeps spelling, weaker TLD |
+| ur10ofakind.com | 11.25 | reads "10 of a kind" — off-message |
+| youre1ofakind.com | 11.25 | unambiguous, longer |
+
+Naming caution: the current brand is **MyHydrationPack**, but the live store's own title is already
+"Custom Jerseys, Merch, Hydrationpacks." The hydration pack is no longer the product. A rebrand is
+justified on those grounds alone — the name actively misdescribes the business.
+
 ### What must be verified before taking a customer's money
 
 1. **The tariff rate.** Unverified. US MFN duty on man-made-fibre knit apparel is commonly ~32%
