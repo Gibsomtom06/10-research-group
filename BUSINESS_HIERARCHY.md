@@ -41,7 +41,7 @@ flowchart TD
 
     PLATFORM["<b>TENx10 Platform</b><br/>products/tenx10-platform/<br/><i>The SaaS the business runs on; licensable</i>"]:::live
     DSR["<b>DSR</b> — DirtySnatcha Records<br/>dirtysnatcharecords.com<br/><i>Working bass-music label</i><br/><b>DOGFOOD for TENx10</b>"]:::dogfood
-    ROSTER["<b>Managed Roster</b><br/>DirtySnatcha · WHOiSEE · Kotrax<br/>Dark Matter · HVRCRFT"]:::roster
+    ROSTER["<b>Managed Roster</b> (4)<br/>DirtySnatcha · WHOiSEE<br/>Dark Matter · HVRCRFT"]:::roster
 
     DSR --> DSRROSTER
     DSRROSTER["<b>DSR Label-only Artists</b><br/>signed to label, NOT under TENx10 mgmt"]:::live
@@ -73,12 +73,13 @@ flowchart TD
    │       │
    │       └──► DSR label-only artists (releases only, not managed)
    │
-   └──► Managed Roster
-           ├── DirtySnatcha   (Lee Bray)             flagship
+   └──► Managed Roster (4)
+           ├── DirtySnatcha   (Leigh Bray)           flagship
            ├── WHOiSEE        (Brett Hopkin)
-           ├── Kotrax         (TBD)
            ├── Dark Matter    (Tullos + Kalina)      Wakaan label
            └── HVRCRFT        (TBD)
+
+       Kotrax is NOT managed — DSR label-only (is_managed=false).
 ```
 
 ---
