@@ -192,7 +192,12 @@ Raising the price is worth ~$9,000 of contribution *and* removes 194 jerseys of 
 Reads "**YOU'RE ONE OF A KIND**" (UR 1 0F A KIND, the 0 doing double duty). The `10` also rhymes
 with TENx10 / 10 Research Group, which is a genuine asset, not a coincidence.
 
-### ⚠ THE DOMAIN EXPIRES 2026-07-14 — FIVE DAYS FROM WRITING
+### Domain: owned, auto-renew on — RESOLVED 2026-07-09
+
+Thomas confirms he owns `ur10fakind.com` and **automatic renewal is enabled**. The 2026-07-14
+expiry below is the current registration term, not a deadline. No action needed. The RDAP record
+is kept here because it is the evidence that the domain is his (registrar IONOS SE, his registrar)
+and because the term date is worth knowing.
 
 RDAP lookup against Verisign (public, authoritative), 2026-07-09:
 
@@ -209,11 +214,8 @@ It resolves (HTTP 200) to an IONOS IP (74.208.236.130) serving an empty placehol
 bought and never built. Registrar + nameservers + Thomas's own statement that IONOS is where he
 registers ⇒ **he almost certainly owns it, and it lapses in five days.**
 
-**ACTION: log into IONOS and renew, or enable auto-renew, before 2026-07-14.** ~$15. If it drops,
-a clean six-year-old domain goes straight to the drop-catchers and the rebrand target is gone.
-Claude cannot do this — it will not enter credentials into a login form.
-
-If it turns out he does *not* own it, available as of 2026-07-09:
+**Confirmed owned, auto-renew on. No action.** The alternates below are recorded only as fallbacks
+if the brand direction changes.
 
 | domain | $/yr | reads as |
 |---|---:|---|
