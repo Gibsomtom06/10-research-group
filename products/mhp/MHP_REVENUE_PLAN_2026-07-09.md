@@ -12,9 +12,96 @@
 > 2. **The "no payment rail" blocker in §3 does not exist.** That was a misread of
 >    `merch-store/index.html`, which is DirtySnatcha's page, not MHP's.
 >
-> What remains true and unchanged: the 9-week vendor-invoice stall is the #1 risk; landed cost
-> is still an unverified estimate; seasonality still favours football/soccer over hockey in this
-> window; and artist-collab revenue still belongs to the artist, not MHP.
+> What remains true and unchanged: the 9-week vendor-invoice stall is the #1 risk; seasonality
+> still favours football/soccer over hockey in this window; and artist-collab revenue for a
+> *managed* artist still belongs to that artist, not MHP.
+
+---
+
+## 0b. REAL vendor costs — supersedes §1 entirely
+
+Thomas supplied actual per-unit FOB pricing from the Pakistan manufacturer on 2026-07-09. These
+are real quotes, not estimates. **They invert this plan's original recommendation.**
+
+| product | FOB/unit |
+|---|---|
+| Hockey jersey, embroidered (the DirtySnatcha build) | **$28** |
+| Football jersey, sublimated | $22 |
+| Football jersey, sublimated + embroidery | $23 |
+| Soccer shirt, plain | $11 |
+| Soccer shirt, embroidered logos front | $13 |
+
+Plus tariff, rate **not yet verified** (see risk below).
+
+### Contribution margin per unit
+
+Freight is a per-unit estimate ($2.50–$4.00 by weight). Payment fee 2.9% + $0.30. Tariff applied
+to FOB customs value. Retail for hockey is MHP's **proven** $125; the others are market comps.
+
+| product | FOB | retail | CM @0% tariff | CM @19% | CM @32% | margin @32% |
+|---|---|---|---|---|---|---|
+| **Hockey jersey (embroidered)** | 28.00 | **125.00** | 89.08 | 83.76 | **80.11** | **64%** |
+| Football jersey (sublimated) | 22.00 | 70.00 | 42.17 | 37.99 | 35.13 | 50% |
+| Football jersey (subl + embroidery) | 23.00 | 75.00 | 46.02 | 41.66 | 38.66 | 52% |
+| Soccer shirt (plain) | 11.00 | 40.00 | 25.04 | 22.95 | 21.52 | 54% |
+| Soccer shirt (embroidered front) | 13.00 | 45.00 | 27.89 | 25.43 | 23.73 | 53% |
+
+### The $100k question, answered with real numbers
+
+Assuming the worst-case 32% tariff:
+
+| product | units to $100k gross | units/week over 25 wks | total contribution |
+|---|---|---|---|
+| **Hockey jersey @ $125** | **800** | **32** | **$64,092** |
+| Football (sublimated) @ $70 | 1,429 | 57 | $50,186 |
+| Football (subl+emb) @ $75 | 1,333 | 53 | $51,553 |
+| Soccer (plain) @ $40 | 2,500 | 100 | $53,800 |
+| Soccer (embroidered) @ $45 | 2,222 | 89 | $52,744 |
+
+**The hockey jersey wins on every axis.** Fewest units to target (800 vs 1,429), highest
+contribution per unit ($80 vs $35), highest margin (64% vs 50%), *and* it is the only SKU with
+proven sell-through — CRiiOZ sold out at exactly this price. §1's recommendation to pivot away
+from it to $70 sublimated team jerseys was made on a **$70 assumed retail and no knowledge that
+the store was live**. Both were wrong. Disregard that pivot.
+
+### Why this is zero-capital native
+
+Sell as **pre-order collab drops**: the partner artist/brand promotes to their fanbase, orders
+close, cash is collected, *then* the vendor is paid. Cash never leaves before it arrives.
+
+| drop size | drops needed for $100k | gross/drop | contribution/drop |
+|---|---|---|---|
+| 50 units | 16.0 | $6,250 | $4,006 |
+| 75 units | 10.7 | $9,375 | $6,009 |
+| **100 units** | **8.0** | **$12,500** | **$8,011** |
+| 150 units | 5.3 | $18,750 | $12,017 |
+
+If instead you buy inventory up front, the cash needed before a single sale is $2,048 (50 units),
+$4,096 (100), or $6,144 (150) — money that does not exist. **Pre-order is not a preference here,
+it is the only legal move under the $0 constraint.**
+
+### Revised verdict on $100k
+
+At $125 retail it is **plausible, where at $70 it was not.** It requires roughly **eight
+successful collab drops of ~100 units, one every three weeks, for 25 weeks.** That is the whole
+risk, and it is a *distribution* risk, not a margin risk: MHP does not need its own audience — it
+borrows the partner's. Partner selection by fanbase size is therefore the single most important
+decision in this plan.
+
+Honest read: 4–6 drops is the realistic base case (~$50k–75k gross). Eight is the stretch. The
+number is now within reach, which it was not an hour ago.
+
+### What must be verified before taking a customer's money
+
+1. **The tariff rate.** Unverified. US MFN duty on man-made-fibre knit apparel is commonly ~32%
+   (HTS 6110/6109), but rates on Pakistan may have changed and I will not assert a number I have
+   not confirmed. One call to a customs broker settles it. The good news: **hockey wins at 0%,
+   19%, and 32% alike**, so this does not change the decision — only the profit.
+2. **MOQ.** $28/unit almost certainly carries a minimum order quantity. Unknown. If MOQ > drop
+   size, pre-order economics break.
+3. **Lead time**, to know how early a pre-order window must close before a season or event.
+4. Whether the $28 includes the authentication tag, laced neck, and name/number plates that the
+   live Squarebass V2 listing advertises — or whether those are extra.
 
 ---
 
