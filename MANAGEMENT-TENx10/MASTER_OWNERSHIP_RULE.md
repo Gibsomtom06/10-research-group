@@ -7,22 +7,59 @@ He was right. It did.
 
 ---
 
+## First, the thing that makes this hard
+
+**An ISRC is a RECORDING. A UPC is a RELEASE. One recording can appear on many
+releases — including releases put out by a label that does not own it.**
+
+Thomas: *"an ISRC that's owned as a self release can appear on a UPC on the label.
+we did this with two DirtySnatcha and Walter Wilde tracks."*
+
+Confirmed at SoundExchange, `USA2P2536655` — one recording, three releases:
+
+| release | label | date | UPC |
+|---|---|---|---|
+| Outta Space | DirtySnatcha Records | 2025-08-15 | 198704626937 |
+| Wilde Ride | DirtySnatcha Records | 2026-01-30 | 198704951503 |
+| Battle | DirtySnatcha Records | 2026-04-10 | 823375069980 |
+
+So **the label on a release does not prove who owns the recording on it.**
+
+---
+
 ## The rule
 
-**The distributor's `Label` field on the recording is the owner. Nothing else is.**
+**Ownership belongs to the RECORDING, and the recording's own ℗ line names the
+owner.** Not the release's label; not the ISRC prefix.
 
-| distributor field | owner |
+| signal | what it actually tells you | trust for ownership |
+|---|---|---|
+| `track_p_line` — the recording's ℗ | who owns the master, and the year it was fixed | **yes, this is the owner** |
+| `product_p_line` — the release's ℗ | who owns the release | no |
+| release `Label` | who put the release out | evidence only |
+| catalogue number `DS####` vs `DSR####` | whose release sequence it belongs to | strong evidence |
+| ISRC registrant prefix | who *issued* the ISRC, once | **no. See below.** |
+
+Proof the ℗ year survives re-release: `Turn Uppp` (`QM42K1715880`) sits on the
+2026 *Battle* release but carries **`℗ 2017 DirtySnatcha Records`** — the original
+recording year and owner, preserved through a later compilation.
+
+Supporting signals, useful when the ℗ line is missing or wrong:
+
+| distributor Label on the recording's own release | likely owner |
 |---|---|
-| Label = `DirtySnatcha` | **Leigh Bray**, personally. A self-release. |
-| Label = `DirtySnatcha Records` / `DirtySnatchaRecords` | **DirtySnatcha Records** (Leigh 70% / Thomas 30%) |
+| `DirtySnatcha` | **Leigh Bray**, personally. A self-release. |
+| `DirtySnatcha Records` / `DirtySnatchaRecords` | **DirtySnatcha Records** (Leigh 70% / Thomas 30%) |
 
-The catalogue number agrees and is a useful cross-check:
-
-| catalog number | owner |
+| catalog number | whose release |
 |---|---|
 | `DS0004`, `DS0008`, `DS0015` … | Leigh, self-released |
 | `DSR0074`, `DSR02`, `DSR30` … | the label |
 | `CAT294133`, `CAT298940` … | Symphonic-assigned, on Leigh's self-releases |
+
+**When a recording appears on more than one release, use its FIRST release** —
+that is where the master was created and where its ℗ was set. Later appearances
+are licences or compilations.
 
 ---
 
