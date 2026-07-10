@@ -1,9 +1,48 @@
 # Who owns which master — the rule, and how we know
-**2026-07-09.** Established by reading Symphonic's own royalty detail, at Thomas's
-suggestion: *"if you look at the ISRC or track title or anything to find out the
-royalties you will answer your own question and both of our confusions."*
 
-He was right. It did.
+> ## ⚠ CORRECTED 2026-07-10. The central rule below was WRONG.
+>
+> This document said: *"Read from the recording's own ℗ line — never from the release
+> label, never from the ISRC prefix."* Thomas doubted it. He was right.
+>
+> **A ℗ line marks who claims copyright in the PUBLISHED EDITION of a sound recording.
+> Under an exclusive licence that is normally the LICENSEE, not the owner.** It is
+> evidence of who put the record out. It is not a title deed.
+>
+> **The contract determines ownership.** And DSR's own contracts contradict its ℗ lines:
+>
+> | source | what it says about the master |
+> |---|---|
+> | ℗ line on the release | `℗ DirtySnatcha Records` |
+> | **current template** (*DSR Exclusive **License** Agreement*, 2024+) | *"The Artists … hereby grants to Label **an exclusive irrevocable license** … in perpetuity."* The **artist keeps the master.** |
+> | **old template** (demos@, 2022–23) | *"Ownership of the said recording: **50/50 split ownership** between the label and artist/s."* **Co-owned.** |
+>
+> The document is titled *License Agreement*, not *Assignment*. A licence — even an
+> exclusive, irrevocable, perpetual one — is not a transfer of title.
+>
+> **Consequence:** 396 of the 417 rows in `recordings` had their owner set from a ℗
+> line, and **not one** from a contract. All are now `owner_confidence = 'inferred'`,
+> `owner_basis = 'p_line_declaration'`. The 217 DSR rows are flagged
+> `OWNERSHIP CONTESTED` (migration 128).
+>
+> **Do not file a SoundExchange sound-recording-owner claim for DirtySnatcha Records
+> on any of them until counsel reconciles "exclusive irrevocable license" against
+> ownership.** This is a legal question and I am not qualified to answer it.
+>
+> What the ℗ line *is* still good for: identifying who **controls** a recording. For
+> third-party masters (Wakaan, Circus, Monstercat, Disciple) that is all we have and
+> all we need — we claim nothing on those either way. The **featured-artist 45%** is
+> unaffected by all of this: it follows the performer, not the owner.
+
+---
+
+**2026-07-09 (superseded in part).** Established by reading Symphonic's own royalty
+detail, at Thomas's suggestion: *"if you look at the ISRC or track title or anything
+to find out the royalties you will answer your own question and both of our
+confusions."*
+
+He was right that the royalty detail settles the artist/label question. He was also
+right, a day later, that a ℗ line does not settle ownership.
 
 ---
 
