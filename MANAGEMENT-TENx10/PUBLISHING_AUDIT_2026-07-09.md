@@ -142,6 +142,70 @@ catalog recording.
 
 ---
 
+## 6b. RESOLVED — defects A, B and C are fixed (migration 100)
+
+Thomas confirmed from his BMI account, 2026-07-09:
+
+| | |
+|---|---|
+| **LAB10 Publishing** | IPI **01262829440**, BMI |
+| **Bray, Leigh** | IPI **01017500116**, BMI — his only writer IPI |
+
+Migration 100 re-pointed 81 works to LAB10 Publishing (BMI), corrected the 10
+writer-IPI typos, and normalised the publisher IPI to BMI's 11-digit leading-zero
+form. Verified: **0 writer/publisher PRO mismatches, down from 74.** The Wakaan
+co-published work is untouched.
+
+Defect D (28 works with unnamed co-writers) remains open.
+
+---
+
+## 6c. NEW — VMG metadata has eleven spellings of LAB10, and four are on the wrong PRO
+
+Thomas suspected he had registered some works as "LAB 10 Publishing" with a space.
+**There is no space variant anywhere in VMG.** But `vmg_product_catalog` carries
+eleven different publisher strings, and this is the metadata the distributor feeds
+to the DSPs and societies:
+
+| VMG string | tracks | problem |
+|---|---|---|
+| `LAB10 Publishing <BMI>` | 101 | canonical |
+| `Lab10 Publishing <BMI>` | 4 | case |
+| **`LAB10 Publishing <ASCAP>`** | **4** | **wrong PRO — LAB10 is BMI** |
+| `LAB10 <BMI>` | 2 | missing "Publishing" |
+| `Lab10 <BMI>` | 1 | case + missing word |
+| `LAB10 PUblishing <BMI>` | 1 | typo |
+| `LAB10 Publsihing <BMI>` | 1 | misspelled |
+| `LAB10 PUBLISHING <BMI>` | 1 | all caps |
+
+The four on the **wrong PRO** are the ones that matter — they tell every downstream
+society that LAB10 is an ASCAP entity:
+
+- Back 2 Life — `USA2P2536661`
+- Bad Business — `USA2P2602397`
+- Tatters — `USA2P2602398`
+- Wilde Ride — `USA2P2602396`
+
+Spelling variants to correct at VMG:
+
+- `Lab10 Publishing <BMI>` — Break It `QZ5FN2082238`, Let Go `USLZJ2405592`,
+  Loose It `GBRKQ2109631`, Telekinese `USLZJ2292920`
+- `LAB10 <BMI>` — Bored `USA2P2508953`, Power `USA2P2511350`
+- `Lab10 <BMI>` — Wait For Me `USA2P2466213`
+- `LAB10 PUblishing <BMI>` — Groupies `USA2P2456452`
+- `LAB10 Publsihing <BMI>` — Lights Out `USA2P2471704` *(sic)*
+- `LAB10 PUBLISHING <BMI>` — Wompem `USLZJ2318255`
+
+Legitimate multi-publisher strings, leave alone: `DirtySnatcha Records Publishing
+<ASCAP>, LAB10 Publishing <BMI>` (Hip Swing, What If?) and `Create Digital Music
+<BMI>, LAB10 Publishing <BMI>` (Supersonic) — those are co-writes where each
+writer's publisher sits at their own PRO. That is the system working correctly.
+
+**This must be fixed in VMG's portal.** It is the distributor's metadata; nothing
+in Supabase changes it.
+
+---
+
 ## 7. What happens next, in order
 
 1. **Thomas, BMI portal, ~5 minutes:** confirm (a) LAB10 Publishing's IPI, (b) whether Leigh has
