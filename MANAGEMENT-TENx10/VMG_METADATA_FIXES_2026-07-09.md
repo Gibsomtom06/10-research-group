@@ -28,9 +28,14 @@ rows when VMG is clean.**
 
 ## 1. ℗ lines — 5 defects (recording owner)
 
+Most of these are DSR label releases by other artists. **Do not assume a track on
+DirtySnatcha Records is a DirtySnatcha track** — the label signs many artists.
+Skrrt, for instance, is by **Kotrax + DARK MATTER** (writers: Dakota
+Tonnessen-Visaggio, Joseph Kalina, Isaac Tullos). Leigh Bray is not on it.
+
 | track | ISRC | field | currently | should be |
 |---|---|---|---|---|
-| **Skrrt** | `USA2P2545706` | track_p_line | `℗ 2025 DirtySnatcha Records Publishing` | `℗ 2025 DirtySnatcha Records` |
+| **Skrrt** (Kotrax + DARK MATTER) | `USA2P2545706` | track_p_line | `℗ 2025 DirtySnatcha Records Publishing` | `℗ 2025 DirtySnatcha Records` |
 | Power | `USA2P2511350` | track_p_line | `℗ 2025 DitySnatcha Records` | `℗ 2025 DirtySnatcha Records` |
 | Theme Music | `USA2P2545712` | track_p_line | `℗ 2025 DirtySnatcha Recrds` | `℗ 2025 DirtySnatcha Records` |
 | Get Moving | `USA2P2538177` | track_p_line | `℗ 2025 DirtySnatcha␣␣Records` *(double space)* | `℗ 2025 DirtySnatcha Records` |
