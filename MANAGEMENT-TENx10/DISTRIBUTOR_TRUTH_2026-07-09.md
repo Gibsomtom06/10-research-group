@@ -5,19 +5,29 @@ Account: **DirtySnatcha, #22670** (single account — no switcher; profile menu 
 
 ---
 
-## 1. Virgin Music Group IS Symphonic
+## 1. Virgin Music Group is NOT Symphonic. They are two distributors, in sequence.
 
-`dsr_label_info.distributor` already said it: *"Virgin Music Group (VMG, formerly
-Symphonic)"*. The portal is `symphonicms.com`, and it holds one account.
+**Corrected by Thomas, 2026-07-09:** *"Virgin Music Group is not symphonic.
+Symphonic was our old distributor. we now use virgin music group. DirtySnatcha
+still uses Symphonic for self releases i think and distrokid and some other ones."*
 
-So `symphonic_royalty_lines` and `vmg_royalty_lines` are **the same distributor**,
-two export formats. The money page presents them as two distributors. It should
-say one: *Virgin Music Group (formerly Symphonic)*.
+`dsr_label_info.distributor` used to read *"Virgin Music Group (VMG, formerly
+Symphonic)"*, which asserts they are one company renamed. They are not. Fixed in
+migration `correct_dsr_distributor`.
 
-The periods do not overlap — Symphonic lines run Oct-2019→Feb-2026 on an
-**activity** basis, the VMG file is Apr-2026 on a **reporting** basis — so the
-tile is not double-counting today. But the framing is wrong and one careless
-import away from becoming a real double-count.
+| | |
+|---|---|
+| **DirtySnatcha Records**, until Feb 2026 | Symphonic Distribution |
+| **DirtySnatcha Records**, from 2026 | **Virgin Music Group** |
+| **DirtySnatcha** (the artist), ongoing | Symphonic, DistroKid, and others |
+
+Confirmed in the data: `symphonic_royalty_lines` covers 77 activity periods
+Oct-2019 → Feb-2026. `vmg_royalty_lines` has exactly one, `P04 26` (Apr-2026).
+**Sequential, no overlap.** Summing them for a lifetime label figure is correct.
+
+That wrong string caused a real analytical error in this document's first draft:
+it made the Symphonic portal look like the source of the VMG statements, and the
+70x gap between them look like a data bug rather than two different companies.
 
 ---
 
@@ -43,7 +53,16 @@ had no splits deducted at the distributor.
 
 ---
 
-## 3. The account holds TWO distributors' worth of money: the artist's and the label's
+## 3. Whose account is #22670? The ARTIST's.
+
+Everything in §2 is read from **Symphonic**, account name `DirtySnatcha`. That is
+Leigh's own distribution account. It still carries small residual earnings for the
+label, because DSR's old Symphonic releases keep paying out — but the label has
+moved to Virgin.
+
+So the $32,082.90 / $17,738.84 figures in §2 are **the artist's Symphonic account,
+plus DSR's Symphonic residuals.** They are not DSR's revenue and never were.
+
 
 **Thomas, 2026-07-09: "dirtysnatcha might be paid for some of that because we have
 distribution on symphonic for dirtysnatcha records AND dirtysnatcha."**
@@ -135,19 +154,24 @@ anywhere, it is on the DirtySnatcha artist page, visible to Leigh.
 
 ## 6. Open questions
 
-1. **`vmg-dsr-apr2026.xlsx` does not reconcile with the portal.** The file's gross
-   is $443.38 and after-fees $355.06; the portal's APR-26 Earnings across ALL
-   THREE label names is $135.48, of which the label's share is $6.28. The xlsx's
-   Label column says `Dirtysnatcha Records` on all 9,097 lines, yet its total is
-   70x the label's portal earnings for that period. Either the xlsx spans more
-   than one period, or its "Net Amount" is retailer gross before the distributor's
-   share — not the account's earnings. **Resolve before trusting any VMG figure.**
+1. ~~`vmg-dsr-apr2026.xlsx` does not reconcile with the portal.~~ **RESOLVED — it
+   never should have.** The xlsx is **Virgin Music Group's** statement for DSR.
+   The portal figures are **Symphonic's**, for the artist's account. Two different
+   distributors. There is no discrepancy. The 70x gap was an artefact of the wrong
+   `distributor` string in `dsr_label_info` (§1).
 2. Per-period, per-label CSVs are on the sales-summary page (`Export`, plus a `CSV`
    link per label row). Those give the label's true lifetime earnings and
    SplitShare, separated from the artist's.
 3. SplitShare recipients are not in our data at all. The SplitShare tab shows who
    is owed what — needed before any "what the label owes" number is trustworthy.
-4. **DirtySnatcha's self-distributed releases are Leigh's masters.** That is direct
-   evidence for the SoundExchange ownership question: the 106 recordings whose
-   owner we could not establish are likely split between DSR-released masters and
-   Leigh's own. The per-label CSVs would settle it.
+4. **DirtySnatcha's self-distributed releases are Leigh's masters.** Direct evidence
+   for the SoundExchange ownership question: the 106 recordings whose owner we
+   could not establish are split between DSR-released masters and Leigh's own
+   self-releases. His Symphonic + DistroKid catalogues would settle it.
+
+5. **The artist's distribution is scattered and needs consolidating.** Thomas:
+   *"i need to fix his distribution."* DirtySnatcha currently self-releases through
+   Symphonic, DistroKid, "and some other ones." Every extra distributor is another
+   royalty statement nobody reads, another ISRC registrant prefix, another place a
+   master can be misattributed, and another split of the same catalogue's
+   SoundExchange claim. Inventory them before choosing one.
