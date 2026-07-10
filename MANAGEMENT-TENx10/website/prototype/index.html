@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TENx10 — Artist Management</title>
+<style>
+  :root{ --ink:#141416; --muted:#55555C; --faint:#9A9AA0; --line:#ECECEE; --red:#C8102E; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family: -apple-system, system-ui, "Segoe UI", sans-serif; color:var(--ink); background:#fff; }
+  a{ color:inherit; text-decoration:none; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  header.nav{ display:flex; align-items:center; justify-content:space-between; padding:22px 32px; border-bottom:1px solid var(--line); position:sticky; top:0; background:#fff; z-index:10; }
+  .logo{ font-family:Georgia,serif; font-size:24px; font-weight:500; letter-spacing:.02em; }
+  .logo .x{ color:var(--red); }
+  nav .lk{ display:flex; gap:26px; font-size:14px; color:var(--muted); }
+  nav .lk a:hover{ color:var(--ink); }
+  .hero{ padding:72px 32px 44px; }
+  .kick{ font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin:0 0 16px; }
+  .hero h1{ font-family:Georgia,serif; font-weight:500; font-size:clamp(34px,5vw,56px); line-height:1.1; margin:0; max-width:680px; letter-spacing:-.015em; }
+  .hero p{ font-size:19px; line-height:1.6; color:var(--muted); margin:20px 0 0; max-width:560px; }
+  section{ padding:0 32px; }
+  .seclabel{ display:flex; align-items:center; gap:12px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--faint); margin:48px 0 20px; }
+  .seclabel::before{ content:""; width:22px; height:2px; background:var(--red); }
+  .grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .card{ border-radius:12px; overflow:hidden; border:1px solid var(--line); transition:transform .15s ease; }
+  .card:hover{ transform:translateY(-3px); }
+  .ph{ aspect-ratio:4/5; background:linear-gradient(160deg,#26262C,#5A5A64); display:flex; align-items:flex-end; padding:16px; }
+  .ph .nm{ color:#fff; font-family:Georgia,serif; font-size:22px; font-weight:500; }
+  .meta{ padding:12px 14px 16px; }
+  .meta .g{ font-size:12px; color:#8A8A90; font-family:ui-monospace,monospace; letter-spacing:.02em; }
+  .meta .loc{ font-size:13.5px; color:var(--muted); margin-top:4px; }
+  .do{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; padding-bottom:8px; }
+  .do h3{ font-family:Georgia,serif; font-size:20px; font-weight:500; margin:0 0 8px; }
+  .do p{ font-size:14px; line-height:1.65; color:var(--muted); margin:0; }
+  footer{ border-top:1px solid var(--line); margin-top:56px; padding:26px 32px; display:flex; justify-content:space-between; font-size:13px; color:var(--faint); }
+  @media (max-width:680px){ .grid,.do{ grid-template-columns:1fr 1fr; } nav .lk{ display:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="nav">
+    <div class="logo">TEN<span class="x">x</span>10</div>
+    <nav class="lk"><a href="#roster">Roster</a><a href="#do">What we do</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <div class="hero">
+    <p class="kick">artist management</p>
+    <h1>Fewer artists. Deeper work.</h1>
+    <p>A boutique management company for bass and electronic artists — and the team behind DirtySnatcha Records and its publishing.</p>
+  </div>
+
+  <section id="roster">
+    <div class="seclabel">roster</div>
+    <div class="grid">
+      <a class="card" href="#"><div class="ph"><span class="nm">DirtySnatcha</span></div><div class="meta"><div class="g">dubstep · riddim · bass</div><div class="loc">flagship</div></div></a>
+      <a class="card" href="#"><div class="ph"><span class="nm">WHOiSEE</span></div><div class="meta"><div class="g">bass</div><div class="loc">North Carolina</div></div></a>
+      <a class="card" href="#"><div class="ph"><span class="nm">Dark Matter</span></div><div class="meta"><div class="g">bass</div><div class="loc">Chicago / Knoxville</div></div></a>
+      <a class="card" href="#"><div class="ph"><span class="nm">Kotrax</span></div><div class="meta"><div class="g">dubstep · bass</div><div class="loc">Denver</div></div></a>
+      <a class="card" href="#"><div class="ph"><span class="nm">HVRCRFT</span></div><div class="meta"><div class="g">dubstep · bass</div><div class="loc">Las Vegas / SF</div></div></a>
+    </div>
+  </section>
+
+  <section id="do">
+    <div class="seclabel">what we do</div>
+    <div class="do">
+      <div><h3>Artist management</h3><p>Booking, releases, royalties, content and strategy — major-label rigor for a small, focused roster.</p></div>
+      <div><h3>Label management</h3><p>We run DirtySnatcha Records — catalog, releases and distribution coordination.</p></div>
+      <div><h3>Publishing</h3><p>Registering compositions and collecting royalties across PROs, the MLC and beyond.</p></div>
+    </div>
+  </section>
+
+  <footer id="contact"><span>TENx10 — artist management</span><span>hello@tenx10.co · instagram</span></footer>
+
+</div>
+</body>
+</html>

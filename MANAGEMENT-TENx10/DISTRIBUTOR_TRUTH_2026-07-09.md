@@ -53,15 +53,35 @@ had no splits deducted at the distributor.
 
 ---
 
-## 3. Whose account is #22670? The ARTIST's.
+## 3. Whose account is #22670? The ARTIST's — with the label as a sub-label inside it
 
-Everything in §2 is read from **Symphonic**, account name `DirtySnatcha`. That is
-Leigh's own distribution account. It still carries small residual earnings for the
-label, because DSR's old Symphonic releases keep paying out — but the label has
-moved to Virgin.
+**Thomas, 2026-07-09:** *"DirtySnatcha Records was on DirtySnatcha's account on
+Symphonic. I transferred the DirtySnatcha Records catalog to Virgin Music Group
+from Symphonic."*
 
-So the $32,082.90 / $17,738.84 figures in §2 are **the artist's Symphonic account,
-plus DSR's Symphonic residuals.** They are not DSR's revenue and never were.
+Everything in §2 is read from **Symphonic**, account `DirtySnatcha` #22670. It is
+Leigh's own distribution account, and DSR's catalogue lived inside it as a
+sub-label. Since the transfer to Virgin, the label rows there are only residual
+earnings on old Symphonic releases.
+
+Where to see it: Royalties → Royalty Summary → pick a period → **View Details** →
+the *Label* tab breaks the period's earnings down per label name.
+
+So the $32,082.90 / $17,738.84 lifetime figures in §2 are **the account total** —
+Leigh's own releases plus DSR's Symphonic-era rows. They are not DSR's revenue.
+
+### What DSR's revenue actually is
+
+| era | distributor | where it is in our DB |
+|---|---|---|
+| Oct-2019 → Feb-2026 | Symphonic (sub-label inside #22670) | `symphonic_royalty_lines`, label rows only |
+| Apr-2026 → | Virgin Music Group | `vmg_royalty_lines` |
+
+Our `symphonic_royalty_lines` holds only `DirtySnatchaRecords` (83,715 rows) and
+`DirtySnatcha Records` (28,074), and **zero** rows labelled plain `DirtySnatcha`.
+That is exactly the sub-label, and exactly right. Leigh's own releases are excluded,
+as they must be — Thomas owns 30% of DSR, and folding the artist's distribution
+income into the label's books would hand him 30% of it.
 
 
 **Thomas, 2026-07-09: "dirtysnatcha might be paid for some of that because we have
