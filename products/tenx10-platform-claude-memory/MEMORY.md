@@ -1,0 +1,3 @@
+- [R255 CRM spine — fully shipped 2026-08-21](project_r255_crm_spine_complete.md) — Next Action + Social Comment Promotion both merged; don't re-scope
+- [Apollo contact enrichment — queued, on hold](project_apollo_contact_enrichment_queued.md) — contacts-only, hold until raised again
+- [YouTube/SoundCloud/TikTok comment status](project_social_comment_platforms_status.md) — none built; YouTube buildable, SoundCloud needs Artist Pro purchase, TikTok has no official comment API

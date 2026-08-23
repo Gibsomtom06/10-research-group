@@ -66,6 +66,18 @@ if (Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue) {
     Write-Host "  registered '$taskName' (daily 3am)"
 }
 
+Write-Host "Restoring Claude Code project memory for this machine ..."
+$memorySrc = 'C:\Users\Slash\OneDrive\10 Research Group\products\tenx10-platform-claude-memory'
+$memoryDst = 'C:\Users\Slash\.claude\projects\C--Users-Slash-Projects-tenx10\memory'
+if (Test-Path $memorySrc) {
+    New-Item -ItemType Directory -Force -Path $memoryDst | Out-Null
+    Copy-Item (Join-Path $memorySrc '*') $memoryDst -Recurse -Force
+    Write-Host "  restored $(( Get-ChildItem $memoryDst -File ).Count) memory file(s)"
+    Write-Host "  (one-time bootstrap - this machine's memory will diverge from here, not live-synced)"
+} else {
+    Write-Host "  no staged memory found at $memorySrc - skipping"
+}
+
 Write-Host ""
 Write-Host "Done. Open C:\Users\Slash\Projects\tenx10\ for tenx10-platform work on this machine."
 Write-Host "Never edit or commit inside the OneDrive copy - it's a read-only mirror now."
