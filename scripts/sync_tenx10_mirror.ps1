@@ -14,7 +14,7 @@ try {
     & git fetch origin --quiet
     & git pull --ff-only origin master
     $head = (& git rev-parse --short HEAD).Trim()
-    Write-Host "tenx10-platform mirror synced — HEAD now $head"
+    Write-Host "tenx10-platform mirror synced - HEAD now $head"
 } catch {
     Write-Warning "Mirror sync failed: $_"
     Write-Warning "Fix manually with: cd '$mirror'; git status"
