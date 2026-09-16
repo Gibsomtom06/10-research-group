@@ -132,7 +132,7 @@ From **162 Instagram posts**, all scored. **Median: 31 likes.**
 - [ ] **Export the three Drive docs to markdown** — strategic brief, ad-spend review, marketing plan
 - [ ] Agree the pillars **with D** — §4 is a proposal, not a system
 - [ ] Analyse the 457 Facebook posts
-- [ ] Fix the ingest — 6 weeks stale, so none of this is current
+- [ ] ⚠️ **CORRECTED 2026-09-16 — Instagram is NOT broken.** Zero IG fetch errors; `igPosts: 0` means he posted nothing that day. **His 6 weeks of silence is real, not a data gap** — which is exactly the §2 pattern, now evidenced. **Facebook IS broken**: `(190) user must be an administrator, editor, or moderator of the page` every run — Thomas needs a page role (and 2FA may be required). Also: his Meta token **expires 2026-09-28**.
 - [ ] Identity blanks in §1 · voice blanks in §5
 - [ ] Visual identity: **[UNKNOWN]** entirely — no logo rules, palette, or type on record
 - [ ] Posting cadence target: `posting_target_weekly = 3`, but **[UNKNOWN]** whether he ever agreed to it

@@ -42,11 +42,13 @@ This is the finding. It is not that Dark Matter posts badly — **it is that not
 
 Their `/entity/` page renders the posting-style panel with *"no Instagram posts have ever been captured for this artist — this is absence, not a zero."* That is correct behaviour and it should stay correct until real data lands.
 
-**Two possible causes, and they need different fixes [HYPOTHESIS]:**
-1. The Meta connection was never made for this artist → an **access** problem (onboarding)
-2. It was made and the ingest never ran for them → a **pipeline** problem (platform)
+**✅ RESOLVED 2026-09-16 — it is an ACCESS problem. [MEASURED]**
 
-**Resolve which before anything else in this file.** Everything downstream depends on it.
+`daily-meta-organic` selects artists with `.or('meta_page_access_token.not.is.null, threads_access_token.not.is.null')`. Dark Matter's `meta_page_id` and `meta_page_access_token` are **both NULL**, so he is **filtered out of the query entirely** — he has never appeared in a single cron run's `artists[]` array, while the other three appear every day. His `entity_channels` row for `meta` exists but carries `external_id = NULL`, and there is no `instagram` row at all.
+
+**Nothing is broken in the code. Nobody ever connected him.**
+
+**Fix:** run the Connect Wizard and authorise his Facebook page + linked Instagram business account. He is a **duo** — establish which of Isaac or Joseph administers the accounts first, because the Meta page admin has to be the one to grant it.
 
 ---
 
@@ -80,7 +82,7 @@ One structural note **[HYPOTHESIS]**: a duo has a voice problem a solo act does 
 
 ## 6 · Gaps for onboarding — ordered
 
-1. [ ] **Resolve the zero-data cause** (access vs pipeline) — blocks everything
+1. [x] ~~Resolve the zero-data cause~~ — **ANSWERED 2026-09-16: it is ACCESS. He was never connected.** The cron selects on `meta_page_access_token.not.is.null`; his is NULL, so he is filtered out of the query and has never appeared in a single run. Nothing is broken in the code.
 2. [ ] Connect Instagram, and Facebook if it exists
 3. [ ] Confirm handles across IG / TikTok / YouTube / Spotify — **[UNKNOWN]**
 4. [ ] Who runs the accounts — Isaac, Joseph, both, or a third party?

@@ -106,7 +106,7 @@ From **290 Instagram posts**, all scored. **Median: 768 likes.**
 
 - [ ] Agree the pillars **with Leigh** — §3 is a proposal
 - [ ] Analyse the **1,203 Facebook posts** — his biggest channel, never looked at
-- [ ] Fix the ingest — newest IG post on file is **2026-08-13**, five weeks stale
+- [ ] ⚠️ **CORRECTED 2026-09-16 — Instagram is NOT broken.** Zero IG fetch errors on any run; `igPosts: 0` means nothing was posted that day. **If his newest IG post really is 2026-08-13, he genuinely has not posted in five weeks** — worth confirming with Leigh, because he is mid-tour. **Facebook IS broken**: `(190) Any of the pages_read_engagement, pages_manage_metadata, pages_read_user_content, pages_manage_ads, pages_show_list or pages_messaging permission(s) must be granted` — missing scopes, a re-auth fix. His 1,203 FB posts have not updated since.
 - [ ] Voice ownership: who writes? **[UNKNOWN]**
 - [ ] Visual identity: **[UNKNOWN]** — no logo rules, palette or type on record
 - [ ] Fill or delete the empty `voice-corpus/` folder
