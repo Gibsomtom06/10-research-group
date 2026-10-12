@@ -1,18 +1,22 @@
 # DirtySnatcha Records License Agreement
 
-# APPLESNOZZ — LAMENT CONFIGURATION
+# APPLESNOZZ & NAPO_KAI — LAMENT CONFIGURATION
 
-**October 12, 2026** — Exclusive Agreement for Applesnozz – Lament Configuration [Single]
+**October 12, 2026** — Exclusive Agreement for Applesnozz & napo_kai – Lament Configuration [Single]
 
 **Track Listing:**
 
-1. Applesnozz – Lament Configuration [DURATION TBD]
+1. Applesnozz & napo_kai – Lament Configuration [DURATION TBD]
 
 ## PARTIES
 
 **The "ARTIST":** Steven Chisholm p/k/a "Applesnozz"
 3 Brookline Street, Webster, MA 01570
 Email: stevenchisholm1994@gmail.com
+
+**The "ARTIST":** [LEGAL NAME TBD] p/k/a "napo_kai"
+[ADDRESS TBD]
+Email: [EMAIL TBD]
 
 &
 
@@ -27,7 +31,7 @@ Email: demos@dirtysnatcharecords.com
 
 ## PREAMBLE
 
-DirtySnatcha Records, LLC ("Label") are delighted to have this opportunity to work with Steven Chisholm p/k/a "Applesnozz" ("Artist") to distribute and exploit certain sound recordings and audiovisual works owned or controlled by Artist as further detailed herein.
+DirtySnatcha Records, LLC ("Label") are delighted to have this opportunity to work with Steven Chisholm p/k/a "Applesnozz" and [LEGAL NAME TBD] p/k/a "napo_kai" collectively ("Artist") to distribute and exploit certain sound recordings and audiovisual works owned or controlled by Artist as further detailed herein.
 
 The agreement is conditional upon Artist controlling all right, title and interest in and to the recordings of the musical composition (the "Composition") embodied as audio-only or audiovisual recordings and listed in Schedule 'A' hereto (the "Master") for the Territory (as defined below), including without limitation all copyrights, free and clear of any claims, encumbrances or rights of any other person.
 
@@ -43,7 +47,7 @@ In consideration for the respective covenants, agreements, representations, warr
 
 ## 3. GRANT OF RIGHTS
 
-3.1 The Artist hereby grants to Label an exclusive irrevocable license, in the Territory during the License period to manufacture, sell, distribute, market, publicly perform, and otherwise exploit the Masters in all manner and media now in existence or hereinafter devised:
+3.1 The Artists, collectively and individually, hereby grants to Label an exclusive irrevocable license, in the Territory during the License period to manufacture, sell, distribute, market, publicly perform, and otherwise exploit the Masters in all manner and media now in existence or hereinafter devised:
 
 1. the exclusive right to manufacture, distribute, lease and sell in the Territory Records derived from the Masters in any and all formats;
 
@@ -85,7 +89,7 @@ The Publisher shall retain exclusive rights to administer, exploit, and collect 
 
 ## 4. ROYALTIES
 
-4.1 With respect to the exploitation of Masters hereunder, Label will pay Artist a royalty (the "Royalty") equal to: (i) fifty percent (50%) of "Net Proceeds" (as defined below). The allocation of the Royalty is set out in Schedule A.
+4.1 With respect to the exploitation of Masters hereunder, Label will pay Artist a royalty (the "Royalty") equal to: (i) fifty percent (50%) of "Net Proceeds" (as defined below). The Artist Royalty shall be allocated as twenty-five percent (25%) to Applesnozz and twenty-five percent (25%) to napo_kai of total Net Proceeds. Allocation is set out in Schedule A.
 
 4.2 **Publishing Revenue Distribution:** For publishing income, all revenues earned from the exploitation of the Composition(s) shall be divided as follows: **Fifty percent (50%) to the Artist** (representing 100% of the Writer's Share) — **Fifty percent (50%) to the Label** (representing 100% of the Publisher's Share).
 
@@ -145,7 +149,7 @@ The Label shall act as the exclusive administrator of the Publisher's Share, wit
 
 3. Artist is not a party to any agreement pursuant to which Artist has granted to any third party any rights in or to the Masters or which otherwise restrict the rights Artist grants to Label herein;
 
-4. The Masters, the Compositions, Artist's name and any other audio, video or other materials delivered and contributed by Artist pursuant to this Agreement are wholly original and do not violate any laws or any rights of any party, including any copyright, trademark, right of privacy or other proprietary right of any party;
+4. The Masters, the Compositions, Artist's name and any other audio, video or other materials delivered and contributed by Artist, Collectively and Individually, pursuant to this Agreement are wholly original and do not violate any laws or any rights of any party, including any copyright, trademark, right of privacy or other proprietary right of any party;
 
 5. other than as specifically set out herein, Label shall not be obligated to pay royalties or any other sums to any third parties in connection with the exercise of its rights hereunder;
 
@@ -227,6 +231,14 @@ Print Name: ________________________________________
 
 Date: ______________________
 
+**napo_kai (Artist)** — [LEGAL NAME TBD]
+
+Signature: ________________________________________
+
+Print Name: ________________________________________
+
+Date: ______________________
+
 **DirtySnatcha Records, LLC**
 
 Signature: ________________________________________
@@ -243,8 +255,11 @@ Date: ______________________
 
 | Title Of Master Recording | Artist Name | Share of Artist Royalty (%) | Share of Label Royalty (%) |
 |---|---|---|---|
-| Lament Configuration | Steven Chisholm (Applesnozz) | 50% | 50% |
-| **Total per track** | | **50% (Artist)** | **50% (Label)** |
+| Lament Configuration | Steven Chisholm (Applesnozz) | 25% | 25% |
+| Lament Configuration | [LEGAL NAME TBD] (napo_kai) | 25% | 25% |
+| **Total per track** | | **50% (Artists)** | **50% (Label)** |
+
+**Act-level summary:** Applesnozz 25% + napo_kai 25% + DSR Label 50% = 100%.
 
 ### Publishing Information
 
@@ -262,14 +277,23 @@ Date: ______________________
 
 | Title of Composition | Songwriter (PRO), IPI# | Writer's Share | Publisher (PRO), IPI# | Publisher's Share |
 |---|---|---|---|---|
-| Lament Configuration | Steven Chisholm p/k/a Applesnozz [PRO TBD], [IPI# TBD] | 50% | DirtySnatcha Records Publishing (ASCAP) 1238282844, LAB10 (BMI) 01262829440 | 50% |
-| **Total per track** | | **50% (Writer)** | | **50% (Publisher)** |
+| Lament Configuration | Steven Chisholm p/k/a Applesnozz [PRO TBD], [IPI# TBD] | 25% | DirtySnatcha Records Publishing (ASCAP) 1238282844, LAB10 (BMI) 01262829440 | 25% |
+| Lament Configuration | [LEGAL NAME TBD] p/k/a napo_kai [PRO TBD], [IPI# TBD] | 25% | DirtySnatcha Records Publishing (ASCAP) 1238282844, LAB10 (BMI) 01262829440 | 25% |
+| **Total per track** | | **50% (Writers)** | | **50% (Publisher)** |
 
 ---
 
 **AGREED AND ACCEPTED (Schedule A confirmation):**
 
 **Applesnozz (Artist)** — Steven Chisholm
+
+Signature: ________________________________________
+
+Print Name: ________________________________________
+
+Date: ______________________
+
+**napo_kai (Artist)** — [LEGAL NAME TBD]
 
 Signature: ________________________________________
 
