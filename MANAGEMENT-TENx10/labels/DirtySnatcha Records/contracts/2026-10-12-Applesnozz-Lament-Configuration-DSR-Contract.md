@@ -254,7 +254,7 @@ Date: ______________________
 
 | Track # | Track Title | ISRC | UPC | Release Date |
 |---|---|---|---|---|
-| 1 | Lament Configuration | [ISRC TBD] | [UPC TBD] | [RELEASE DATE TBD] |
+| 1 | Lament Configuration | [ISRC TBD] | [UPC TBD] | October 23, 2026 |
 
 *Note: ISRC and UPC codes assigned by Virgin Music Group / Ingrooves. PRO affiliations and IPI numbers to be provided by artists where missing.*
 
