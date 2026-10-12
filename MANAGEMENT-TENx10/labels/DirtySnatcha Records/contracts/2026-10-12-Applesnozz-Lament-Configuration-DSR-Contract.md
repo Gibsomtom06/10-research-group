@@ -10,8 +10,8 @@
 
 ## PARTIES
 
-**The "ARTIST":** [LEGAL NAME TBD — Steven Chisholm?] p/k/a "Applesnozz"
-[ADDRESS TBD]
+**The "ARTIST":** Steven Chisholm p/k/a "Applesnozz"
+3 Brookline Street, Webster, MA 01570
 Email: stevenchisholm1994@gmail.com
 
 &
@@ -27,7 +27,7 @@ Email: demos@dirtysnatcharecords.com
 
 ## PREAMBLE
 
-DirtySnatcha Records, LLC ("Label") are delighted to have this opportunity to work with [LEGAL NAME TBD — Steven Chisholm?] p/k/a "Applesnozz" ("Artist") to distribute and exploit certain sound recordings and audiovisual works owned or controlled by Artist as further detailed herein.
+DirtySnatcha Records, LLC ("Label") are delighted to have this opportunity to work with Steven Chisholm p/k/a "Applesnozz" ("Artist") to distribute and exploit certain sound recordings and audiovisual works owned or controlled by Artist as further detailed herein.
 
 The agreement is conditional upon Artist controlling all right, title and interest in and to the recordings of the musical composition (the "Composition") embodied as audio-only or audiovisual recordings and listed in Schedule 'A' hereto (the "Master") for the Territory (as defined below), including without limitation all copyrights, free and clear of any claims, encumbrances or rights of any other person.
 
@@ -219,7 +219,7 @@ This Agreement is entered into as of the date first above written, by the partie
 
 **AGREED AND ACCEPTED:**
 
-**Applesnozz (Artist)** — [LEGAL NAME TBD — Steven Chisholm?]
+**Applesnozz (Artist)** — Steven Chisholm
 
 Signature: ________________________________________
 
@@ -243,7 +243,7 @@ Date: ______________________
 
 | Title Of Master Recording | Artist Name | Share of Artist Royalty (%) | Share of Label Royalty (%) |
 |---|---|---|---|
-| Lament Configuration | [LEGAL NAME TBD — Steven Chisholm?] (Applesnozz) | 50% | 50% |
+| Lament Configuration | Steven Chisholm (Applesnozz) | 50% | 50% |
 | **Total per track** | | **50% (Artist)** | **50% (Label)** |
 
 ### Publishing Information
@@ -262,14 +262,14 @@ Date: ______________________
 
 | Title of Composition | Songwriter (PRO), IPI# | Writer's Share | Publisher (PRO), IPI# | Publisher's Share |
 |---|---|---|---|---|
-| Lament Configuration | [LEGAL NAME TBD — Steven Chisholm?] p/k/a Applesnozz [PRO TBD], [IPI# TBD] | 50% | DirtySnatcha Records Publishing (ASCAP) 1238282844, LAB10 (BMI) 01262829440 | 50% |
+| Lament Configuration | Steven Chisholm p/k/a Applesnozz [PRO TBD], [IPI# TBD] | 50% | DirtySnatcha Records Publishing (ASCAP) 1238282844, LAB10 (BMI) 01262829440 | 50% |
 | **Total per track** | | **50% (Writer)** | | **50% (Publisher)** |
 
 ---
 
 **AGREED AND ACCEPTED (Schedule A confirmation):**
 
-**Applesnozz (Artist)** — [LEGAL NAME TBD — Steven Chisholm?]
+**Applesnozz (Artist)** — Steven Chisholm
 
 Signature: ________________________________________
 
